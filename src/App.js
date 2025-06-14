@@ -385,7 +385,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Video Streaming Test (React)</h1>
+      <h1>Video Streaming Test (React - v2)</h1>
       
       <div className="section">
         <h2>1. Connect to Stream</h2>
