@@ -57,7 +57,7 @@ function App() {
     try {
       log('Connecting to API...');
 
-      const response = await fetch('http://localhost:3000/api/video/connect', {
+      const response = await fetch('https://turn-back.onrender.com/api/video/connect', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ roomId, userId })
