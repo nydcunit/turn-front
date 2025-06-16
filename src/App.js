@@ -309,51 +309,83 @@ function App() {
   };
 
   const consumeStream = async (producerId, remoteUserId) => {
-    log(`Attempting to consume stream: ${producerId} from ${remoteUserId}`);
+    log(`🎯 Attempting to consume stream: ${producerId} from ${remoteUserId}`);
+    
+    // Check if consumer transport exists
+    if (!consumerTransportRef.current) {
+      log(`❌ No consumer transport available for ${remoteUserId}`);
+      return;
+    }
+
+    log(`🔄 Emitting consume request for producer ${producerId}`);
 
     socketRef.current.emit('consume', {
       producerId,
       rtpCapabilities: deviceRef.current.rtpCapabilities
     }, async (response) => {
-      if (response.error) {
-        log(`❌ Error consuming: ${response.error}`);
-        return;
-      }
-
-      log(`✅ Consumer created: ${response.id} for producer ${response.producerId}`);
-
-      const consumer = await consumerTransportRef.current.consume({
-        id: response.id,
-        producerId: response.producerId,
-        kind: response.kind,
-        rtpParameters: response.rtpParameters
-      });
-
-      consumersRef.current.set(consumer.id, consumer);
-
-      // Update participant info
-      setParticipants(prev => {
-        const updated = new Map(prev);
-        const participant = updated.get(remoteUserId) || { 
-          userId: remoteUserId, 
-          stream: new MediaStream(),
-          videoProducerId: null,
-          audioProducerId: null
-        };
-        
-        participant.stream.addTrack(consumer.track);
-        
-        if (response.kind === 'video') {
-          participant.videoProducerId = response.producerId;
-        } else if (response.kind === 'audio') {
-          participant.audioProducerId = response.producerId;
+      try {
+        if (response.error) {
+          log(`❌ Server error consuming: ${response.error}`);
+          return;
         }
-        
-        updated.set(remoteUserId, participant);
-        return updated;
-      });
 
-      log(`✅ Successfully consuming ${response.kind} from ${remoteUserId}`);
+        log(`✅ Server responded with consumer: ${response.id} for producer ${response.producerId} (${response.kind})`);
+
+        // Create the consumer
+        log(`🔄 Creating consumer transport.consume...`);
+        const consumer = await consumerTransportRef.current.consume({
+          id: response.id,
+          producerId: response.producerId,
+          kind: response.kind,
+          rtpParameters: response.rtpParameters
+        });
+
+        log(`✅ Consumer created successfully: ${consumer.id} (${consumer.kind})`);
+        log(`🎵 Consumer track: ${consumer.track ? 'Available' : 'Missing'}`);
+        log(`🎵 Track readyState: ${consumer.track?.readyState}`);
+        log(`🎵 Track enabled: ${consumer.track?.enabled}`);
+
+        consumersRef.current.set(consumer.id, consumer);
+
+        // Update participant info
+        setParticipants(prev => {
+          const updated = new Map(prev);
+          const participant = updated.get(remoteUserId) || { 
+            userId: remoteUserId, 
+            stream: new MediaStream(),
+            videoProducerId: null,
+            audioProducerId: null
+          };
+          
+          log(`🎬 Adding ${response.kind} track to ${remoteUserId}'s stream`);
+          participant.stream.addTrack(consumer.track);
+          
+          if (response.kind === 'video') {
+            participant.videoProducerId = response.producerId;
+          } else if (response.kind === 'audio') {
+            participant.audioProducerId = response.producerId;
+          }
+          
+          log(`🎬 ${remoteUserId} stream now has ${participant.stream.getTracks().length} tracks`);
+          updated.set(remoteUserId, participant);
+          return updated;
+        });
+
+        log(`✅ Successfully consuming ${response.kind} from ${remoteUserId}`);
+        
+        // Add consumer event listeners
+        consumer.on('transportclose', () => {
+          log(`🔴 Consumer transport closed for ${remoteUserId} (${response.kind})`);
+        });
+
+        consumer.on('producerclose', () => {
+          log(`🔴 Producer closed for ${remoteUserId} (${response.kind})`);
+        });
+
+      } catch (error) {
+        log(`❌ Error in consumer creation: ${error.message}`);
+        console.error('Consumer creation error:', error);
+      }
     });
   };
 
