@@ -342,6 +342,43 @@ footer.foot { background: var(--night); color: var(--night-muted); padding-block
 .legal { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(246,238,240,.12); display: grid; gap: 10px; font-size: 0.78rem; max-width: 110ch; }
 @media (max-width: 760px) { .f-top { grid-template-columns: 1fr 1fr; } .f-top > div:first-child { grid-column: 1 / -1; } }
 
+/* ---------- Community (coming soon) ---------- */
+.com-hero { padding-block: 96px 64px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
+.com-hero h1 { font-size: clamp(3.4rem, 8vw, 6.6rem); }
+.com-hero h1 em { color: var(--rose); }
+.soon { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 0.74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--rose); }
+.soon i { width: 8px; height: 8px; border-radius: 50%; background: var(--rose); animation: pulse 1.8s ease-in-out infinite; }
+.waitlist { display: flex; gap: 8px; max-width: 480px; flex-wrap: wrap; }
+.waitlist input { flex: 1 1 220px; min-width: 0; padding: 15px 20px; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); font: inherit; }
+.waitlist input:focus { outline: none; border-color: var(--rose); }
+.wl-done { padding: 14px 18px; border-radius: 14px; background: var(--rose-soft); max-width: 480px; }
+.preview { position: relative; border-radius: 18px; overflow: hidden; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 30px 70px var(--shadow); }
+.pv-bar { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+.pv-filters { display: flex; gap: 6px; flex-wrap: wrap; padding: 14px 18px 0; }
+.pv-filters span { font-size: 0.76rem; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-2); }
+.pv-filters span.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.thread { display: grid; grid-template-columns: 44px 1fr auto; gap: 14px; align-items: center; padding: 16px 18px; border-bottom: 1px solid var(--line); }
+.thread:last-child { border-bottom: 0; }
+.thread .av { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; background: var(--tint); }
+.thread .av canvas { width: 100%; height: 100%; display: block; }
+.thread b { display: block; font-weight: 500; font-size: 0.95rem; line-height: 1.3; }
+.thread small { display: block; font-family: var(--mono); font-size: 0.7rem; color: var(--muted); margin-top: 3px; }
+.thread .meta { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); text-align: right; white-space: nowrap; }
+.pv-veil { position: absolute; inset: auto 0 0 0; height: 46%; background: linear-gradient(0deg, var(--paper) 30%, transparent); display: grid; place-items: end center; padding-bottom: 22px; }
+.pv-veil span { font-family: var(--mono); font-size: 0.72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); background: var(--paper); border: 1px solid var(--line); padding: 6px 14px; border-radius: 999px; }
+.com-features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--ink); }
+.cf { padding: 28px 28px 0 0; display: grid; gap: 12px; align-content: start; }
+.cf + .cf { padding-left: 28px; border-left: 1px solid var(--line); }
+.cf h3 { font-size: 1.9rem; }
+.cf p { color: var(--ink-2); font-size: 0.95rem; }
+.cf .note { color: var(--rose); }
+.principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+.principles div { padding: 24px; border-radius: 14px; background: rgba(246,238,240,.06); border: 1px solid rgba(246,238,240,.12); display: grid; gap: 8px; }
+.principles b { font-weight: 500; color: var(--night-ink); }
+.principles p { color: var(--night-muted); font-size: 0.93rem; }
+@media (max-width: 960px) { .com-hero { grid-template-columns: 1fr; padding-block: 64px 48px; } .com-features { grid-template-columns: 1fr 1fr; } .cf:nth-child(3) { border-left: 0; padding-left: 0; } .cf:nth-child(n+3) { border-top: 1px solid var(--line); margin-top: 28px; } .principles { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .com-features { grid-template-columns: 1fr; } .cf, .cf + .cf { padding: 24px 0; border-left: 0; margin-top: 0; } .cf + .cf { border-top: 1px solid var(--line); } .thread { grid-template-columns: 40px 1fr; } .thread .meta { display: none; } }
+
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 
 [hidden]{display:none!important}
@@ -359,7 +396,8 @@ img{max-width:100%}
       <button class="lg" data-goto="results">Results</button>
       <button class="lg" data-goto="formula">Formula</button>
       <a href="#treatment" data-nav="treatment">Treatment</a>
-      <a href="#faq" data-nav="faq">FAQ</a>
+      <a href="#community" data-nav="community">Community</a>
+      <a href="#faq" data-nav="faq" class="lg">FAQ</a>
     </div>
     <div class="right">
       <button class="btn btn-rose" data-assess>Skin assessment</button>
@@ -569,6 +607,54 @@ img{max-width:100%}
   </div>
 </div>
 
+<!-- ================= COMMUNITY ================= -->
+<div data-view="community" hidden>
+  <div class="wrap com-hero">
+    <div style="display:grid;gap:26px;min-width:0">
+      <span class="soon"><i></i>Coming soon</span>
+      <h1>The Vermona <em>Community.</em></h1>
+      <p class="lede">Share your progress, swap routines and talk to people whose skin is like yours. A place for Vermona users to compare notes week by week, from first drop to final check-in.</p>
+      <form class="waitlist" id="waitlist" novalidate>
+        <label for="wl-email" hidden>Email address</label>
+        <input id="wl-email" type="email" placeholder="Your email" autocomplete="email" required>
+        <button class="btn btn-rose go" type="submit">Join the waitlist</button>
+      </form>
+      <div class="wl-done" id="wl-done" hidden></div>
+      <p class="note">Founding members get early access and a say in what we build.</p>
+    </div>
+    <div class="preview" aria-label="Preview of the community forum">
+      <div class="pv-bar"><span>community.vermona</span><span>Preview</span></div>
+      <div class="pv-filters"><span class="on">All</span><span>Melasma</span><span>Post-acne marks</span><span>Sun spots</span><span>Type IV–VI</span></div>
+      <div id="threads"></div>
+      <div class="pv-veil"><span>Opening soon</span></div>
+    </div>
+  </div>
+
+  <section class="band" style="padding-top:40px">
+    <div class="wrap">
+      <div style="display:grid;gap:18px;margin-bottom:48px;max-width:760px"><span class="kicker">What's inside</span><h2>Better together, week by week.</h2></div>
+      <div class="com-features">
+        <div class="cf"><span class="note">Progress journals</span><h3>Share your results</h3><p>Post week-by-week photos with your condition, skin type and routine. Private by default; you choose what to share.</p></div>
+        <div class="cf"><span class="note">Skin twins</span><h3>Find skin like yours</h3><p>Filter by condition and Fitzpatrick type to follow people on the same journey as you.</p></div>
+        <div class="cf"><span class="note">Routines</span><h3>Swap what works</h3><p>Compare SPFs, moisturisers and how others fit Vermona around retinoids, acids and makeup.</p></div>
+        <div class="cf"><span class="note">Ask the team</span><h3>Live Q&amp;As</h3><p>Regular sessions with our skincare team on melasma, sun care, sensitive skin and more.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band night">
+    <div class="wrap">
+      <div style="display:grid;gap:18px;max-width:760px"><span class="kicker">House rules</span><h2>A community you can trust.</h2><p class="lede">Built around honesty and safety from day one.</p></div>
+      <div class="principles">
+        <div><b>Real users only</b><p>Posting is open to verified Vermona customers, so every result you see is from a real course.</p></div>
+        <div><b>Unfiltered photos</b><p>No filters or retouching on progress photos. What you see is what happened.</p></div>
+        <div><b>Your privacy first</b><p>Journals are private until you share them. Faces can be cropped or blurred, and you can delete anytime.</p></div>
+      </div>
+      <div class="hero-cta" style="margin-top:48px"><button class="btn btn-light go" type="button" data-wl-focus>Join the waitlist</button></div>
+    </div>
+  </section>
+</div>
+
 <!-- ================= FAQ ================= -->
 <div data-view="faq" hidden>
   <div class="wrap">
@@ -595,7 +681,7 @@ img{max-width:100%}
       <div style="display:grid;gap:14px;align-content:start"><a class="word" href="#home">Vermona</a><p style="max-width:34ch">Treatment for hyperpigmentation, made for every skin tone.</p></div>
       <div><h4>Treatment</h4><ul><li><a href="#treatment">Pigment Corrector</a></li><li><button data-assess>Skin assessment</button></li><li><button data-open-cart>Your order</button></li></ul></div>
       <div><h4>Learn</h4><ul><li><button data-goto="conditions">Conditions</button></li><li><button data-goto="results">Results</button></li><li><button data-goto="formula">Formula</button></li></ul></div>
-      <div><h4>Support</h4><ul><li><a href="#faq">FAQ</a></li><li><a href="#faq">Shipping &amp; returns</a></li><li><a href="#faq">Contact</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="#community">Community</a></li><li><a href="#faq">FAQ</a></li><li><a href="#faq">Shipping &amp; returns</a></li><li><a href="#faq">Contact</a></li></ul></div>
     </div>
     <div class="legal">
       <p>Vermona Pigment Corrector is a cosmetic. It is not intended to diagnose, treat, cure or prevent any disease, and these statements have not been evaluated by the Food and Drug Administration. Skin images on this site are computer renderings for illustration. Individual results vary. Patch test, wear SPF daily, and see a dermatologist about any spot that changes in size, shape or colour.</p>
@@ -850,6 +936,7 @@ img{max-width:100%}
   function paintAll() {
     if (!$('[data-view="home"]').hidden) { buildHero(); drawScrub(); later(drawSpectrum); later(drawClosing); }
     drawPdp();
+    drawAvatars();
   }
   let rz; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(paintAll, 200); });
 
@@ -897,7 +984,7 @@ img{max-width:100%}
   /* =========================================================
      Routing
      ========================================================= */
-  const VIEWS = ["home", "treatment", "faq"];
+  const VIEWS = ["home", "treatment", "community", "faq"];
   let pending = null;
   function route() {
     const v = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "home";
@@ -1005,6 +1092,37 @@ img{max-width:100%}
     $("[data-take]", body).addEventListener("click", () => { closeAll(); $("#" + course).checked = true; upd(); location.hash = "treatment"; toast("Your recommended course is selected"); });
     $("[data-restart]", body).addEventListener("click", () => startAssess());
   }
+
+  /* =========================================================
+     Community preview + waitlist
+     ========================================================= */
+  const THREADS = [
+    ["IV", "Week 8 update on melasma: the patch on my upper lip is finally lighter", "Melasma · Type IV · Journal", "24 replies"],
+    ["VI", "Best SPF that doesn't leave a cast on deep skin?", "Routines · Type VI", "41 replies"],
+    ["II", "Sun spots on my hands: before and after 12 weeks", "Sun spots · Type II · Journal", "18 replies"],
+    ["V", "How I paired Vermona with tretinoin without irritation", "Post-acne marks · Type V", "33 replies"],
+    ["III", "Live Q&A: heat, visible light and melasma", "Ask the team", "Upcoming"],
+  ];
+  $("#threads").innerHTML = THREADS.map(([t, title, tag, meta]) => `<div class="thread"><div class="av"><canvas data-av="${t}"></canvas></div><div><b>${title}</b><small>${tag}</small></div><span class="meta">${meta}</span></div>`).join("");
+  function drawAvatars() {
+    $$("[data-av]").forEach((cv, i) => {
+      if (cv.dataset.done || !cv.offsetParent) return;
+      const src = renderSkin(60, 60, { tone: TONES[cv.dataset.av], seed: 200 + i, spots: [] }, 1);
+      const { W, H } = sizeCanvas(cv); cover(cv.getContext("2d"), src, W, H); cv.dataset.done = "1";
+    });
+  }
+  const wl = $("#waitlist");
+  wl.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const em = $("#wl-email");
+    const done = $("#wl-done");
+    if (!em.value || !em.checkValidity()) { done.hidden = false; done.textContent = "Enter a valid email address, like name@example.com."; em.focus(); return; }
+    wl.hidden = true; done.hidden = false;
+    done.textContent = "You're on the list. We'll email " + em.value + " when the community opens. (Concept site: emails aren't stored yet.)";
+  });
+  document.addEventListener("click", (e) => {
+    if (e.target.closest("[data-wl-focus]")) { window.scrollTo({ top: 0, behavior: "smooth" }); setTimeout(() => (wl.hidden ? $("#wl-done") : $("#wl-email")).focus(), 400); }
+  });
 
   /* ---------- Boot ---------- */
   route();
