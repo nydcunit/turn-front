@@ -24,4 +24,4 @@ cd vermona && python3 -m http.server 8080   # open http://localhost:8080
 
 ## Versions
 - `index.html`, `product.html`, `faq.html`: first version (warm plum/cream, multi-page).
-- `v2/index.html`: second version (clinical-bright, skin quiz, concern tabs, hash-routed Home / Shop / FAQ). This one is also published as a Claude artifact.
+- `v2/index.html`: current version. Clinical design inspired by telehealth dermatology brands: conditions, pigment science, results, skin assessment, and separate Treatment (product) and FAQ pages. Also published as a Claude artifact.

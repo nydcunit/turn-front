@@ -3,685 +3,690 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
 <title>Vermona Skincare</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Vermona: clinical skincare for hyperpigmentation. A hydroquinone-free treatment for melasma, sun spots and post-inflammatory marks, formulated for every skin tone.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: clinical-bright storefront. White ground, blush panels, rose accent, navy for depth. Three hash views: home, shop, faq. */
+/* Layout: clinical editorial. White ground, cool mineral surfaces, deep teal as the single brand colour, clay only for pigment in diagrams. Serif headlines, mono for clinical data. */
 :root {
   --bg: #ffffff;
-  --surface: #f7f2f4;
-  --surface-2: #efe6ea;
-  --ink: #1a1c2c;
-  --ink-2: #4b4e63;
-  --muted: #7b7d90;
-  --line: #e7dee3;
-  --accent: #c43f68;
-  --accent-hover: #a8335a;
+  --surface: #f3f5f6;
+  --surface-2: #e7ecee;
+  --ink: #0e1a2b;
+  --ink-2: #435060;
+  --muted: #727e8b;
+  --line: #dce2e6;
+  --accent: #1f5e63;
+  --accent-hover: #174a4e;
   --accent-ink: #ffffff;
-  --accent-soft: #fbe5ec;
-  --navy: #22305c;
-  --navy-ink: #f4f3fa;
-  --navy-muted: #b9bfdc;
-  --gold: #c08b2c;
-  --good: #2c7a58;
-  --good-soft: #e3f3ea;
-  --shadow: rgba(26, 28, 44, 0.12);
-  --scrim: rgba(18, 19, 32, 0.5);
-  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --body: "Manrope", "Inter", "Segoe UI", system-ui, sans-serif;
-  --r-lg: 24px;
-  --r-md: 16px;
-  --r-sm: 10px;
-  --max: 1160px;
+  --accent-soft: #e2eeee;
+  --clay: #b0654a;
+  --clay-soft: #f4e7e1;
+  --good: #2b7155;
+  --deep: #0e1a2b;
+  --deep-ink: #eef2f5;
+  --deep-muted: #a8b4c0;
+  --shadow: rgba(14, 26, 43, 0.1);
+  --scrim: rgba(10, 16, 24, 0.5);
+  --serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --sans: "Inter", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --max: 1200px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #121320; --surface: #1b1c2c; --surface-2: #25263a; --ink: #f2eff4; --ink-2: #c6c4d3;
-    --muted: #8f8ea4; --line: #303148; --accent: #ef6d94; --accent-hover: #f58aaa; --accent-ink: #1d0a12;
-    --accent-soft: #3a1f2c; --navy: #2b3a72; --navy-ink: #f4f3fa; --navy-muted: #b9bfdc; --gold: #e2b45e;
-    --good: #63c294; --good-soft: #1d3329; --shadow: rgba(0, 0, 0, 0.45); --scrim: rgba(0, 0, 0, 0.6);
+    --bg: #0b1118; --surface: #111a23; --surface-2: #18232e; --ink: #e8edf1; --ink-2: #b2bdc7; --muted: #7e8a96;
+    --line: #233040; --accent: #74b6b2; --accent-hover: #8fcac6; --accent-ink: #061213; --accent-soft: #13292b;
+    --clay: #d8906f; --clay-soft: #2c1d17; --good: #6cc49c; --deep: #070c11; --deep-ink: #eef2f5; --deep-muted: #a8b4c0;
+    --shadow: rgba(0, 0, 0, 0.45); --scrim: rgba(0, 0, 0, 0.6);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #121320; --surface: #1b1c2c; --surface-2: #25263a; --ink: #f2eff4; --ink-2: #c6c4d3;
-  --muted: #8f8ea4; --line: #303148; --accent: #ef6d94; --accent-hover: #f58aaa; --accent-ink: #1d0a12;
-  --accent-soft: #3a1f2c; --navy: #2b3a72; --navy-ink: #f4f3fa; --navy-muted: #b9bfdc; --gold: #e2b45e;
-  --good: #63c294; --good-soft: #1d3329; --shadow: rgba(0, 0, 0, 0.45); --scrim: rgba(0, 0, 0, 0.6);
+  --bg: #0b1118; --surface: #111a23; --surface-2: #18232e; --ink: #e8edf1; --ink-2: #b2bdc7; --muted: #7e8a96;
+  --line: #233040; --accent: #74b6b2; --accent-hover: #8fcac6; --accent-ink: #061213; --accent-soft: #13292b;
+  --clay: #d8906f; --clay-soft: #2c1d17; --good: #6cc49c; --deep: #070c11; --deep-ink: #eef2f5; --deep-muted: #a8b4c0;
+  --shadow: rgba(0, 0, 0, 0.45); --scrim: rgba(0, 0, 0, 0.6);
   color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
-body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--bg); }
-h1, h2, h3, h4 { font-family: var(--display); font-weight: 600; line-height: 1.08; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
-h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); }
-h2 { font-size: clamp(1.8rem, 4vw, 2.9rem); }
-h3 { font-size: 1.25rem; letter-spacing: -0.01em; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.015em; line-height: 1.1; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.5rem, 5.4vw, 4.25rem); }
+h2 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); }
+h3 { font-size: 1.4rem; line-height: 1.2; }
+h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; margin: 0; }
 p { margin: 0; }
 a { color: inherit; }
 button { font: inherit; color: inherit; cursor: pointer; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
 .wrap { max-width: var(--max); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-.band { padding-block: 88px; }
-.band-tight { padding-block: 56px; }
+.band { padding-block: 104px; }
 .band.surface { background: var(--surface); }
-.band.navy { background: var(--navy); color: var(--navy-ink); }
-.eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
-.navy .eyebrow { color: var(--gold); }
-.lede { font-size: 1.12rem; color: var(--ink-2); max-width: 60ch; }
-.navy .lede { color: var(--navy-muted); }
-.head { display: grid; gap: 14px; margin-bottom: 44px; }
-.head.center { text-align: center; justify-items: center; }
-.note { font-size: 0.8rem; color: var(--muted); }
-.navy .note { color: var(--navy-muted); }
-.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.band.deep { background: var(--deep); color: var(--deep-ink); }
+.label { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.deep .label { color: var(--deep-muted); }
+.lede { font-size: 1.12rem; color: var(--ink-2); max-width: 58ch; }
+.deep .lede { color: var(--deep-muted); }
+.small { font-size: 0.82rem; color: var(--muted); }
+.deep .small { color: var(--deep-muted); }
+.sec-head { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; margin-bottom: 56px; }
+.sec-head > div { display: grid; gap: 16px; min-width: 0; }
+@media (max-width: 860px) { .sec-head { grid-template-columns: 1fr; gap: 16px; } .band { padding-block: 72px; } }
 
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1.5px solid transparent; border-radius: 999px; padding: 14px 26px; font-weight: 700; font-size: 0.98rem; text-decoration: none; transition: background .2s, transform .15s, border-color .2s; }
-.btn:hover { transform: translateY(-1px); }
-.btn-accent { background: var(--accent); color: var(--accent-ink); }
-.btn-accent:hover { background: var(--accent-hover); }
-.btn-ink { background: var(--ink); color: var(--bg); }
-.btn-line { border-color: var(--ink); background: transparent; }
-.btn-line:hover { background: var(--surface); }
-.btn-light { background: var(--navy-ink); color: var(--navy); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 4px; border: 1px solid transparent; padding: 14px 24px; font-weight: 500; font-size: 0.96rem; text-decoration: none; transition: background .2s, border-color .2s, color .2s; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-outline { border-color: var(--line); background: var(--bg); }
+.btn-outline:hover { border-color: var(--ink); }
+.btn-light { background: var(--deep-ink); color: var(--deep); }
 .btn-block { width: 100%; }
-.btn-lg { padding: 17px 32px; font-size: 1.04rem; }
+.arrow::after { content: "→"; transition: transform .2s; }
+.arrow:hover::after { transform: translateX(3px); }
+.textlink { background: none; border: 0; padding: 0; color: var(--accent); font-weight: 500; text-decoration: none; display: inline-flex; gap: 6px; }
 
 /* Header */
-.promo { background: var(--navy); color: var(--navy-ink); font-size: 0.85rem; text-align: center; padding: 8px 16px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-.promo b { color: var(--gold); }
-header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
-.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
-.logo { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 700; font-size: 1.45rem; letter-spacing: 0.02em; text-decoration: none; }
-.logo i { width: 26px; height: 26px; border-radius: 50%; background: conic-gradient(from 200deg, var(--accent), var(--gold), var(--accent)); display: block; }
-.navlinks { display: flex; gap: 28px; }
-.navlinks a, .navlinks button { background: none; border: 0; padding: 6px 0; text-decoration: none; font-weight: 600; font-size: 0.95rem; color: var(--ink-2); }
-.navlinks a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--accent); }
-.nav-right { display: flex; gap: 10px; align-items: center; }
-.cart-btn { position: relative; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); display: grid; place-items: center; }
-.cart-btn .count { position: absolute; top: -4px; right: -4px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px; background: var(--accent); color: var(--accent-ink); font-size: 0.72rem; font-weight: 800; display: grid; place-items: center; }
-.nav-quiz { padding: 10px 18px; font-size: 0.9rem; }
-@media (max-width: 820px) {
-  .navlinks { gap: 18px; }
-  .navlinks .hide-sm { display: none; }
-  .nav-quiz { display: none; }
-}
+.util { background: var(--surface); border-bottom: 1px solid var(--line); font-size: 0.8rem; color: var(--ink-2); }
+.util .wrap { display: flex; justify-content: space-between; gap: 16px; padding-block: 8px; }
+.util span:last-child { color: var(--muted); }
+@media (max-width: 640px) { .util span:last-child { display: none; } .util .wrap { justify-content: center; } }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: color-mix(in srgb, var(--bg) 94%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 72px; }
+.brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+.brand b { font-family: var(--serif); font-weight: 500; font-size: 1.6rem; letter-spacing: 0.01em; }
+.brand small { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.navlinks { display: flex; gap: 30px; }
+.navlinks a, .navlinks button { background: none; border: 0; padding: 4px 0; font-size: 0.93rem; color: var(--ink-2); text-decoration: none; }
+.navlinks a:hover, .navlinks button:hover { color: var(--ink); }
+.navlinks [aria-current="page"] { color: var(--ink); box-shadow: inset 0 -1px 0 var(--ink); }
+.nav-right { display: flex; align-items: center; gap: 10px; }
+.bag { position: relative; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); display: grid; place-items: center; }
+.bag .count { position: absolute; top: -6px; right: -6px; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 9px; background: var(--accent); color: var(--accent-ink); font-size: 0.68rem; font-weight: 600; display: grid; place-items: center; }
+@media (max-width: 900px) { .navlinks .lg { display: none; } .navlinks { gap: 20px; } }
+@media (max-width: 640px) { .nav-right .btn { display: none; } .brand small { display: none; } .navlinks { gap: 14px; } .navlinks a, .navlinks button { font-size: 0.88rem; } }
 
 /* Hero */
-.hero { padding-block: 56px 72px; }
-.hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
-.hero-copy { display: grid; gap: 22px; min-width: 0; }
-.hero h1 em { font-style: normal; color: var(--accent); }
+.hero { padding-block: 72px 96px; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+.hero-copy { display: grid; gap: 26px; min-width: 0; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
-.proof-row { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 0.9rem; color: var(--ink-2); }
-.proof-row span { display: inline-flex; align-items: center; gap: 7px; }
-.proof-row svg { color: var(--good); flex-shrink: 0; }
-.hero-art { position: relative; aspect-ratio: 1 / 1.02; max-width: 100%; border-radius: 32px; background: radial-gradient(circle at 72% 22%, var(--bg) 0%, transparent 42%), linear-gradient(155deg, var(--accent-soft), var(--surface-2)); display: grid; place-items: center; overflow: hidden; }
-.hero-art .bottle { width: 40%; filter: drop-shadow(0 28px 34px var(--shadow)); }
-.mini-ba { position: absolute; left: 6%; bottom: 7%; width: 42%; border-radius: var(--r-md); overflow: hidden; background: var(--bg); box-shadow: 0 16px 40px var(--shadow); }
-.mini-ba .pair { display: grid; grid-template-columns: 1fr 1fr; height: 92px; }
-.mini-ba .pair > div { position: relative; overflow: hidden; }
-.mini-ba .pair svg { width: 100%; height: 100%; }
-.mini-ba .pair span { position: absolute; bottom: 6px; left: 6px; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; background: rgba(255,255,255,.88); color: #1a1c2c; padding: 2px 7px; border-radius: 999px; }
-.mini-ba p { font-size: 0.78rem; padding: 9px 12px; color: var(--ink-2); }
-.stat-pill { position: absolute; right: 6%; top: 8%; background: var(--bg); border-radius: var(--r-md); padding: 12px 16px; box-shadow: 0 16px 40px var(--shadow); font-size: 0.8rem; color: var(--ink-2); line-height: 1.35; }
-.stat-pill b { display: block; font-family: var(--display); font-size: 1.6rem; color: var(--ink); }
-@media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-art { max-width: 520px; width: 100%; justify-self: center; }
-}
+.facts { display: grid; grid-template-columns: repeat(3, auto); gap: 28px; padding-top: 26px; border-top: 1px solid var(--line); justify-content: start; }
+.facts div { display: grid; gap: 2px; }
+.facts b { font-family: var(--serif); font-weight: 400; font-size: 1.7rem; line-height: 1.1; }
+.facts span { font-size: 0.82rem; color: var(--muted); }
+.specimen { position: relative; aspect-ratio: 4 / 4.6; max-width: 100%; background: var(--surface); border-radius: 6px; display: grid; place-items: center; overflow: hidden; }
+.specimen::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 40px 40px; opacity: .55; mask-image: radial-gradient(circle at 50% 50%, #000 30%, transparent 75%); }
+.specimen .bottle { position: relative; width: 36%; filter: drop-shadow(0 26px 30px var(--shadow)); }
+.callout { position: absolute; display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 0.74rem; color: var(--ink-2); }
+.callout i { display: block; width: 44px; height: 1px; background: var(--ink-2); opacity: .5; }
+.callout b { font-weight: 500; color: var(--ink); }
+.c1 { top: 16%; left: 6%; }
+.c2 { top: 44%; right: 5%; flex-direction: row-reverse; }
+.c3 { bottom: 14%; left: 6%; }
+.specimen .cap { position: absolute; bottom: 16px; right: 18px; font-family: var(--mono); font-size: 0.68rem; color: var(--muted); }
+@media (max-width: 920px) { .hero-grid { grid-template-columns: 1fr; gap: 44px; } .specimen { max-width: 540px; width: 100%; } }
+@media (max-width: 480px) { .facts { grid-template-columns: repeat(3, 1fr); gap: 14px; } .facts b { font-size: 1.35rem; } .callout i { width: 22px; } }
 
-/* Trust strip */
-.trust { border-block: 1px solid var(--line); }
-.trust .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding-block: 20px; }
-.trust div { display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; font-size: 0.9rem; color: var(--ink-2); text-align: left; }
-.trust svg { color: var(--accent); flex-shrink: 0; }
-@media (max-width: 760px) { .trust .wrap { grid-template-columns: 1fr 1fr; } .trust div { justify-content: flex-start; } }
+/* Standards strip */
+.standards { border-block: 1px solid var(--line); }
+.standards .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+.standards div { padding: 22px 20px; border-left: 1px solid var(--line); display: grid; gap: 2px; }
+.standards div:first-child { border-left: 0; padding-left: 0; }
+.standards b { font-weight: 600; font-size: 0.92rem; }
+.standards span { font-size: 0.82rem; color: var(--muted); }
+@media (max-width: 860px) { .standards .wrap { grid-template-columns: 1fr 1fr; } .standards div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); } .standards div:nth-child(-n+2) { border-top: 0; } }
 
-/* How it works */
-.how { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.how-step { background: var(--bg); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 28px; display: grid; gap: 12px; align-content: start; }
-.how-step .n { width: 40px; height: 40px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-family: var(--display); font-weight: 700; }
-.how-step p { color: var(--ink-2); }
-@media (max-width: 860px) { .how { grid-template-columns: 1fr; } }
+/* Conditions */
+.conditions { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+.cond { display: grid; gap: 14px; align-content: start; padding: 28px 24px 32px; border-right: 1px solid var(--line); background: none; border-top: 0; border-bottom: 0; border-left: 0; text-align: left; transition: background .2s; }
+.cond:last-child { border-right: 0; }
+.cond:hover { background: var(--surface); }
+.cond .swatch { width: 100%; aspect-ratio: 16 / 10; max-width: 100%; border-radius: 4px; overflow: hidden; }
+.cond .swatch svg { width: 100%; height: 100%; display: block; }
+.cond p { color: var(--ink-2); font-size: 0.93rem; }
+.cond .meta { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; }
+@media (max-width: 960px) { .conditions { grid-template-columns: 1fr 1fr; } .cond:nth-child(2) { border-right: 0; } .cond:nth-child(n+3) { border-top: 1px solid var(--line); } }
+@media (max-width: 560px) { .conditions { grid-template-columns: 1fr; } .cond { border-right: 0; padding-inline: 0; } .cond + .cond { border-top: 1px solid var(--line); } }
 
-/* Concerns */
-.concern-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
-.concern-tabs button { border: 1.5px solid var(--line); background: var(--bg); border-radius: 999px; padding: 10px 20px; font-weight: 600; }
-.concern-tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-.concern-panel { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; align-items: center; background: var(--surface); border-radius: var(--r-lg); padding: 36px; }
-.concern-panel .ba-card { box-shadow: none; }
-.concern-text { display: grid; gap: 16px; min-width: 0; }
-.concern-text ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-.concern-text li { display: flex; gap: 10px; color: var(--ink-2); }
-.concern-text li svg { color: var(--accent); flex-shrink: 0; margin-top: 4px; }
-.timeline-mini { display: flex; gap: 8px; flex-wrap: wrap; }
-.timeline-mini span { font-size: 0.82rem; font-weight: 600; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; }
-@media (max-width: 860px) { .concern-panel { grid-template-columns: 1fr; padding: 22px; } }
+/* Mechanism */
+.pathway { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+.stage { padding: 0 24px 0 0; display: grid; gap: 14px; align-content: start; position: relative; }
+.stage .node { display: flex; align-items: center; gap: 12px; }
+.stage .node span { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--deep-muted); display: grid; place-items: center; font-family: var(--mono); font-size: 0.8rem; flex-shrink: 0; background: var(--deep); position: relative; z-index: 1; }
+.stage .node i { flex: 1; height: 1px; background: color-mix(in srgb, var(--deep-ink) 25%, transparent); }
+.stage:last-child .node i { display: none; }
+.stage p { color: var(--deep-muted); font-size: 0.93rem; }
+.actives { display: flex; flex-wrap: wrap; gap: 6px; }
+.actives span { font-family: var(--mono); font-size: 0.74rem; border: 1px solid color-mix(in srgb, var(--deep-ink) 25%, transparent); border-radius: 3px; padding: 3px 8px; color: var(--deep-ink); }
+.melanin { display: flex; gap: 5px; align-items: end; height: 28px; }
+.melanin b { display: block; width: 10px; border-radius: 50% 50% 40% 40%; background: var(--clay); }
+@media (max-width: 900px) { .pathway { grid-template-columns: 1fr 1fr; row-gap: 40px; } .stage:nth-child(2) .node i { display: none; } }
+@media (max-width: 520px) { .pathway { grid-template-columns: 1fr; } .stage .node i { display: none; } }
 
-/* Before / after */
-.ba-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.ba-card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
-.ba { position: relative; aspect-ratio: 1 / 1; max-width: 100%; overflow: hidden; touch-action: pan-y; user-select: none; }
+/* Formula table */
+.formula-wrap { margin-top: 72px; display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; align-items: start; }
+.table-scroll { overflow-x: auto; min-width: 0; }
+table.spec { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 520px; }
+table.spec th { text-align: left; font-family: var(--mono); font-weight: 400; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--deep-muted); padding: 0 16px 12px 0; border-bottom: 1px solid color-mix(in srgb, var(--deep-ink) 25%, transparent); }
+table.spec td { padding: 16px 16px 16px 0; border-bottom: 1px solid color-mix(in srgb, var(--deep-ink) 12%, transparent); vertical-align: top; color: var(--deep-muted); }
+table.spec td:first-child { color: var(--deep-ink); font-weight: 500; }
+table.spec td.num { font-family: var(--mono); color: var(--deep-ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+@media (max-width: 900px) { .formula-wrap { grid-template-columns: 1fr; gap: 28px; } }
+
+/* Process */
+.process { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.step { display: grid; gap: 14px; align-content: start; padding-top: 22px; border-top: 1px solid var(--ink); }
+.step .k { font-family: var(--mono); font-size: 0.76rem; color: var(--muted); }
+.step p { color: var(--ink-2); }
+@media (max-width: 860px) { .process { grid-template-columns: 1fr; } }
+
+/* Results */
+.ba-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.case { display: grid; gap: 14px; }
+.ba { position: relative; aspect-ratio: 1 / 1; max-width: 100%; overflow: hidden; border-radius: 4px; touch-action: pan-y; user-select: none; background: var(--surface); }
 .ba .layer { position: absolute; inset: 0; }
 .ba .layer svg { width: 100%; height: 100%; display: block; }
 .ba .after { clip-path: inset(0 0 0 50%); }
-.ba .tag { position: absolute; top: 12px; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; z-index: 2; }
-.ba .tag.l { left: 12px; background: rgba(26,28,44,.75); color: #fff; }
-.ba .tag.r { right: 12px; background: rgba(255,255,255,.92); color: #1a1c2c; }
-.ba .bar { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: #fff; transform: translateX(-1px); z-index: 3; pointer-events: none; }
-.ba .bar::after { content: ""; position: absolute; top: 50%; left: 50%; width: 38px; height: 38px; border-radius: 50%; transform: translate(-50%, -50%); background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1c2c' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M9 7l-5 5 5 5M15 7l5 5-5 5'/%3E%3C/svg%3E") center / 20px no-repeat; box-shadow: 0 4px 14px rgba(0,0,0,.25); }
-.ba input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; margin: 0; cursor: ew-resize; z-index: 4; }
-.ba-meta { padding: 16px 18px; display: grid; gap: 4px; }
-.ba-meta b { font-weight: 700; }
-.ba-meta span { font-size: 0.88rem; color: var(--ink-2); }
-@media (max-width: 900px) { .ba-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; } }
+.ba .tag { position: absolute; top: 12px; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; z-index: 2; background: rgba(14, 26, 43, .72); color: #fff; }
+.ba .tag.l { left: 12px; }
+.ba .tag.r { right: 12px; background: rgba(255, 255, 255, .9); color: #0e1a2b; }
+.ba .bar { position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: #fff; z-index: 3; pointer-events: none; }
+.ba .bar::after { content: ""; position: absolute; top: 50%; left: 50%; width: 34px; height: 34px; transform: translate(-50%, -50%); border-radius: 50%; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230e1a2b' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M9 7l-5 5 5 5M15 7l5 5-5 5'/%3E%3C/svg%3E") center / 18px no-repeat; box-shadow: 0 2px 10px rgba(0,0,0,.25); }
+.ba input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; z-index: 4; }
+.case dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; margin: 0; font-size: 0.86rem; }
+.case dt { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; padding-top: 2px; }
+.case dd { margin: 0; color: var(--ink-2); }
+@media (max-width: 900px) { .ba-grid { grid-template-columns: 1fr; max-width: 440px; } }
 
-/* Ingredients */
-.ingr-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 56px; align-items: start; }
-.ingr-list { display: grid; gap: 12px; }
-.ingr { display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: center; padding: 16px 18px; border-radius: var(--r-md); background: color-mix(in srgb, var(--navy-ink) 7%, transparent); }
-.ingr .pct { font-family: var(--display); font-weight: 700; font-size: 1.35rem; color: var(--gold); font-variant-numeric: tabular-nums; }
-.ingr b { display: block; }
-.ingr span { font-size: 0.9rem; color: var(--navy-muted); }
-.free { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-.free span { border: 1px solid color-mix(in srgb, var(--navy-ink) 25%, transparent); border-radius: 999px; padding: 5px 12px; font-size: 0.82rem; }
-@media (max-width: 860px) { .ingr-grid { grid-template-columns: 1fr; gap: 32px; } }
+/* Stories */
+.stories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.story { display: grid; gap: 16px; align-content: start; padding: 28px; background: var(--bg); border: 1px solid var(--line); border-radius: 4px; }
+.story blockquote { margin: 0; font-family: var(--serif); font-size: 1.2rem; line-height: 1.4; }
+.story footer { font-size: 0.84rem; color: var(--muted); }
+.placeholder-note { display: inline-flex; gap: 8px; align-items: center; font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--clay); background: var(--clay-soft); padding: 4px 10px; border-radius: 3px; justify-self: start; }
+@media (max-width: 900px) { .stories { grid-template-columns: 1fr; } }
 
-/* Pricing plans */
-.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
-.plan { position: relative; display: grid; gap: 14px; align-content: start; background: var(--bg); border: 1.5px solid var(--line); border-radius: var(--r-lg); padding: 28px; }
-.plan.featured { border-color: var(--accent); box-shadow: 0 20px 50px var(--shadow); }
-.plan .badge { position: absolute; top: -12px; left: 28px; background: var(--accent); color: var(--accent-ink); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; }
-.plan .price { font-family: var(--display); font-size: 2.6rem; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
-.plan .price small { font-family: var(--body); font-size: 0.9rem; font-weight: 500; color: var(--muted); }
-.plan ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 0.92rem; color: var(--ink-2); }
-.plan li { display: flex; gap: 8px; }
-.plan li svg { color: var(--good); flex-shrink: 0; margin-top: 4px; }
-@media (max-width: 900px) { .plans { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; } }
-
-/* Reviews */
-.reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.review { background: var(--bg); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 24px; display: grid; gap: 10px; align-content: start; }
-.stars { color: var(--gold); letter-spacing: 2px; }
-.review p { color: var(--ink-2); font-size: 0.95rem; }
-.review .who { display: flex; align-items: center; gap: 10px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 0.85rem; }
-.review .av { width: 36px; height: 36px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-weight: 800; }
-.review .who small { display: block; color: var(--muted); }
-@media (max-width: 900px) { .reviews { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .reviews { grid-template-columns: 1fr; } }
-
-/* CTA band */
-.cta { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: center; background: var(--navy); color: var(--navy-ink); border-radius: 32px; padding: 52px; overflow: hidden; }
-.cta p { color: var(--navy-muted); }
-.cta .bottle { width: 46%; margin: 0 auto; filter: drop-shadow(0 26px 30px rgba(0,0,0,.4)); }
-@media (max-width: 820px) { .cta { grid-template-columns: 1fr; padding: 32px 24px; text-align: center; } .cta .hero-ctas { justify-content: center; } }
-
-/* Shop view */
-.crumbs { font-size: 0.85rem; color: var(--muted); padding-top: 22px; }
-.crumbs a { text-decoration: none; }
-.pdp { display: grid; grid-template-columns: 1.05fr 1fr; gap: 52px; padding-block: 26px 72px; align-items: start; }
-.gallery { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 88px); display: grid; gap: 12px; min-width: 0; }
-.g-main { aspect-ratio: 1 / 1; max-width: 100%; border-radius: var(--r-lg); background: linear-gradient(155deg, var(--accent-soft), var(--surface-2)); display: grid; place-items: center; overflow: hidden; }
-.g-main > div { width: 100%; height: 100%; display: grid; place-items: center; }
-.g-main .bottle { width: 40%; filter: drop-shadow(0 28px 34px var(--shadow)); }
-.g-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-.g-thumbs button { aspect-ratio: 1; max-width: 100%; border-radius: var(--r-md); border: 2px solid transparent; background: var(--surface); display: grid; place-items: center; padding: 0; overflow: hidden; font-family: var(--display); font-weight: 700; font-size: 1.3rem; }
-.g-thumbs button[aria-pressed="true"] { border-color: var(--ink); }
-.g-thumbs svg { width: 38%; }
-.g-thumbs [data-skin] svg { width: 100%; height: 100%; display: block; }
-.g-info { background: var(--navy); color: var(--navy-ink); text-align: center; padding: 32px; gap: 10px; align-content: center; }
-.g-info .big { font-family: var(--display); font-size: 4.4rem; font-weight: 700; color: var(--gold); line-height: 1; }
-.g-info p { color: var(--navy-muted); max-width: 32ch; margin: 0 auto; }
-.buy { display: grid; gap: 20px; min-width: 0; }
-.rating-line { display: flex; gap: 8px; align-items: center; font-size: 0.9rem; color: var(--ink-2); flex-wrap: wrap; }
-.price-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-.price-big { font-family: var(--display); font-size: 2.6rem; font-weight: 700; font-variant-numeric: tabular-nums; }
-.was { color: var(--muted); text-decoration: line-through; font-size: 1.1rem; }
-.save { background: var(--good-soft); color: var(--good); font-weight: 700; font-size: 0.82rem; padding: 4px 12px; border-radius: 999px; }
-.checks { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; color: var(--ink-2); }
-.checks li { display: flex; gap: 10px; }
-.checks svg { color: var(--accent); flex-shrink: 0; margin-top: 4px; }
-fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; min-width: 0; }
-legend { font-weight: 700; font-size: 0.92rem; margin-bottom: 10px; padding: 0; }
-.opt { position: relative; display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding: 16px 18px; border: 1.5px solid var(--line); border-radius: var(--r-md); background: var(--bg); cursor: pointer; }
-.opt input { position: absolute; opacity: 0; pointer-events: none; }
-.opt .dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--muted); display: grid; place-items: center; }
-.opt:has(input:checked) { border-color: var(--ink); box-shadow: 0 0 0 3px var(--surface-2); }
-.opt:has(input:checked) .dot { border-color: var(--ink); }
-.opt:has(input:checked) .dot::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--ink); }
-.opt:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
-.opt .t { font-weight: 700; }
-.opt .d { display: block; font-size: 0.84rem; color: var(--muted); }
-.opt .p { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
-.opt .p small { display: block; font-weight: 500; font-size: 0.78rem; color: var(--muted); }
-.opt .flag { position: absolute; top: -10px; right: 16px; background: var(--accent); color: var(--accent-ink); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; }
-.ptypes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.ptypes .opt { grid-template-columns: auto 1fr; }
-.buy-row { display: grid; grid-template-columns: 128px 1fr; gap: 10px; }
-.qty { display: grid; grid-template-columns: 38px 1fr 38px; height: 54px; border: 1.5px solid var(--line); border-radius: 999px; overflow: hidden; }
-.qty button { border: 0; background: none; font-size: 1.2rem; }
-.qty input { border: 0; background: none; text-align: center; font: inherit; font-weight: 700; width: 100%; min-width: 0; color: var(--ink); }
-.buy-row .btn { height: 54px; }
-.assure { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.assure div { background: var(--surface); border-radius: var(--r-sm); padding: 12px 8px; text-align: center; font-size: 0.8rem; font-weight: 600; color: var(--ink-2); }
-.assure svg { margin: 0 auto 4px; color: var(--accent); display: block; }
-@media (max-width: 900px) { .pdp { grid-template-columns: 1fr; gap: 32px; } .gallery { position: static; } }
-@media (max-width: 480px) { .ptypes, .buy-row, .assure { grid-template-columns: 1fr; } }
+/* FAQ teaser + closing */
+.qa-list { display: grid; }
+.closing { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
+.closing .hero-ctas { margin-top: 8px; }
+@media (max-width: 860px) { .closing { grid-template-columns: 1fr; } }
 
 /* Accordion */
-.acc { border-top: 1px solid var(--line); }
 .acc-item { border-bottom: 1px solid var(--line); }
-.acc-item > button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; background: none; border: 0; padding: 18px 0; text-align: left; font-weight: 700; font-size: 1rem; }
-.acc-item > button::after { content: "+"; font-size: 1.4rem; font-weight: 400; color: var(--muted); transition: transform .2s; }
+.acc-item:first-child { border-top: 1px solid var(--line); }
+.acc-item > button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; background: none; border: 0; padding: 20px 0; text-align: left; font-size: 1.02rem; font-weight: 500; }
+.acc-item > button::after { content: "+"; font-family: var(--mono); font-size: 1.1rem; color: var(--muted); transition: transform .2s; flex-shrink: 0; }
 .acc-item > button[aria-expanded="true"]::after { transform: rotate(45deg); }
-.acc-item .panel { padding: 0 0 20px; color: var(--ink-2); }
+.acc-item .panel { padding: 0 0 22px; color: var(--ink-2); max-width: 70ch; }
 .acc-item .panel ul { margin: 0; padding-left: 20px; }
 
-/* FAQ view */
-.faq-hero { padding-block: 56px 28px; text-align: center; display: grid; gap: 14px; justify-items: center; }
-.search { position: relative; width: 100%; max-width: 520px; margin-top: 12px; }
-.search input { width: 100%; padding: 15px 20px 15px 46px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--bg); color: var(--ink); font: inherit; }
-.search input:focus { outline: none; border-color: var(--ink); }
-.search svg { position: absolute; left: 17px; top: 50%; transform: translateY(-50%); color: var(--muted); }
-.faq-layout { display: grid; grid-template-columns: 220px 1fr; gap: 48px; padding-bottom: 80px; align-items: start; }
-.faq-nav { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 92px); display: grid; gap: 4px; }
-.faq-nav button { text-align: left; background: none; border: 0; padding: 10px 14px; border-radius: var(--r-sm); font-weight: 600; color: var(--ink-2); }
-.faq-nav button:hover { background: var(--surface); color: var(--ink); }
-.faq-group { display: grid; gap: 6px; margin-bottom: 40px; scroll-margin-top: 100px; }
-.faq-group h2 { font-size: 1.6rem; margin-bottom: 6px; }
-.contact { background: var(--surface); border-radius: var(--r-lg); padding: 32px; text-align: center; display: grid; gap: 12px; justify-items: center; }
-.contact code { font-family: ui-monospace, Menlo, monospace; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; user-select: all; }
-@media (max-width: 820px) {
-  .faq-layout { grid-template-columns: 1fr; gap: 20px; }
-  .faq-nav { position: static; display: flex; overflow-x: auto; gap: 6px; padding-bottom: 4px; }
-  .faq-nav button { white-space: nowrap; background: var(--surface); }
-}
+/* Product page */
+.crumbs { font-size: 0.82rem; color: var(--muted); padding-top: 24px; font-family: var(--mono); }
+.crumbs a { text-decoration: none; }
+.pdp { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; padding-block: 28px 96px; align-items: start; }
+.gallery { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 96px); display: grid; gap: 12px; min-width: 0; }
+.g-main { position: relative; aspect-ratio: 1 / 1; max-width: 100%; border-radius: 6px; background: var(--surface); display: grid; place-items: center; overflow: hidden; }
+.g-main > div { width: 100%; height: 100%; display: grid; place-items: center; }
+.g-main .bottle { width: 34%; filter: drop-shadow(0 26px 30px var(--shadow)); }
+.g-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.g-thumbs button { aspect-ratio: 1; max-width: 100%; border-radius: 4px; border: 1px solid var(--line); background: var(--surface); padding: 0; overflow: hidden; display: grid; place-items: center; font-family: var(--mono); font-size: 0.76rem; color: var(--ink-2); }
+.g-thumbs button[aria-pressed="true"] { border-color: var(--ink); }
+.g-thumbs .bottle { width: 34%; }
+.g-thumbs [data-skin] svg { width: 100%; height: 100%; display: block; }
+.g-sheet { background: var(--deep); color: var(--deep-ink); padding: 40px; align-content: center; justify-items: start; gap: 18px; }
+.g-sheet table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.g-sheet td { padding: 10px 0; border-bottom: 1px solid color-mix(in srgb, var(--deep-ink) 15%, transparent); color: var(--deep-muted); }
+.g-sheet td:last-child { text-align: right; font-family: var(--mono); color: var(--deep-ink); }
+.buy { display: grid; gap: 22px; min-width: 0; }
+.buy h1 { font-size: clamp(2.1rem, 4vw, 3rem); }
+.buy .sub { color: var(--ink-2); font-size: 1.05rem; }
+.indications { display: flex; flex-wrap: wrap; gap: 8px; }
+.indications span { font-size: 0.82rem; border: 1px solid var(--line); border-radius: 3px; padding: 4px 10px; color: var(--ink-2); }
+fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 10px; min-width: 0; }
+legend { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; padding: 0; }
+.opt { position: relative; display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; padding: 18px 20px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); cursor: pointer; }
+.opt input { position: absolute; opacity: 0; pointer-events: none; }
+.opt .dot { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--muted); display: grid; place-items: center; }
+.opt:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+.opt:has(input:checked) .dot { border-color: var(--accent); }
+.opt:has(input:checked) .dot::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.opt:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+.opt .t { font-weight: 600; }
+.opt .d { display: block; font-size: 0.84rem; color: var(--ink-2); }
+.opt .p { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+.opt .p small { display: block; font-size: 0.76rem; color: var(--muted); font-weight: 400; }
+.opt .rec { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-left: 8px; }
+.summary { display: grid; gap: 8px; padding: 20px; background: var(--surface); border-radius: 4px; }
+.summary .row { display: flex; justify-content: space-between; gap: 16px; font-size: 0.93rem; font-variant-numeric: tabular-nums; }
+.summary .row.total { font-weight: 600; font-size: 1.05rem; padding-top: 8px; border-top: 1px solid var(--line); margin-top: 4px; }
+.summary .row span:first-child { color: var(--ink-2); }
+.assure { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; font-size: 0.82rem; color: var(--ink-2); }
+.assure div { display: grid; gap: 4px; }
+.assure b { font-weight: 600; color: var(--ink); font-size: 0.86rem; }
+@media (max-width: 920px) { .pdp { grid-template-columns: 1fr; gap: 36px; } .gallery { position: static; } }
+@media (max-width: 480px) { .assure { grid-template-columns: 1fr; } .opt { grid-template-columns: auto 1fr; } .opt .p { grid-column: 2; text-align: left; } }
+
+/* FAQ page */
+.faq-hero { padding-block: 72px 32px; display: grid; gap: 16px; }
+.search { position: relative; max-width: 560px; margin-top: 8px; }
+.search input { width: 100%; padding: 14px 18px 14px 44px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--ink); font: inherit; }
+.search input:focus { outline: none; border-color: var(--accent); }
+.search svg { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--muted); }
+.faq-layout { display: grid; grid-template-columns: 220px 1fr; gap: 64px; padding-bottom: 96px; align-items: start; }
+.faq-nav { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 96px); display: grid; gap: 2px; }
+.faq-nav button { text-align: left; background: none; border: 0; border-left: 1px solid var(--line); padding: 8px 14px; font-size: 0.92rem; color: var(--ink-2); }
+.faq-nav button:hover { color: var(--ink); border-left-color: var(--ink); }
+.faq-group { display: grid; gap: 12px; margin-bottom: 52px; scroll-margin-top: 110px; }
+.faq-group h2 { font-size: 1.8rem; }
+.contact { display: grid; gap: 12px; padding: 32px; background: var(--surface); border-radius: 4px; }
+.contact code { font-family: var(--mono); font-size: 0.92rem; user-select: all; }
+@media (max-width: 860px) { .faq-layout { grid-template-columns: 1fr; gap: 24px; } .faq-nav { position: static; display: flex; overflow-x: auto; } .faq-nav button { white-space: nowrap; border-left: 0; border-bottom: 1px solid var(--line); } }
 
 /* Drawer, modal, toast */
-.scrim { position: fixed; inset: 0; background: var(--scrim); z-index: 80; opacity: 0; pointer-events: none; transition: opacity .25s; }
+.scrim { position: fixed; inset: 0; z-index: 80; background: var(--scrim); opacity: 0; pointer-events: none; transition: opacity .25s; }
 .scrim.on { opacity: 1; pointer-events: auto; }
-.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(420px, 100%); z-index: 90; background: var(--bg); display: flex; flex-direction: column; transform: translateX(100%); transition: transform .3s ease; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); padding-right: env(safe-area-inset-right, 0px); visibility: hidden; }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 90; width: min(420px, 100%); background: var(--bg); display: flex; flex-direction: column; transform: translateX(100%); visibility: hidden; transition: transform .3s ease, visibility .3s; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); padding-right: env(safe-area-inset-right, 0px); }
 .drawer.on { transform: none; visibility: visible; }
-.drawer-head { display: flex; justify-content: space-between; align-items: center; padding: 20px 22px; border-bottom: 1px solid var(--line); }
+.d-head { display: flex; justify-content: space-between; align-items: center; padding: 22px 24px; border-bottom: 1px solid var(--line); }
 .x { background: none; border: 0; padding: 6px; display: grid; place-items: center; }
-.drawer-body { flex: 1; overflow-y: auto; padding: 8px 22px; }
-.empty { text-align: center; color: var(--muted); padding: 56px 0; display: grid; gap: 16px; justify-items: center; }
-.line-item { display: grid; grid-template-columns: 64px 1fr auto; gap: 14px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line); }
-.line-item .th { width: 64px; height: 64px; border-radius: 12px; background: linear-gradient(155deg, var(--accent-soft), var(--surface-2)); display: grid; place-items: center; }
-.line-item .th svg { width: 36%; }
-.line-item b { display: block; font-size: 0.95rem; }
-.line-item small { display: block; color: var(--muted); font-size: 0.82rem; }
-.mini-qty { display: inline-flex; align-items: center; gap: 10px; margin-top: 6px; font-weight: 700; font-size: 0.88rem; }
-.mini-qty button { width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); line-height: 1; }
-.link-btn { background: none; border: 0; padding: 0; color: var(--muted); text-decoration: underline; font-size: 0.8rem; margin-left: 8px; }
-.drawer-foot { padding: 18px 22px 22px; border-top: 1px solid var(--line); background: var(--surface); display: grid; gap: 8px; }
-.row { display: flex; justify-content: space-between; font-size: 0.95rem; font-variant-numeric: tabular-nums; }
-.row.total { font-weight: 800; font-size: 1.1rem; margin: 6px 0 8px; }
-.ship { font-size: 0.85rem; color: var(--ink-2); }
-.ship-bar { height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden; margin-top: 6px; }
-.ship-bar span { display: block; height: 100%; background: var(--accent); transition: width .3s; }
-.checkout-note { font-size: 0.85rem; background: var(--accent-soft); color: var(--ink); padding: 12px 14px; border-radius: var(--r-sm); }
+.d-body { flex: 1; overflow-y: auto; padding: 8px 24px; }
+.empty { display: grid; gap: 16px; justify-items: center; text-align: center; padding: 56px 0; color: var(--muted); }
+.li { display: grid; grid-template-columns: 60px 1fr auto; gap: 14px; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.li .th { width: 60px; height: 60px; border-radius: 4px; background: var(--surface); display: grid; place-items: center; }
+.li .th svg { width: 34%; }
+.li b { display: block; font-weight: 600; font-size: 0.94rem; }
+.li small { display: block; color: var(--muted); font-size: 0.8rem; }
+.mini-qty { display: inline-flex; align-items: center; gap: 10px; margin-top: 6px; font-size: 0.86rem; }
+.mini-qty button { width: 24px; height: 24px; border: 1px solid var(--line); border-radius: 3px; background: var(--bg); line-height: 1; }
+.link-btn { background: none; border: 0; padding: 0; color: var(--muted); text-decoration: underline; font-size: 0.8rem; }
+.d-foot { padding: 20px 24px 24px; border-top: 1px solid var(--line); background: var(--surface); display: grid; gap: 8px; }
+.d-foot .row { display: flex; justify-content: space-between; font-size: 0.94rem; font-variant-numeric: tabular-nums; }
+.d-foot .row.total { font-weight: 600; font-size: 1.05rem; margin: 6px 0 10px; }
+.note-box { font-size: 0.85rem; background: var(--accent-soft); color: var(--ink); padding: 12px 14px; border-radius: 4px; }
 
-.modal { position: fixed; inset: 0; z-index: 95; display: grid; place-items: center; padding: 16px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); pointer-events: none; opacity: 0; transition: opacity .2s; }
-.modal.on { pointer-events: auto; opacity: 1; }
-.modal-card { width: min(560px, 100%); max-height: calc(100% - 32px); overflow-y: auto; background: var(--bg); border-radius: var(--r-lg); padding: 28px; box-shadow: 0 30px 80px var(--shadow); display: grid; gap: 18px; }
-.quiz-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-.progress { height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
-.progress span { display: block; height: 100%; background: var(--accent); transition: width .3s; }
-.q-opts { display: grid; gap: 10px; }
-.q-opts button { text-align: left; background: var(--bg); border: 1.5px solid var(--line); border-radius: var(--r-md); padding: 15px 18px; font-weight: 600; display: grid; gap: 2px; }
-.q-opts button:hover { border-color: var(--ink); }
-.q-opts button small { font-weight: 500; color: var(--muted); }
-.result { background: var(--surface); border-radius: var(--r-md); padding: 20px; display: grid; gap: 10px; }
-.result ul { margin: 0; padding-left: 20px; color: var(--ink-2); display: grid; gap: 6px; }
+.modal { position: fixed; inset: 0; z-index: 95; display: grid; place-items: center; padding: 16px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); opacity: 0; pointer-events: none; transition: opacity .2s; }
+.modal.on { opacity: 1; pointer-events: auto; }
+.m-card { width: min(600px, 100%); max-height: calc(100% - 32px); overflow-y: auto; background: var(--bg); border-radius: 6px; padding: 32px; display: grid; gap: 20px; box-shadow: 0 30px 80px var(--shadow); }
+.m-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.prog { display: grid; grid-auto-flow: column; gap: 4px; }
+.prog i { height: 3px; background: var(--surface-2); border-radius: 2px; }
+.prog i.on { background: var(--accent); }
+.q-opts { display: grid; gap: 8px; }
+.q-opts button { display: grid; gap: 2px; text-align: left; padding: 16px 18px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); font-weight: 500; }
+.q-opts button:hover { border-color: var(--accent); background: var(--accent-soft); }
+.q-opts button small { color: var(--muted); font-weight: 400; font-size: 0.84rem; }
+.fitz { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.fitz button { display: grid; gap: 8px; justify-items: center; padding: 12px 4px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); font-family: var(--mono); font-size: 0.78rem; }
+.fitz button:hover { border-color: var(--accent); }
+.fitz i { width: 36px; height: 36px; border-radius: 50%; display: block; border: 1px solid rgba(0,0,0,.08); }
+@media (max-width: 480px) { .fitz { grid-template-columns: repeat(3, 1fr); } .m-card { padding: 24px; } }
+.regimen { display: grid; gap: 12px; padding: 22px; background: var(--surface); border-radius: 4px; }
+.regimen ul { margin: 0; padding-left: 20px; color: var(--ink-2); display: grid; gap: 6px; }
+.flag { padding: 14px 16px; border-left: 3px solid var(--clay); background: var(--clay-soft); font-size: 0.9rem; }
 
-.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 160%); background: var(--ink); color: var(--bg); padding: 12px 22px; border-radius: 999px; z-index: 100; font-weight: 600; font-size: 0.92rem; transition: transform .3s; visibility: hidden; max-width: calc(100% - 32px); }
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 160%); visibility: hidden; transition: transform .3s, visibility .3s; z-index: 100; background: var(--ink); color: var(--bg); padding: 12px 20px; border-radius: 4px; font-size: 0.9rem; max-width: calc(100% - 32px); }
 .toast.on { transform: translate(-50%, 0); visibility: visible; }
 
-footer.foot { background: var(--surface); border-top: 1px solid var(--line); padding-block: 56px 28px; font-size: 0.9rem; color: var(--ink-2); }
-.foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 32px; }
-.foot-grid h4 { font-family: var(--body); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; color: var(--ink); }
-.foot-grid ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
-.foot-grid a { text-decoration: none; }
-.foot-grid a:hover { color: var(--ink); }
-.foot-grid button { background: none; border: 0; padding: 0; color: var(--ink-2); }
-.foot-grid button:hover { color: var(--ink); }
-.legal { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 0.78rem; color: var(--muted); display: grid; gap: 10px; }
-@media (max-width: 700px) { .foot-grid { grid-template-columns: 1fr 1fr; } .foot-grid > div:first-child { grid-column: 1 / -1; } }
+footer.foot { border-top: 1px solid var(--line); padding-block: 64px 32px; font-size: 0.88rem; color: var(--ink-2); }
+.f-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 32px; }
+.f-grid h4 { font-family: var(--mono); font-weight: 400; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.f-grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.f-grid a, .f-grid button { background: none; border: 0; padding: 0; text-decoration: none; color: var(--ink-2); }
+.f-grid a:hover, .f-grid button:hover { color: var(--ink); }
+.legal { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); display: grid; gap: 10px; font-size: 0.78rem; color: var(--muted); max-width: 110ch; }
+@media (max-width: 760px) { .f-grid { grid-template-columns: 1fr 1fr; } .f-grid > div:first-child { grid-column: 1 / -1; } }
 
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+
+[hidden]{display:none!important}
+body{margin:0}
+img{max-width:100%}
 </style>
 </head>
 <body>
-<div class="promo">Free US shipping over $100 · <b>60-day money-back guarantee</b></div>
+
+<div class="util"><div class="wrap"><span>Hydroquinone-free treatment for hyperpigmentation</span><span>Free shipping · 60-day satisfaction guarantee</span></div></div>
 <header class="top">
   <nav class="wrap nav" aria-label="Main">
-    <a class="logo" href="#home"><i aria-hidden="true"></i>Vermona</a>
+    <a class="brand" href="#home"><b>Vermona</b><small>Clinical Skincare</small></a>
     <div class="navlinks">
-      <a href="#home" data-nav="home">Home</a>
-      <a href="#shop" data-nav="shop">Shop</a>
+      <button class="lg" data-goto="conditions">Conditions</button>
+      <button class="lg" data-goto="science">Science</button>
+      <button class="lg" data-goto="results">Results</button>
+      <a href="#treatment" data-nav="treatment">Treatment</a>
       <a href="#faq" data-nav="faq">FAQ</a>
-      <button class="hide-sm" data-quiz>Skin quiz</button>
     </div>
     <div class="nav-right">
-      <button class="btn btn-accent nav-quiz" data-quiz>Find my plan</button>
-      <button class="cart-btn" data-open-cart aria-label="Open cart">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
-        <span class="count" id="cart-count" hidden>0</span>
+      <button class="btn btn-primary" data-assess>Start assessment</button>
+      <button class="bag" data-open-cart aria-label="Open your order">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+        <span class="count" id="count" hidden>0</span>
       </button>
     </div>
   </nav>
 </header>
 
 <main>
-  <!-- ============ HOME ============ -->
-  <div data-view="home">
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Advanced Dark Spot Corrector</span>
-          <h1>Fade dark spots. <em>Fast.</em></h1>
-          <p class="lede">Vermona is a serum with five active ingredients for sun spots, melasma, post-acne marks and uneven tone. It contains no hydroquinone and is made for every skin tone. Most people see brighter skin within 2 weeks.*</p>
-          <div class="hero-ctas">
-            <button class="btn btn-accent btn-lg" data-quiz>Take the 60-second skin quiz</button>
-            <a class="btn btn-line btn-lg" href="#shop">Shop · $129</a>
-          </div>
-          <div class="proof-row">
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5 9-10"/></svg>No hydroquinone or mercury</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5 9-10"/></svg>All skin tones</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5 9-10"/></svg>60-day guarantee</span>
-          </div>
+<!-- =============== HOME =============== -->
+<div data-view="home">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="label">Hyperpigmentation · Melasma · Sun damage</span>
+        <h1>Clinical care for uneven, discoloured skin.</h1>
+        <p class="lede">Vermona is a targeted treatment for dark spots, melasma and post-inflammatory marks. It works on four stages of pigment formation with five well-studied actives, without hydroquinone or harsh bleaching agents. It's formulated for every skin tone.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-primary arrow" data-assess>Start your skin assessment</button>
+          <button class="btn btn-outline" data-goto="science">How it works</button>
         </div>
-        <div class="hero-art">
-          <span data-bottle></span>
-          <div class="stat-pill"><b>2 wks</b>to first visible<br>brightening*</div>
-          <div class="mini-ba" aria-label="Illustration of a dark spot fading">
-            <div class="pair"><div data-skin="medium" data-strength="1"><span>Before</span></div><div data-skin="medium" data-strength="0.2"><span>Wk 8</span></div></div>
-            <p>Illustration. Spots fade, your natural tone stays.</p>
-          </div>
+        <div class="facts">
+          <div><b>5</b><span>targeted actives</span></div>
+          <div><b>I–VI</b><span>Fitzpatrick skin types</span></div>
+          <div><b>0%</b><span>hydroquinone</span></div>
         </div>
       </div>
-    </section>
-
-    <div class="trust">
-      <div class="wrap">
-        <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6l7-3z"/></svg>Dermatologist-guided formula</div>
-        <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg>Hydroquinone-free</div>
-        <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"/></svg>Fragrance-free, vegan</div>
-        <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v4h4"/></svg>60-day money back</div>
+      <div class="specimen" aria-label="Vermona treatment bottle">
+        <span data-bottle></span>
+        <div class="callout c1"><span><b>pH 4.8</b><br>skin-balanced</span><i></i></div>
+        <div class="callout c2"><span><b>TXA · NIA · AZA</b><br>+ arbutin, licorice</span><i></i></div>
+        <div class="callout c3"><span><b>30 ml</b><br>8-week course</span><i></i></div>
+        <span class="cap">Fig. 1</span>
       </div>
     </div>
+  </section>
 
-    <section class="band">
-      <div class="wrap">
-        <div class="head center">
-          <span class="eyebrow">How it works</span>
-          <h2>Clearer skin in three steps</h2>
-        </div>
-        <div class="how">
-          <div class="how-step"><div class="n">1</div><h3>Take the skin quiz</h3><p>Answer four quick questions about your spots, skin type and sun habits.</p></div>
-          <div class="how-step"><div class="n">2</div><h3>Get your plan</h3><p>We match you to the right course length and routine for how stubborn your spots are.</p></div>
-          <div class="how-step"><div class="n">3</div><h3>Watch spots fade</h3><p>Use it morning and night with SPF. Free refills ship every 8 weeks on subscription, and you can cancel anytime.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="band surface" id="concerns">
-      <div class="wrap">
-        <div class="head">
-          <span class="eyebrow">Your concern</span>
-          <h2>Made for the spots you actually have</h2>
-        </div>
-        <div class="concern-tabs" role="tablist" aria-label="Skin concerns">
-          <button role="tab" aria-selected="true" data-concern="sun">Sun &amp; age spots</button>
-          <button role="tab" aria-selected="false" data-concern="melasma">Melasma</button>
-          <button role="tab" aria-selected="false" data-concern="acne">Post-acne marks</button>
-          <button role="tab" aria-selected="false" data-concern="tone">Uneven tone</button>
-        </div>
-        <div class="concern-panel" role="tabpanel">
-          <div class="ba-card">
-            <div class="ba" data-ba="light"><div class="layer before"></div><div class="layer after"></div><span class="tag l">Before</span><span class="tag r" data-ba-after>Week 10</span><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Compare before and after" id="ba-concern"></div>
-          </div>
-          <div class="concern-text">
-            <h3 id="c-title">Sun &amp; age spots</h3>
-            <p id="c-body" class="lede"></p>
-            <ul id="c-list"></ul>
-            <div class="timeline-mini" id="c-time"></div>
-            <p class="note">Before/after images on this page are illustrations.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="band">
-      <div class="wrap">
-        <div class="head center">
-          <span class="eyebrow">Results</span>
-          <h2>Before &amp; after</h2>
-          <p class="lede">Drag each slider. Spots fade while your natural skin tone stays the same.</p>
-        </div>
-        <div class="ba-grid">
-          <div class="ba-card"><div class="ba" data-ba="deep"><div class="layer before"></div><div class="layer after"></div><span class="tag l">Before</span><span class="tag r">Week 8</span><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Compare before and after: post-acne marks" id="ba-1"></div><div class="ba-meta"><b>Post-acne marks</b><span>Twice daily with SPF 30</span></div></div>
-          <div class="ba-card"><div class="ba" data-ba="medium"><div class="layer before"></div><div class="layer after"></div><span class="tag l">Before</span><span class="tag r">Week 6</span><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Compare before and after: melasma" id="ba-2"></div><div class="ba-meta"><b>Melasma &amp; patchy tone</b><span>Twice daily with SPF 50</span></div></div>
-          <div class="ba-card"><div class="ba" data-ba="light"><div class="layer before"></div><div class="layer after"></div><span class="tag l">Before</span><span class="tag r">Week 10</span><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Compare before and after: sun spots" id="ba-3"></div><div class="ba-meta"><b>Sun spots &amp; freckling</b><span>Nightly with daily SPF 30</span></div></div>
-        </div>
-        <p class="note" style="text-align:center;margin-top:18px">Illustrations for layout. Replace with consented, unretouched customer photos. Individual results vary.</p>
-      </div>
-    </section>
-
-    <section class="band navy">
-      <div class="wrap ingr-grid">
-        <div class="head" style="margin:0">
-          <span class="eyebrow">The formula</span>
-          <h2>Five actives. Each one works on a different stage of a dark spot.</h2>
-          <p class="lede">Single-ingredient serums only tackle one step of pigmentation. Vermona combines five gentle, well-studied actives so spots fade faster without the irritation of bleaching agents.</p>
-          <div class="free"><span>No hydroquinone</span><span>No mercury</span><span>No steroids</span><span>Fragrance-free</span><span>Non-comedogenic</span></div>
-        </div>
-        <div class="ingr-list">
-          <div class="ingr"><div class="pct">3%</div><div><b>Tranexamic acid</b><span>Calms the signals that trigger excess pigment. A go-to for melasma.</span></div></div>
-          <div class="ingr"><div class="pct">2%</div><div><b>Alpha arbutin</b><span>Slows tyrosinase, the enzyme that makes new spots.</span></div></div>
-          <div class="ingr"><div class="pct">5%</div><div><b>Niacinamide</b><span>Stops pigment reaching the surface and strengthens the barrier.</span></div></div>
-          <div class="ingr"><div class="pct">10%</div><div><b>Azelaic acid</b><span>Fades post-acne marks and soothes redness.</span></div></div>
-          <div class="ingr"><div class="pct">1%</div><div><b>Licorice root + vitamin C</b><span>Antioxidant pair for radiance and daily protection.</span></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="band">
-      <div class="wrap">
-        <div class="head center">
-          <span class="eyebrow">Plans</span>
-          <h2>Pick your course</h2>
-          <p class="lede">One bottle lasts about 8 weeks. Stubborn spots usually need 16 weeks or more.</p>
-        </div>
-        <div class="plans">
-          <div class="plan">
-            <h3>Starter</h3>
-            <div class="price">$129 <small>/ 8 weeks</small></div>
-            <ul><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>1 bottle, 30 ml</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>Good for newer, lighter spots</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>Free shipping</li></ul>
-            <button class="btn btn-line btn-block" data-add="single">Add to cart</button>
-          </div>
-          <div class="plan featured">
-            <span class="badge">Most chosen</span>
-            <h3>Full course</h3>
-            <div class="price">$229 <small>/ 16 weeks</small></div>
-            <ul><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>2 bottles, $114.50 each</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>Recommended for melasma and older spots</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>Free shipping</li></ul>
-            <button class="btn btn-accent btn-block" data-add="duo">Add to cart</button>
-          </div>
-          <div class="plan">
-            <h3>Subscribe &amp; save</h3>
-            <div class="price">$109.65 <small>/ 8 weeks</small></div>
-            <ul><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>15% off every refill</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>Skip or cancel anytime</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>Best for keeping results</li></ul>
-            <button class="btn btn-line btn-block" data-add="single-sub">Subscribe</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="band surface">
-      <div class="wrap">
-        <div class="head">
-          <span class="chip">Sample content</span>
-          <h2>What customers say</h2>
-          <p class="lede">These cards are placeholders that show the layout. Connect a review platform such as Judge.me or Yotpo to show real, verified reviews.</p>
-        </div>
-        <div class="reviews" id="reviews"></div>
-      </div>
-    </section>
-
-    <section class="band">
-      <div class="wrap">
-        <div class="cta">
-          <div class="head" style="margin:0">
-            <span class="eyebrow" style="color:var(--gold)">Start today</span>
-            <h2>Even, glowing skin in weeks, not years.</h2>
-            <p>$129 for an 8-week supply. Try it for 60 days. If you don't see a difference, we'll refund you, even if the bottle is empty.</p>
-            <div class="hero-ctas" style="margin-top:8px">
-              <a class="btn btn-light btn-lg" href="#shop">Shop Vermona</a>
-              <button class="btn btn-lg" style="border-color:var(--navy-muted);color:var(--navy-ink);background:transparent" data-quiz>Take the quiz</button>
-            </div>
-          </div>
-          <div><span data-bottle></span></div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ============ SHOP ============ -->
-  <div data-view="shop" hidden>
+  <div class="standards">
     <div class="wrap">
-      <nav class="crumbs" aria-label="Breadcrumb"><a href="#home">Home</a> / Shop / Dark Spot Corrector</nav>
-      <div class="pdp">
-        <div class="gallery">
-          <div class="g-main" id="g-main">
-            <div data-slide="0"><span data-bottle></span></div>
-            <div data-slide="1" hidden><div class="ba" data-ba="deep" style="width:100%;height:100%;aspect-ratio:auto"><div class="layer before"></div><div class="layer after"></div><span class="tag l">Before</span><span class="tag r">Week 8</span><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Compare before and after" id="ba-shop"></div></div>
-            <div data-slide="2" hidden class="g-info"><div class="big">5</div><h3>Targeted actives</h3><p>Tranexamic acid, alpha arbutin, niacinamide, azelaic acid, licorice + vitamin C</p></div>
-            <div data-slide="3" hidden class="g-info" style="background:var(--accent-soft);color:var(--ink)"><div class="big" style="color:var(--accent)">60</div><h3>Day guarantee</h3><p style="color:var(--ink-2)">Full refund on your first order, even if the bottle is empty.</p></div>
-          </div>
-          <div class="g-thumbs">
-            <button aria-pressed="true" data-thumb="0" aria-label="Bottle"><span data-bottle></span></button>
-            <button aria-pressed="false" data-thumb="1" aria-label="Before and after"><span data-skin="deep" data-strength="1" style="width:100%;height:100%;display:block"></span></button>
-            <button aria-pressed="false" data-thumb="2" aria-label="Ingredients" style="background:var(--navy);color:var(--gold)">5</button>
-            <button aria-pressed="false" data-thumb="3" aria-label="Guarantee" style="background:var(--accent-soft);color:var(--accent)">60</button>
-          </div>
-        </div>
-
-        <form class="buy" id="buy" novalidate>
-          <span class="eyebrow">Brightening serum · 30 ml</span>
-          <h1 style="font-size:clamp(2rem,4vw,2.8rem)">Vermona Advanced Dark Spot Corrector</h1>
-          <p class="lede" style="font-size:1rem">Fades the look of dark spots, sun spots and post-acne marks for clearer, more even skin.</p>
-          <div class="rating-line"><span class="stars" aria-hidden="true">★★★★★</span><span class="chip">Reviews: connect platform</span></div>
-          <div class="price-row"><span class="price-big" id="p-price">$129</span><span class="was" id="p-was">$159</span><span class="save" id="p-save">Save 19%</span></div>
-          <ul class="checks">
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5 9-10"/></svg>Fast-acting: brighter-looking skin in as little as 2 weeks*</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5 9-10"/></svg>No hydroquinone, mercury, steroids or fragrance</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5 9-10"/></svg>For all skin tones and types</li>
-          </ul>
-
-          <fieldset>
-            <legend>Choose your supply</legend>
-            <label class="opt"><input type="radio" name="bundle" value="single" checked id="b-single"><span class="dot"></span><span><span class="t">1 bottle</span><span class="d">8-week supply</span></span><span class="p" data-bp="single"></span></label>
-            <label class="opt"><span class="flag">Most chosen</span><input type="radio" name="bundle" value="duo" id="b-duo"><span class="dot"></span><span><span class="t">2 bottles</span><span class="d">16-week full course</span></span><span class="p" data-bp="duo"></span></label>
-            <label class="opt"><span class="flag" style="background:var(--navy);color:var(--navy-ink)">Best value</span><input type="radio" name="bundle" value="trio" id="b-trio"><span class="dot"></span><span><span class="t">3 bottles</span><span class="d">24-week supply</span></span><span class="p" data-bp="trio"></span></label>
-          </fieldset>
-
-          <fieldset>
-            <legend>Purchase type</legend>
-            <div class="ptypes">
-              <label class="opt"><input type="radio" name="ptype" value="once" checked id="pt-once"><span class="dot"></span><span><span class="t">One-time</span><span class="d">Pay as you go</span></span></label>
-              <label class="opt"><input type="radio" name="ptype" value="sub" id="pt-sub"><span class="dot"></span><span><span class="t">Subscribe, save 15%</span><span class="d">Ships every 8 weeks · cancel anytime</span></span></label>
-            </div>
-          </fieldset>
-
-          <div class="buy-row">
-            <div class="qty"><button type="button" data-q="-1" aria-label="Decrease quantity">−</button><input id="qty" type="number" min="1" max="10" value="1" aria-label="Quantity"><button type="button" data-q="1" aria-label="Increase quantity">+</button></div>
-            <button class="btn btn-accent btn-lg" type="submit">Add to cart</button>
-          </div>
-
-          <div class="assure">
-            <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>Free shipping over $100</div>
-            <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v4h4"/></svg>60-day guarantee</div>
-            <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Secure checkout</div>
-          </div>
-
-          <div class="acc">
-            <div class="acc-item"><button type="button" aria-expanded="true">Benefits</button><div class="panel"><ul><li>Fades the look of dark spots, sun spots and post-acne marks</li><li>Evens out tone and boosts radiance</li><li>Strengthens the skin barrier with niacinamide</li><li>Light, fast-absorbing, layers under SPF and makeup</li></ul></div></div>
-            <div class="acc-item"><button type="button" aria-expanded="false">How to use</button><div class="panel" hidden><p>Morning and night, press 3–4 drops into clean, dry skin on the face and neck. Follow with moisturiser. Every morning, finish with broad-spectrum SPF 30+. Patch test on your inner arm 24 hours before first use.</p></div></div>
-            <div class="acc-item"><button type="button" aria-expanded="false">Full ingredient list</button><div class="panel" hidden><p style="font-size:.88rem">Aqua (Water), Azelaic Acid, Niacinamide, Propanediol, Tranexamic Acid, Alpha-Arbutin, Glycerin, Glycyrrhiza Glabra (Licorice) Root Extract, Tetrahexyldecyl Ascorbate, Sodium Hyaluronate, Panthenol, Allantoin, Xanthan Gum, Hydroxyethylcellulose, Sodium Phytate, Ethylhexylglycerin, Phenoxyethanol.</p></div></div>
-            <div class="acc-item"><button type="button" aria-expanded="false">Shipping &amp; returns</button><div class="panel" hidden><p>Ships within 1 business day. US delivery takes 3–5 business days and is free over $100. Not happy? Contact us within 60 days of delivery for a full refund.</p></div></div>
-          </div>
-          <p class="note">*Expected timeline for these actives with twice-daily use and daily SPF. Individual results vary.</p>
-        </form>
-      </div>
+      <div><b>Hydroquinone-free</b><span>Suitable for long-term use</span></div>
+      <div><b>No mercury or steroids</b><span>Full ingredient disclosure</span></div>
+      <div><b>Fragrance-free</b><span>Formulated for sensitive skin</span></div>
+      <div><b>All skin tones</b><span>Fitzpatrick types I–VI</span></div>
     </div>
   </div>
 
-  <!-- ============ FAQ ============ -->
-  <div data-view="faq" hidden>
+  <section class="band" id="conditions">
     <div class="wrap">
-      <div class="faq-hero">
-        <span class="eyebrow">Help centre</span>
-        <h1 style="font-size:clamp(2.2rem,5vw,3.4rem)">Questions, answered</h1>
-        <p class="lede">Everything about Vermona, your results and your order.</p>
-        <div class="search">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
-          <label for="faq-q" hidden>Search questions</label>
-          <input id="faq-q" type="search" placeholder="Search, e.g. melasma, pregnancy, shipping" autocomplete="off">
+      <div class="sec-head">
+        <div><span class="label">Conditions</span><h2>Treatment by condition, not by trend.</h2></div>
+        <p class="lede">Pigmentation has different causes and different timelines. Your assessment tells us which one you're treating, so your course length and routine fit your skin.</p>
+      </div>
+      <div class="conditions">
+        <button class="cond" data-assess data-pre="melasma"><div class="swatch" data-skin="medium" data-strength="1" data-pattern="patch"></div><h3>Melasma</h3><p>Symmetrical patches on the cheeks, forehead or upper lip, often linked to hormones and heat.</p><span class="meta">Typical course · 16+ weeks</span></button>
+        <button class="cond" data-assess data-pre="sun"><div class="swatch" data-skin="light" data-strength="1"></div><h3>Sun &amp; age spots</h3><p>Defined brown spots (solar lentigines) caused by cumulative UV exposure.</p><span class="meta">Typical course · 8–16 weeks</span></button>
+        <button class="cond" data-assess data-pre="pih"><div class="swatch" data-skin="deep" data-strength="1"></div><h3>Post-inflammatory marks</h3><p>Dark marks left after acne, eczema or irritation. More persistent in deeper skin tones.</p><span class="meta">Typical course · 8–12 weeks</span></button>
+        <button class="cond" data-assess data-pre="tone"><div class="swatch" data-skin="medium" data-strength="0.6" data-pattern="diffuse"></div><h3>Uneven tone</h3><p>Diffuse blotchiness and dullness without distinct spots or patches.</p><span class="meta">Typical course · 8 weeks</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="band deep" id="science">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="label">The science</span><h2>Pigment forms in four stages. Vermona addresses each one.</h2></div>
+        <p class="lede">Most brightening products act on a single step. Vermona combines actives with complementary mechanisms so excess melanin is reduced at the signal, the source, the transfer and the surface.</p>
+      </div>
+      <div class="pathway">
+        <div class="stage">
+          <div class="node"><span>1</span><i></i></div>
+          <h4>Signal</h4>
+          <p>UV, heat and inflammation tell melanocytes to produce more pigment.</p>
+          <div class="melanin" aria-hidden="true"><b style="height:8px"></b><b style="height:8px;opacity:.5"></b></div>
+          <div class="actives"><span>Tranexamic acid</span><span>Licorice root</span></div>
+        </div>
+        <div class="stage">
+          <div class="node"><span>2</span><i></i></div>
+          <h4>Production</h4>
+          <p>The enzyme tyrosinase converts tyrosine into melanin.</p>
+          <div class="melanin" aria-hidden="true"><b style="height:14px"></b><b style="height:20px"></b><b style="height:12px"></b></div>
+          <div class="actives"><span>Alpha arbutin</span><span>Azelaic acid</span></div>
+        </div>
+        <div class="stage">
+          <div class="node"><span>3</span><i></i></div>
+          <h4>Transfer</h4>
+          <p>Melanin is packaged and passed up to surface skin cells.</p>
+          <div class="melanin" aria-hidden="true"><b style="height:24px"></b><b style="height:18px"></b><b style="height:26px"></b><b style="height:14px"></b></div>
+          <div class="actives"><span>Niacinamide</span></div>
+        </div>
+        <div class="stage">
+          <div class="node"><span>4</span><i></i></div>
+          <h4>Surface</h4>
+          <p>Pigmented cells sit at the surface and show as visible spots.</p>
+          <div class="melanin" aria-hidden="true"><b style="height:26px"></b><b style="height:28px"></b><b style="height:22px"></b><b style="height:26px"></b><b style="height:18px"></b></div>
+          <div class="actives"><span>Azelaic acid</span><span>Vitamin C (THD)</span></div>
         </div>
       </div>
-      <div class="faq-layout">
-        <nav class="faq-nav" aria-label="FAQ sections" id="faq-nav"></nav>
+
+      <div class="formula-wrap">
+        <div style="display:grid;gap:14px">
+          <span class="label">Formula</span>
+          <h3 style="font-size:1.8rem">Concentrations, disclosed.</h3>
+          <p class="lede">Every active is listed with its concentration and its role. Full INCI list available on the treatment page.</p>
+        </div>
+        <div class="table-scroll">
+          <table class="spec">
+            <thead><tr><th>Active</th><th>Conc.</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td>Tranexamic acid</td><td class="num">3.0%</td><td>Reduces pigment signalling; widely used for melasma</td></tr>
+              <tr><td>Alpha arbutin</td><td class="num">2.0%</td><td>Tyrosinase inhibitor; slows new melanin formation</td></tr>
+              <tr><td>Niacinamide</td><td class="num">5.0%</td><td>Limits melanosome transfer; supports the skin barrier</td></tr>
+              <tr><td>Azelaic acid</td><td class="num">10.0%</td><td>Tyrosinase inhibitor; anti-inflammatory for post-acne marks</td></tr>
+              <tr><td>Licorice root + THD ascorbate</td><td class="num">1.0%</td><td>Antioxidant protection; calms UV-triggered inflammation</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="label">How it works</span><h2>A structured course, not a guess.</h2></div>
+        <p class="lede">Pigmentation responds to consistency. Each step is designed to keep your treatment on track from the first application to your final check-in.</p>
+      </div>
+      <div class="process">
+        <div class="step"><span class="k">Step 1 · 3 minutes</span><h3>Skin assessment</h3><p>Tell us your condition, skin type, Fitzpatrick type and history. We flag anything that needs a doctor first, such as pregnancy or a changing spot.</p></div>
+        <div class="step"><span class="k">Step 2 · Ships in 1 day</span><h3>Your regimen</h3><p>You receive the course length recommended for your condition, with a morning and evening routine and patch-test guidance.</p></div>
+        <div class="step"><span class="k">Step 3 · Weeks 4, 8, 12</span><h3>Progress check-ins</h3><p>Photo reminders under consistent lighting help you track change. Our skincare team answers questions throughout your course.</p></div>
+      </div>
+      <div class="hero-ctas" style="margin-top:44px"><button class="btn btn-primary arrow" data-assess>Start your skin assessment</button></div>
+    </div>
+  </section>
+
+  <section class="band surface" id="results">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="label">Results</span><h2>Spots fade. Your natural tone stays.</h2></div>
+        <p class="lede">Drag to compare. Each case lists the condition, protocol and duration so you can see what to expect for your own skin.</p>
+      </div>
+      <div class="ba-grid">
+        <div class="case">
+          <div class="ba" data-ba="deep"><div class="layer before"></div><div class="layer after"></div><span class="tag l">Week 0</span><span class="tag r">Week 8</span><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Compare week 0 and week 8, post-inflammatory marks" id="ba-1"></div>
+          <dl><dt>Condition</dt><dd>Post-inflammatory hyperpigmentation</dd><dt>Skin type</dt><dd>Fitzpatrick V</dd><dt>Protocol</dt><dd>Twice daily + SPF 30, 8 weeks</dd></dl>
+        </div>
+        <div class="case">
+          <div class="ba" data-ba="medium" data-pattern="patch"><div class="layer before"></div><div class="layer after"></div><span class="tag l">Week 0</span><span class="tag r">Week 16</span><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Compare week 0 and week 16, melasma" id="ba-2"></div>
+          <dl><dt>Condition</dt><dd>Epidermal melasma</dd><dt>Skin type</dt><dd>Fitzpatrick IV</dd><dt>Protocol</dt><dd>Twice daily + SPF 50, 16 weeks</dd></dl>
+        </div>
+        <div class="case">
+          <div class="ba" data-ba="light"><div class="layer before"></div><div class="layer after"></div><span class="tag l">Week 0</span><span class="tag r">Week 12</span><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Compare week 0 and week 12, sun spots" id="ba-3"></div>
+          <dl><dt>Condition</dt><dd>Solar lentigines</dd><dt>Skin type</dt><dd>Fitzpatrick II</dd><dt>Protocol</dt><dd>Twice daily + SPF 30, 12 weeks</dd></dl>
+        </div>
+      </div>
+      <p class="small" style="margin-top:24px">Images are illustrations for layout. Replace with consented, unretouched photographs taken under standardised lighting. Individual results vary.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="label">Customer stories</span><h2>In their words.</h2></div>
+        <span class="placeholder-note">Placeholder · connect verified reviews</span>
+      </div>
+      <div class="stories">
+        <figure class="story" style="margin:0"><blockquote>A verified customer's quote about their melasma treatment goes here.</blockquote><footer>Customer name · Melasma · 16-week course</footer></figure>
+        <figure class="story" style="margin:0"><blockquote>A verified customer's quote about fading post-acne marks goes here.</blockquote><footer>Customer name · Post-inflammatory marks · 8 weeks</footer></figure>
+        <figure class="story" style="margin:0"><blockquote>A verified customer's quote about sun spots goes here.</blockquote><footer>Customer name · Sun spots · 12 weeks</footer></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band surface">
+    <div class="wrap closing">
+      <div style="display:grid;gap:18px">
+        <span class="label">Common questions</span>
+        <h2>Before you begin.</h2>
+        <p class="lede">The questions people ask most about safety, timelines and skin tone.</p>
+        <div class="hero-ctas"><a class="btn btn-outline arrow" href="#faq">All questions</a></div>
+      </div>
+      <div class="qa-list" id="faq-teaser"></div>
+    </div>
+  </section>
+
+  <section class="band deep">
+    <div class="wrap closing">
+      <div style="display:grid;gap:18px">
+        <span class="label">Get started</span>
+        <h2>Find the right course for your skin.</h2>
+        <p class="lede">Three minutes. No account needed. You'll get a recommended course length and routine for your condition.</p>
+        <div class="hero-ctas"><button class="btn btn-light arrow" data-assess>Start your skin assessment</button><a class="btn" style="border-color:var(--deep-muted);color:var(--deep-ink)" href="#treatment">View treatment</a></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- =============== TREATMENT (product) =============== -->
+<div data-view="treatment" hidden>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="#home">Vermona</a> / Treatment</nav>
+    <div class="pdp">
+      <div class="gallery">
+        <div class="g-main">
+          <div data-slide="0"><span data-bottle></span></div>
+          <div data-slide="1" hidden><div class="ba" data-ba="medium" data-pattern="patch" style="width:100%;height:100%;aspect-ratio:auto;border-radius:0"><div class="layer before"></div><div class="layer after"></div><span class="tag l">Week 0</span><span class="tag r">Week 16</span><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Compare before and after" id="ba-pdp"></div></div>
+          <div data-slide="2" hidden class="g-sheet">
+            <span class="label">Specification</span>
+            <table>
+              <tr><td>Volume</td><td>30 ml / 1.0 fl oz</td></tr>
+              <tr><td>pH</td><td>4.6–5.0</td></tr>
+              <tr><td>Texture</td><td>Light serum</td></tr>
+              <tr><td>Use</td><td>AM + PM</td></tr>
+              <tr><td>Course</td><td>≈ 8 weeks / bottle</td></tr>
+              <tr><td>Fragrance</td><td>None</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="g-thumbs">
+          <button aria-pressed="true" data-thumb="0" aria-label="Bottle"><span data-bottle></span></button>
+          <button aria-pressed="false" data-thumb="1" aria-label="Before and after"><span data-skin="medium" data-strength="1" data-pattern="patch" style="width:100%;height:100%;display:block"></span></button>
+          <button aria-pressed="false" data-thumb="2" aria-label="Specification">SPEC</button>
+          <button aria-pressed="false" data-goto-home="science" aria-label="See the science">SCIENCE →</button>
+        </div>
+      </div>
+
+      <form class="buy" id="buy" novalidate>
+        <span class="label">Treatment for hyperpigmentation</span>
+        <h1>Vermona Pigment Corrector</h1>
+        <p class="sub">A twice-daily serum with five actives that reduces the appearance of dark spots, melasma and post-inflammatory marks. Hydroquinone-free and formulated for Fitzpatrick types I–VI.</p>
+        <div class="indications"><span>Melasma</span><span>Sun &amp; age spots</span><span>Post-acne marks</span><span>Uneven tone</span></div>
+
+        <fieldset>
+          <legend>Course length</legend>
+          <label class="opt"><input type="radio" name="course" value="c8" checked id="c8"><span class="dot"></span><span><span class="t">8-week course</span><span class="d">1 bottle · newer or lighter spots</span></span><span class="p" data-cp="c8"></span></label>
+          <label class="opt"><input type="radio" name="course" value="c16" id="c16"><span class="dot"></span><span><span class="t">16-week course</span><span class="rec">Recommended</span><span class="d">2 bottles · melasma and established spots</span></span><span class="p" data-cp="c16"></span></label>
+          <label class="opt"><input type="radio" name="course" value="c24" id="c24"><span class="dot"></span><span><span class="t">24-week course</span><span class="d">3 bottles · long-standing or extensive pigmentation</span></span><span class="p" data-cp="c24"></span></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Delivery</legend>
+          <label class="opt"><input type="radio" name="plan" value="once" checked id="once"><span class="dot"></span><span><span class="t">Single order</span><span class="d">Delivered once</span></span></label>
+          <label class="opt"><input type="radio" name="plan" value="refill" id="refill"><span class="dot"></span><span><span class="t">Auto-refill, 15% less</span><span class="d">Next course ships before you run out. Pause or cancel anytime.</span></span></label>
+        </fieldset>
+
+        <div class="summary" aria-live="polite">
+          <div class="row"><span id="s-line">8-week course</span><span id="s-price">$129</span></div>
+          <div class="row"><span>Shipping</span><span>Free</span></div>
+          <div class="row total"><span>Total today</span><span id="s-total">$129</span></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block arrow" style="padding:17px">Add treatment to order</button>
+        <p class="small">Not sure which course? <button type="button" class="textlink" data-assess>Take the 3-minute assessment</button></p>
+
+        <div class="assure">
+          <div><b>60-day guarantee</b>Full refund on your first course if you're not satisfied.</div>
+          <div><b>Ships in 1 business day</b>Free US delivery in 3–5 days.</div>
+          <div><b>Skincare team</b>Questions answered within 24 hours.</div>
+        </div>
+
         <div>
-          <p id="faq-empty" class="lede" hidden>No questions match that search. Try another word, or contact us below.</p>
-          <div id="faq-groups"></div>
-          <div class="contact">
-            <h2 style="font-size:1.6rem">Still have a question?</h2>
-            <p style="color:var(--ink-2)">Our skincare team replies within 24 hours on weekdays.</p>
-            <code>support@vermona.example</code>
-          </div>
+          <div class="acc-item"><button type="button" aria-expanded="true">Directions</button><div class="panel"><p>Apply 3–4 drops to clean, dry skin morning and evening. Follow with moisturiser. Apply broad-spectrum SPF 30+ every morning. Patch test on the inner arm 24 hours before first use. Mild tingling in the first week is normal; discontinue if irritation persists.</p></div></div>
+          <div class="acc-item"><button type="button" aria-expanded="false">Who it's for</button><div class="panel" hidden><ul><li>Adults with melasma, sun spots, post-inflammatory hyperpigmentation or uneven tone</li><li>All Fitzpatrick skin types (I–VI)</li><li>Sensitive skin, with a gradual start</li></ul><p style="margin-top:10px">If you are pregnant or breastfeeding, or have a spot that is changing, bleeding or irregular, speak to a doctor before use.</p></div></div>
+          <div class="acc-item"><button type="button" aria-expanded="false">Full ingredients (INCI)</button><div class="panel" hidden><p style="font-size:.88rem">Aqua (Water), Azelaic Acid, Niacinamide, Propanediol, Tranexamic Acid, Alpha-Arbutin, Glycerin, Glycyrrhiza Glabra (Licorice) Root Extract, Tetrahexyldecyl Ascorbate, Sodium Hyaluronate, Panthenol, Allantoin, Xanthan Gum, Hydroxyethylcellulose, Sodium Phytate, Ethylhexylglycerin, Phenoxyethanol.</p></div></div>
+          <div class="acc-item"><button type="button" aria-expanded="false">Expected timeline</button><div class="panel" hidden><ul><li>Weeks 1–2: more even, radiant-looking skin</li><li>Weeks 4–8: spots and marks look visibly lighter</li><li>Weeks 12–16: melasma and long-standing spots improve</li></ul></div></div>
         </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- =============== FAQ =============== -->
+<div data-view="faq" hidden>
+  <div class="wrap">
+    <div class="faq-hero">
+      <span class="label">Help centre</span>
+      <h1 style="font-size:clamp(2.2rem,5vw,3.4rem)">Frequently asked questions</h1>
+      <div class="search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <label for="faq-q" hidden>Search questions</label>
+        <input id="faq-q" type="search" placeholder="Search: melasma, pregnancy, shipping…" autocomplete="off">
+      </div>
+    </div>
+    <div class="faq-layout">
+      <nav class="faq-nav" id="faq-nav" aria-label="FAQ sections"></nav>
+      <div>
+        <p class="lede" id="faq-empty" hidden>No questions match that search. Contact our skincare team below.</p>
+        <div id="faq-groups"></div>
+        <div class="contact"><h3>Contact our skincare team</h3><p style="color:var(--ink-2)">We reply within 24 hours, Monday to Friday.</p><code>care@vermona.example</code></div>
       </div>
     </div>
   </div>
+</div>
 </main>
 
 <footer class="foot">
   <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a class="logo" href="#home" style="margin-bottom:10px"><i aria-hidden="true"></i>Vermona</a>
-        <p>Brightening skincare that fades dark spots, made for every skin tone.</p>
-      </div>
-      <div><h4>Shop</h4><ul><li><a href="#shop">Dark Spot Corrector</a></li><li><button data-quiz>Skin quiz</button></li><li><button data-open-cart>Cart</button></li></ul></div>
-      <div><h4>Help</h4><ul><li><a href="#faq">FAQ</a></li><li><a href="#faq">Shipping &amp; returns</a></li><li><a href="#faq">Contact</a></li></ul></div>
+    <div class="f-grid">
+      <div style="display:grid;gap:12px;align-content:start"><a class="brand" href="#home"><b>Vermona</b><small>Clinical Skincare</small></a><p style="max-width:36ch">Evidence-led treatment for hyperpigmentation, formulated for every skin tone.</p></div>
+      <div><h4>Treatment</h4><ul><li><a href="#treatment">Pigment Corrector</a></li><li><button data-assess>Skin assessment</button></li><li><button data-open-cart>Your order</button></li></ul></div>
+      <div><h4>Learn</h4><ul><li><button data-goto="conditions">Conditions</button></li><li><button data-goto="science">Science</button></li><li><button data-goto="results">Results</button></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="#faq">FAQ</a></li><li><a href="#faq">Shipping &amp; returns</a></li><li><a href="#faq">Contact</a></li></ul></div>
     </div>
     <div class="legal">
-      <p>*These statements have not been evaluated by the Food and Drug Administration. Vermona is a cosmetic and is not intended to diagnose, treat, cure or prevent any disease. Individual results vary. Before/after images are illustrations. Patch test before use and wear broad-spectrum SPF 30+ daily. See a dermatologist about any spot that changes, bleeds or looks unusual.</p>
+      <p>Vermona Pigment Corrector is a cosmetic product. It is not intended to diagnose, treat, cure or prevent any disease, and these statements have not been evaluated by the Food and Drug Administration. Individual results vary. Before-and-after images are illustrations. Always patch test, use broad-spectrum SPF daily, and consult a dermatologist about any spot that changes in size, shape or colour.</p>
       <p>© 2026 Vermona Skincare · Concept site</p>
     </div>
   </div>
 </footer>
 
 <div class="scrim" id="scrim"></div>
-<aside class="drawer" id="drawer" aria-label="Cart">
-  <div class="drawer-head"><h3>Your cart</h3><button class="x" data-close aria-label="Close cart"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <div class="drawer-body" id="cart-body"></div>
-  <div class="drawer-foot" id="cart-foot"></div>
+<aside class="drawer" id="drawer" aria-label="Your order">
+  <div class="d-head"><h3 style="font-size:1.4rem">Your order</h3><button class="x" data-close aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="d-body" id="d-body"></div>
+  <div class="d-foot" id="d-foot"></div>
 </aside>
 
-<div class="modal" id="quiz" role="dialog" aria-modal="true" aria-labelledby="quiz-title">
-  <div class="modal-card">
-    <div class="quiz-top"><span class="eyebrow" id="quiz-step">Question 1 of 4</span><button class="x" data-close aria-label="Close quiz"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-    <div class="progress"><span id="quiz-bar" style="width:25%"></span></div>
-    <div id="quiz-body" style="display:grid;gap:16px"></div>
+<div class="modal" id="assess" role="dialog" aria-modal="true" aria-labelledby="a-title">
+  <div class="m-card">
+    <div class="m-top"><span class="label" id="a-step">Skin assessment</span><button class="x" data-close aria-label="Close assessment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="prog" id="a-prog"></div>
+    <div id="a-body" style="display:grid;gap:18px"></div>
   </div>
 </div>
 
@@ -692,42 +697,39 @@ footer.foot { background: var(--surface); border-top: 1px solid var(--line); pad
   "use strict";
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
-  const money = (n) => "$" + (Math.round(n * 100) / 100).toFixed(n % 1 ? 2 : 0);
+  const money = (n) => "$" + (n % 1 ? n.toFixed(2) : String(n));
 
-  /* ---------- Product data ---------- */
-  const COMPARE_AT = 159;
-  const SUB_OFF = 0.15;
-  const FREE_SHIP = 100;
-  const BUNDLES = {
-    single: { label: "1 bottle", supply: "8-week supply", units: 1, total: 129 },
-    duo: { label: "2 bottles", supply: "16-week course", units: 2, total: 229 },
-    trio: { label: "3 bottles", supply: "24-week supply", units: 3, total: 309 },
+  /* ---------- Pricing (only shown on the Treatment page) ---------- */
+  const COURSES = {
+    c8: { name: "8-week course", units: 1, price: 129 },
+    c16: { name: "16-week course", units: 2, price: 229 },
+    c24: { name: "24-week course", units: 3, price: 309 },
   };
-  const line = (b, sub) => {
-    const B = BUNDLES[b];
-    const price = sub ? Math.round(B.total * (1 - SUB_OFF) * 100) / 100 : B.total;
-    return { key: b + (sub ? "-sub" : ""), name: "Dark Spot Corrector", variant: B.label + " · " + B.supply + (sub ? " · Subscription" : ""), price };
-  };
+  const REFILL_OFF = 0.15;
+  const priceOf = (c, refill) => Math.round(COURSES[c].price * (refill ? 1 - REFILL_OFF : 1) * 100) / 100;
+  const item = (c, refill) => ({ key: c + (refill ? "-r" : ""), name: "Vermona Pigment Corrector", variant: COURSES[c].name + (refill ? " · auto-refill" : ""), price: priceOf(c, refill) });
 
   /* ---------- Art ---------- */
   let uid = 0;
   function bottle(cls) {
-    const u = "b" + ++uid;
-    return `<svg class="${cls || "bottle"}" viewBox="0 0 200 420" role="img" aria-label="Vermona serum bottle">
+    const u = "v" + ++uid;
+    return `<svg class="${cls === undefined ? "bottle" : cls}" viewBox="0 0 200 420" role="img" aria-label="Vermona Pigment Corrector bottle">
       <defs>
-        <linearGradient id="${u}g" x1="0" x2="1"><stop offset="0" stop-color="#f3dbe2"/><stop offset=".35" stop-color="#ffffff"/><stop offset=".65" stop-color="#f6e6eb"/><stop offset="1" stop-color="#dcbcc6"/></linearGradient>
-        <linearGradient id="${u}c" x1="0" x2="1"><stop offset="0" stop-color="#1b2550"/><stop offset=".45" stop-color="#3a4a8a"/><stop offset="1" stop-color="#141c3e"/></linearGradient>
-        <linearGradient id="${u}k" x1="0" x2="1"><stop offset="0" stop-color="#1a1c2c"/><stop offset=".45" stop-color="#3a3d55"/><stop offset="1" stop-color="#111220"/></linearGradient>
+        <linearGradient id="${u}g" x1="0" x2="1"><stop offset="0" stop-color="#dfe5e8"/><stop offset=".3" stop-color="#fbfcfc"/><stop offset=".7" stop-color="#eef2f3"/><stop offset="1" stop-color="#cfd7db"/></linearGradient>
+        <linearGradient id="${u}c" x1="0" x2="1"><stop offset="0" stop-color="#123f43"/><stop offset=".45" stop-color="#2a6d72"/><stop offset="1" stop-color="#0d3134"/></linearGradient>
+        <linearGradient id="${u}k" x1="0" x2="1"><stop offset="0" stop-color="#cfd6da"/><stop offset=".5" stop-color="#f4f6f7"/><stop offset="1" stop-color="#b9c2c7"/></linearGradient>
       </defs>
-      <ellipse cx="100" cy="40" rx="28" ry="34" fill="url(#${u}k)"/>
-      <rect x="70" y="64" width="60" height="72" rx="8" fill="url(#${u}c)"/>
-      <path d="M38 166 Q38 138 68 138 H132 Q162 138 162 166 V390 Q162 414 138 414 H62 Q38 414 38 390 Z" fill="url(#${u}g)" stroke="#d9b7c2" stroke-width="1.5"/>
-      <path d="M52 172 V382" stroke="#fff" stroke-opacity=".9" stroke-width="6" stroke-linecap="round"/>
-      <text x="100" y="250" text-anchor="middle" font-family="Bricolage Grotesque, Arial, sans-serif" font-weight="700" font-size="21" fill="#1a1c2c">Vermona</text>
-      <line x1="72" y1="262" x2="128" y2="262" stroke="#c43f68" stroke-width="1.6"/>
-      <text x="100" y="281" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-weight="700" font-size="7.2" letter-spacing="1" fill="#4b4e63">DARK SPOT</text>
-      <text x="100" y="292" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-weight="700" font-size="7.2" letter-spacing="1" fill="#4b4e63">CORRECTOR</text>
-      <text x="100" y="372" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="6.4" letter-spacing=".8" fill="#7b7d90">30 ml · 1.0 fl oz</text>
+      <ellipse cx="100" cy="38" rx="24" ry="30" fill="url(#${u}k)"/>
+      <rect x="72" y="60" width="56" height="76" rx="4" fill="url(#${u}c)"/>
+      <rect x="72" y="128" width="56" height="4" fill="#000" opacity=".15"/>
+      <path d="M40 160 Q40 138 64 138 H136 Q160 138 160 160 V394 Q160 414 140 414 H60 Q40 414 40 394 Z" fill="url(#${u}g)" stroke="#c7d0d5" stroke-width="1"/>
+      <path d="M54 170 V386" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+      <text x="100" y="214" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="22" fill="#0e1a2b">Vermona</text>
+      <text x="100" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="6.4" letter-spacing="1.4" fill="#435060">PIGMENT CORRECTOR</text>
+      <line x1="66" y1="246" x2="134" y2="246" stroke="#1f5e63" stroke-width=".8"/>
+      <text x="100" y="262" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="6" fill="#435060">TXA 3% · NIA 5%</text>
+      <text x="100" y="274" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="6" fill="#435060">AZA 10% · ARB 2%</text>
+      <text x="100" y="380" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="5.6" letter-spacing=".8" fill="#727e8b">30 ml · 1.0 fl oz</text>
     </svg>`;
   }
 
@@ -736,131 +738,75 @@ footer.foot { background: var(--surface); border-top: 1px solid var(--line); pad
     medium: { tone: "#c99673", shade: "#6a3b22", spots: [[130,120,24],[270,150,30],[180,230,18],[320,290,24],[110,310,32],[240,380,20]] },
     light: { tone: "#f0cdb4", shade: "#a4603f", spots: [[90,110,14],[160,150,10],[230,120,12],[300,170,16],[140,250,18],[260,270,13],[200,340,15],[320,350,10],[100,380,12]] },
   };
-  function skin(kind, strength) {
+  const PATTERNS = {
+    patch: [[140,160,80],[280,190,70],[200,300,60]],
+    diffuse: [[80,90,50],[220,80,60],[330,180,55],[120,250,65],[260,300,60],[90,370,45],[330,380,50]],
+  };
+  function skin(kind, strength, pattern) {
     const c = SKIN[kind], u = "s" + ++uid;
-    const spots = c.spots.map(([x, y, r]) => `<ellipse cx="${x}" cy="${y}" rx="${r}" ry="${(r * 0.82).toFixed(1)}" fill="${c.shade}" opacity="${(0.8 * strength).toFixed(2)}" filter="url(#${u}f)"/>`).join("");
+    const list = pattern ? PATTERNS[pattern] : c.spots;
+    const blur = pattern === "patch" ? 22 : pattern === "diffuse" ? 26 : 7;
+    const op = pattern ? 0.55 : 0.8;
+    const spots = list.map(([x, y, r]) => `<ellipse cx="${x}" cy="${y}" rx="${r}" ry="${(r * 0.8).toFixed(1)}" fill="${c.shade}" opacity="${(op * strength).toFixed(2)}" filter="url(#${u}f)"/>`).join("");
     let pores = "";
     for (let i = 0; i < 70; i++) pores += `<circle cx="${(i * 53) % 400}" cy="${(i * 97) % 400}" r="1.1" fill="#000" opacity=".05"/>`;
     return `<svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs><filter id="${u}f" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7"/></filter>
-      <radialGradient id="${u}l" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#fff" stop-opacity="${strength < 1 ? 0.28 : 0.12}"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+      <defs><filter id="${u}f" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="${blur}"/></filter>
+      <radialGradient id="${u}l" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#fff" stop-opacity="${strength < 1 ? 0.24 : 0.1}"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
       <rect width="400" height="400" fill="${c.tone}"/>${spots}${pores}<rect width="400" height="400" fill="url(#${u}l)"/></svg>`;
   }
 
-  /* ---------- Content ---------- */
-  const CONCERNS = {
-    sun: { title: "Sun & age spots", ba: "light", after: "Week 10",
-      body: "Flat brown spots caused by years of UV exposure. They often show up on the cheeks, forehead and hands.",
-      list: ["Alpha arbutin slows new spot formation", "Vitamin C and licorice add antioxidant protection", "Pair with daily SPF to stop new spots forming"],
-      time: ["Wk 2 brighter", "Wk 6 softer edges", "Wk 10+ visibly lighter"] },
-    melasma: { title: "Melasma", ba: "medium", after: "Week 12",
-      body: "Larger, patchy areas often linked to hormones, heat and sun. It's stubborn and needs a gentle, consistent routine.",
-      list: ["Tranexamic acid targets the signals behind melasma", "No hydroquinone, so it's suitable for long-term use", "We suggest the 16-week full course"],
-      time: ["Wk 4 calmer", "Wk 8 lighter patches", "Wk 16 more even"] },
-    acne: { title: "Post-acne marks", ba: "deep", after: "Week 8",
-      body: "Dark marks left behind after breakouts heal. They're especially common and long-lasting on deeper skin tones.",
-      list: ["Azelaic acid fades marks and calms redness", "Niacinamide stops pigment reaching the surface", "Non-comedogenic, so it won't clog pores"],
-      time: ["Wk 2 less redness", "Wk 4 marks fading", "Wk 8 clearer"] },
-    tone: { title: "Uneven tone", ba: "medium", after: "Week 6",
-      body: "Blotchy, dull or patchy areas that make skin look uneven even without distinct spots.",
-      list: ["Five actives work together for an even glow", "Lightweight and wears well under makeup", "Keeps your natural tone and evens out patches"],
-      time: ["Day 1 hydrated", "Wk 2 more radiant", "Wk 6 more even"] },
-  };
-
-  const REVIEWS = [
-    { t: "Spots on my cheeks look lighter", c: "Sun spots · 6 weeks", r: 5 },
-    { t: "Gentle, absorbs in seconds", c: "Post-acne marks · 4 weeks", r: 5 },
-    { t: "No irritation at all", c: "Melasma · 10 weeks", r: 5 },
-    { t: "Skin looks more even", c: "Uneven tone · 8 weeks", r: 4 },
-    { t: "Worked on my deeper skin tone", c: "Post-acne marks · 5 weeks", r: 5 },
-    { t: "Easy to fit into my routine", c: "Dark spots · 6 weeks", r: 5 },
-  ];
-
-  const FAQ = [
-    { id: "results", name: "Results", items: [
-      ["How quickly will I see results?", "Most people notice brighter, more radiant skin in about 2 weeks. Spots usually start looking softer around week 4, with clearer improvement at 8–12 weeks. Melasma and older spots take longer. Twice-daily use and daily SPF make the biggest difference."],
-      ["Will it change my natural skin colour?", "No. Vermona fades excess pigment in spots and patches. It is not designed to lighten your overall skin tone."],
-      ["Are results permanent?", "Faded spots can stay faded, but sun, hormones or breakouts can cause new ones. Daily SPF and a maintenance routine help keep skin even."],
-      ["Does it work on darker skin?", "Yes. Tranexamic acid, niacinamide, azelaic acid and alpha arbutin suit deeper skin tones, which are more prone to post-acne marks. The formula avoids harsh ingredients that can cause irritation-related darkening."],
-    ]},
-    { id: "safety", name: "Ingredients & safety", items: [
-      ["Does it contain hydroquinone or mercury?", "No. Vermona contains no hydroquinone, mercury, steroids or bleaching agents. Avoid any lightening product that doesn't publish a full ingredient list, because some contain dangerous mercury."],
-      ["Is it OK for sensitive skin?", "It's fragrance-free and pH-balanced. Azelaic acid can cause a mild tingle in the first week. Patch test for 24 hours first, and stop use if irritation continues."],
-      ["Can I use it while pregnant or breastfeeding?", "Please check with your doctor or midwife before starting any active skincare during pregnancy or breastfeeding."],
-      ["Is it cruelty-free and vegan?", "Yes. It's never tested on animals and has no animal-derived ingredients."],
-    ]},
-    { id: "use", name: "How to use", items: [
-      ["How do I apply it?", "Morning and night, press 3–4 drops into clean, dry skin. Follow with moisturiser, and finish with SPF 30+ every morning."],
-      ["Can I use it with retinol or acids?", "Yes. If you use retinoids or AHA/BHA exfoliants, alternate nights at first, then build up as your skin allows."],
-      ["How long does a bottle last?", "About 8 weeks with twice-daily use. For stubborn spots we recommend the 16-week course."],
-    ]},
-    { id: "shipping", name: "Shipping & returns", items: [
-      ["How long does shipping take?", "Orders ship within 1 business day. US delivery takes 3–5 business days and is free over $100. Express and international rates are shown at checkout."],
-      ["How does the 60-day guarantee work?", "If you're not happy, contact us within 60 days of delivery for a full refund on your first order, even if the bottle is empty."],
-    ]},
-    { id: "orders", name: "Orders & subscriptions", items: [
-      ["How does Subscribe & Save work?", "You get 15% off every order, delivered every 8 weeks. Skip, reschedule or cancel anytime from your account."],
-      ["Which payment methods do you accept?", "Visa, Mastercard, American Express, Apple Pay, Google Pay and PayPal."],
-    ]},
-  ];
-
-  /* ---------- Render static pieces ---------- */
   $$("[data-bottle]").forEach((el) => (el.outerHTML = bottle()));
-  $$("[data-skin]").forEach((el) => el.insertAdjacentHTML("afterbegin", skin(el.dataset.skin, +el.dataset.strength)));
-
-  $("#reviews").innerHTML = REVIEWS.map((r, i) => `
-    <article class="review">
-      <div class="stars" aria-label="${r.r} out of 5 stars">${"★".repeat(r.r)}${"☆".repeat(5 - r.r)}</div>
-      <h3 style="font-size:1.05rem">${r.t}</h3>
-      <p>Placeholder text. A real customer's review goes here, describing their concern, routine and what changed.</p>
-      <div class="who"><div class="av">${String.fromCharCode(65 + i)}</div><div><b>Sample customer</b><small>${r.c}</small></div></div>
-    </article>`).join("");
-
-  function initBA(el) {
-    const kind = el.dataset.ba;
-    $(".before", el).innerHTML = skin(kind, 1);
-    $(".after", el).innerHTML = skin(kind, 0.2);
+  $$("[data-skin]").forEach((el) => el.insertAdjacentHTML("afterbegin", skin(el.dataset.skin, +el.dataset.strength, el.dataset.pattern)));
+  $$(".ba").forEach((el) => {
+    $(".before", el).innerHTML = skin(el.dataset.ba, 1, el.dataset.pattern);
+    $(".after", el).innerHTML = skin(el.dataset.ba, 0.2, el.dataset.pattern);
     const input = $("input", el), after = $(".after", el), bar = $(".bar", el);
     const set = () => { after.style.clipPath = `inset(0 0 0 ${input.value}%)`; bar.style.left = input.value + "%"; };
-    input.oninput = set; set();
-  }
-  $$(".ba").forEach(initBA);
+    input.addEventListener("input", set); set();
+  });
 
-  /* Concern tabs */
-  function showConcern(key) {
-    const c = CONCERNS[key];
-    $$("[data-concern]").forEach((b) => b.setAttribute("aria-selected", b.dataset.concern === key));
-    $("#c-title").textContent = c.title;
-    $("#c-body").textContent = c.body;
-    $("#c-list").innerHTML = c.list.map((t) => `<li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5 9-10"/></svg>${t}</li>`).join("");
-    $("#c-time").innerHTML = c.time.map((t) => `<span>${t}</span>`).join("");
-    const ba = $(".concern-panel .ba");
-    ba.dataset.ba = c.ba; $("[data-ba-after]", ba).textContent = c.after; initBA(ba);
-  }
-  $$("[data-concern]").forEach((b) => b.addEventListener("click", () => showConcern(b.dataset.concern)));
-  showConcern("sun");
-
-  /* FAQ */
+  /* ---------- FAQ ---------- */
+  const FAQ = [
+    { id: "treatment", name: "About the treatment", items: [
+      ["How quickly will I see results?", "Skin often looks more even and radiant within 1–2 weeks. Spots and marks typically look lighter from weeks 4–8. Melasma and long-standing pigmentation usually need 12–16 weeks. Daily SPF is essential to results."],
+      ["Will it lighten my overall skin tone?", "No. Vermona targets excess pigment in spots and patches. It is not designed to change your natural skin tone."],
+      ["Does it work on darker skin tones?", "Yes. It is formulated for Fitzpatrick types I–VI. Its actives suit deeper skin, which is more prone to post-inflammatory hyperpigmentation, and it avoids harsh agents that can cause irritation-related darkening."],
+      ["Are results permanent?", "Faded pigment can stay faded, but UV, hormones and inflammation can trigger new spots. Daily sunscreen and a maintenance routine help keep results."],
+    ]},
+    { id: "safety", name: "Safety & ingredients", items: [
+      ["Does Vermona contain hydroquinone, mercury or steroids?", "No. Vermona contains none of these. Products containing mercury or undisclosed steroids can cause serious harm, so avoid any lightening product without a full ingredient list."],
+      ["Is it suitable for sensitive skin?", "It is fragrance-free with a skin-balanced pH. Azelaic acid can cause mild tingling in the first week. Patch test first, start once daily if your skin is sensitive, and stop if irritation persists."],
+      ["Can I use it while pregnant or breastfeeding?", "Please speak to your doctor or midwife before starting any active skincare during pregnancy or breastfeeding."],
+      ["When should I see a doctor instead?", "See a dermatologist about any spot that is new, changing in size, shape or colour, bleeding, itching or irregular in outline. These need medical assessment, not a cosmetic treatment."],
+    ]},
+    { id: "use", name: "Using Vermona", items: [
+      ["How do I apply it?", "Apply 3–4 drops to clean, dry skin morning and evening, then moisturiser. Finish with broad-spectrum SPF 30+ every morning."],
+      ["Can I use it with retinoids or exfoliating acids?", "Yes. Alternate nights at first, then build up as your skin tolerates it."],
+      ["How long does one bottle last?", "About 8 weeks with twice-daily use."],
+    ]},
+    { id: "orders", name: "Orders & shipping", items: [
+      ["How does auto-refill work?", "Your next course ships before you run out, at 15% less. Pause, change or cancel anytime from your account. There's no commitment."],
+      ["How long does shipping take?", "Orders ship within 1 business day. Free US delivery takes 3–5 business days."],
+      ["What is the 60-day guarantee?", "If you're not satisfied with your first course, contact us within 60 days of delivery for a full refund."],
+    ]},
+  ];
+  const accItem = (q, a, open) => `<div class="acc-item"><button type="button" aria-expanded="${open ? "true" : "false"}">${q}</button><div class="panel"${open ? "" : " hidden"}><p>${a}</p></div></div>`;
   $("#faq-nav").innerHTML = FAQ.map((g) => `<button type="button" data-jump="${g.id}">${g.name}</button>`).join("");
-  $("#faq-groups").innerHTML = FAQ.map((g) => `
-    <section class="faq-group" id="faq-${g.id}"><h2>${g.name}</h2><div class="acc">
-      ${g.items.map(([q, a]) => `<div class="acc-item"><button type="button" aria-expanded="false">${q}</button><div class="panel" hidden><p>${a}</p></div></div>`).join("")}
-    </div></section>`).join("");
+  $("#faq-groups").innerHTML = FAQ.map((g) => `<section class="faq-group" id="faq-${g.id}"><h2>${g.name}</h2><div>${g.items.map(([q, a]) => accItem(q, a)).join("")}</div></section>`).join("");
+  $("#faq-teaser").innerHTML = [FAQ[0].items[1], FAQ[1].items[0], FAQ[0].items[2]].map(([q, a]) => accItem(q, a)).join("");
   $$("[data-jump]").forEach((b) => b.addEventListener("click", () => $("#faq-" + b.dataset.jump).scrollIntoView({ behavior: "smooth" })));
   $("#faq-q").addEventListener("input", (e) => {
     const q = e.target.value.trim().toLowerCase();
-    let shown = 0;
+    let n = 0;
     $$("#faq-groups .acc-item").forEach((it) => {
       const hit = !q || it.textContent.toLowerCase().includes(q);
-      it.hidden = !hit;
-      if (hit) shown++;
+      it.hidden = !hit; if (hit) n++;
       if (q && hit) { $("button", it).setAttribute("aria-expanded", "true"); $(".panel", it).hidden = false; }
     });
     $$(".faq-group").forEach((g) => (g.hidden = !$$(".acc-item", g).some((i) => !i.hidden)));
-    $("#faq-empty").hidden = shown > 0;
+    $("#faq-empty").hidden = n > 0;
   });
-
-  /* Accordions (delegated) */
   document.addEventListener("click", (e) => {
     const b = e.target.closest(".acc-item > button");
     if (!b) return;
@@ -869,134 +815,139 @@ footer.foot { background: var(--surface); border-top: 1px solid var(--line); pad
     b.nextElementSibling.hidden = open;
   });
 
-  /* ---------- Views (hash routing) ---------- */
-  const VIEWS = ["home", "shop", "faq"];
+  /* ---------- Routing ---------- */
+  const VIEWS = ["home", "treatment", "faq"];
+  let pendingScroll = null;
   function route() {
     const v = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "home";
     $$("[data-view]").forEach((el) => (el.hidden = el.dataset.view !== v));
-    $$("[data-nav]").forEach((a) => { if (a.dataset.nav === v) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
-    window.scrollTo(0, 0);
+    $$("[data-nav]").forEach((a) => (a.dataset.nav === v ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current")));
+    if (pendingScroll && v === "home") { const id = pendingScroll; pendingScroll = null; requestAnimationFrame(() => document.getElementById(id).scrollIntoView()); }
+    else window.scrollTo(0, 0);
+  }
+  function goto(id) {
+    const onHome = !$('[data-view="home"]').hidden;
+    if (onHome) document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    else { pendingScroll = id; location.hash = "home"; }
   }
   window.addEventListener("hashchange", route);
   route();
 
-  /* ---------- Cart ---------- */
-  const KEY = "vermona-cart";
+  /* ---------- Order ---------- */
+  const KEY = "vermona-order";
   let cart = [];
   try { cart = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { cart = []; }
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(cart)); } catch (e) {} render(); };
-  const add = (l, qty) => { const ex = cart.find((i) => i.key === l.key); ex ? (ex.qty = Math.min(10, ex.qty + qty)) : cart.push({ ...l, qty }); save(); };
-
+  const add = (it) => { const ex = cart.find((i) => i.key === it.key); ex ? (ex.qty = Math.min(5, ex.qty + 1)) : cart.push({ ...it, qty: 1 }); save(); };
   function render() {
     const n = cart.reduce((s, i) => s + i.qty, 0);
-    $("#cart-count").textContent = n; $("#cart-count").hidden = n === 0;
-    const body = $("#cart-body"), foot = $("#cart-foot");
+    $("#count").textContent = n; $("#count").hidden = !n;
     if (!cart.length) {
-      body.innerHTML = `<div class="empty"><p>Your cart is empty.</p><a class="btn btn-accent" href="#shop" data-close>Shop Vermona</a></div>`;
-      foot.innerHTML = ""; return;
+      $("#d-body").innerHTML = `<div class="empty"><p>Your order is empty.</p><a class="btn btn-primary" href="#treatment" data-close>View treatment</a></div>`;
+      $("#d-foot").innerHTML = ""; return;
     }
-    body.innerHTML = cart.map((i) => `
-      <div class="line-item">
-        <div class="th">${bottle("")}</div>
-        <div><b>${i.name}</b><small>${i.variant}</small>
-          <span class="mini-qty"><button type="button" data-dec="${i.key}" aria-label="Decrease">−</button>${i.qty}<button type="button" data-inc="${i.key}" aria-label="Increase">+</button><button type="button" class="link-btn" data-rm="${i.key}">Remove</button></span></div>
-        <b style="font-variant-numeric:tabular-nums">${money(i.price * i.qty)}</b>
-      </div>`).join("");
-    const sub = cart.reduce((s, i) => s + i.price * i.qty, 0), left = Math.max(0, FREE_SHIP - sub);
-    foot.innerHTML = `
-      <div class="ship">${left ? `Add ${money(left)} for free shipping` : "You've unlocked free shipping"}<div class="ship-bar"><span style="width:${Math.min(100, (sub / FREE_SHIP) * 100)}%"></span></div></div>
-      <div class="row"><span>Subtotal</span><span>${money(sub)}</span></div>
-      <div class="row"><span>Shipping</span><span>${left ? "At checkout" : "Free"}</span></div>
-      <div class="row total"><span>Total</span><span>${money(sub)}</span></div>
-      <button class="btn btn-ink btn-block btn-lg" id="checkout" type="button">Secure checkout</button>
-      <div class="checkout-note" id="checkout-note" hidden>This is a concept site, so checkout isn't connected yet. On the live site this button opens Stripe or Shopify checkout.</div>`;
+    $("#d-body").innerHTML = cart.map((i) => `<div class="li"><div class="th">${bottle("")}</div><div><b>${i.name}</b><small>${i.variant}</small><span class="mini-qty"><button type="button" data-dec="${i.key}" aria-label="Decrease">−</button>${i.qty}<button type="button" data-inc="${i.key}" aria-label="Increase">+</button><button type="button" class="link-btn" data-rm="${i.key}">Remove</button></span></div><span style="font-variant-numeric:tabular-nums">${money(Math.round(i.price * i.qty * 100) / 100)}</span></div>`).join("");
+    const sub = Math.round(cart.reduce((s, i) => s + i.price * i.qty, 0) * 100) / 100;
+    $("#d-foot").innerHTML = `<div class="row"><span>Subtotal</span><span>${money(sub)}</span></div><div class="row"><span>Shipping</span><span>Free</span></div><div class="row total"><span>Total</span><span>${money(sub)}</span></div>
+      <button class="btn btn-primary btn-block" type="button" id="checkout">Continue to secure checkout</button>
+      <div class="note-box" id="checkout-note" hidden>Concept site: checkout isn't connected. On the live site this continues to Stripe or Shopify checkout.</div>`;
   }
   render();
 
-  const drawer = $("#drawer"), scrim = $("#scrim"), quiz = $("#quiz");
-  const openCart = () => { drawer.classList.add("on"); scrim.classList.add("on"); };
-  const closeAll = () => { drawer.classList.remove("on"); quiz.classList.remove("on"); scrim.classList.remove("on"); };
-  let tt;
-  const toast = (m) => { const t = $("#toast"); t.textContent = m; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 2400); };
+  const drawer = $("#drawer"), scrim = $("#scrim"), modal = $("#assess");
+  const openCart = () => { modal.classList.remove("on"); drawer.classList.add("on"); scrim.classList.add("on"); };
+  const closeAll = () => { drawer.classList.remove("on"); modal.classList.remove("on"); scrim.classList.remove("on"); };
+  let tt; const toast = (m) => { const t = $("#toast"); t.textContent = m; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 2400); };
 
   document.addEventListener("click", (e) => {
     const t = e.target.closest("button, a, #scrim");
     if (!t) return;
     if (t.id === "scrim" || t.hasAttribute("data-close")) closeAll();
     if (t.hasAttribute("data-open-cart")) openCart();
-    if (t.hasAttribute("data-quiz")) startQuiz();
-    if (t.dataset.inc) { const i = cart.find((x) => x.key === t.dataset.inc); i.qty = Math.min(10, i.qty + 1); save(); }
+    if (t.hasAttribute("data-assess")) startAssessment(t.dataset.pre);
+    if (t.dataset.goto) goto(t.dataset.goto);
+    if (t.dataset.gotoHome) goto(t.dataset.gotoHome);
+    if (t.dataset.inc) { const i = cart.find((x) => x.key === t.dataset.inc); i.qty = Math.min(5, i.qty + 1); save(); }
     if (t.dataset.dec) { const i = cart.find((x) => x.key === t.dataset.dec); i.qty = Math.max(1, i.qty - 1); save(); }
     if (t.dataset.rm) { cart = cart.filter((x) => x.key !== t.dataset.rm); save(); }
     if (t.id === "checkout") $("#checkout-note").hidden = false;
-    if (t.dataset.add) { const [b, s] = t.dataset.add.split("-"); add(line(b, !!s), 1); toast("Added to cart"); openCart(); }
   });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeAll(); });
 
-  /* ---------- Shop form ---------- */
+  /* Treatment form */
   const form = $("#buy");
-  function updatePrice() {
-    const b = form.bundle.value, sub = form.ptype.value === "sub", l = line(b, sub);
-    const was = COMPARE_AT * BUNDLES[b].units;
-    $("#p-price").textContent = money(l.price);
-    $("#p-was").textContent = money(was);
-    $("#p-save").textContent = "Save " + Math.round((1 - l.price / was) * 100) + "%";
-    Object.keys(BUNDLES).forEach((k) => {
-      const p = line(k, sub).price;
-      $(`[data-bp="${k}"]`).innerHTML = `${money(p)}<small>${money(p / BUNDLES[k].units)} / bottle</small>`;
-    });
+  function update() {
+    const c = form.course.value, r = form.plan.value === "refill", p = priceOf(c, r);
+    $("#s-line").textContent = COURSES[c].name + (r ? " · auto-refill" : "");
+    $("#s-price").textContent = money(p); $("#s-total").textContent = money(p);
+    Object.keys(COURSES).forEach((k) => { const kp = priceOf(k, r); $(`[data-cp="${k}"]`).innerHTML = `${money(kp)}<small>${money(Math.round((kp / COURSES[k].units) * 100) / 100)} per bottle</small>`; });
   }
-  form.addEventListener("change", updatePrice);
-  $$("[data-q]").forEach((b) => b.addEventListener("click", () => { const q = $("#qty"); q.value = Math.max(1, Math.min(10, (+q.value || 1) + +b.dataset.q)); }));
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    add(line(form.bundle.value, form.ptype.value === "sub"), Math.max(1, Math.min(10, +$("#qty").value || 1)));
-    toast("Added to cart"); openCart();
-  });
-  updatePrice();
+  form.addEventListener("change", update);
+  form.addEventListener("submit", (e) => { e.preventDefault(); add(item(form.course.value, form.plan.value === "refill")); toast("Added to your order"); openCart(); });
+  update();
   $$("[data-thumb]").forEach((b) => b.addEventListener("click", () => {
-    $$("[data-thumb]").forEach((x) => x.setAttribute("aria-pressed", x === b));
+    $$("[data-thumb]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
     $$("[data-slide]").forEach((s) => (s.hidden = s.dataset.slide !== b.dataset.thumb));
   }));
 
-  /* ---------- Skin quiz ---------- */
+  /* ---------- Skin assessment ---------- */
+  const COND_NAMES = { melasma: "melasma", sun: "sun and age spots", pih: "post-inflammatory marks", tone: "uneven tone" };
+  const FITZ = [["I", "#f6dccb"], ["II", "#ecc4a6"], ["III", "#d6a17d"], ["IV", "#b57a54"], ["V", "#8a5a3c"], ["VI", "#5a3a28"]];
   const QS = [
-    { q: "What's your main concern?", k: "concern", o: [["sun", "Sun or age spots", "Flat brown spots from sun exposure"], ["melasma", "Melasma", "Larger patches, often on cheeks or upper lip"], ["acne", "Post-acne marks", "Dark marks left after breakouts"], ["tone", "Uneven, dull tone", "Blotchy or patchy overall"]] },
-    { q: "How long have you had them?", k: "age", o: [["new", "Less than 6 months"], ["mid", "6 months to 2 years"], ["old", "More than 2 years"]] },
-    { q: "How does your skin usually feel?", k: "type", o: [["normal", "Balanced"], ["oily", "Oily or breakout-prone"], ["dry", "Dry"], ["sensitive", "Sensitive or easily irritated"]] },
-    { q: "Do you wear sunscreen every day?", k: "spf", o: [["yes", "Yes, every day"], ["some", "Sometimes"], ["no", "Rarely or never"]] },
+    { k: "cond", q: "What are you looking to treat?", o: [["melasma", "Melasma", "Larger, symmetrical patches"], ["sun", "Sun or age spots", "Defined brown spots"], ["pih", "Post-inflammatory marks", "Marks left after acne or irritation"], ["tone", "Uneven tone", "General blotchiness or dullness"]] },
+    { k: "fitz", q: "Which is closest to your natural skin tone?", fitz: true },
+    { k: "dur", q: "How long have you had this pigmentation?", o: [["new", "Under 6 months"], ["mid", "6 months to 2 years"], ["old", "Over 2 years"]] },
+    { k: "sens", q: "How does your skin usually react to new products?", o: [["ok", "Rarely reacts"], ["some", "Sometimes stings or reddens"], ["high", "Often irritated, or I have rosacea or eczema"]] },
+    { k: "flag", q: "Do any of these apply to you?", o: [["none", "None of these"], ["preg", "Pregnant, trying to conceive, or breastfeeding"], ["change", "A spot that is new, changing, bleeding or irregular"]] },
   ];
   let step = 0, ans = {};
-  function startQuiz() { step = 0; ans = {}; drawer.classList.remove("on"); quiz.classList.add("on"); scrim.classList.add("on"); drawQuiz(); }
-  function drawQuiz() {
-    const body = $("#quiz-body");
+  function startAssessment(pre) {
+    ans = {}; step = 0;
+    if (pre) { ans.cond = pre; step = 1; }
+    drawer.classList.remove("on"); modal.classList.add("on"); scrim.classList.add("on"); draw();
+  }
+  function prog(i) { $("#a-prog").innerHTML = Array.from({ length: QS.length + 1 }, (_, k) => `<i class="${k <= i ? "on" : ""}"></i>`).join(""); }
+  function draw() {
+    const body = $("#a-body");
     if (step < QS.length) {
       const Q = QS[step];
-      $("#quiz-step").textContent = `Question ${step + 1} of ${QS.length}`;
-      $("#quiz-bar").style.width = ((step + 1) / (QS.length + 1)) * 100 + "%";
-      body.innerHTML = `<h2 id="quiz-title" style="font-size:1.7rem">${Q.q}</h2><div class="q-opts">${Q.o.map(([v, l, d]) => `<button type="button" data-a="${v}">${l}${d ? `<small>${d}</small>` : ""}</button>`).join("")}</div>
-        ${step ? '<button type="button" class="link-btn" style="justify-self:start;margin:0" data-back>Back</button>' : ""}`;
-      $$("[data-a]", body).forEach((b) => b.addEventListener("click", () => { ans[Q.k] = b.dataset.a; step++; drawQuiz(); }));
-      const back = $("[data-back]", body); if (back) back.addEventListener("click", () => { step--; drawQuiz(); });
+      $("#a-step").textContent = `Question ${step + 1} of ${QS.length}`; prog(step);
+      body.innerHTML = `<h2 id="a-title" style="font-size:1.8rem">${Q.q}</h2>` +
+        (Q.fitz ? `<div class="fitz">${FITZ.map(([v, c]) => `<button type="button" data-a="${v}"><i style="background:${c}"></i>Type ${v}</button>`).join("")}</div><p class="small">Fitzpatrick scale. Vermona is formulated for all six types; this helps tailor your routine.</p>`
+          : `<div class="q-opts">${Q.o.map(([v, l, d]) => `<button type="button" data-a="${v}">${l}${d ? `<small>${d}</small>` : ""}</button>`).join("")}</div>`) +
+        (step ? `<button type="button" class="link-btn" style="justify-self:start" data-back>Back</button>` : "");
+      $$("[data-a]", body).forEach((b) => b.addEventListener("click", () => { ans[Q.k] = b.dataset.a; step++; draw(); }));
+      const back = $("[data-back]", body); if (back) back.addEventListener("click", () => { step--; draw(); });
       $("button", body).focus();
       return;
     }
-    const bundle = ans.concern === "melasma" || ans.age === "old" ? (ans.age === "old" ? "trio" : "duo") : ans.age === "mid" ? "duo" : "single";
-    const B = BUNDLES[bundle];
-    const tips = [];
-    tips.push(`${B.label} (${B.supply}) suits ${CONCERNS[ans.concern].title.toLowerCase()} you've had ${ans.age === "new" ? "for less than 6 months" : ans.age === "mid" ? "for 6 months to 2 years" : "for over 2 years"}.`);
-    if (ans.type === "sensitive") tips.push("Start once a day at night for the first week, then move to twice daily.");
-    if (ans.type === "oily") tips.push("The light, non-comedogenic texture works well under an oil-free moisturiser.");
-    if (ans.type === "dry") tips.push("Follow with a rich moisturiser to keep your barrier comfortable.");
-    if (ans.spf !== "yes") tips.push("Add a daily SPF 30+. Without it, new spots form faster than old ones fade.");
-    $("#quiz-step").textContent = "Your plan";
-    $("#quiz-bar").style.width = "100%";
-    body.innerHTML = `<h2 id="quiz-title" style="font-size:1.7rem">We recommend the ${B.supply}</h2>
-      <div class="result"><div class="price-row"><span class="price-big" style="font-size:2rem">${money(B.total)}</span><span class="was">${money(COMPARE_AT * B.units)}</span></div><ul>${tips.map((t) => `<li>${t}</li>`).join("")}</ul></div>
-      <button type="button" class="btn btn-accent btn-lg btn-block" data-take="${bundle}">Add my plan to cart</button>
-      <button type="button" class="link-btn" style="justify-self:center;margin:0" data-restart>Retake quiz</button>`;
-    $("[data-take]", body).addEventListener("click", () => { add(line(bundle, false), 1); quiz.classList.remove("on"); openCart(); toast("Plan added to cart"); });
-    $("[data-restart]", body).addEventListener("click", startQuiz);
+    prog(QS.length); $("#a-step").textContent = "Your regimen";
+    if (ans.flag !== "none") {
+      body.innerHTML = `<h2 id="a-title" style="font-size:1.8rem">Please speak to a doctor first.</h2>
+        <div class="flag">${ans.flag === "preg" ? "Because you're pregnant, trying to conceive or breastfeeding, check with your doctor or midwife before starting any active skincare." : "A spot that is new, changing, bleeding or irregular needs a dermatologist's assessment before any cosmetic treatment."}</div>
+        <p class="lede">Once you have the all-clear, you can return and complete your assessment.</p>
+        <button type="button" class="btn btn-outline" data-close>Close</button>`;
+      return;
+    }
+    const course = ans.cond === "melasma" || ans.dur === "old" ? (ans.dur === "old" ? "c24" : "c16") : ans.dur === "mid" ? "c16" : "c8";
+    const C = COURSES[course];
+    const fitzNum = ["I", "II", "III", "IV", "V", "VI"].indexOf(ans.fitz) + 1;
+    const lines = [
+      `${C.name} for ${COND_NAMES[ans.cond]} present ${ans.dur === "new" ? "under 6 months" : ans.dur === "mid" ? "6 months to 2 years" : "over 2 years"}.`,
+      ans.sens === "ok" ? "Apply morning and evening from day one." : ans.sens === "some" ? "Weeks 1–2: evenings only. Then move to twice daily." : "Weeks 1–2: every other evening, over moisturiser. Build up slowly and patch test first.",
+      "Broad-spectrum SPF 30+ every morning, reapplied when outdoors.",
+    ];
+    if (fitzNum >= 4) lines.push("Deeper skin tones are prone to marks after irritation, so avoid harsh scrubs and picking while you treat.");
+    if (ans.cond === "melasma") lines.push("Heat can trigger melasma too. A mineral SPF with iron oxides adds visible-light protection.");
+    body.innerHTML = `<h2 id="a-title" style="font-size:1.8rem">Your recommended regimen</h2>
+      <div class="regimen"><span class="label">Vermona Pigment Corrector · ${C.name}</span><ul>${lines.map((l) => `<li>${l}</li>`).join("")}</ul></div>
+      <button type="button" class="btn btn-primary btn-block arrow" data-take="${course}">Continue with this course</button>
+      <button type="button" class="link-btn" style="justify-self:center" data-restart>Retake assessment</button>`;
+    $("[data-take]", body).addEventListener("click", () => {
+      closeAll(); $("#" + course).checked = true; update(); location.hash = "treatment";
+      toast("Recommended course selected");
+    });
+    $("[data-restart]", body).addEventListener("click", () => startAssessment());
   }
 })();
 </script>
