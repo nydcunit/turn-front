@@ -270,6 +270,156 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; 
 .acc-item .panel { padding: 0 0 20px; color: var(--ink-2); font-size: 0.95rem; }
 .acc-item .panel ul { margin: 0; padding-left: 20px; }
 
+/* ---------- Guided (home) ---------- */
+.guided { display: grid; gap: 32px; align-items: center; }
+.guided-feats { display: grid; gap: 0; }
+.guided-feats div { display: grid; grid-template-columns: 36px 1fr; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.guided-feats div:first-child { border-top: 1px solid var(--line); }
+.guided-feats svg { color: var(--wine); }
+.guided-feats b { display: block; font-weight: 500; }
+.guided-feats span { font-size: 0.9rem; color: var(--ink-2); }
+.mock { background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 24px 60px var(--shadow); padding: 18px; display: grid; gap: 14px; }
+.mock-top { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--muted); }
+.mock h4 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: 1.4rem; }
+.bar-track { height: 6px; border-radius: 3px; background: var(--blush-2); overflow: hidden; }
+.bar-track i { display: block; height: 100%; background: var(--wine); border-radius: 3px; }
+.mock-list { display: grid; gap: 6px; }
+.mock-list span { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; padding: 8px 10px; border-radius: 8px; background: var(--blush); }
+.mock-list span i { width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid var(--wine); display: grid; place-items: center; flex-shrink: 0; }
+.mock-list span.done i { background: var(--wine); }
+.mock-list span.done { color: var(--muted); text-decoration: line-through; }
+.bubble { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: start; font-size: 0.86rem; }
+.bubble .av { width: 34px; height: 34px; border-radius: 50%; background: var(--wine); color: var(--wine-ink); display: grid; place-items: center; font-family: var(--serif); }
+.bubble p { background: var(--blush); padding: 10px 12px; border-radius: 4px 12px 12px 12px; }
+@media (min-width: 900px) { .guided { grid-template-columns: 1fr 1fr; gap: 64px; } }
+
+/* ---------- Shop ---------- */
+.shop-h { display: flex; justify-content: space-between; align-items: end; gap: 12px; margin: 48px 0 18px; flex-wrap: wrap; }
+.shop-h h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); }
+.shop-h p { color: var(--ink-2); font-size: 0.92rem; }
+.programme { display: grid; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); }
+.lineup { background: var(--product); display: flex; align-items: flex-end; justify-content: center; gap: 2%; padding: 28px 16px 22px; min-height: 240px; position: relative; }
+.lineup svg { height: 190px; width: auto; filter: drop-shadow(0 14px 14px rgba(0,0,0,.16)); }
+.lineup svg.s { height: 150px; } .lineup svg.xs { height: 120px; }
+.lineup .badge { position: absolute; left: 14px; top: 14px; background: var(--bg); color: var(--wine); font-size: 0.68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; }
+.prog-info { padding: 24px; display: grid; gap: 14px; align-content: start; }
+.prog-info h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); }
+.prog-info > p { color: var(--ink-2); }
+.includes { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 0.92rem; }
+.includes li { display: grid; grid-template-columns: 20px 1fr; gap: 8px; align-items: start; }
+.includes li svg { color: var(--check); margin-top: 3px; }
+.includes li.svc b { font-weight: 600; }
+.price-line { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; padding-top: 14px; border-top: 1px solid var(--line); }
+.price-line .now { font-family: var(--serif); font-size: 2.2rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.price-line .was { color: var(--muted); text-decoration: line-through; }
+.price-line .save { background: var(--blush); color: var(--wine); font-size: 0.78rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; }
+@media (min-width: 900px) { .programme { grid-template-columns: 1.1fr 1fr; } .lineup { min-height: 100%; } .lineup svg { height: 240px; } .lineup svg.s { height: 190px; } .lineup svg.xs { height: 150px; } }
+.bundles { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.bundle { border: 1px solid var(--line); border-radius: 12px; background: var(--card); padding: 18px; display: grid; gap: 10px; align-content: space-between; }
+.bundle .mini { display: flex; gap: 4px; align-items: flex-end; height: 70px; }
+.bundle .mini svg { height: 100%; width: auto; }
+.bundle h3 { font-family: var(--sans); font-weight: 500; font-size: 1.05rem; letter-spacing: 0; }
+.bundle p { font-size: 0.86rem; color: var(--ink-2); }
+@media (min-width: 700px) { .bundles { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .bundles { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 900px) { .products.four { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1100px) { .products.five { grid-template-columns: repeat(5, 1fr); } .products.five .prod .img svg { height: 76%; } }
+.prod .step-tag { font-size: 0.66rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--wine); }
+
+/* ---------- Journey dashboard ---------- */
+.demo-bar { background: var(--blush); border-bottom: 1px solid var(--line); font-size: 0.84rem; color: var(--ink-2); }
+.demo-bar .wrap { padding-block: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.demo-bar b { color: var(--wine); font-weight: 600; }
+.j-head { padding-block: 32px 20px; display: grid; gap: 14px; }
+.j-head h1 { font-size: clamp(2rem, 4.4vw, 3rem); }
+.j-meta { display: flex; gap: 8px 20px; flex-wrap: wrap; font-size: 0.9rem; color: var(--ink-2); }
+.phases { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+.phases div { display: grid; gap: 6px; font-size: 0.72rem; color: var(--muted); }
+.phases div i { height: 6px; border-radius: 3px; background: var(--blush-2); position: relative; overflow: hidden; }
+.phases div i b { position: absolute; inset: 0 auto 0 0; background: var(--wine); border-radius: 3px; }
+.phases div.cur { color: var(--wine); font-weight: 600; }
+.j-grid { display: grid; gap: 16px; padding-bottom: 80px; }
+.j-col { display: grid; gap: 16px; align-content: start; min-width: 0; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 14px; min-width: 0; }
+.card-h { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.card-h h3 { font-size: 1.35rem; }
+.card-h span { font-size: 0.82rem; color: var(--muted); }
+.j-grid { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 980px) { .j-grid { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); } }
+.routine { display: grid; gap: 14px; }
+@media (min-width: 640px) { .routine { grid-template-columns: 1fr 1fr; } }
+.routine h4 { margin: 0 0 8px; font-size: 0.74rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--wine); display: flex; gap: 8px; align-items: center; }
+.check { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; padding: 10px 12px; border-radius: 10px; background: var(--blush); cursor: pointer; margin-bottom: 6px; }
+.check input { appearance: none; -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--wine); margin: 0; display: grid; place-items: center; cursor: pointer; background: var(--bg); }
+.check input:checked { background: var(--wine); }
+.check input:checked::after { content: ""; width: 9px; height: 5px; border-left: 2px solid var(--wine-ink); border-bottom: 2px solid var(--wine-ink); transform: rotate(-45deg) translate(1px, -1px); }
+.check input:focus-visible { outline: 2px solid var(--wine); outline-offset: 2px; }
+.check b { display: block; font-weight: 500; font-size: 0.92rem; }
+.check small { color: var(--ink-2); font-size: 0.8rem; }
+.check:has(input:checked) b { text-decoration: line-through; color: var(--muted); }
+.check.new { box-shadow: inset 3px 0 0 var(--wine); }
+.cal-nav { display: flex; align-items: center; gap: 6px; }
+.cal-nav button { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); display: grid; place-items: center; }
+.cal-nav strong { font-weight: 500; min-width: 120px; text-align: center; }
+.cal { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+.day { min-width: 0; }
+@media (max-width: 560px) { .cal { gap: 3px; } .day { font-size: 0.72rem; padding: 3px; border-radius: 6px; } .day .cal-dots i { width: 6px; height: 6px; } .card { padding: 16px; } .phases div { font-size: 0.62rem; } }
+.cal .dow { text-align: center; font-size: 0.7rem; color: var(--muted); padding-bottom: 4px; font-weight: 600; letter-spacing: .06em; }
+.day { position: relative; aspect-ratio: 1 / 1.05; max-width: 100%; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); padding: 4px; display: grid; align-content: space-between; text-align: left; font-size: 0.78rem; font-variant-numeric: tabular-nums; }
+.day.out { opacity: .35; }
+.day.pre { background: var(--blush); }
+.day.today { border-color: var(--wine); box-shadow: inset 0 0 0 1px var(--wine); }
+.day[aria-pressed="true"] { background: var(--wine); color: var(--wine-ink); border-color: var(--wine); }
+.day .cal-dots { display: flex; gap: 2px; flex-wrap: wrap; }
+.day .cal-dots i { width: 8px; height: 8px; border-radius: 50%; display: block; }
+.k-ret { background: var(--wine); } .k-pad { background: #c9963c; } .k-mask { background: #6f8fb0; } .k-photo { background: #2f7a4f; } .k-check { background: #1d191b; border-radius: 1px !important; transform: rotate(45deg); }
+:root[data-theme="dark"] .k-check { background: #f3ecef; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .k-check { background: #f3ecef; } }
+.day[aria-pressed="true"] .cal-dots i { box-shadow: 0 0 0 1px #fff; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 0.76rem; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 8px; height: 8px; border-radius: 50%; display: block; }
+.day-detail { border-top: 1px solid var(--line); padding-top: 14px; display: grid; gap: 8px; }
+.day-detail h4 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: 1.15rem; }
+.day-detail ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; font-size: 0.9rem; color: var(--ink-2); }
+.consultant { display: grid; grid-template-columns: 56px 1fr; gap: 14px; align-items: center; }
+.consultant .av { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--wine), var(--wine-dark)); color: var(--wine-ink); display: grid; place-items: center; font-family: var(--serif); font-size: 1.4rem; position: relative; }
+.consultant .av::after { content: ""; position: absolute; right: 2px; bottom: 2px; width: 12px; height: 12px; border-radius: 50%; background: #3bb273; border: 2px solid var(--card); }
+.consultant b { display: block; font-weight: 600; }
+.consultant small { display: block; color: var(--ink-2); font-size: 0.82rem; }
+.chat { display: grid; gap: 8px; max-height: 260px; overflow-y: auto; padding: 4px 2px; }
+.msg { max-width: 86%; padding: 9px 12px; border-radius: 12px; font-size: 0.88rem; line-height: 1.4; }
+.msg.them { background: var(--blush); border-top-left-radius: 4px; justify-self: start; }
+.msg.me { background: var(--wine); color: var(--wine-ink); border-top-right-radius: 4px; justify-self: end; }
+.msg time { display: block; font-size: 0.7rem; opacity: .7; margin-top: 3px; }
+.chat-in { display: flex; gap: 8px; }
+.chat-in input { flex: 1; min-width: 0; padding: 11px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: inherit; font-size: 0.9rem; }
+.chat-in input:focus { outline: none; border-color: var(--wine); }
+.chat-in button { width: 42px; height: 42px; border-radius: 50%; border: 0; background: var(--wine); color: var(--wine-ink); display: grid; place-items: center; flex-shrink: 0; }
+.miles { display: grid; gap: 0; }
+.miles div { display: grid; grid-template-columns: 54px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); align-items: center; }
+.miles div:last-child { border-bottom: 0; }
+.miles time { text-align: center; border-radius: 8px; background: var(--blush); padding: 6px 0; font-size: 0.7rem; color: var(--wine); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; line-height: 1.2; }
+.miles time b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.3rem; color: var(--ink); letter-spacing: 0; }
+.miles span { font-size: 0.9rem; }
+.miles small { display: block; color: var(--muted); font-size: 0.8rem; }
+.photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.photo { display: grid; gap: 6px; font-size: 0.76rem; color: var(--ink-2); text-align: center; }
+.photo .ph { aspect-ratio: 3 / 4; max-width: 100%; border-radius: 8px; overflow: hidden; background: var(--blush); position: relative; }
+.photo canvas, .photo img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.photo label { display: grid; place-items: center; height: 100%; border: 1.5px dashed var(--muted); border-radius: 8px; cursor: pointer; color: var(--ink-2); font-size: 0.78rem; padding: 6px; }
+.photo label:focus-within { outline: 2px solid var(--wine); outline-offset: 2px; }
+.photo input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.kit-list { display: grid; gap: 12px; }
+.kit-item { display: grid; grid-template-columns: 38px 1fr auto; gap: 12px; align-items: center; }
+.kit-item svg { height: 44px; width: auto; justify-self: center; }
+.kit-item b { display: block; font-weight: 500; font-size: 0.9rem; }
+.kit-item small { color: var(--muted); font-size: 0.78rem; }
+.kit-item .lvl { width: 64px; height: 5px; border-radius: 3px; background: var(--blush-2); overflow: hidden; }
+.kit-item .lvl i { display: block; height: 100%; background: var(--wine); }
+.kit-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn-sm { padding: 9px 16px; font-size: 0.86rem; }
+
 /* ---------- Community page ---------- */
 .com-hero { padding-block: 56px 40px; display: grid; gap: 32px; align-items: center; }
 .com-hero .copy { display: grid; gap: 16px; }
@@ -392,6 +542,7 @@ img{max-width:100%}
       <div class="desk-links">
         <a href="#treatment">Shop</a>
         <button data-goto="concerns">Concerns</button>
+        <a href="#journey">My Journey</a>
         <button data-goto="results">Results</button>
         <a href="#community">Community</a>
       </div>
@@ -498,13 +649,38 @@ img{max-width:100%}
 
   <section class="sec blush" id="how">
     <div class="wrap">
-      <div class="head"><span class="eyebrow">How Vermona works</span><h2>Three simple steps.</h2><p>From your skin assessment to treatment at your door, usually within a week.</p></div>
+      <div class="head"><span class="eyebrow">How Vermona works</span><h2>Four simple steps.</h2><p>From your skin assessment to your final result, with someone guiding you the whole way.</p></div>
       <div class="steps">
         <div class="step"><span class="n">1</span><div><b>Tell us about your skin</b><span>A 3-minute assessment of your concern, skin tone and sensitivity.</span></div></div>
-        <div class="step"><span class="n">2</span><div><b>Get your personal course</b><span>The right course length and routine for what you're lightening.</span></div></div>
-        <div class="step"><span class="n">3</span><div><b>Delivered to your door</b><span>Free shipping. Pause or cancel refills anytime.</span></div></div>
+        <div class="step"><span class="n">2</span><div><b>Get your Complete Regimen</b><span>Five products that work together, delivered to your door.</span></div></div>
+        <div class="step"><span class="n">3</span><div><b>Meet your Personal Skin Consultant</b><span>One dedicated specialist who manages your journey from start to finish.</span></div></div>
+        <div class="step"><span class="n">4</span><div><b>Follow your daily calendar</b><span>Your dashboard tells you exactly what to apply, morning and night.</span></div></div>
       </div>
       <div style="text-align:center;margin-top:28px"><button class="btn btn-wine arrow" data-assess>Start Your Assessment</button></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap guided">
+      <div style="display:grid;gap:18px">
+        <span class="eyebrow">Guided from day one</span>
+        <h2>A regimen, with a person behind it.</h2>
+        <p style="color:var(--ink-2)">Every Complete Regimen comes with your own dashboard and a dedicated Personal Skin Consultant who manages your journey from your first application to your final result.</p>
+        <div class="guided-feats">
+          <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span><b>Your Personal Skin Consultant</b>One dedicated specialist for your whole regimen. Message them anytime.</span></div>
+          <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span><b>A daily calendar</b>Exactly what to apply each morning and night, adjusted week by week.</span></div>
+          <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.5"/></svg><span><b>Progress reviews</b>Photo check-ins every two weeks, reviewed with your consultant.</span></div>
+          <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v4h4"/></svg><span><b>Automatic refills</b>Your next products arrive before you run out. Pause anytime.</span></div>
+        </div>
+        <a class="btn btn-wine arrow" href="#journey" style="justify-self:start">Preview the Dashboard</a>
+      </div>
+      <div class="mock" aria-hidden="true">
+        <div class="mock-top"><span>My Journey</span><span>Week 6 of 16</span></div>
+        <h4>Tonight's routine</h4>
+        <div class="bar-track"><i style="width:37%"></i></div>
+        <div class="mock-list"><span class="done"><i></i>Gentle Brightening Cleanser</span><span class="done"><i></i>Anti-Pigmentation Serum</span><span><i></i>Retinal Renewal · tonight</span><span><i></i>Barrier Repair Moisturiser</span></div>
+        <div class="bubble"><span class="av">M</span><p><b>Your consultant</b><br>Your week 4 photos look great. We're adding a third Retinal night from this week.</p></div>
+      </div>
     </div>
   </section>
 
@@ -537,31 +713,103 @@ img{max-width:100%}
   <section class="sec blush">
     <div class="wrap closing">
       <h2>Lighter, even skin,<br>delivered to your door.</h2>
-      <a class="btn btn-wine arrow" href="#treatment">Shop Treatment</a>
+      <a class="btn btn-wine arrow" href="#treatment">Shop the Regimen</a>
     </div>
   </section>
 </div>
 
-<!-- ======================= TREATMENT ======================= -->
+<!-- ======================= SHOP (TREATMENT) ======================= -->
 <div data-view="treatment" hidden>
-  <div class="cat-hero"><canvas id="cat-canvas" aria-hidden="true"></canvas><div class="wrap" style="position:relative;z-index:2;display:grid;align-items:end"><h1>Skin Lightening Treatment</h1></div></div>
+  <div class="cat-hero"><canvas id="cat-canvas" aria-hidden="true"></canvas><div class="wrap" style="position:relative;z-index:2;display:grid;align-items:end"><h1>Shop the Regimen</h1></div></div>
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="#home">Home</a> › Skin Lightening</nav>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="#home">Home</a> › Shop</nav>
     <div class="cat-intro">
-      <span class="eyebrow">Hydroquinone-free skin lightening</span>
-      <h2>Even skin begins here.</h2>
-      <p>Vermona Skin Lightening Serum lightens hyperpigmentation, melasma, sun damage and darkened areas on the face and body. Choose your course length. Your first course is 20% off at checkout.</p>
+      <span class="eyebrow">Advanced anti-pigmentation</span>
+      <h2>One regimen. Every step covered.</h2>
+      <p>Vermona works best as a complete regimen: five products that work together, a daily calendar, and a Personal Skin Consultant who guides you from day one. Every product is also sold on its own. Your first order is 20% off at checkout.</p>
     </div>
-    <div class="toggle" role="group" aria-label="Purchase type"><button type="button" aria-pressed="true" data-plan="once">One-time</button><button type="button" aria-pressed="false" data-plan="refill">Auto-refill · save 15%</button></div>
-    <div class="products" id="products"></div>
-    <p class="small" style="margin-top:14px">Not sure which course? <button type="button" class="textlink" data-assess style="font-size:inherit">Take the skin assessment</button></p>
+    <div class="toggle" role="group" aria-label="Purchase type"><button type="button" aria-pressed="true" data-plan="once">One-time</button><button type="button" aria-pressed="false" data-plan="sub">Subscribe · every 8 weeks</button></div>
+
+    <article class="programme" id="regimen-card">
+      <div class="lineup" id="lineup"><span class="badge">Most complete</span></div>
+      <div class="prog-info">
+        <span class="eyebrow">The Vermona Complete Regimen</span>
+        <h2>Five steps. One guided journey.</h2>
+        <p>Everything you need for an 8-week course, plus the guidance that keeps you on track until you reach the result you want.</p>
+        <ul class="includes" id="includes"></ul>
+        <div class="price-line"><span class="now" id="reg-price">$239</span><span class="was" id="reg-was">$300 separately</span><span class="save" id="reg-save">Save $61</span></div>
+        <button class="btn btn-wine btn-block arrow" type="button" data-add="regimen">Add the Complete Regimen</button>
+        <span class="small">Dashboard and Personal Skin Consultant included with every Complete Regimen.</span>
+      </div>
+    </article>
+
+    <div class="shop-h"><div><span class="eyebrow">Sets</span><h2>Bundles</h2></div><p>Smaller sets for a lighter routine or for body areas.</p></div>
+    <div class="bundles" id="bundles"></div>
+
+    <div class="shop-h"><div><span class="eyebrow">Regimen products</span><h2>The essentials</h2></div><p>Each step of the regimen, sold separately for refills.</p></div>
+    <div class="products four five" id="essentials"></div>
+
+    <div class="shop-h"><div><span class="eyebrow">Targeted care</span><h2>Add-ons</h2></div><p>Extra help for specific areas and concerns.</p></div>
+    <div class="products four" id="addons"></div>
+    <p class="small" style="margin-top:16px">Not sure where to start? <button type="button" class="textlink" data-assess style="font-size:inherit">Take the skin assessment</button></p>
   </div>
   <div class="wrap details">
-    <div class="acc-item"><button type="button" aria-expanded="true">What it lightens</button><div class="panel"><ul><li>Hyperpigmentation and dark spots</li><li>Melasma</li><li>Sun damage, sun spots and age spots</li><li>Post-acne marks</li><li>Darkened underarms, knees, elbows and inner thighs</li><li>Dull, uneven tone</li></ul></div></div>
-    <div class="acc-item"><button type="button" aria-expanded="false">How to use</button><div class="panel" hidden><p>Morning and evening, apply 3–4 drops to clean, dry skin and follow with moisturiser. Use SPF 30+ every morning on treated areas exposed to sun. Patch test each new area 24 hours before first use.</p></div></div>
-    <div class="acc-item"><button type="button" aria-expanded="false">Full ingredients</button><div class="panel" hidden><p>Aqua (Water), Azelaic Acid, Niacinamide, Propanediol, Tranexamic Acid, Alpha-Arbutin, Glycerin, Glycyrrhiza Glabra (Licorice) Root Extract, Tetrahexyldecyl Ascorbate, Sodium Hyaluronate, Panthenol, Allantoin, Xanthan Gum, Hydroxyethylcellulose, Sodium Phytate, Ethylhexylglycerin, Phenoxyethanol.</p></div></div>
-    <div class="acc-item"><button type="button" aria-expanded="false">What to expect</button><div class="panel" hidden><ul><li>Weeks 1–2: brighter, more even-looking skin</li><li>Weeks 4–8: dark spots and marks visibly lighter</li><li>Weeks 12–16: melasma and stubborn areas improve</li></ul></div></div>
-    <div class="acc-item"><button type="button" aria-expanded="false">Shipping &amp; guarantee</button><div class="panel" hidden><p>Ships within 1 business day with free US delivery in 3–5 days. 60-day money-back guarantee on your first course.</p></div></div>
+    <div class="acc-item"><button type="button" aria-expanded="true">How the regimen works</button><div class="panel"><ul><li><b>Morning:</b> Cleanser, Anti-Pigmentation Serum, Moisturiser, Tinted SPF 50</li><li><b>Evening:</b> Cleanser, Anti-Pigmentation Serum, Retinal Renewal (on scheduled nights), Moisturiser</li><li>Retinal Renewal starts at 2 nights a week and builds up. Your calendar tells you exactly which nights.</li></ul></div></div>
+    <div class="acc-item"><button type="button" aria-expanded="false">What it lightens</button><div class="panel" hidden><ul><li>Overall skin tone and dullness</li><li>Hyperpigmentation and dark spots</li><li>Melasma</li><li>Sun damage, sun spots and age spots</li><li>Post-acne marks</li><li>Darkened underarms, knees, elbows and inner thighs (with the Body Lotion)</li></ul></div></div>
+    <div class="acc-item"><button type="button" aria-expanded="false">Anti-Pigmentation Serum ingredients</button><div class="panel" hidden><p>Aqua (Water), Azelaic Acid, Niacinamide, Propanediol, Tranexamic Acid, Alpha-Arbutin, Glycerin, Glycyrrhiza Glabra (Licorice) Root Extract, Tetrahexyldecyl Ascorbate, Sodium Hyaluronate, Panthenol, Allantoin, Xanthan Gum, Hydroxyethylcellulose, Sodium Phytate, Ethylhexylglycerin, Phenoxyethanol.</p></div></div>
+    <div class="acc-item"><button type="button" aria-expanded="false">Shipping &amp; guarantee</button><div class="panel" hidden><p>Ships within 1 business day with free US delivery in 3–5 days. 60-day money-back guarantee on your first regimen.</p></div></div>
+  </div>
+</div>
+
+<!-- ======================= JOURNEY DASHBOARD ======================= -->
+<div data-view="journey" hidden>
+  <div class="demo-bar"><div class="wrap"><b>Preview</b><span>This is a sample dashboard showing what Complete Regimen members see. Data shown is example data.</span></div></div>
+  <div class="wrap j-head">
+    <span class="eyebrow">My Journey</span>
+    <h1 id="j-hello">Welcome back.</h1>
+    <div class="j-meta"><span id="j-week">Week 6 of 16</span><span>Complete Regimen · Face</span><span id="j-start"></span></div>
+    <div class="phases" id="phases"></div>
+  </div>
+  <div class="wrap j-grid">
+    <div class="j-col">
+      <section class="card" aria-labelledby="today-h">
+        <div class="card-h"><h3 id="today-h">Today</h3><span id="today-date"></span></div>
+        <div class="routine" id="today"></div>
+      </section>
+      <section class="card" aria-labelledby="cal-h">
+        <div class="card-h"><h3 id="cal-h">Your calendar</h3><div class="cal-nav"><button type="button" data-cal="-1" aria-label="Previous month"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button><strong id="cal-month"></strong><button type="button" data-cal="1" aria-label="Next month"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button></div></div>
+        <div class="legend"><span><i class="k-ret"></i>Retinal night</span><span><i class="k-pad"></i>Exfoliating pad</span><span><i class="k-mask"></i>Mask night</span><span><i class="k-photo"></i>Progress photo</span><span><i class="k-check"></i>Consultant check-in</span></div>
+        <div class="cal" id="cal"></div>
+        <div class="day-detail" id="day-detail"></div>
+      </section>
+      <section class="card" aria-labelledby="ph-h">
+        <div class="card-h"><h3 id="ph-h">Progress photos</h3><span>Every 2 weeks, same light</span></div>
+        <div class="photos">
+          <div class="photo"><div class="ph"><canvas data-progress="0"></canvas></div>Week 0</div>
+          <div class="photo"><div class="ph"><canvas data-progress="1"></canvas></div>Week 4</div>
+          <div class="photo"><div class="ph" id="ph-new"><label for="ph-file">+ Add week 6 photo<input id="ph-file" type="file" accept="image/*"></label></div>Week 6 · due</div>
+        </div>
+        <span class="small">Photos are private. Your consultant reviews them at each check-in.</span>
+      </section>
+    </div>
+    <div class="j-col">
+      <section class="card" aria-labelledby="con-h">
+        <div class="card-h"><h3 id="con-h">Your Personal Skin Consultant</h3></div>
+        <div class="consultant"><div class="av">M</div><div><b>Maya R. <span class="small">(sample)</span></b><small>Personal Skin Consultant · assigned for your full 16 weeks</small><small>Usually replies within a few hours</small></div></div>
+        <div class="chat" id="chat" aria-live="polite"></div>
+        <form class="chat-in" id="chat-form"><label for="chat-text" hidden>Message your consultant</label><input id="chat-text" placeholder="Message Maya" autocomplete="off"><button type="submit" aria-label="Send"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+        <div class="kit-actions"><button class="btn btn-line btn-sm" type="button" data-toast="Video check-in requested. Maya will confirm a time.">Book a video check-in</button></div>
+      </section>
+      <section class="card" aria-labelledby="mi-h">
+        <div class="card-h"><h3 id="mi-h">Coming up</h3></div>
+        <div class="miles" id="miles"></div>
+      </section>
+      <section class="card" aria-labelledby="kit-h">
+        <div class="card-h"><h3 id="kit-h">My regimen</h3><span id="refill-date"></span></div>
+        <div class="kit-list" id="kit"></div>
+        <div class="kit-actions"><button class="btn btn-line btn-sm" type="button" data-toast="Next delivery moved 1 week later.">Delay 1 week</button><button class="btn btn-line btn-sm" type="button" data-toast="Next delivery skipped.">Skip delivery</button><button class="btn btn-line btn-sm" type="button" data-toast="Subscription paused. Resume anytime.">Pause</button></div>
+      </section>
+    </div>
   </div>
 </div>
 
@@ -629,8 +877,8 @@ img{max-width:100%}
 <footer class="foot">
   <div class="wrap">
     <div class="f-grid">
-      <div><h4>Shop</h4><ul><li><a href="#treatment">Skin Lightening Serum</a></li><li><button data-assess data-pre="melasma">Melasma</button></li><li><button data-assess data-pre="sun">Sun Damage</button></li><li><button data-assess data-pre="body">Body</button></li></ul></div>
-      <div><h4>About Vermona</h4><ul><li><button data-goto="how">How It Works</button></li><li><button data-goto="results">Results</button></li><li><button data-goto="how">60-Day Guarantee</button></li></ul></div>
+      <div><h4>Shop</h4><ul><li><a href="#treatment">The Complete Regimen</a></li><li><a href="#treatment">Bundles &amp; add-ons</a></li><li><button data-assess data-pre="melasma">Melasma</button></li><li><button data-assess data-pre="sun">Sun Damage</button></li><li><button data-assess data-pre="body">Body</button></li></ul></div>
+      <div><h4>About Vermona</h4><ul><li><a href="#journey">My Journey dashboard</a></li><li><button data-goto="how">How It Works</button></li><li><button data-goto="results">Results</button></li><li><button data-goto="how">60-Day Guarantee</button></li></ul></div>
       <div><h4>Support</h4><ul><li><a href="#faq">Get Help</a></li><li><a href="#faq">FAQ</a></li><li><a href="#faq">Shipping &amp; Returns</a></li></ul></div>
       <div><h4>Community</h4><ul><li><a href="#community">Vermona Community</a></li><li><a href="#community">Join the Waitlist</a></li></ul></div>
     </div>
@@ -640,7 +888,7 @@ img{max-width:100%}
       <form class="news" id="news" novalidate><label for="news-email" hidden>Email address</label><input id="news-email" type="email" placeholder="Email address" autocomplete="email"><button type="submit" aria-label="Subscribe"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
     </div>
     <div class="legal">
-      <p>Vermona Skin Lightening Serum is a cosmetic. It is not intended to diagnose, treat, cure or prevent any disease, and these statements have not been evaluated by the Food and Drug Administration. Skin images are computer renderings for illustration. Individual results vary. Patch test, use SPF daily, and see a dermatologist about any spot that changes in size, shape or colour.</p>
+      <p>Vermona products are cosmetics. They are not intended to diagnose, treat, cure or prevent any disease, and these statements have not been evaluated by the Food and Drug Administration. Skin images are computer renderings for illustration. Individual results vary. Patch test, use SPF daily, and see a dermatologist about any spot that changes in size, shape or colour.</p>
       <p>© 2026 Vermona · Concept site</p>
     </div>
   </div>
@@ -652,7 +900,8 @@ img{max-width:100%}
   <div class="ps-body">
     <div class="menu-sec"><button type="button" aria-expanded="true">Shop</button><ul>
       <li><button data-assess data-pre="hyper">Anti-Pigmentation</button></li><li><button data-assess data-pre="melasma">Melasma</button></li><li><button data-assess data-pre="sun">Sun Damage</button></li><li><button data-assess data-pre="pih">Acne Marks</button></li><li><button data-assess data-pre="body">Body</button></li>
-      <li><a href="#treatment" data-close style="color:var(--ink);text-decoration:underline">Browse Treatment →</a></li></ul></div>
+      <li><a href="#treatment" data-close style="color:var(--ink);text-decoration:underline">Shop the Regimen →</a></li></ul></div>
+    <div class="menu-sec"><button type="button" aria-expanded="false">My Journey</button><ul hidden><li><a href="#journey" data-close>Dashboard preview</a></li><li><a href="#journey" data-close>Your Personal Skin Consultant</a></li></ul></div>
     <div class="menu-sec"><button type="button" aria-expanded="false">Community</button><ul hidden><li><a href="#community" data-close>Vermona Community (coming soon)</a></li></ul></div>
     <div class="menu-sec"><button type="button" aria-expanded="false">Support</button><ul hidden><li><a href="#faq" data-close>FAQ</a></li><li><a href="#faq" data-close>Shipping &amp; Returns</a></li><li><a href="#faq" data-close>Contact</a></li></ul></div>
     <div class="menu-sec"><button type="button" aria-expanded="false">About Vermona</button><ul hidden><li><button data-goto="how">How It Works</button></li><li><button data-goto="results">Results</button></li></ul></div>
@@ -780,7 +1029,7 @@ img{max-width:100%}
     const w = Math.min(1500, Math.round(r.width)), h = Math.round(w * r.height / r.width);
     const opt = { tone: TONES.IV, seed: 11, lift: 0.04, edge: 0.62, fine: 220, creases: true, warm: true, irreg: true, spots: heroSpots(w, h) };
     hB = renderSkin(w, h, opt, 1);
-    hA = renderSkin(w, h, { ...opt, tone: opt.tone.map((c) => Math.min(255, c * 1.3 + 14)), lift: 0.06 }, 0.06);
+    hA = renderSkin(w, h, { ...opt, tone: opt.tone.map((c) => Math.round(c + (255 - c) * 0.55)), lift: 0.04 }, 0.05);
     fit(hc); drawHero(performance.now());
   }
   function drawHero(now) {
@@ -809,24 +1058,34 @@ img{max-width:100%}
 
   function drawConcerns() { $$("[data-skin]").forEach((cv) => { if (!cv.offsetParent) return; const { W, H } = fit(cv); cover(cv.getContext("2d"), pair(cv.dataset.skin, 360, 380)[0], W, H); }); }
 
-  /* Bottle */
+  /* Product art: one SVG family, 120 x 300 viewBox */
   let uid = 0;
-  function bottle() {
-    const u = "b" + ++uid;
-    return `<svg viewBox="0 0 120 300" role="img" aria-label="Vermona Skin Lightening Serum bottle">
-      <defs><linearGradient id="${u}g" x1="0" x2="1"><stop offset="0" stop-color="#e3e6e8"/><stop offset=".3" stop-color="#ffffff"/><stop offset=".7" stop-color="#f1f3f4"/><stop offset="1" stop-color="#cfd4d8"/></linearGradient>
-      <linearGradient id="${u}c" x1="0" x2="1"><stop offset="0" stop-color="#5a1430"/><stop offset=".45" stop-color="#8e2a4c"/><stop offset="1" stop-color="#4a0f27"/></linearGradient></defs>
-      <rect x="44" y="6" width="32" height="64" rx="16" fill="url(#${u}c)"/>
-      <rect x="38" y="62" width="44" height="20" rx="3" fill="#d9d9d9"/>
-      <path d="M22 104 Q22 82 46 82 H74 Q98 82 98 104 V278 Q98 294 82 294 H38 Q22 294 22 278 Z" fill="url(#${u}g)"/>
-      <path d="M32 110 V270" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-      <text x="60" y="150" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" fill="#1d191b">Vermona</text>
-      <line x1="44" y1="158" x2="76" y2="158" stroke="#7e1e3f" stroke-width=".8"/>
-      <text x="60" y="171" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="5.6" font-weight="600" letter-spacing=".8" fill="#4f474b">SKIN LIGHTENING</text>
-      <text x="60" y="179" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="5.6" font-weight="600" letter-spacing=".8" fill="#4f474b">SERUM</text>
-      <text x="60" y="280" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="5" fill="#7d7378">30 ml · 1.0 fl oz</text>
-    </svg>`;
+  function art(kind, cls) {
+    const u = "a" + ++uid;
+    const defs = `<defs><linearGradient id="${u}g" x1="0" x2="1"><stop offset="0" stop-color="#e3e6e8"/><stop offset=".3" stop-color="#ffffff"/><stop offset=".7" stop-color="#f1f3f4"/><stop offset="1" stop-color="#cfd4d8"/></linearGradient>
+      <linearGradient id="${u}c" x1="0" x2="1"><stop offset="0" stop-color="#5a1430"/><stop offset=".45" stop-color="#8e2a4c"/><stop offset="1" stop-color="#4a0f27"/></linearGradient>
+      <linearGradient id="${u}a" x1="0" x2="1"><stop offset="0" stop-color="#3b1a20"/><stop offset=".4" stop-color="#6a2e38"/><stop offset="1" stop-color="#2a1015"/></linearGradient>
+      <linearGradient id="${u}t" x1="0" x2="1"><stop offset="0" stop-color="#c8a48c"/><stop offset=".45" stop-color="#e6c8b2"/><stop offset="1" stop-color="#b08a72"/></linearGradient></defs>`;
+    const label = (y, l1, l2, dark) => `<text x="60" y="${y}" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="14" fill="${dark ? "#fff" : "#1d191b"}">Vermona</text>
+      <line x1="46" y1="${y + 7}" x2="74" y2="${y + 7}" stroke="${dark ? "#e7b6c4" : "#7e1e3f"}" stroke-width=".8"/>
+      <text x="60" y="${y + 19}" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="5.2" font-weight="600" letter-spacing=".5" fill="${dark ? "#f1dfe4" : "#4f474b"}">${l1}</text>
+      ${l2 ? `<text x="60" y="${y + 27}" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="5.2" font-weight="600" letter-spacing=".5" fill="${dark ? "#f1dfe4" : "#4f474b"}">${l2}</text>` : ""}`;
+    const S = {
+      serum: `<rect x="44" y="6" width="32" height="64" rx="16" fill="url(#${u}c)"/><rect x="38" y="62" width="44" height="20" rx="3" fill="#d9d9d9"/><path d="M22 104 Q22 82 46 82 H74 Q98 82 98 104 V278 Q98 294 82 294 H38 Q22 294 22 278 Z" fill="url(#${u}g)"/><path d="M32 110 V270" stroke="#fff" stroke-width="4" stroke-linecap="round"/>${label(150, "ANTI-PIGMENTATION", "SERUM")}`,
+      night: `<rect x="44" y="6" width="32" height="64" rx="16" fill="#e6e6e6"/><rect x="38" y="62" width="44" height="20" rx="3" fill="#cfcfcf"/><path d="M22 104 Q22 82 46 82 H74 Q98 82 98 104 V278 Q98 294 82 294 H38 Q22 294 22 278 Z" fill="url(#${u}a)"/><path d="M32 110 V270" stroke="#fff" stroke-opacity=".25" stroke-width="4" stroke-linecap="round"/>${label(150, "RETINAL RENEWAL", "NIGHT TREATMENT", true)}`,
+      cleanser: `<path d="M30 40 L90 40 L96 250 Q96 262 84 262 H36 Q24 262 24 250 Z" fill="url(#${u}g)"/><rect x="34" y="262" width="52" height="32" rx="6" fill="url(#${u}c)"/><path d="M30 40 H90 L90 30 H30 Z" fill="#d8dde0"/><path d="M36 60 V240" stroke="#fff" stroke-width="4" stroke-linecap="round"/>${label(130, "BRIGHTENING", "CLEANSER")}`,
+      moist: `<rect x="14" y="150" width="92" height="40" rx="8" fill="url(#${u}c)"/><path d="M14 186 H106 V268 Q106 290 84 290 H36 Q14 290 14 268 Z" fill="url(#${u}g)"/><path d="M24 196 V276" stroke="#fff" stroke-width="4" stroke-linecap="round"/>${label(226, "BARRIER REPAIR", "MOISTURISER")}`,
+      spf: `<path d="M30 40 L90 40 L96 250 Q96 262 84 262 H36 Q24 262 24 250 Z" fill="url(#${u}g)"/><rect x="34" y="262" width="52" height="32" rx="6" fill="url(#${u}t)"/><path d="M30 40 H90 L90 30 H30 Z" fill="#d8dde0"/><path d="M36 60 V240" stroke="#fff" stroke-width="4" stroke-linecap="round"/>${label(130, "TINTED MINERAL", "SPF 50")}`,
+      body: `<rect x="52" y="10" width="16" height="40" rx="3" fill="url(#${u}c)"/><path d="M60 22 H96 V32 H60 Z" fill="url(#${u}c)"/><rect x="42" y="46" width="36" height="22" rx="4" fill="#d9d9d9"/><path d="M20 92 Q20 68 46 68 H74 Q100 68 100 92 V278 Q100 294 84 294 H36 Q20 294 20 278 Z" fill="url(#${u}g)"/><path d="M30 100 V272" stroke="#fff" stroke-width="4" stroke-linecap="round"/>${label(150, "BODY ANTI-PIGMENTATION", "LOTION")}`,
+      pen: `<rect x="48" y="20" width="24" height="70" rx="10" fill="url(#${u}c)"/><rect x="46" y="88" width="28" height="196" rx="12" fill="url(#${u}g)"/><path d="M52 100 V270" stroke="#fff" stroke-width="3" stroke-linecap="round"/><g transform="rotate(-90 60 190)"><text x="60" y="186" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="12" fill="#1d191b">Vermona</text><text x="60" y="197" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="5" font-weight="600" letter-spacing=".5" fill="#4f474b">DARK SPOT CONCENTRATE</text></g>`,
+      pads: `<rect x="8" y="196" width="104" height="30" rx="8" fill="url(#${u}c)"/><path d="M8 222 H112 V274 Q112 292 94 292 H26 Q8 292 8 274 Z" fill="url(#${u}g)"/>${label(246, "EXFOLIATING PADS")}`,
+      mask: `<rect x="14" y="160" width="92" height="36" rx="8" fill="#f2e3e8"/><path d="M14 192 H106 V268 Q106 290 84 290 H36 Q14 290 14 268 Z" fill="url(#${u}c)"/>${label(232, "OVERNIGHT", "BRIGHTENING MASK", true)}`,
+      eye: `<path d="M38 70 L82 70 L86 240 Q86 250 76 250 H44 Q34 250 34 240 Z" fill="url(#${u}g)"/><rect x="46" y="250" width="28" height="40" rx="5" fill="url(#${u}c)"/><path d="M52 70 L68 70 L64 48 H56 Z" fill="#c9ccd0"/>${label(140, "UNDER-EYE", "BRIGHTENER")}`,
+      lip: `<rect x="44" y="40" width="32" height="90" rx="6" fill="url(#${u}c)"/><rect x="42" y="126" width="36" height="164" rx="6" fill="url(#${u}g)"/><g transform="rotate(-90 60 210)"><text x="60" y="206" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="12" fill="#1d191b">Vermona</text><text x="60" y="217" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="5" font-weight="600" letter-spacing=".5" fill="#4f474b">LIP BRIGHTENING BALM</text></g>`,
+    };
+    return `<svg class="${cls || ""}" viewBox="0 0 120 300" role="img" aria-label="Vermona ${kind} product">${defs}${S[kind] || S.serum}</svg>`;
   }
+  const bottle = () => art("serum");
 
   /* Results rail */
   const STORIES = [["melasma", "Melasma", "16 weeks"], ["pih", "Acne marks", "8 weeks"], ["body", "Underarms", "10 weeks"], ["sun", "Sun damage", "12 weeks"], ["hyper", "Anti-pigmentation", "12 weeks"], ["tone", "Uneven tone", "8 weeks"]];
@@ -853,39 +1112,78 @@ img{max-width:100%}
   $$("[data-ok]").forEach((td) => (td.innerHTML = '<svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" role="img" aria-label="Yes"><path d="M5 12l5 5 9-10"/></svg>'));
   $$("[data-no]").forEach((td) => (td.innerHTML = '<svg class="no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" role="img" aria-label="No"><path d="M6 6l12 12M18 6L6 18"/></svg>'));
 
-  /* ===================== Treatment products ===================== */
-  const COURSES = {
-    c8: { name: "8-Week Course", units: 1, price: 129, desc: "One bottle. For newer spots, light marks and dull tone." },
-    c16: { name: "16-Week Course", units: 2, price: 229, desc: "Two bottles. For melasma, sun damage and body areas.", badge: "Most chosen" },
-    c24: { name: "24-Week Course", units: 3, price: 309, desc: "Three bottles. For long-standing or extensive darkening.", badge: "Best value" },
+  /* ===================== Catalogue ===================== */
+  const ITEMS = {
+    serum: { name: "Anti-Pigmentation Serum", price: 129, step: "Step 2 · AM + PM", desc: "The core of the regimen. Five actives that reduce excess pigment for lighter, more even skin.", size: "30 ml · 8 weeks" },
+    night: { name: "Retinal Renewal Night Treatment", price: 59, step: "Step 3 · PM", desc: "Encapsulated retinal speeds skin renewal so lighter skin surfaces faster.", size: "30 ml · 8 weeks" },
+    cleanser: { name: "Gentle Brightening Cleanser", price: 32, step: "Step 1 · AM + PM", desc: "Low-pH gel that cleans without stripping, so actives work without irritation.", size: "150 ml" },
+    moist: { name: "Barrier Repair Moisturiser", price: 42, step: "Step 4 · AM + PM", desc: "Ceramides and panthenol keep skin calm, which prevents rebound darkening.", size: "50 ml" },
+    spf: { name: "Tinted Mineral SPF 50", price: 38, step: "Step 5 · AM", desc: "Blocks UV and visible light with iron oxides. Four tint shades for every skin tone.", size: "50 ml" },
+    body: { name: "Body Anti-Pigmentation Lotion", price: 49, desc: "For underarms, knees, elbows and inner thighs. Lightens darkened areas on the body.", size: "200 ml" },
+    pen: { name: "Dark Spot Concentrate", price: 39, desc: "A precision pen for stubborn spots, applied after your serum.", size: "4 ml" },
+    pads: { name: "Brightening Exfoliating Pads", price: 36, desc: "Gentle mandelic and PHA acids for a weekly polish. Safe for deeper skin tones.", size: "40 pads" },
+    mask: { name: "Overnight Brightening Mask", price: 45, desc: "A weekly sleeping mask that boosts radiance while you sleep.", size: "50 ml" },
+    eye: { name: "Under-Eye Brightener", price: 48, desc: "Lightens the look of dark circles with caffeine and niacinamide.", size: "15 ml" },
+    lip: { name: "Lip Brightening Balm", price: 22, desc: "Softens and lightens darkened lips. Tinted, with SPF 15.", size: "4.5 g" },
   };
-  const OFF = 0.15;
+  const CORE = ["cleanser", "serum", "night", "moist", "spf"];
+  const SETS = {
+    regimen: { name: "The Complete Regimen", items: CORE, price: 239, sub: 199 },
+    starter: { name: "Starter Set", items: ["serum", "spf"], price: 149, desc: "Serum and SPF. A simple start for newer or lighter concerns." },
+    bodyset: { name: "Body Regimen", items: ["body", "pads", "spf"], price: 109, desc: "Lotion, pads and SPF for underarms, knees, elbows and thighs." },
+    facebody: { name: "Face + Body Regimen", items: [...CORE, "body"], price: 279, sub: 235, desc: "The Complete Regimen plus Body Lotion. Includes your Personal Skin Consultant." },
+    maint: { name: "Maintenance Set", items: ["serum", "moist", "spf"], price: 179, desc: "For after your regimen, to keep your results." },
+  };
+  const SUB_OFF = 0.15;
   let plan = "once";
-  const priceOf = (c, r) => Math.round(COURSES[c].price * (r ? 1 - OFF : 1) * 100) / 100;
-  function drawProducts() {
-    const r = plan === "refill";
-    $("#products").innerHTML = Object.entries(COURSES).map(([k, c]) => `
-      <article class="prod">
-        <div class="img">${c.badge ? `<span class="badge">${c.badge}</span>` : ""}${bottle()}</div>
-        <div class="info"><div style="display:grid;gap:6px"><h3>${c.name}</h3><p>${c.desc}</p></div>
-          <div class="buyrow"><span class="price">${money(priceOf(k, r))}${r ? "<small> /course</small>" : ""}</span><button class="add" type="button" data-add="${k}">+ Add</button></div></div>
-      </article>`).join("");
+  const subOf = (p) => Math.round(p * (1 - SUB_OFF));
+  const priceOf = (id, s) => { const o = ITEMS[id] || SETS[id]; return s ? (o.sub || subOf(o.price)) : o.price; };
+  const sumOf = (ids) => ids.reduce((t, k) => t + ITEMS[k].price, 0);
+  const check = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg>';
+  const perLabel = (s) => (s ? "<small> /8 wks</small>" : "");
+  function renderShop() {
+    const s = plan === "sub";
+    const sizes = { cleanser: "s", moist: "xs", spf: "s" };
+    $("#lineup").innerHTML = `<span class="badge">Most complete</span>` + CORE.map((k) => art(k, sizes[k] || "")).join("");
+    $("#includes").innerHTML = CORE.map((k) => `<li>${check}<span>${ITEMS[k].name}</span></li>`).join("") +
+      `<li class="svc">${check}<span><b>Personal Skin Consultant</b> for your whole journey</span></li><li class="svc">${check}<span><b>My Journey dashboard</b> with your daily calendar</span></li><li class="svc">${check}<span><b>Progress reviews</b> every 2 weeks</span></li>`;
+    const rp = priceOf("regimen", s), full = sumOf(CORE);
+    $("#reg-price").innerHTML = money(rp) + perLabel(s);
+    $("#reg-was").textContent = money(full) + " separately";
+    $("#reg-save").textContent = "Save " + money(full - rp);
+    $("#bundles").innerHTML = ["starter", "facebody", "bodyset", "maint"].map((k) => { const b = SETS[k]; return `
+      <article class="bundle"><div class="mini">${b.items.slice(0, 6).map((i) => art(i)).join("")}</div>
+        <div style="display:grid;gap:4px"><h3>${b.name}</h3><p>${b.desc}</p></div>
+        <div class="buyrow"><span class="price">${money(priceOf(k, s))}${perLabel(s)} <small style="text-decoration:line-through">${money(sumOf(b.items))}</small></span><button class="add" type="button" data-add="${k}">+ Add</button></div></article>`; }).join("");
+    const card = (k) => { const it = ITEMS[k]; return `
+      <article class="prod"><div class="img">${art(k)}</div>
+        <div class="info"><div style="display:grid;gap:6px">${it.step ? `<span class="step-tag">${it.step}</span>` : ""}<h3>${it.name}</h3><p>${it.desc}</p><span class="small">${it.size}</span></div>
+          <div class="buyrow"><span class="price">${money(priceOf(k, s))}${perLabel(s)}</span><button class="add" type="button" data-add="${k}">+ Add</button></div></div></article>`; };
+    $("#essentials").innerHTML = CORE.map(card).join("");
+    $("#addons").innerHTML = ["body", "pen", "pads", "mask", "eye", "lip"].map(card).join("");
   }
-  drawProducts();
-  $$("[data-plan]").forEach((b) => b.addEventListener("click", () => { plan = b.dataset.plan; $$("[data-plan]").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); drawProducts(); }));
+  renderShop();
+  $$("[data-plan]").forEach((b) => b.addEventListener("click", () => { plan = b.dataset.plan; $$("[data-plan]").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); renderShop(); }));
   function drawCat() { const cv = $("#cat-canvas"); if (!cv.offsetParent) return; const { W, H } = fit(cv); cover(cv.getContext("2d"), pair("tone", 600, 260)[1], W, H); }
 
   /* ===================== Cart ===================== */
-  const KEY = "vermona-cart-v2";
+  const KEY = "vermona-cart-v3";
   let cart = []; try { cart = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { cart = []; }
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(cart)); } catch (e) {} render(); };
-  function add(c, r) { const key = c + (r ? "-r" : ""); const ex = cart.find((i) => i.key === key); ex ? (ex.qty = Math.min(5, ex.qty + 1)) : cart.push({ key, name: "Skin Lightening Serum", variant: COURSES[c].name + (r ? " · auto-refill" : ""), price: priceOf(c, r), qty: 1 }); save(); }
+  function add(id, s) {
+    if (s === undefined) s = plan === "sub";
+    const key = id + (s ? "-s" : ""), o = ITEMS[id] || SETS[id], ex = cart.find((i) => i.key === key);
+    ex ? (ex.qty = Math.min(5, ex.qty + 1)) : cart.push({ key, id, name: o.name, variant: s ? "Subscription · every 8 weeks" : "One-time purchase", price: priceOf(id, s), qty: 1 });
+    save();
+  }
+  const thumbOf = (id) => art(ITEMS[id] ? id : id === "bodyset" ? "body" : "serum");
   function render() {
     const n = cart.reduce((s, i) => s + i.qty, 0); $("#count").textContent = n; $("#count").hidden = !n;
-    if (!cart.length) { $("#c-body").innerHTML = `<div class="empty"><p>Your cart is empty.</p><a class="btn btn-wine" href="#treatment" data-close>Shop Treatment</a></div>`; $("#c-foot").innerHTML = ""; return; }
-    $("#c-body").innerHTML = cart.map((i) => `<div class="li"><div class="th">${bottle()}</div><div><b>${i.name}</b><small>${i.variant}</small><span class="mq"><button type="button" data-dec="${i.key}" aria-label="Decrease">−</button>${i.qty}<button type="button" data-inc="${i.key}" aria-label="Increase">+</button><button type="button" class="lnk" data-rm="${i.key}">Remove</button></span></div><span style="font-variant-numeric:tabular-nums">${money(Math.round(i.price * i.qty * 100) / 100)}</span></div>`).join("");
+    if (!cart.length) { $("#c-body").innerHTML = `<div class="empty"><p>Your cart is empty.</p><a class="btn btn-wine" href="#treatment" data-close>Shop the Regimen</a></div>`; $("#c-foot").innerHTML = ""; return; }
+    $("#c-body").innerHTML = cart.map((i) => `<div class="li"><div class="th">${thumbOf(i.id)}</div><div><b>${i.name}</b><small>${i.variant}</small><span class="mq"><button type="button" data-dec="${i.key}" aria-label="Decrease">−</button>${i.qty}<button type="button" data-inc="${i.key}" aria-label="Increase">+</button><button type="button" class="lnk" data-rm="${i.key}">Remove</button></span></div><span style="font-variant-numeric:tabular-nums">${money(Math.round(i.price * i.qty * 100) / 100)}</span></div>`).join("");
     const sub = Math.round(cart.reduce((s, i) => s + i.price * i.qty, 0) * 100) / 100, disc = Math.round(sub * 0.2 * 100) / 100;
-    $("#c-foot").innerHTML = `<div class="r"><span>Subtotal</span><span>${money(sub)}</span></div><div class="r" style="color:var(--wine)"><span>First course 20% off</span><span>−${money(disc)}</span></div><div class="r"><span>Shipping</span><span>Free</span></div><div class="r t"><span>Total</span><span>${money(Math.round((sub - disc) * 100) / 100)}</span></div><button class="btn btn-wine btn-block" type="button" id="checkout">Checkout</button><div class="note-box" id="co-note" hidden>Concept site: checkout isn't connected. On the live site this continues to Stripe or Shopify.</div>`;
+    const guided = cart.some((i) => i.id === "regimen" || i.id === "facebody");
+    $("#c-foot").innerHTML = `${guided ? `<div class="note-box">Includes your Personal Skin Consultant and My Journey dashboard.</div>` : ""}<div class="r"><span>Subtotal</span><span>${money(sub)}</span></div><div class="r" style="color:var(--wine)"><span>First order 20% off</span><span>−${money(disc)}</span></div><div class="r"><span>Shipping</span><span>Free</span></div><div class="r t"><span>Total</span><span>${money(Math.round((sub - disc) * 100) / 100)}</span></div><button class="btn btn-wine btn-block" type="button" id="checkout">Checkout</button><div class="note-box" id="co-note" hidden>Concept site: checkout isn't connected. On the live site this continues to Stripe or Shopify.</div>`;
   }
   render();
 
@@ -896,11 +1194,12 @@ img{max-width:100%}
   let tt; const toast = (m) => { const t = $("#toast"); t.textContent = m; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 2400); };
 
   /* ===================== Routing ===================== */
-  const VIEWS = ["home", "treatment", "community", "faq"];
+  const VIEWS = ["home", "treatment", "journey", "community", "faq"];
   let pending = null;
   function paint() {
     if (!$('[data-view="home"]').hidden) { buildHero(); idle(drawConcerns); idle(drawRail); }
     if (!$('[data-view="treatment"]').hidden) idle(drawCat);
+    if (!$('[data-view="journey"]').hidden) drawJourney();
   }
   function route() {
     const v = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "home";
@@ -922,7 +1221,7 @@ img{max-width:100%}
     if (t.hasAttribute("data-assess")) startAssess(t.dataset.pre);
     if (t.dataset.goto) goto(t.dataset.goto);
     if (t.dataset.go) location.hash = t.dataset.go;
-    if (t.dataset.add) { add(t.dataset.add, plan === "refill"); toast("Added to cart"); open(cartP); }
+    if (t.dataset.add) { add(t.dataset.add); toast("Added to cart"); open(cartP); }
     if (t.dataset.inc) { const i = cart.find((x) => x.key === t.dataset.inc); i.qty = Math.min(5, i.qty + 1); save(); }
     if (t.dataset.dec) { const i = cart.find((x) => x.key === t.dataset.dec); i.qty = Math.max(1, i.qty - 1); save(); }
     if (t.dataset.rm) { cart = cart.filter((x) => x.key !== t.dataset.rm); save(); }
@@ -933,6 +1232,9 @@ img{max-width:100%}
   /* ===================== FAQ ===================== */
   const FAQ = [
     ["About Vermona", [
+      ["What is the Complete Regimen?", "Five products that work together: Gentle Brightening Cleanser, Anti-Pigmentation Serum, Retinal Renewal Night Treatment, Barrier Repair Moisturiser and Tinted Mineral SPF 50. It comes with your My Journey dashboard, a daily calendar and a dedicated Personal Skin Consultant."],
+      ["What is a Personal Skin Consultant?", "A Vermona skincare specialist, trained in the Vermona regimen, who is assigned to you for your whole journey. They review your progress photos, adjust your calendar and answer your questions. They are not doctors and do not diagnose or prescribe; if something needs medical attention, they will tell you to see one."],
+      ["Is Retinal Renewal like tretinoin?", "Retinal is a gentler, non-prescription relative of tretinoin that also speeds skin renewal. Your calendar starts it at two nights a week and builds up slowly to avoid irritation."],
       ["What does Vermona lighten?", "Areas of skin that have darkened: hyperpigmentation, dark spots, melasma, sun damage, post-acne marks, and darker areas such as underarms, knees, elbows and inner thighs. It also brightens and evens overall tone. Its effect on your natural base skin tone is subtle, because it lightens excess pigment rather than bleaching skin."],
       ["How quickly will I see results?", "Skin often looks brighter within 1–2 weeks. Dark spots and marks typically lighten from weeks 4–8. Melasma and stubborn areas usually need 12–16 weeks."],
       ["Can I use it on my body?", "Yes: face, neck, hands, underarms, elbows, knees and inner thighs. Avoid broken skin, the eye area and mucous membranes, and patch test each new area."],
@@ -999,19 +1301,146 @@ img{max-width:100%}
       body.innerHTML = `<h2 id="a-title">Please see a doctor first.</h2><div class="flag">${ans.flag === "preg" ? "Because you're pregnant, trying to conceive or breastfeeding, check with your doctor or midwife before starting any active skincare." : "A spot that is new, changing, bleeding or irregular should be checked by a dermatologist before any cosmetic treatment."}</div><button type="button" class="btn btn-line" data-close style="justify-self:start">Close</button>`;
       return;
     }
-    const course = ans.dur === "old" ? "c24" : (ans.cond === "melasma" || ans.cond === "body" || ans.dur === "mid") ? "c16" : "c8";
+    const rec = ans.cond === "body" ? "facebody" : (ans.dur === "new" && (ans.cond === "tone" || ans.cond === "sun")) ? "starter" : "regimen";
+    const weeks = ans.dur === "old" || ans.cond === "melasma" ? 16 : ans.dur === "mid" ? 12 : 8;
     const lines = [
-      `${COURSES[course].name} for ${CN[ans.cond]}.`,
-      ans.sens === "ok" ? "Apply morning and evening from day one." : ans.sens === "some" ? "Weeks 1–2: evenings only, then twice daily." : "Weeks 1–2: every other evening over moisturiser, then build up slowly.",
-      "SPF 30+ every morning on treated areas exposed to sun.",
+      `${SETS[rec].name} for ${CN[ans.cond]}, with a ${weeks}-week plan.`,
+      ans.sens === "ok" ? "Serum morning and evening from day one; Retinal Renewal from week 3." : ans.sens === "some" ? "Weeks 1–2: serum evenings only. Retinal Renewal starts week 3, two nights a week." : "Weeks 1–2: serum every other evening over moisturiser. Your consultant will add Retinal Renewal slowly.",
+      "Tinted Mineral SPF 50 every morning, reapplied outdoors.",
     ];
     if (["IV", "V", "VI"].includes(ans.fitz)) lines.push("Deeper skin darkens easily after irritation, so skip harsh scrubs and picking.");
-    if (ans.cond === "body") lines.push("On underarms, apply at night and avoid shaving right before. Loose clothing reduces friction.");
-    if (ans.cond === "melasma") lines.push("Heat triggers melasma too. A tinted mineral SPF with iron oxides helps.");
-    body.innerHTML = `<h2 id="a-title">Your recommended treatment</h2><div class="regimen"><span class="eyebrow">Skin Lightening Serum · ${COURSES[course].name}</span><ul>${lines.map((l) => `<li>${l}</li>`).join("")}</ul></div><button type="button" class="btn btn-wine btn-block" data-take="${course}">Add to Cart · ${money(COURSES[course].price)}</button><button type="button" class="lnk" style="justify-self:center" data-restart>Start over</button>`;
-    $("[data-take]", body).addEventListener("click", () => { add(course, false); toast("Added to cart"); open(cartP); });
+    if (ans.cond === "body") lines.push("On underarms, apply Body Lotion at night and avoid shaving right before.");
+    if (ans.cond === "melasma") lines.push("Heat triggers melasma too. Your tinted SPF's iron oxides add visible-light protection.");
+    if (rec !== "starter") lines.push("Includes your Personal Skin Consultant and daily calendar.");
+    body.innerHTML = `<h2 id="a-title">Your recommended regimen</h2><div class="regimen"><span class="eyebrow">${SETS[rec].name}</span><ul>${lines.map((l) => `<li>${l}</li>`).join("")}</ul></div><button type="button" class="btn btn-wine btn-block" data-take="${rec}">Add to Cart · ${money(SETS[rec].price)}</button><button type="button" class="lnk" style="justify-self:center" data-restart>Start over</button>`;
+    $("[data-take]", body).addEventListener("click", () => { add(rec, false); toast("Added to cart"); open(cartP); });
     $("[data-restart]", body).addEventListener("click", () => startAssess());
   }
+
+  /* ===================== My Journey dashboard (sample data) ===================== */
+  const DAY = 86400000;
+  const midnight = (d) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const TODAY = midnight(new Date());
+  const START = new Date(TODAY.getTime() - 38 * DAY);
+  const daysFrom = (d) => Math.round((midnight(d) - START) / DAY);
+  const fmt = (d, o) => d.toLocaleDateString(undefined, o);
+  function plan4(d) {
+    const n = daysFrom(d), w = Math.floor(n / 7) + 1, dow = d.getDay();
+    if (n < 0) return { pre: true };
+    const maint = w > 16;
+    const ret = w <= 2 ? false : w <= 4 ? [1, 4].includes(dow) : w <= 8 ? [1, 3, 5].includes(dow) : [0, 1, 3, 5].includes(dow);
+    const pad = w >= 3 && dow === 6, mask = w >= 2 && dow === 2;
+    const photo = n % 14 === 0 && n <= 112, chk = [28, 56, 84, 112].includes(n), refill = n % 56 === 49;
+    return { n, w, maint, ret, pad, mask, photo, chk, refill };
+  }
+  function routine(d) {
+    const p = plan4(d);
+    if (p.pre) return null;
+    const am = [["cleanser", "Gentle Brightening Cleanser", "Massage 30 seconds, rinse lukewarm"], ["serum", "Anti-Pigmentation Serum", "3–4 drops, press into face and neck"], ["moist", "Barrier Repair Moisturiser", "A pea-sized amount"], ["spf", "Tinted Mineral SPF 50", "Two finger-lengths. Reapply outdoors"]];
+    const pm = [["cleanser", "Gentle Brightening Cleanser", "Double cleanse if wearing SPF or makeup"]];
+    if (p.pad) pm.push(["pads", "Brightening Exfoliating Pad", "One sweep, then wait 10 minutes", true]);
+    pm.push(["serum", "Anti-Pigmentation Serum", "3–4 drops"]);
+    if (p.ret) pm.push(["night", "Retinal Renewal Night Treatment", p.w <= 4 ? "Pea-sized amount over dry skin. Week " + p.w + ": 2 nights a week" : "Pea-sized amount", true]);
+    pm.push(p.mask ? ["mask", "Overnight Brightening Mask", "Replaces moisturiser tonight", true] : ["moist", "Barrier Repair Moisturiser", "Seal everything in"]);
+    return { p, am, pm };
+  }
+  const JKEY = "vermona-journey-v1";
+  let done = {}; try { done = JSON.parse(localStorage.getItem(JKEY)) || {}; } catch (e) { done = {}; }
+  const saveDone = () => { try { localStorage.setItem(JKEY, JSON.stringify(done)); } catch (e) {} };
+  const dkey = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  function drawToday() {
+    const r = routine(TODAY), k = dkey(TODAY);
+    $("#today-date").textContent = fmt(TODAY, { weekday: "long", month: "long", day: "numeric" });
+    const list = (slot, items) => items.map(([id, name, how, isNew], i) => { const key = `${k}-${slot}-${i}`; return `<label class="check${isNew ? " new" : ""}" for="ck-${key}"><input type="checkbox" id="ck-${key}" data-done="${key}"${done[key] ? " checked" : ""}><span><b>${name}</b><small>${how}</small></span></label>`; }).join("");
+    $("#today").innerHTML = `<div><h4>☀ Morning</h4>${list("am", r.am)}</div><div><h4>☾ Evening</h4>${list("pm", r.pm)}</div>`;
+  }
+  document.addEventListener("change", (e) => {
+    const k = e.target.dataset && e.target.dataset.done; if (!k) return;
+    done[k] = e.target.checked; saveDone();
+    const all = $$("#today [data-done]"); if (all.length && all.every((x) => x.checked)) toast("Today's routine complete. Nice work.");
+  });
+  let calView = new Date(TODAY.getFullYear(), TODAY.getMonth(), 1), sel = TODAY;
+  function drawCal() {
+    $("#cal-month").textContent = fmt(calView, { month: "long", year: "numeric" });
+    const first = new Date(calView), lead = (first.getDay() + 6) % 7, start = new Date(first.getTime() - lead * DAY);
+    let html = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((d) => `<span class="dow">${d}</span>`).join("");
+    for (let i = 0; i < 42; i++) {
+      const d = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i), p = plan4(d);
+      const dots = p.pre ? "" : [p.ret && "k-ret", p.pad && "k-pad", p.mask && "k-mask", p.photo && "k-photo", p.chk && "k-check"].filter(Boolean).map((c) => `<i class="${c}"></i>`).join("");
+      const cls = ["day", d.getMonth() !== calView.getMonth() && "out", p.pre && "pre", dkey(d) === dkey(TODAY) && "today"].filter(Boolean).join(" ");
+      html += `<button type="button" class="${cls}" data-day="${dkey(d)}" aria-pressed="${dkey(d) === dkey(sel)}" aria-label="${fmt(d, { weekday: "long", month: "long", day: "numeric" })}">${d.getDate()}<span class="cal-dots">${dots}</span></button>`;
+    }
+    $("#cal").innerHTML = html;
+    drawDetail();
+  }
+  function drawDetail() {
+    const r = routine(sel), el = $("#day-detail");
+    if (!r) { el.innerHTML = `<h4>${fmt(sel, { weekday: "long", month: "long", day: "numeric" })}</h4><p class="small">Before your regimen started.</p>`; return; }
+    const p = r.p, extras = [];
+    if (p.chk) extras.push("Consultant check-in: review your progress photos together");
+    if (p.photo) extras.push("Progress photo day: same spot, same light, no makeup");
+    if (p.refill) extras.push("Your next regimen ships today");
+    el.innerHTML = `<h4>${fmt(sel, { weekday: "long", month: "long", day: "numeric" })} · Week ${p.w}${p.maint ? " · Maintenance" : ""}</h4>
+      ${extras.length ? `<ul>${extras.map((x) => `<li><b>${x}</b></li>`).join("")}</ul>` : ""}
+      <ul><li><b>Morning:</b> ${r.am.map((x) => x[1]).join(", ")}</li><li><b>Evening:</b> ${r.pm.map((x) => x[1]).join(", ")}</li></ul>`;
+  }
+  document.addEventListener("click", (e) => {
+    const d = e.target.closest("[data-day]");
+    if (d) { const [y, m, dd] = d.dataset.day.split("-").map(Number); sel = new Date(y, m - 1, dd); $$("#cal [data-day]").forEach((b) => b.setAttribute("aria-pressed", String(b === d))); drawDetail(); }
+    const c = e.target.closest("[data-cal]");
+    if (c) { calView = new Date(calView.getFullYear(), calView.getMonth() + +c.dataset.cal, 1); drawCal(); }
+    const t = e.target.closest("[data-toast]"); if (t) toast(t.dataset.toast);
+  });
+  function drawHeader() {
+    const p = plan4(TODAY);
+    $("#j-week").textContent = `Week ${p.w} of 16`;
+    $("#j-start").textContent = "Started " + fmt(START, { month: "long", day: "numeric" });
+    const h = new Date().getHours();
+    $("#j-hello").textContent = (h < 12 ? "Good morning" : h < 18 ? "Good afternoon" : "Good evening") + ". You're on track.";
+    const PH = [["Start", 1, 2], ["Build", 3, 4], ["Strengthen", 5, 8], ["Correct", 9, 16], ["Maintain", 17, 17]];
+    $("#phases").innerHTML = PH.map(([name, a, b]) => { const pct = p.w > b ? 100 : p.w < a ? 0 : Math.round(((p.w - a + 1) / (b - a + 1)) * 100); return `<div class="${p.w >= a && p.w <= b ? "cur" : ""}"><i><b style="width:${pct}%"></b></i>${name} · wk ${a === 17 ? "17+" : a + (b > a ? "–" + b : "")}</div>`; }).join("");
+  }
+  function drawMiles() {
+    const ev = [];
+    for (let i = 0; i <= 70 && ev.length < 4; i++) {
+      const d = new Date(TODAY.getTime() + i * DAY), p = plan4(d);
+      if (p.chk) ev.push([d, "Check-in with Maya", "Week " + p.w + " progress review"]);
+      if (p.photo) ev.push([d, "Progress photo", "Same light, no makeup"]);
+      if (p.refill) ev.push([d, "Next regimen ships", "Complete Regimen · auto-refill"]);
+      if (p.n === 42) ev.push([d, "Retinal steps up", "Now 3 nights a week"]);
+    }
+    $("#miles").innerHTML = ev.slice(0, 4).map(([d, a, b]) => `<div><time>${fmt(d, { month: "short" })}<b>${d.getDate()}</b></time><span>${a}<small>${b}</small></span></div>`).join("");
+  }
+  function drawKit() {
+    const left = { cleanser: 58, serum: 31, night: 64, moist: 40, spf: 27 };
+    $("#kit").innerHTML = CORE.map((k) => `<div class="kit-item">${art(k)}<div><b>${ITEMS[k].name}</b><small>${left[k]}% left</small></div><span class="lvl"><i style="width:${left[k]}%"></i></span></div>`).join("");
+    for (let i = 0; i < 70; i++) { const d = new Date(TODAY.getTime() + i * DAY); if (plan4(d).refill) { $("#refill-date").textContent = "Next delivery " + fmt(d, { month: "short", day: "numeric" }); break; } }
+  }
+  const CHAT = [
+    ["them", "Hi! I'm Maya, your Personal Skin Consultant for the next 16 weeks. I'll keep an eye on your progress and adjust your calendar as we go.", 37],
+    ["them", "Your week 4 photos look great. The patches on your cheeks are already softer. From this week we're adding a third Retinal night (Mon, Wed, Fri).", 3],
+    ["me", "Thank you! A little dryness around my nose on Retinal nights. Is that normal?", 2],
+    ["them", "Completely normal at this stage. Apply moisturiser around your nose before the Retinal as a buffer. If it's still dry by Friday, let me know and we'll stay at 2 nights.", 2],
+  ];
+  function drawChat() {
+    $("#chat").innerHTML = CHAT.map(([who, text, ago]) => `<div class="msg ${who}">${text}<time>${ago === 0 ? "Just now" : ago === 1 ? "Yesterday" : ago + " days ago"}</time></div>`).join("");
+    $("#chat").scrollTop = 1e6;
+  }
+  $("#chat-form").addEventListener("submit", (e) => {
+    e.preventDefault(); const inp = $("#chat-text"), v = inp.value.trim(); if (!v) return;
+    CHAT.push(["me", v.replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c])), 0]); inp.value = ""; drawChat();
+    setTimeout(() => { CHAT.push(["them", "Thanks for the message! (Preview: on the live dashboard, your consultant replies here, usually within a few hours.)", 0]); drawChat(); }, 900);
+  });
+  $("#ph-file").addEventListener("change", (e) => {
+    const f = e.target.files && e.target.files[0]; if (!f) return;
+    const rd = new FileReader();
+    rd.onload = () => { $("#ph-new").innerHTML = `<img alt="Your week 6 progress photo" src="${rd.result}">`; toast("Photo added. Maya will review it at your next check-in."); };
+    rd.readAsDataURL(f);
+  });
+  function drawProgress() { $$("[data-progress]").forEach((cv) => { const { W, H } = fit(cv); cover(cv.getContext("2d"), pair("melasma", 240, 320)[0], W, H); if (cv.dataset.progress === "1") { const ctx = cv.getContext("2d"); ctx.globalAlpha = 0.55; cover(ctx, pair("melasma", 240, 320)[1], W, H); ctx.globalAlpha = 1; } }); }
+  let journeyBuilt = false;
+  function drawJourney() { if (!journeyBuilt) { drawHeader(); drawToday(); drawCal(); drawMiles(); drawKit(); drawChat(); journeyBuilt = true; } idle(drawProgress); }
+
 
   route();
 })();
