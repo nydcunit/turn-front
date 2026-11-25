@@ -1490,10 +1490,10 @@ img{max-width:100%}
 
   /* ===================== Catalogue ===================== */
   const ITEMS = {
-    cleanser: { name: "Melanin-Balancing Cleanser", price: 19, step: "Step 1 · AM + PM", desc: "A low-pH, non-stripping cleanser that leaves skin clear, calm and evenly balanced, so every step after it works better.", size: "150 ml" },
-    serum: { name: "Anti-Pigmentation Face Cream", price: 59, step: "Step 2 · AM + PM", desc: "The core of the regimen. Our custom V-6 Pigment Complex™ in a nourishing cream that lightens and moisturises in one step.", size: "50 ml · 8 weeks" },
-    body: { name: "Anti-Pigmentation Body Cream", price: 39, step: "Step 3 · Daily", desc: "Lightens overall body tone and darkened areas such as underarms, knees, elbows and inner thighs.", size: "200 ml · 8 weeks" },
-    night: { name: "Retinal Renewal Night Treatment", price: 34, step: "Step 4 · Scheduled nights", desc: "Encapsulated retinal speeds skin renewal so lighter skin surfaces faster. Our gentler alternative to tretinoin.", size: "30 ml · 8 weeks" },
+    cleanser: { name: "Melanin-Balancing Cleanser", price: 19, step: "Step 4 · AM + PM", desc: "A low-pH, non-stripping cleanser that leaves skin clear, calm and evenly balanced, so every step after it works better.", size: "150 ml" },
+    serum: { name: "Anti-Pigmentation Face Cream", price: 59, step: "Step 1 · AM + PM", desc: "The core of the regimen. Our custom V-6 Pigment Complex™ in a nourishing cream that lightens and moisturises in one step.", size: "50 ml · 8 weeks" },
+    body: { name: "Anti-Pigmentation Body Cream", price: 39, step: "Step 2 · Daily", desc: "Lightens overall body tone and darkened areas such as underarms, knees, elbows and inner thighs.", size: "200 ml · 8 weeks" },
+    night: { name: "Retinal Renewal Night Treatment", price: 34, step: "Step 3 · Scheduled nights", desc: "Encapsulated retinal speeds skin renewal so lighter skin surfaces faster. Our gentler alternative to tretinoin.", size: "30 ml · 8 weeks" },
     spf: { name: "Mineral SPF 50", price: 24, step: "Step 5 · AM", desc: "A sheer mineral sunscreen for face and body that protects your results from UV every day.", size: "100 ml" },
     moist: { name: "Barrier Repair Moisturiser", price: 42, desc: "", size: "" },
     pen: { name: "Dark Spot Concentrate", price: 39, desc: "A precision pen for stubborn spots, applied after your serum.", size: "4 ml" },
@@ -1502,7 +1502,7 @@ img{max-width:100%}
     eye: { name: "Under-Eye Brightener", price: 48, desc: "Lightens the look of dark circles with caffeine and niacinamide.", size: "15 ml" },
     lip: { name: "Lip Brightening Balm", price: 22, desc: "Softens and lightens darkened lips. Tinted, with SPF 15.", size: "4.5 g" },
   };
-  const CORE = ["cleanser", "serum", "body", "night", "spf"];
+  const CORE = ["serum", "body", "night", "cleanser", "spf"];
   const SETS = {
     regimen: { name: "The Complete Regimen", items: CORE, price: 129 },
     starter: { name: "Starter Set", items: ["serum", "spf"], price: 149, desc: "Serum and SPF. A simple start for newer or lighter concerns." },
@@ -1535,7 +1535,7 @@ img{max-width:100%}
       <div class="pnudge"><div style="display:grid;gap:6px"><span class="tag">Best value</span><h3>Get all five as the Complete Regimen</h3><p>Save ${money(full - rp)}, and get the Regimen Planner and your Personal Skin Consultant included.</p></div><button class="btn btn-wine arrow" type="button" data-add="regimen">Add the Complete Regimen · ${money(rp)}</button></div>`;
   }
   renderShop();
-  document.querySelectorAll("[data-pillar-art]").forEach((el) => { el.insertAdjacentHTML("beforeend", ["cleanser", "serum", "body", "night", "spf"].map((k) => art(k, "prod-art " + ({ cleanser: "s", serum: "xs", spf: "s" }[k] || ""))).join("")); });
+  document.querySelectorAll("[data-pillar-art]").forEach((el) => { el.insertAdjacentHTML("beforeend", ["serum", "body", "night", "cleanser", "spf"].map((k) => art(k, "prod-art " + ({ cleanser: "s", serum: "xs", spf: "s" }[k] || ""))).join("")); });
   $$("[data-plan]").forEach((b) => b.addEventListener("click", () => { plan = b.dataset.plan; $$("[data-plan]").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); renderShop(); }));
   function drawCat() { const cv = $("#cat-canvas"); if (!cv || !cv.offsetParent) return; const { W, H } = fit(cv); cover(cv.getContext("2d"), pair("tone", 600, 260)[1], W, H); }
 
