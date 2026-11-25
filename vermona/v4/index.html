@@ -509,6 +509,7 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; 
 /* ---------- Treatment Solution pillars ---------- */
 .solution-head { display: grid; gap: 10px; text-align: center; justify-items: center; margin-bottom: 36px; }
 .solution-head h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); max-width: 22ch; }
+.solution-head h2.sol-title { font-size: clamp(1.2rem, 5.3vw, 2.9rem); max-width: none; line-height: 1.2; }
 .solution-head h2 em { font-style: italic; color: var(--wine); }
 .solution-head p { color: var(--ink-2); max-width: 56ch; }
 .pillars { display: grid; grid-template-columns: 1fr; gap: 12px; }
@@ -699,7 +700,7 @@ img{max-width:100%}
     <div class="wrap">
       <div class="solution-head">
         <span class="eyebrow">The Vermona Anti&#8209;Pigmentation Protocol</span>
-        <h2>Achieve your skin goals with the <em>Vermona <span class="nowrap">Anti&#8209;Pigmentation</span> Protocol.</em></h2>
+        <h2 class="sol-title"><span class="nowrap">Achieve your skin goals with the</span><br><em class="nowrap">Vermona Anti&#8209;Pigmentation Protocol.</em></h2>
         <p>Four parts designed as one protocol: a clinical regimen, a plan built for your skin, the Regimen Planner that runs it day by day, and a dedicated person who manages your results from start to finish.</p>
       </div>
       <div class="pillars">
