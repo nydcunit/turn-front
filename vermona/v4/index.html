@@ -779,7 +779,8 @@ img{max-width:100%}
     const r = hc.getBoundingClientRect(); if (!r.width) return;
     const w = Math.min(1500, Math.round(r.width)), h = Math.round(w * r.height / r.width);
     const opt = { tone: TONES.IV, seed: 11, lift: 0.04, edge: 0.62, fine: 220, creases: true, warm: true, irreg: true, spots: heroSpots(w, h) };
-    hB = renderSkin(w, h, opt, 1); hA = renderSkin(w, h, opt, 0.1);
+    hB = renderSkin(w, h, opt, 1);
+    hA = renderSkin(w, h, { ...opt, tone: opt.tone.map((c) => Math.min(255, c * 1.16 + 8)), lift: 0.05 }, 0.08);
     fit(hc); drawHero(performance.now());
   }
   function drawHero(now) {
