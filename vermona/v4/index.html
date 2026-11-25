@@ -1131,7 +1131,7 @@ img{max-width:100%}
       ctx.fillStyle = `rgba(255,245,240,${0.04 + R() * 0.05})`; ctx.beginPath(); ctx.arc(x - r * 0.6, y - r * 0.6, r * 0.6, 0, 6.283); ctx.fill();
     }
     const g = ctx.createRadialGradient(w * 0.65, h * 0.25, 0, w * 0.65, h * 0.25, w * 0.8);
-    g.addColorStop(0, `rgba(255,240,232,${0.14 + (1 - strength) * 0.08})`); g.addColorStop(1, "rgba(255,240,232,0)");
+    g.addColorStop(0, `rgba(255,240,232,${0.14 + (1 - strength) * (opt.glowBoost ?? 0.08)})`); g.addColorStop(1, "rgba(255,240,232,0)");
     ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
     return cv;
   }
@@ -1174,7 +1174,8 @@ img{max-width:100%}
     const w = Math.min(1500, Math.round(r.width)), h = Math.round(w * r.height / r.width);
     const opt = { tone: TONES.IV, seed: 11, lift: 0.04, edge: 0.62, fine: 220, creases: true, warm: true, irreg: true, spots: heroSpots(w, h) };
     hB = renderSkin(w, h, opt, 1);
-    hA = renderSkin(w, h, { ...opt, tone: opt.tone.map((c) => Math.round(c + (255 - c) * 0.55)), lift: 0.04 }, 0.05);
+    const LIGHT_WARM = [240, 200, 156];
+    hA = renderSkin(w, h, { ...opt, tone: opt.tone.map((c, k) => Math.round(c + (LIGHT_WARM[k] - c) * 0.75)), lift: 0, glowBoost: 0 }, 0.05);
     fit(hc); drawHero(performance.now());
   }
   function drawHero(now) {
