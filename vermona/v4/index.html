@@ -660,7 +660,7 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; 
 .shop2-head { display: grid; gap: 6px; margin: 22px 0 22px; }
 .shop2-head h1 { font-size: clamp(1.7rem, 3.2vw, 2.3rem); }
 .shop2-head .pcount { font-size: 0.84rem; color: var(--muted); margin-top: 6px; }
-.shop2 .programme { box-shadow: none; }
+.shop2 .programme { box-shadow: none; margin-top: 18px; }
 .shop2 .lineup { background: linear-gradient(160deg, var(--photo-a), var(--photo-b)); }
 .pgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
 @media (min-width: 1000px) { .pgrid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; } }
@@ -1000,11 +1000,7 @@ img{max-width:100%}
   <section class="shop2">
     <div class="wrap">
       <nav class="crumbs" aria-label="Breadcrumb"><a href="#home">Home</a> › Shop</nav>
-      <div class="shop2-head">
-        <span class="eyebrow">The Vermona Anti&#8209;Pigmentation Protocol</span>
-        <h1>Everything you need, in one complete regimen.</h1>
-        <span class="pcount">1 regimen · 5 products</span>
-      </div>
+      <h1 class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Shop Vermona</h1>
 
       <article class="programme" id="regimen-card">
         <div class="lineup" id="lineup"></div>
