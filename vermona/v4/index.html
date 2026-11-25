@@ -109,6 +109,7 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; 
 .nowrap { white-space: nowrap; }
 .hero .btn { justify-self: start; min-width: 220px; margin-top: 6px; }
 .hero::after { z-index: 0; }
+.hero .tag { position: absolute; right: max(16px, env(safe-area-inset-right, 0px)); bottom: 16px; z-index: 2; font-size: 0.68rem; letter-spacing: .04em; color: rgba(255,255,255,.55); }
 .hero-bottle { display: none; position: absolute; z-index: 1; right: max(6%, env(safe-area-inset-right, 0px)); top: 50%; height: 74%; aspect-ratio: 120 / 300; transform: translateY(-46%); pointer-events: none; }
 .hero-bottle svg { width: 100%; height: 100%; filter: drop-shadow(0 40px 40px rgba(10, 4, 6, .55)) drop-shadow(0 6px 10px rgba(10,4,6,.3)); }
 .hero-bottle::after { content: ""; position: absolute; left: 8%; right: 8%; bottom: -3%; height: 6%; border-radius: 50%; background: radial-gradient(closest-side, rgba(10,4,6,.55), transparent); z-index: -1; }
@@ -407,14 +408,14 @@ img{max-width:100%}
 <!-- ======================= HOME ======================= -->
 <div data-view="home">
   <section class="hero" id="hero">
-    <canvas id="hero-canvas" aria-hidden="true"></canvas>
-    <div class="hero-bottle" id="hero-bottle" aria-hidden="true"></div>
+    <canvas id="hero-canvas" aria-label="Close-up of skin with dark spots. A lens shows the same skin lightened after treatment."></canvas>
     <div class="wrap hero-in">
       <h1>Skin lightening, made clinical.</h1>
       <p class="hero-sub"><span class="nowrap">Advanced anti&#8209;pigmentation</span> treatment.</p>
       <p>Made for every skin tone. Lighten your skin and reduce imperfections to reach the tone and texture you want.</p>
       <button class="btn btn-white" data-assess>Find Your Treatment</button>
     </div>
+    <span class="tag">Rendered illustration · lens shows week 12</span>
   </section>
 
   <div class="without">
@@ -426,7 +427,7 @@ img{max-width:100%}
     <div class="wrap">
       <div class="head"><span class="eyebrow">Shop by concern</span><h2>What would you like to lighten?</h2></div>
       <div class="concerns">
-        <button class="concern" data-assess data-pre="hyper"><canvas data-skin="hyper"></canvas><span><b>Hyperpigmentation</b><small>Dark patches, spots, uneven areas</small></span></button>
+        <button class="concern" data-assess data-pre="hyper"><canvas data-skin="hyper"></canvas><span><b>Anti-Pigmentation</b><small>Skin lightening, dark patches &amp; overall brightening</small></span></button>
         <button class="concern" data-assess data-pre="melasma"><canvas data-skin="melasma"></canvas><span><b>Melasma</b><small>Hormonal patches on cheeks &amp; lip</small></span></button>
         <button class="concern" data-assess data-pre="sun"><canvas data-skin="sun"></canvas><span><b>Sun Damage</b><small>Sun spots, age spots, lasting tan</small></span></button>
         <button class="concern" data-assess data-pre="pih"><canvas data-skin="pih"></canvas><span><b>Acne Marks</b><small>Dark marks after breakouts</small></span></button>
@@ -650,7 +651,7 @@ img{max-width:100%}
   <div class="ps-head"><a class="wordmark" href="#home" data-close style="font-size:1.4rem">Vermona</a><button class="icon-btn" data-close aria-label="Close menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <div class="ps-body">
     <div class="menu-sec"><button type="button" aria-expanded="true">Shop</button><ul>
-      <li><button data-assess data-pre="hyper">Hyperpigmentation</button></li><li><button data-assess data-pre="melasma">Melasma</button></li><li><button data-assess data-pre="sun">Sun Damage</button></li><li><button data-assess data-pre="pih">Acne Marks</button></li><li><button data-assess data-pre="body">Body</button></li>
+      <li><button data-assess data-pre="hyper">Anti-Pigmentation</button></li><li><button data-assess data-pre="melasma">Melasma</button></li><li><button data-assess data-pre="sun">Sun Damage</button></li><li><button data-assess data-pre="pih">Acne Marks</button></li><li><button data-assess data-pre="body">Body</button></li>
       <li><a href="#treatment" data-close style="color:var(--ink);text-decoration:underline">Browse Treatment →</a></li></ul></div>
     <div class="menu-sec"><button type="button" aria-expanded="false">Community</button><ul hidden><li><a href="#community" data-close>Vermona Community (coming soon)</a></li></ul></div>
     <div class="menu-sec"><button type="button" aria-expanded="false">Support</button><ul hidden><li><a href="#faq" data-close>FAQ</a></li><li><a href="#faq" data-close>Shipping &amp; Returns</a></li><li><a href="#faq" data-close>Contact</a></li></ul></div>
@@ -703,22 +704,28 @@ img{max-width:100%}
   function renderSkin(w, h, opt, strength) {
     const cv = document.createElement("canvas"); cv.width = w; cv.height = h;
     const ctx = cv.getContext("2d"), img = ctx.createImageData(w, h), d = img.data;
-    const N = makeNoise(opt.seed || 7), base = opt.tone, sh = base.map((c) => Math.round(c * 0.5)), sc = opt.scale || 1;
+    const N = makeNoise(opt.seed || 7), base = opt.tone, sh = opt.warm ? [base[0] * 0.58, base[1] * 0.42, base[2] * 0.3] : base.map((c) => Math.round(c * 0.5)), sc = opt.scale || 1;
     const even = 1 - (1 - strength) * 0.35, lift = 1 + (1 - strength) * (opt.lift || 0);
     for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
       const u = x / w, v = y / w;
-      const mott = N.fbm(u * 5 * sc, v * 5 * sc, 4) - 0.5, fine = N.n2(u * 140 * sc, v * 140 * sc) - 0.5;
+      const mott = N.fbm(u * 5 * sc, v * 5 * sc, 4) - 0.5, fine = N.n2(u * (opt.fine || 140) * sc, v * (opt.fine || 140) * sc) - 0.5;
+      let crease = 0;
+      if (opt.creases) {
+        const warp = N.n2(u * 26, v * 26) * 5;
+        const a = Math.abs(Math.sin((u * 0.82 + v * 0.57) * 210 + warp)), b = Math.abs(Math.sin((u * -0.5 + v * 0.87) * 170 + warp * 0.8));
+        crease = (a < 0.09 ? 1 - a / 0.09 : 0) * 0.6 + (b < 0.07 ? 1 - b / 0.07 : 0) * 0.4;
+      }
       let pig = 0;
       for (let i = 0; i < opt.spots.length; i++) {
         const s = opt.spots[i], dx = u - s[0], dy = v - s[1];
         let dist = Math.sqrt(dx * dx + dy * dy * 1.25) / s[2];
         if (dist > 1.6) continue;
-        dist *= 0.75 + 0.5 * N.fbm(u * 18 + i, v * 18 - i, 3);
-        const f = dist < 0.5 ? 1 : dist > 1 ? 0 : 1 - (dist - 0.5) / 0.5;
+        dist *= opt.irreg ? 0.55 + 0.9 * N.fbm(u * 60 + i * 3, v * 60 - i * 3, 3) : 0.75 + 0.5 * N.fbm(u * 18 + i, v * 18 - i, 3);
+        const e0 = opt.edge || 0.5, f = dist < e0 ? 1 : dist > 1 ? 0 : 1 - (dist - e0) / (1 - e0);
         pig += f * f * (3 - 2 * f) * s[3];
       }
       pig = Math.min(1, pig) * strength * (0.85 + 0.3 * N.n2(u * 40, v * 40));
-      const lum = (1 + mott * 0.16 * even + fine * 0.045) * lift, i4 = (y * w + x) * 4;
+      const lum = (1 + mott * 0.16 * even + fine * 0.045 - crease * 0.05) * lift, i4 = (y * w + x) * 4;
       for (let k = 0; k < 3; k++) { const c = Math.min(255, base[k] * lum); d[i4 + k] = c + (sh[k] - c) * pig * 0.78; }
       d[i4 + 3] = 255;
     }
@@ -753,56 +760,50 @@ img{max-width:100%}
   function fit(cv) { const r = cv.getBoundingClientRect(), dpr = Math.min(2, window.devicePixelRatio || 1); cv.width = Math.max(1, Math.round(r.width * dpr)); cv.height = Math.max(1, Math.round(r.height * dpr)); return { W: cv.width, H: cv.height }; }
   const idle = (fn) => (window.requestIdleCallback ? requestIdleCallback(fn, { timeout: 500 }) : setTimeout(fn, 40));
 
-  /* Hero: flowing silk of skin tones (deep to light), soft light and film grain */
+  /* Hero: sharp macro skin with a "week 12" lens */
   const hero = $("#hero"), hc = $("#hero-canvas"), hctx = hc.getContext("2d");
-  const low = document.createElement("canvas"), lctx = low.getContext("2d");
-  const SILK = [[74, 46, 34], [112, 72, 50], [150, 100, 70], [186, 132, 98], [214, 166, 134], [238, 204, 182]];
-  let grain = null, heroVis = true, bottleIn = false;
-  const t0 = performance.now();
+  let hB = null, hA = null, heroVis = true, ptr = false, t0 = performance.now();
+  const lens = { x: .74, y: .4, tx: .74, ty: .4 };
+  function heroSpots(w, h) {
+    const R = makeNoise(321).rnd, out = [], vmax = h / w;
+    const clusters = [[0.66, 0.28], [0.84, 0.22], [0.76, 0.5], [0.92, 0.62], [0.58, 0.62]];
+    for (let i = 0; i < 34; i++) {
+      const c = clusters[i % clusters.length];
+      const x = c[0] + (R() - 0.5) * 0.22, y = (c[1] + (R() - 0.5) * 0.36) * vmax;
+      const big = R() < 0.14;
+      out.push([x, y, big ? 0.014 + R() * 0.01 : 0.004 + R() * 0.007, 0.45 + R() * 0.5]);
+    }
+    return out;
+  }
   function buildHero() {
     const r = hc.getBoundingClientRect(); if (!r.width) return;
-    fit(hc);
-    low.width = 72; low.height = Math.max(30, Math.round(72 * r.height / r.width));
-    grain = document.createElement("canvas"); grain.width = grain.height = 180;
-    const g = grain.getContext("2d"), id = g.createImageData(180, 180), R = makeNoise(7).rnd;
-    for (let i = 0; i < id.data.length; i += 4) { const v = R() * 255; id.data[i] = id.data[i + 1] = id.data[i + 2] = v; id.data[i + 3] = 13; }
-    g.putImageData(id, 0, 0);
-    if (!bottleIn) { $("#hero-bottle").innerHTML = bottle(); bottleIn = true; }
-    drawHero(performance.now());
+    const w = Math.min(1500, Math.round(r.width)), h = Math.round(w * r.height / r.width);
+    const opt = { tone: TONES.IV, seed: 11, lift: 0.04, edge: 0.62, fine: 220, creases: true, warm: true, irreg: true, spots: heroSpots(w, h) };
+    hB = renderSkin(w, h, opt, 1); hA = renderSkin(w, h, opt, 0.1);
+    fit(hc); drawHero(performance.now());
   }
   function drawHero(now) {
-    if (!grain) return;
-    const t = reduce ? 0 : (now - t0) / 1000, w = low.width, h = low.height;
-    const bg = lctx.createLinearGradient(0, h, w, 0);
-    bg.addColorStop(0, "#140b0e"); bg.addColorStop(0.5, "#2e1b1a"); bg.addColorStop(1, "#4a2f27");
-    lctx.fillStyle = bg; lctx.fillRect(0, 0, w, h);
-    SILK.forEach((c, i) => {
-      const k = i / (SILK.length - 1);
-      lctx.beginPath(); lctx.moveTo(-6, h + 6);
-      for (let x = -6; x <= w + 6; x += 2) {
-        const u = x / w;
-        const y = h * (1.15 - k * 0.78) - u * h * 0.55
-          + Math.sin(u * 3.1 + t * 0.12 + i * 0.8) * h * 0.1
-          + Math.sin(u * 1.4 - t * 0.08 + i * 1.7) * h * 0.06;
-        lctx.lineTo(x, y);
-      }
-      lctx.lineTo(w + 6, h + 6); lctx.closePath();
-      const f = lctx.createLinearGradient(0, h, w, 0);
-      f.addColorStop(0, `rgba(${c.join(",")},${0.12 + k * 0.06})`); f.addColorStop(1, `rgba(${c.join(",")},${0.32 + k * 0.12})`);
-      lctx.fillStyle = f; lctx.fill();
-    });
-    const L = lctx.createRadialGradient(w * 0.8, h * 0.28, 0, w * 0.8, h * 0.28, w * 0.55);
-    L.addColorStop(0, "rgba(255,232,222,.28)"); L.addColorStop(1, "rgba(255,232,222,0)");
-    lctx.fillStyle = L; lctx.fillRect(0, 0, w, h);
-    hctx.imageSmoothingEnabled = true; hctx.imageSmoothingQuality = "high";
-    hctx.drawImage(low, 0, 0, hc.width, hc.height);
-    hctx.fillStyle = hctx.createPattern(grain, "repeat"); hctx.fillRect(0, 0, hc.width, hc.height);
+    if (!hB) return;
+    const W = hc.width, H = hc.height, dpr = W / Math.max(1, hc.getBoundingClientRect().width), narrow = W < 700 * dpr;
+    if (!ptr && !reduce) { const t = (now - t0) / 1000; lens.tx = (narrow ? 0.62 : 0.74) + (narrow ? 0.16 : 0.12) * Math.sin(t * .3); lens.ty = (narrow ? 0.22 : 0.4) + (narrow ? 0.06 : 0.12) * Math.sin(t * .47 + 1); }
+    lens.x += (lens.tx - lens.x) * .07; lens.y += (lens.ty - lens.y) * .07;
+    hctx.imageSmoothingQuality = "high";
+    cover(hctx, hB, W, H);
+    const R = Math.min(W, H) * (narrow ? 0.19 : 0.17), cx = lens.x * W, cy = lens.y * H;
+    hctx.save(); hctx.beginPath(); hctx.arc(cx, cy, R, 0, 6.283); hctx.clip(); cover(hctx, hA, W, H); hctx.restore();
+    hctx.lineWidth = 1 * dpr; hctx.strokeStyle = "rgba(255,255,255,.92)"; hctx.beginPath(); hctx.arc(cx, cy, R, 0, 6.283); hctx.stroke();
+    hctx.lineWidth = 1 * dpr; hctx.strokeStyle = "rgba(255,255,255,.28)"; hctx.beginPath(); hctx.arc(cx, cy, R + 7 * dpr, 0, 6.283); hctx.stroke();
+    for (let k = 0; k < 4; k++) { const a = k * Math.PI / 2; hctx.beginPath(); hctx.moveTo(cx + Math.cos(a) * (R + 7 * dpr), cy + Math.sin(a) * (R + 7 * dpr)); hctx.lineTo(cx + Math.cos(a) * (R + 14 * dpr), cy + Math.sin(a) * (R + 14 * dpr)); hctx.strokeStyle = "rgba(255,255,255,.6)"; hctx.stroke(); }
+    hctx.font = `500 ${10 * dpr}px Inter, sans-serif`; hctx.fillStyle = "rgba(255,255,255,.9)"; hctx.textAlign = "center";
+    hctx.fillText("WEEK 12", cx, cy + R + 30 * dpr);
   }
   let lastFrame = 0;
   (function loop(now) {
-    if (!reduce && heroVis && !$('[data-view="home"]').hidden && now - lastFrame > 40) { drawHero(now); lastFrame = now; }
+    if (heroVis && !$('[data-view="home"]').hidden && (!reduce || ptr) && now - lastFrame > 16) { drawHero(now); lastFrame = now; }
     requestAnimationFrame(loop);
   })(performance.now());
+  hero.addEventListener("pointermove", (e) => { const r = hc.getBoundingClientRect(); ptr = true; lens.tx = (e.clientX - r.left) / r.width; lens.ty = (e.clientY - r.top) / r.height; });
+  hero.addEventListener("pointerleave", () => { ptr = false; t0 = performance.now() - 2000; });
   if ("IntersectionObserver" in window) new IntersectionObserver(([e]) => (heroVis = e.isIntersecting)).observe(hero);
 
   function drawConcerns() { $$("[data-skin]").forEach((cv) => { if (!cv.offsetParent) return; const { W, H } = fit(cv); cover(cv.getContext("2d"), pair(cv.dataset.skin, 360, 380)[0], W, H); }); }
@@ -827,7 +828,7 @@ img{max-width:100%}
   }
 
   /* Results rail */
-  const STORIES = [["melasma", "Melasma", "16 weeks"], ["pih", "Acne marks", "8 weeks"], ["body", "Underarms", "10 weeks"], ["sun", "Sun damage", "12 weeks"], ["hyper", "Hyperpigmentation", "12 weeks"], ["tone", "Uneven tone", "8 weeks"]];
+  const STORIES = [["melasma", "Melasma", "16 weeks"], ["pih", "Acne marks", "8 weeks"], ["body", "Underarms", "10 weeks"], ["sun", "Sun damage", "12 weeks"], ["hyper", "Anti-pigmentation", "12 weeks"], ["tone", "Uneven tone", "8 weeks"]];
   $("#rail").innerHTML = STORIES.map(([k, c, w]) => `
     <article class="story">
       <div class="pair"><div><canvas data-ba="${k}" data-s="0"></canvas><em>BEFORE</em></div><div><canvas data-ba="${k}" data-s="1"></canvas><em>AFTER</em></div></div>
@@ -969,9 +970,9 @@ img{max-width:100%}
   });
 
   /* ===================== Assessment ===================== */
-  const CN = { hyper: "hyperpigmentation", melasma: "melasma", sun: "sun damage", pih: "acne marks", body: "darkened underarms, knees or elbows", tone: "dull, uneven tone" };
+  const CN = { hyper: "anti-pigmentation and skin lightening", melasma: "melasma", sun: "sun damage", pih: "acne marks", body: "darkened underarms, knees or elbows", tone: "dull, uneven tone" };
   const QS = [
-    { k: "cond", q: "What would you like to lighten?", o: [["hyper", "Hyperpigmentation", "Dark patches or spots"], ["melasma", "Melasma", "Hormonal patches"], ["sun", "Sun damage", "Sun spots, age spots, lasting tan"], ["pih", "Acne marks", "Marks left after breakouts"], ["body", "Body areas", "Underarms, knees, elbows, thighs"], ["tone", "Dull, uneven tone", "Blotchiness or lack of glow"]] },
+    { k: "cond", q: "What would you like to lighten?", o: [["hyper", "Anti-pigmentation", "Skin lightening, dark patches, overall brightening"], ["melasma", "Melasma", "Hormonal patches"], ["sun", "Sun damage", "Sun spots, age spots, lasting tan"], ["pih", "Acne marks", "Marks left after breakouts"], ["body", "Body areas", "Underarms, knees, elbows, thighs"], ["tone", "Dull, uneven tone", "Blotchiness or lack of glow"]] },
     { k: "fitz", q: "Which is closest to your skin tone?", fitz: true },
     { k: "dur", q: "How long have you had it?", o: [["new", "Less than 6 months"], ["mid", "6 months to 2 years"], ["old", "More than 2 years"]] },
     { k: "sens", q: "How does your skin react to new products?", o: [["ok", "It rarely reacts"], ["some", "Sometimes stings or reddens"], ["high", "Often irritated, or I have eczema or rosacea"]] },
