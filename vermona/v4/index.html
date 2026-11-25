@@ -612,6 +612,45 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; 
 .why-top .tag b { font-weight: 600; color: rgba(255,255,255,.85); }
 @media (max-width: 700px) { .why-top::after { background: linear-gradient(0deg, rgba(20,10,14,.88) 0%, rgba(20,10,14,.6) 60%, rgba(20,10,14,.35) 100%); } .why-top .why-hero { padding-block: 72px 56px; } }
 
+/* ---------- Results page ---------- */
+.res-viewer { display: grid; gap: 22px; align-items: start; }
+@media (min-width: 960px) { .res-viewer { grid-template-columns: 1.35fr 1fr; gap: 44px; } }
+.res-stage { position: relative; aspect-ratio: 4 / 3.4; max-width: 100%; border-radius: 14px; overflow: hidden; background: #6b4632; touch-action: pan-y; user-select: none; }
+.res-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.res-stage .after { clip-path: inset(0 0 0 50%); }
+.res-stage .bar { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: #fff; transform: translateX(-1px); pointer-events: none; z-index: 2; }
+.res-stage .bar::after { content: ""; position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; transform: translate(-50%, -50%); border-radius: 50%; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d191b' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M9 7l-5 5 5 5M15 7l5 5-5 5'/%3E%3C/svg%3E") center / 20px no-repeat; box-shadow: 0 4px 14px rgba(0,0,0,.25); }
+.res-stage input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; z-index: 3; }
+.res-stage .lbl { position: absolute; top: 12px; z-index: 2; font-size: 0.68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; }
+.res-stage .lbl.l { left: 12px; background: rgba(20,10,14,.7); color: #fff; }
+.res-stage .lbl.r { right: 12px; background: rgba(255,255,255,.92); color: #1d191b; }
+.res-side { display: grid; gap: 18px; min-width: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips button { border: 1px solid var(--line); background: var(--bg); border-radius: 999px; padding: 8px 14px; font-size: 0.86rem; font-weight: 500; color: var(--ink-2); }
+.chips button[aria-pressed="true"] { background: var(--wine); border-color: var(--wine); color: var(--wine-ink); }
+.res-side .lab { font-size: 0.72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.res-note { background: var(--blush); border-radius: 12px; padding: 16px 18px; display: grid; gap: 6px; }
+.res-note b { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; }
+.res-note span { color: var(--ink-2); font-size: 0.92rem; }
+.tones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (min-width: 900px) { .tones { grid-template-columns: repeat(6, 1fr); } }
+.tone { display: grid; gap: 8px; justify-items: center; text-align: center; }
+.tone .disc { position: relative; width: 100%; max-width: 150px; aspect-ratio: 1; border-radius: 50%; overflow: hidden; box-shadow: 0 10px 24px var(--shadow); }
+.tone canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.tone .disc::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: #fff; transform: translateX(-1px); }
+.tone b { font-weight: 500; font-size: 0.9rem; }
+.tone span { font-size: 0.74rem; color: var(--muted); }
+.gallery { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 700px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1040px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+.gallery .story { scroll-snap-align: none; }
+.res-time { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+@media (min-width: 900px) { .res-time { grid-template-columns: repeat(5, 1fr); } }
+.res-time div { border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 6px; background: var(--card); }
+.res-time time { font-family: var(--serif); font-size: 1.5rem; color: var(--wine); line-height: 1; }
+.res-time b { font-weight: 500; }
+.res-time span { font-size: 0.86rem; color: var(--ink-2); }
+
 /* ---------- Community page ---------- */
 .com-hero { padding-block: 56px 40px; display: grid; gap: 32px; align-items: center; }
 .com-hero .copy { display: grid; gap: 16px; }
@@ -738,7 +777,7 @@ img{max-width:100%}
         <a href="#home">Home</a>
         <a href="#why">Protocol</a>
         <a href="#journey">Planner</a>
-        <button data-goto="results">Results</button>
+        <a href="#results">Results</a>
         <a href="#treatment">Shop</a>
       </div>
     </div>
@@ -792,7 +831,7 @@ img{max-width:100%}
       <div class="rail-top"><span>Before &amp; afters</span><div class="arrows"><button type="button" data-rail="-1" aria-label="Previous"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="next" data-rail="1" aria-label="Next"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button></div></div>
       <div class="rail" id="rail"></div>
       <div class="dots" id="dots"></div>
-      <div class="rail-foot"><span class="small">Images are rendered illustrations. Verified customer photos and stories will appear here.</span></div>
+      <div class="rail-foot"><a class="btn btn-line arrow" href="#results">See all results</a><span class="small">Images are rendered illustrations. Verified customer photos and stories will appear here.</span></div>
     </div>
   </section>
   <section class="sec" id="concerns" style="padding-top:24px">
@@ -846,14 +885,14 @@ img{max-width:100%}
       <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
         <circle cx="60" cy="60" r="56" fill="none" stroke="#fff" stroke-width="2"/>
         <circle cx="60" cy="60" r="49" fill="#fff"/>
-        <text x="60" y="56" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="22" fill="#7e1e3f">60-Day</text>
+        <text x="60" y="56" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="22" fill="#7e1e3f">120-Day</text>
         <text x="60" y="72" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" letter-spacing="1.5" fill="#7e1e3f">RESULTS</text>
         <rect x="16" y="78" width="88" height="16" rx="2" fill="#7e1e3f"/>
         <text x="60" y="89.5" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="600" letter-spacing="1.5" fill="#fff">GUARANTEE</text>
       </svg>
       <span class="eyebrow">The Vermona Protocol promise</span>
       <h2>Lighter skin, or your money back.</h2>
-      <p>Use Vermona as directed for 60 days. If you don't see a difference, we'll refund your first course in full, even if the bottle is empty.</p>
+      <p>Use Vermona as directed for 120 days. If you don't see a difference, we'll refund your first course in full, even if the bottle is empty.</p>
       <button class="btn btn-white arrow" data-goto="how">How It Works</button>
     </div>
   </section>
@@ -926,7 +965,6 @@ img{max-width:100%}
       <h2>One regimen. Every step covered.</h2>
       <p>Vermona works best as a complete regimen: five products that work together, a daily calendar, and a Personal Skin Consultant who guides you from day one. Every product is also sold on its own. Your first order is 20% off at checkout.</p>
     </div>
-    <div class="toggle" role="group" aria-label="Purchase type"><button type="button" aria-pressed="true" data-plan="once">One-time</button><button type="button" aria-pressed="false" data-plan="sub">Subscribe · every 8 weeks</button></div>
 
     <article class="programme" id="regimen-card">
       <div class="lineup" id="lineup"><span class="badge">Most complete</span></div>
@@ -955,7 +993,7 @@ img{max-width:100%}
     <div class="acc-item"><button type="button" aria-expanded="true">How the regimen works</button><div class="panel"><ul><li><b>Morning:</b> Cleanser, Anti-Pigmentation Serum, Moisturiser, Tinted SPF 50</li><li><b>Evening:</b> Cleanser, Anti-Pigmentation Serum, Retinal Renewal (on scheduled nights), Moisturiser</li><li>Retinal Renewal starts at 2 nights a week and builds up. Your calendar tells you exactly which nights.</li></ul></div></div>
     <div class="acc-item"><button type="button" aria-expanded="false">What it lightens</button><div class="panel" hidden><ul><li>Overall skin tone and dullness</li><li>Hyperpigmentation and dark spots</li><li>Melasma</li><li>Sun damage, sun spots and age spots</li><li>Post-acne marks</li><li>Darkened underarms, knees, elbows and inner thighs (with the Body Lotion)</li></ul></div></div>
     <div class="acc-item"><button type="button" aria-expanded="false">The V-6 Pigment Complex&#8482; (custom formulation)</button><div class="panel" hidden><p>The Anti-Pigmentation Serum is a custom formulation developed exclusively for Vermona. Its V-6 Pigment Complex&#8482; combines six actives in a proprietary ratio: Tranexamic Acid, Alpha Arbutin, Glutathione, Niacinamide, Azelaic Acid, and Licorice Root with stable Vitamin C.</p><p style="margin-top:12px"><b>Full ingredients:</b> Aqua (Water), Azelaic Acid, Niacinamide, Propanediol, Tranexamic Acid, Alpha-Arbutin, Glutathione, Glycerin, Glycyrrhiza Glabra (Licorice) Root Extract, Tetrahexyldecyl Ascorbate, Sodium Hyaluronate, Panthenol, Allantoin, Xanthan Gum, Hydroxyethylcellulose, Sodium Phytate, Ethylhexylglycerin, Phenoxyethanol.</p></div></div>
-    <div class="acc-item"><button type="button" aria-expanded="false">Shipping &amp; guarantee</button><div class="panel" hidden><p>Ships within 1 business day with free US delivery in 3–5 days. 60-day money-back guarantee on your first regimen.</p></div></div>
+    <div class="acc-item"><button type="button" aria-expanded="false">Shipping &amp; guarantee</button><div class="panel" hidden><p>Ships within 1 business day with free US delivery in 3–5 days. 120-day money-back guarantee on your first regimen.</p></div></div>
   </div>
 </div>
 
@@ -1085,6 +1123,72 @@ img{max-width:100%}
   </section>
 </div>
 
+<!-- ======================= RESULTS ======================= -->
+<div data-view="results" hidden>
+  <section class="why-top"><canvas id="res-canvas" aria-hidden="true"></canvas>
+  <div class="wrap why-hero">
+    <span class="eyebrow">Vermona results</span>
+    <h1>Lighter, even skin. Week by week.</h1>
+    <p>See how skin changes on the Vermona Anti-Pigmentation Protocol, from the first week to the result you want, across every concern and every skin tone.</p>
+  </div>
+    <span class="tag"><b>Before</b> → <b>After</b> · rendered illustration</span>
+  </section>
+
+  <section class="sec">
+    <div class="wrap res-viewer">
+      <div class="res-stage" id="res-stage">
+        <canvas id="res-before" aria-hidden="true"></canvas>
+        <canvas id="res-after" class="after" aria-hidden="true"></canvas>
+        <span class="lbl l">Before</span><span class="lbl r" id="res-wk-lbl">Week 8</span>
+        <span class="bar" id="res-bar"></span>
+        <input type="range" min="0" max="100" value="50" id="res-range" aria-label="Drag to compare before and after">
+      </div>
+      <div class="res-side">
+        <div style="display:grid;gap:10px"><span class="eyebrow">Compare</span><h2 style="font-size:clamp(1.8rem,3.4vw,2.4rem)">Drag to see the change.</h2></div>
+        <div style="display:grid;gap:8px"><span class="lab">Concern</span><div class="chips" id="res-concern"></div></div>
+        <div style="display:grid;gap:8px"><span class="lab">Time on the protocol</span><div class="chips" id="res-week"></div></div>
+        <div class="res-note" aria-live="polite"><b id="res-note-t"></b><span id="res-note-b"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec blush">
+    <div class="wrap">
+      <div class="head"><span class="eyebrow">What to expect</span><h2>Results from the very first week.</h2></div>
+      <div class="res-time">
+        <div><time>Week 1</time><b>First visible results</b><span>Skin looks lighter, brighter and more even.</span></div>
+        <div><time>Week 4</time><b>Lighter tone</b><span>Skin tone is visibly lighter and dark areas soften.</span></div>
+        <div><time>Week 8</time><b>Noticeably lighter</b><span>A clearly lighter, more even complexion others notice.</span></div>
+        <div><time>Week 12</time><b>Your goal</b><span>Deep, long-standing pigmentation keeps lightening.</span></div>
+        <div><time>After</time><b>Keep it</b><span>A lighter maintenance routine protects your results.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><span class="eyebrow">Made for every skin tone</span><h2>Results across every skin tone.</h2><p>The protocol lightens each skin tone gently and evenly, from very fair to very deep.</p></div>
+      <div class="tones" id="tones"></div>
+    </div>
+  </section>
+
+  <section class="sec blush">
+    <div class="wrap">
+      <div class="head"><span class="eyebrow">Customer results</span><h2>Real progress, by concern.</h2></div>
+      <div class="gallery" id="gallery"></div>
+      <p class="small" style="text-align:center;margin-top:18px">Images are rendered illustrations for this concept site. Verified customer photos will appear here. Individual results vary.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap closing">
+      <span class="eyebrow">The Vermona Anti&#8209;Pigmentation Protocol</span>
+      <h2>Your results start in week one.</h2>
+      <div class="solution-cta" style="margin-top:0"><button class="btn btn-wine arrow" data-assess>Start Your Assessment</button><a class="btn btn-line" href="#treatment">Shop the Regimen</a></div>
+    </div>
+  </section>
+</div>
+
 <!-- ======================= FAQ ======================= -->
 <div data-view="faq" hidden>
   <div class="wrap faq-wrap">
@@ -1101,14 +1205,14 @@ img{max-width:100%}
   <div class="wrap">
     <div class="f-grid">
       <div><h4>Shop</h4><ul><li><a href="#treatment">The Complete Regimen</a></li><li><a href="#treatment">Bundles &amp; add-ons</a></li><li><button data-assess data-pre="melasma">Melasma</button></li><li><button data-assess data-pre="sun">Sun Damage</button></li><li><button data-assess data-pre="body">Body</button></li></ul></div>
-      <div><h4>About Vermona</h4><ul><li><a href="#why">The Protocol</a></li><li><a href="#journey">Regimen Planner</a></li><li><button data-goto="how">How It Works</button></li><li><button data-goto="results">Results</button></li><li><button data-goto="how">60-Day Guarantee</button></li></ul></div>
+      <div><h4>About Vermona</h4><ul><li><a href="#why">The Protocol</a></li><li><a href="#journey">Regimen Planner</a></li><li><button data-goto="how">How It Works</button></li><li><a href="#results">Results</a></li><li><button data-goto="how">120-Day Guarantee</button></li></ul></div>
       <div><h4>Support</h4><ul><li><a href="#faq">Get Help</a></li><li><a href="#faq">FAQ</a></li><li><a href="#faq">Shipping &amp; Returns</a></li></ul></div>
       <div><h4>Regimen Planner</h4><ul><li><a href="#journey">The Regimen Planner</a></li><li><a href="#journey">Community (coming soon)</a></li></ul></div>
     </div>
     <div class="f-sign">
       <h3>Even skin, at last.</h3>
       <p style="color:var(--ink-2)">Get 10% off your first order, plus skincare tips.</p>
-      <form class="news" id="news" novalidate><label for="news-email" hidden>Email address</label><input id="news-email" type="email" placeholder="Email address" autocomplete="email"><button type="submit" aria-label="Subscribe"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+      <form class="news" id="news" novalidate><label for="news-email" hidden>Email address</label><input id="news-email" type="email" placeholder="Email address" autocomplete="email"><button type="submit" aria-label="Sign up"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
     </div>
     <div class="legal">
       <p>Vermona products are cosmetics. They are not intended to diagnose, treat, cure or prevent any disease, and these statements have not been evaluated by the Food and Drug Administration. Skin images are computer renderings for illustration. Individual results vary. Patch test, use SPF daily, and see a dermatologist about any spot that changes in size, shape or colour.</p>
@@ -1125,7 +1229,7 @@ img{max-width:100%}
       <a href="#home" data-close>Home</a>
       <a href="#why" data-close>Protocol</a>
       <a href="#journey" data-close>Planner</a>
-      <button type="button" data-goto="results">Results</button>
+      <a href="#results" data-close>Results</a>
       <a href="#treatment" data-close>Shop</a>
     </nav>
     <div class="menu-sec"><button type="button" aria-expanded="false">Explore concerns</button><ul hidden>
@@ -1402,7 +1506,7 @@ img{max-width:100%}
   function add(id, s) {
     if (s === undefined) s = plan === "sub";
     const key = id + (s ? "-s" : ""), o = ITEMS[id] || SETS[id], ex = cart.find((i) => i.key === key);
-    ex ? (ex.qty = Math.min(5, ex.qty + 1)) : cart.push({ key, id, name: o.name, variant: s ? "Subscription · every 8 weeks" : "One-time purchase", price: priceOf(id, s), qty: 1 });
+    ex ? (ex.qty = Math.min(5, ex.qty + 1)) : cart.push({ key, id, name: o.name, variant: "Single purchase · no subscription", price: priceOf(id, s), qty: 1 });
     save();
   }
   const thumbOf = (id) => art(ITEMS[id] ? id : id === "bodyset" ? "body" : "serum");
@@ -1423,13 +1527,14 @@ img{max-width:100%}
   let tt; const toast = (m) => { const t = $("#toast"); t.textContent = m; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 2400); };
 
   /* ===================== Routing ===================== */
-  const VIEWS = ["home", "why", "treatment", "journey", "faq"];
+  const VIEWS = ["home", "why", "results", "treatment", "journey", "faq"];
   let pending = null;
   function paint() {
     if (!$('[data-view="home"]').hidden) { buildHero(); idle(drawConcerns); idle(drawRail); }
     if (!$('[data-view="treatment"]').hidden) idle(drawCat);
     if (!$('[data-view="journey"]').hidden) drawJourney();
     if (!$('[data-view="why"]').hidden) idle(drawWhy);
+    if (!$('[data-view="results"]').hidden) { idle(drawResHero); idle(buildResults); }
   }
   function route() {
     const v = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "home";
@@ -1477,9 +1582,9 @@ img{max-width:100%}
       ["When should I see a doctor?", "See a dermatologist about any spot that is new, changing in size, shape or colour, bleeding or irregular."],
     ]],
     ["Orders & Shipping", [
-      ["How does auto-refill work?", "Your next course ships before you run out, at 15% less. Pause, change or cancel anytime."],
+      ["Is this a subscription?", "No. Every order is a single purchase. There is no subscription, no automatic billing and nothing to cancel. When you need more, you simply order again."],
       ["How long does shipping take?", "Orders ship within 1 business day. Free US delivery in 3–5 business days."],
-      ["What is the 60-day guarantee?", "Use Vermona as directed for 60 days. If you don't see a difference, contact us for a full refund on your first course."],
+      ["What is the 120-day guarantee?", "Use Vermona as directed for 120 days. If you don't see a difference, contact us for a full refund on your first course."],
     ]],
   ];
   $("#faq-groups").innerHTML = FAQ.map(([name, items]) => `<section class="faq-cat"><h2>${name}</h2><div>${items.map(([q, a]) => `<div class="acc-item"><button type="button" aria-expanded="false">${q}</button><div class="panel" hidden><p>${a}</p></div></div>`).join("")}</div></section>`).join("");
@@ -1499,7 +1604,7 @@ img{max-width:100%}
   $("#news").addEventListener("submit", (e) => {
     e.preventDefault(); const em = $("#news-email");
     if (!em.value || !em.checkValidity()) { toast("Enter a valid email address"); em.focus(); return; }
-    em.value = ""; toast("Subscribed. (Concept site: emails aren't stored yet.)");
+    em.value = ""; toast("You're on the list. (Concept site: emails aren't stored yet.)");
   });
 
   /* ===================== Assessment ===================== */
@@ -1695,6 +1800,76 @@ img{max-width:100%}
     m.fillStyle = g; m.fillRect(0, 0, w, h);
     const { W, H } = fit(cv), ctx = cv.getContext("2d");
     cover(ctx, before, W, H); cover(ctx, mix, W, H);
+  }
+
+  /* ===================== Results page ===================== */
+  const LW2 = [240, 200, 156];
+  const lightOf = (tone, f) => tone.map((c, k) => Math.round(c + (LW2[k] - c) * f));
+  const rCache = {};
+  function resPair(key, w, h, tone) {
+    const k = key + w + "x" + h + (tone || "");
+    if (!rCache[k]) {
+      const base = { ...CASES[key] };
+      if (tone) base.tone = TONES[tone];
+      rCache[k] = [renderSkin(w, h, base, 1), renderSkin(w, h, { ...base, tone: tone ? base.tone.map((c, k) => Math.round(c + (255 - c) * [0.26, 0.24, 0.14][k])) : lightOf(base.tone, 0.7), lift: 0, glowBoost: 0 }, 0.06)];
+    }
+    return rCache[k];
+  }
+  const RES_CONCERNS = [["hyper", "Anti-pigmentation"], ["melasma", "Melasma"], ["sun", "Sun damage"], ["pih", "Acne marks"], ["body", "Body"], ["tone", "Uneven tone"]];
+  const RES_WEEKS = [[1, 0.25, "Week 1", "First visible results", "Skin already looks lighter and brighter, and dark areas start to soften."], [4, 0.55, "Week 4", "Visibly lighter", "Skin tone is lighter and more even. Spots and patches fade."], [8, 0.82, "Week 8", "Noticeably lighter", "A clearly lighter, even complexion that others notice."], [12, 1, "Week 12", "Your goal", "Long-standing pigmentation keeps lightening toward your goal."]];
+  let resKey = "hyper", resWk = 2, resBuilt = false;
+  function resWeekImage(key, f) {
+    const [b, a] = resPair(key, 640, 544);
+    const c = document.createElement("canvas"); c.width = b.width; c.height = b.height;
+    const x = c.getContext("2d"); x.drawImage(b, 0, 0); x.globalAlpha = f; x.drawImage(a, 0, 0); x.globalAlpha = 1;
+    return c;
+  }
+  function drawResStage() {
+    const st = document.getElementById("res-stage"); if (!st || !st.offsetParent) return;
+    const [wk, f, label, t, body] = RES_WEEKS[resWk];
+    const b = document.getElementById("res-before"), a = document.getElementById("res-after");
+    let d = fit(b); cover(b.getContext("2d"), resPair(resKey, 640, 544)[0], d.W, d.H);
+    d = fit(a); cover(a.getContext("2d"), resWeekImage(resKey, f), d.W, d.H);
+    document.getElementById("res-wk-lbl").textContent = label;
+    document.getElementById("res-note-t").textContent = label + " · " + t;
+    document.getElementById("res-note-b").textContent = body;
+  }
+  function buildResults() {
+    if (!resBuilt) {
+      resBuilt = true;
+      const cc = document.getElementById("res-concern"), wc = document.getElementById("res-week");
+      cc.innerHTML = RES_CONCERNS.map(([k, n]) => `<button type="button" data-rc="${k}" aria-pressed="${k === resKey}">${n}</button>`).join("");
+      wc.innerHTML = RES_WEEKS.map((w, i) => `<button type="button" data-rw="${i}" aria-pressed="${i === resWk}">${w[2]}</button>`).join("");
+      cc.addEventListener("click", (e) => { const b = e.target.closest("[data-rc]"); if (!b) return; resKey = b.dataset.rc; cc.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); drawResStage(); });
+      wc.addEventListener("click", (e) => { const b = e.target.closest("[data-rw]"); if (!b) return; resWk = +b.dataset.rw; wc.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); drawResStage(); });
+      const r = document.getElementById("res-range"), a = document.getElementById("res-after"), bar = document.getElementById("res-bar");
+      const set = () => { a.style.clipPath = `inset(0 0 0 ${r.value}%)`; bar.style.left = r.value + "%"; };
+      r.addEventListener("input", set); set();
+      const tones = [["I", "Very fair"], ["II", "Fair"], ["III", "Medium"], ["IV", "Olive"], ["V", "Brown"], ["VI", "Deep"]];
+      document.getElementById("tones").innerHTML = tones.map(([k, n]) => `<div class="tone"><div class="disc"><canvas data-tb="${k}"></canvas><canvas data-ta="${k}" style="clip-path:inset(0 0 0 50%)"></canvas></div><b>Type ${k}</b><span>${n} · before | after</span></div>`).join("");
+      const G = [["melasma", "Melasma", "12 weeks"], ["pih", "Acne marks", "8 weeks"], ["body", "Underarms", "10 weeks"], ["sun", "Sun damage", "12 weeks"], ["hyper", "Anti-pigmentation", "8 weeks"], ["tone", "Uneven tone", "6 weeks"]];
+      document.getElementById("gallery").innerHTML = G.map(([k, c, w]) => `<article class="story"><div class="pair"><div><canvas data-gb="${k}"></canvas><em>BEFORE</em></div><div><canvas data-ga="${k}"></canvas><em>${w.toUpperCase()}</em></div></div><div class="story-body"><div class="who">${c} · <b>${w}</b> on the Protocol</div><blockquote>A verified customer's story about their ${c.toLowerCase()} results will appear here.</blockquote></div></article>`).join("");
+    }
+    drawResStage();
+    document.querySelectorAll("[data-tb]").forEach((cv) => { const d = fit(cv); cover(cv.getContext("2d"), resPair("hyper", 200, 200, cv.dataset.tb)[0], d.W, d.H); });
+    document.querySelectorAll("[data-ta]").forEach((cv) => { const d = fit(cv); cover(cv.getContext("2d"), resPair("hyper", 200, 200, cv.dataset.ta)[1], d.W, d.H); });
+    document.querySelectorAll("[data-gb]").forEach((cv) => { const d = fit(cv); cover(cv.getContext("2d"), resPair(cv.dataset.gb, 300, 330)[0], d.W, d.H); });
+    document.querySelectorAll("[data-ga]").forEach((cv) => { const d = fit(cv); cover(cv.getContext("2d"), resPair(cv.dataset.ga, 300, 330)[1], d.W, d.H); });
+  }
+  let resHeroW = 0;
+  function drawResHero() {
+    const cv = document.getElementById("res-canvas"); if (!cv || !cv.offsetParent) return;
+    const r = cv.getBoundingClientRect(); if (!r.width || resHeroW === Math.round(r.width)) return;
+    resHeroW = Math.round(r.width);
+    const w = Math.min(1100, Math.round(r.width)), h = Math.max(1, Math.round(w * r.height / r.width));
+    const opt = { tone: TONES.V, seed: 23, lift: 0.04, edge: 0.62, fine: 220, creases: true, warm: true, irreg: true, spots: heroSpots(w, h) };
+    const before = renderSkin(w, h, opt, 1);
+    const after = renderSkin(w, h, { ...opt, tone: lightOf(opt.tone, 0.7), lift: 0, glowBoost: 0 }, 0.05);
+    const mix = document.createElement("canvas"); mix.width = w; mix.height = h;
+    const m = mix.getContext("2d"); m.drawImage(after, 0, 0); m.globalCompositeOperation = "destination-in";
+    const g = m.createLinearGradient(w * 0.45, 0, w * 0.85, 0); g.addColorStop(0, "rgba(0,0,0,0)"); g.addColorStop(1, "rgba(0,0,0,1)");
+    m.fillStyle = g; m.fillRect(0, 0, w, h);
+    const d = fit(cv), ctx = cv.getContext("2d"); cover(ctx, before, d.W, d.H); cover(ctx, mix, d.W, d.H);
   }
 
   route();
