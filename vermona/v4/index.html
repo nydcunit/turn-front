@@ -1009,7 +1009,8 @@ img{max-width:100%}
           <h2>Vermona <span class="nowrap">Anti&#8209;Pigmentation</span> Complex</h2>
           <p>Everything you need for an 8-week course, plus the guidance that keeps you on track until you reach the result you want.</p>
           <ul class="includes" id="includes"></ul>
-          <div class="price-line"><span class="now" id="reg-price">$349</span><span class="was" id="reg-was"></span><span class="save" id="reg-save"></span></div>
+          <div class="price-line"><span class="now" id="reg-price">$437</span><span class="was" id="reg-was"></span><span class="save" id="reg-save"></span></div>
+          <div class="note-box" style="background:var(--blush);font-size:.92rem"><b>$349</b> on your first order with 20% off, applied automatically at checkout.</div>
           <button class="btn btn-wine btn-block arrow" type="button" data-add="regimen">Add the Complete Regimen</button>
           <span class="small">Backed by our 120-Day Results Guarantee.</span>
         </div>
@@ -1490,11 +1491,11 @@ img{max-width:100%}
 
   /* ===================== Catalogue ===================== */
   const ITEMS = {
-    cleanser: { name: "Melanin-Balancing Cleanser", price: 42, step: "Step 4 · AM + PM", desc: "A low-pH, non-stripping cleanser that leaves skin clear, calm and evenly balanced, so every step after it works better.", size: "150 ml" },
-    serum: { name: "Anti-Pigmentation Face Cream", price: 169, step: "Step 1 · AM + PM", desc: "The core of the regimen. Our custom V-6 Pigment Complex™ in a nourishing cream that lightens and moisturises in one step.", size: "50 ml · 8 weeks" },
-    body: { name: "Anti-Pigmentation Body Cream", price: 89, step: "Step 2 · Daily", desc: "Lightens overall body tone and darkened areas such as underarms, knees, elbows and inner thighs.", size: "200 ml · 8 weeks" },
-    night: { name: "Retinal Renewal Night Treatment", price: 79, step: "Step 3 · Scheduled nights", desc: "Encapsulated retinal speeds skin renewal so lighter skin surfaces faster. Our gentler alternative to tretinoin.", size: "30 ml · 8 weeks" },
-    spf: { name: "Mineral SPF 50", price: 48, step: "Step 5 · AM", desc: "A sheer mineral sunscreen for face and body that protects your results from UV every day.", size: "100 ml" },
+    cleanser: { name: "Melanin-Balancing Cleanser", price: 49, step: "Step 4 · AM + PM", desc: "A low-pH, non-stripping cleanser that leaves skin clear, calm and evenly balanced, so every step after it works better.", size: "150 ml" },
+    serum: { name: "Anti-Pigmentation Face Cream", price: 219, step: "Step 1 · AM + PM", desc: "The core of the regimen. Our custom V-6 Pigment Complex™ in a nourishing cream that lightens and moisturises in one step.", size: "50 ml · 8 weeks" },
+    body: { name: "Anti-Pigmentation Body Cream", price: 119, step: "Step 2 · Daily", desc: "Lightens overall body tone and darkened areas such as underarms, knees, elbows and inner thighs.", size: "200 ml · 8 weeks" },
+    night: { name: "Retinal Renewal Night Treatment", price: 99, step: "Step 3 · Scheduled nights", desc: "Encapsulated retinal speeds skin renewal so lighter skin surfaces faster. Our gentler alternative to tretinoin.", size: "30 ml · 8 weeks" },
+    spf: { name: "Mineral SPF 50", price: 59, step: "Step 5 · AM", desc: "A sheer mineral sunscreen for face and body that protects your results from UV every day.", size: "100 ml" },
     moist: { name: "Barrier Repair Moisturiser", price: 42, desc: "", size: "" },
     pen: { name: "Dark Spot Concentrate", price: 39, desc: "A precision pen for stubborn spots, applied after your serum.", size: "4 ml" },
     pads: { name: "Brightening Exfoliating Pads", price: 36, desc: "Gentle mandelic and PHA acids for a weekly polish. Safe for deeper skin tones.", size: "40 pads" },
@@ -1504,7 +1505,7 @@ img{max-width:100%}
   };
   const CORE = ["serum", "body", "night", "cleanser", "spf"];
   const SETS = {
-    regimen: { name: "The Complete Regimen", items: CORE, price: 349 },
+    regimen: { name: "The Complete Regimen", items: CORE, price: 437 },
     starter: { name: "Starter Set", items: ["serum", "spf"], price: 149, desc: "Serum and SPF. A simple start for newer or lighter concerns." },
     bodyset: { name: "Body Regimen", items: ["body", "pads", "spf"], price: 109, desc: "Lotion, pads and SPF for underarms, knees, elbows and thighs." },
     facebody: { name: "Face + Body Regimen", items: [...CORE, "body"], price: 279, sub: 235, desc: "The Complete Regimen plus Body Lotion. Includes your Personal Skin Consultant." },
@@ -1532,7 +1533,7 @@ img{max-width:100%}
         <div class="body"><div style="display:grid;gap:6px"><h3>${it.name}</h3><p>${it.desc}</p></div>
           <div class="row"><span class="price">${money(priceOf(k, s))}</span><button class="add" type="button" data-add="${k}">+ Add</button></div></div></article>`; };
     $("#essentials").innerHTML = CORE.map(card).join("") + `
-      <div class="pnudge"><div style="display:grid;gap:6px"><span class="tag">Best value</span><h3>Get all five as the Complete Regimen</h3><p>Save ${money(full - rp)}, and get the Regimen Planner and your Personal Skin Consultant included.</p></div><button class="btn btn-wine arrow" type="button" data-add="regimen">Add the Complete Regimen · ${money(rp)}</button></div>`;
+      <div class="pnudge"><div style="display:grid;gap:6px"><span class="tag">Best value</span><h3>Get all five as the Complete Regimen</h3><p>Save ${money(full - rp)}, and get the Regimen Planner and your Personal Skin Consultant included. Just ${money(Math.floor(rp * 0.8))} on your first order.</p></div><button class="btn btn-wine arrow" type="button" data-add="regimen">Add the Complete Regimen · ${money(rp)}</button></div>`;
   }
   renderShop();
   document.querySelectorAll("[data-pillar-art]").forEach((el) => { el.insertAdjacentHTML("beforeend", ["serum", "body", "night", "cleanser", "spf"].map((k) => art(k, "prod-art " + ({ cleanser: "s", serum: "xs", spf: "s" }[k] || ""))).join("")); });
@@ -1554,7 +1555,7 @@ img{max-width:100%}
     const n = cart.reduce((s, i) => s + i.qty, 0); $("#count").textContent = n; $("#count").hidden = !n;
     if (!cart.length) { $("#c-body").innerHTML = `<div class="empty"><p>Your cart is empty.</p><a class="btn btn-wine" href="#treatment" data-close>Order the Regimen</a></div>`; $("#c-foot").innerHTML = ""; return; }
     $("#c-body").innerHTML = cart.map((i) => `<div class="li"><div class="th">${thumbOf(i.id)}</div><div><b>${i.name}</b><small>${i.variant}</small><span class="mq"><button type="button" data-dec="${i.key}" aria-label="Decrease">−</button>${i.qty}<button type="button" data-inc="${i.key}" aria-label="Increase">+</button><button type="button" class="lnk" data-rm="${i.key}">Remove</button></span></div><span style="font-variant-numeric:tabular-nums">${money(Math.round(i.price * i.qty * 100) / 100)}</span></div>`).join("");
-    const sub = Math.round(cart.reduce((s, i) => s + i.price * i.qty, 0) * 100) / 100, disc = Math.round(sub * 0.2 * 100) / 100;
+    const sub = Math.round(cart.reduce((s, i) => s + i.price * i.qty, 0) * 100) / 100, disc = Math.round((sub - Math.floor(sub * 0.8)) * 100) / 100;
     const guided = cart.some((i) => i.id === "regimen" || i.id === "facebody");
     $("#c-foot").innerHTML = `${guided ? `<div class="note-box">Includes your Personal Skin Consultant and the Vermona Regimen Planner.</div>` : ""}<div class="r"><span>Subtotal</span><span>${money(sub)}</span></div><div class="r" style="color:var(--wine)"><span>First order 20% off</span><span>−${money(disc)}</span></div><div class="r"><span>Shipping</span><span>Free</span></div><div class="r t"><span>Total</span><span>${money(Math.round((sub - disc) * 100) / 100)}</span></div><button class="btn btn-wine btn-block" type="button" id="checkout">Checkout</button><div class="note-box" id="co-note" hidden>Concept site: checkout isn't connected. On the live site this continues to Stripe or Shopify.</div>`;
   }
@@ -1693,7 +1694,7 @@ img{max-width:100%}
     if (ans.cond === "body") lines.push("The regimen works on the body too. On underarms, apply at night and avoid shaving right before.");
     if (ans.cond === "melasma") lines.push("Heat triggers melasma too, so add shade and a hat on hot, sunny days.");
     lines.push("Includes the Regimen Planner and your Personal Skin Consultant.");
-    body.innerHTML = `<h2 id="a-title">Your recommended regimen</h2><div class="regimen"><span class="eyebrow">${SETS[rec].name}</span><ul>${lines.map((l) => `<li>${l}</li>`).join("")}</ul></div><button type="button" class="btn btn-wine btn-block" data-take="${rec}">Add to Cart · ${money(SETS[rec].price)}</button><button type="button" class="lnk" style="justify-self:center" data-restart>Start over</button>`;
+    body.innerHTML = `<h2 id="a-title">Your recommended regimen</h2><div class="regimen"><span class="eyebrow">${SETS[rec].name}</span><ul>${lines.map((l) => `<li>${l}</li>`).join("")}</ul></div><button type="button" class="btn btn-wine btn-block" data-take="${rec}">Add to Cart · ${money(Math.floor(SETS[rec].price * 0.8))} first order</button><button type="button" class="lnk" style="justify-self:center" data-restart>Start over</button>`;
     $("[data-take]", body).addEventListener("click", () => { add(rec, false); toast("Added to cart"); open(cartP); });
     $("[data-restart]", body).addEventListener("click", () => startAssess());
   }
