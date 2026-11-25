@@ -551,6 +551,55 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; 
 .soon-overlay { position: sticky; bottom: 0; margin-top: -60px; padding: 70px 10px 10px; background: linear-gradient(0deg, var(--bg) 55%, transparent); text-align: center; display: grid; gap: 4px; justify-items: center; }
 .soon-overlay b { font-family: var(--serif); font-weight: 400; font-size: 1.1rem; }
 .soon-overlay span { font-size: 0.72rem; color: var(--ink-2); }
+/* ---------- Why Vermona page ---------- */
+.why-hero { padding-block: 64px 40px; display: grid; gap: 18px; max-width: 760px; }
+.why-hero h1 { font-size: clamp(2.3rem, 5.6vw, 4rem); }
+.why-hero p { color: var(--ink-2); font-size: 1.08rem; max-width: 58ch; }
+.fails { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.fail { display: grid; grid-template-columns: 56px 1fr; gap: 18px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.fail .n { font-family: var(--serif); font-size: 2.4rem; line-height: 1; color: var(--wine); }
+.fail h3 { font-size: 1.45rem; margin-bottom: 6px; }
+.fail p { color: var(--ink-2); max-width: 62ch; }
+.fail .fix { margin-top: 10px; display: inline-flex; gap: 8px; align-items: flex-start; font-size: 0.92rem; color: var(--ink); background: var(--blush); padding: 10px 12px; border-radius: 10px; }
+.fail .fix b { color: var(--wine); font-weight: 600; white-space: nowrap; }
+@media (min-width: 900px) { .fail { grid-template-columns: 90px 1fr 1fr; gap: 32px; align-items: start; } .fail .n { font-size: 3.2rem; } .fail .fix { margin-top: 0; } }
+.vs { max-width: 900px; margin: 0 auto; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); }
+.vs table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.vs th, .vs td { padding: 16px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.vs tr:last-child th, .vs tr:last-child td { border-bottom: 0; }
+.vs thead th { font-size: 0.78rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--muted); }
+.vs thead th.us { color: var(--wine); }
+.vs tbody th { font-weight: 500; width: 24%; }
+.vs td { color: var(--ink-2); }
+.vs td.us { background: var(--blush); color: var(--ink); }
+.vs-scroll { overflow-x: auto; }
+.vs-scroll table { min-width: 560px; }
+.days { display: grid; gap: 12px; }
+.dstep { display: grid; grid-template-columns: 92px 1fr; gap: 16px; padding: 18px; border-radius: 12px; background: var(--card); border: 1px solid var(--line); align-items: start; }
+.dstep time { font-family: var(--serif); font-size: 1.25rem; color: var(--wine); line-height: 1.1; }
+.dstep time small { display: block; font-family: var(--sans); font-size: 0.68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.dstep b { display: block; font-weight: 500; margin-bottom: 4px; }
+.dstep span { font-size: 0.9rem; color: var(--ink-2); }
+@media (min-width: 900px) { .days { grid-template-columns: repeat(3, 1fr); } .dstep { grid-template-columns: 1fr; } }
+.statement { text-align: center; display: grid; gap: 16px; justify-items: center; }
+.statement h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); max-width: 20ch; }
+.statement h2 em { font-style: italic; color: var(--wine); }
+.statement p { color: var(--ink-2); max-width: 56ch; }
+
+/* ---------- Savings ---------- */
+.savings { max-width: 720px; margin: 0 auto 28px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 28px 22px; text-align: center; display: grid; gap: 6px; justify-items: center; }
+.savings .eyebrow { margin-bottom: 4px; }
+.savings .big { font-family: var(--serif); font-size: clamp(3rem, 9vw, 4.6rem); line-height: 1; color: var(--wine); font-variant-numeric: tabular-nums; }
+.savings .big small { font-size: .42em; vertical-align: .9em; margin-right: 2px; }
+.savings p { color: var(--ink-2); max-width: 44ch; }
+.savings .split { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; margin-top: 14px; text-align: left; }
+.savings .split div { border-radius: 10px; padding: 12px 14px; background: var(--blush); display: grid; gap: 2px; }
+.savings .split div.them { background: transparent; border: 1px solid var(--line); }
+.savings .split b { font-weight: 600; font-size: 0.86rem; }
+.savings .split span { font-size: 0.82rem; color: var(--ink-2); }
+.savings .fine { font-size: 0.72rem; color: var(--muted); margin-top: 10px; max-width: 60ch; }
+@media (max-width: 480px) { .savings .split { grid-template-columns: 1fr; } }
+
 /* ---------- Community page ---------- */
 .com-hero { padding-block: 56px 40px; display: grid; gap: 32px; align-items: center; }
 .com-hero .copy { display: grid; gap: 16px; }
@@ -671,10 +720,10 @@ img{max-width:100%}
     <div class="nav-l">
       <button class="icon-btn" data-menu aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       <div class="desk-links">
-        <a href="#treatment">Shop</a>
-        <button data-goto="concerns">Concerns</button>
+        <a href="#why">The Protocol</a>
         <a href="#journey">Regimen Planner</a>
         <button data-goto="results">Results</button>
+        <a href="#treatment">Shop</a>
       </div>
     </div>
     <a class="wordmark" href="#home">Vermona</a>
@@ -721,9 +770,18 @@ img{max-width:100%}
     </div>
   </section>
 
-  <section class="sec" id="concerns">
+  <section class="sec" id="results">
     <div class="wrap">
-      <div class="head"><span class="eyebrow">Shop by concern</span><h2>What would you like to lighten?</h2></div>
+      <div class="head"><span class="eyebrow">Vermona results</span><h2>Real progress.<br>Week by week.</h2></div>
+      <div class="rail-top"><span>Before &amp; afters</span><div class="arrows"><button type="button" data-rail="-1" aria-label="Previous"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="next" data-rail="1" aria-label="Next"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button></div></div>
+      <div class="rail" id="rail"></div>
+      <div class="dots" id="dots"></div>
+      <div class="rail-foot"><span class="small">Images are rendered illustrations. Verified customer photos and stories will appear here.</span></div>
+    </div>
+  </section>
+  <section class="sec" id="concerns" style="padding-top:24px">
+    <div class="wrap">
+      <div class="head"><span class="eyebrow">Explore concerns</span><h2>What would you like to lighten?</h2><p>See how the Vermona Anti-Pigmentation Protocol works on each kind of darkening.</p></div>
       <div class="concerns">
         <button class="concern" data-assess data-pre="hyper"><canvas data-skin="hyper"></canvas><span><b>Anti-Pigmentation</b><small>Skin lightening, dark patches &amp; overall brightening</small></span></button>
         <button class="concern" data-assess data-pre="melasma"><canvas data-skin="melasma"></canvas><span><b>Melasma</b><small>Hormonal patches on cheeks &amp; lip</small></span></button>
@@ -735,19 +793,20 @@ img{max-width:100%}
     </div>
   </section>
 
-  <section class="sec" id="results" style="padding-top:24px">
-    <div class="wrap">
-      <div class="head"><span class="eyebrow">Vermona results</span><h2>Real progress.<br>Week by week.</h2></div>
-      <div class="rail-top"><span>Before &amp; afters</span><div class="arrows"><button type="button" data-rail="-1" aria-label="Previous"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="next" data-rail="1" aria-label="Next"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button></div></div>
-      <div class="rail" id="rail"></div>
-      <div class="dots" id="dots"></div>
-      <div class="rail-foot"><span class="small">Images are rendered illustrations. Verified customer photos and stories will appear here.</span></div>
-    </div>
-  </section>
 
   <section class="sec blush">
     <div class="wrap">
       <div class="head"><span class="eyebrow">How we're different</span><h2>Why Vermona?</h2></div>
+      <div class="savings">
+        <span class="eyebrow">Estimated savings</span>
+        <div class="big"><small>up to</small>$2,500+</div>
+        <p>per year, compared with a course of in-clinic pigmentation treatments*</p>
+        <div class="split">
+          <div class="them"><b>In-clinic treatment</b><span>Consultations, plus repeat chemical peels or laser sessions, office visits and weeks of waiting</span></div>
+          <div><b>The Vermona Protocol</b><span>A complete regimen, the Regimen Planner and your Personal Skin Consultant, from home</span></div>
+        </div>
+        <span class="fine">*Estimate based on typical US prices: a dermatology consultation ($150–250) plus a course of chemical peels ($150–400 per session) or laser treatments ($500–1,500 per session), compared with a year of the Vermona Complete Regimen. Clinic prices vary by provider and location.</span>
+      </div>
       <div class="compare">
         <table>
           <thead><tr><th></th><th class="us">Vermona</th><th>Clinic treatment</th></tr></thead>
@@ -757,10 +816,12 @@ img{max-width:100%}
             <tr><th>Face &amp; body</th><td class="us" data-ok></td><td>Per area</td></tr>
             <tr><th>Convenience</th><td class="us">From home</td><td>Office visits</td></tr>
             <tr><th>Wait time</th><td class="us">Ships in 1 day</td><td>Weeks</td></tr>
+            <tr><th>Cost per year</th><td class="us">Up to $2,500+ less*</td><td>Hundreds per session</td></tr>
             <tr><th>Money-back guarantee</th><td class="us" data-ok></td><td data-no></td></tr>
           </tbody>
         </table>
       </div>
+      <div style="text-align:center;margin-top:28px;display:grid;gap:10px;justify-items:center"><p style="color:var(--ink-2);max-width:52ch">Most treatments fail for the same few reasons. The Vermona Anti-Pigmentation Protocol was designed around every one of them.</p><a class="btn btn-wine arrow" href="#why">Why other treatments fail</a></div>
     </div>
   </section>
 
@@ -819,7 +880,7 @@ img{max-width:100%}
           <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span><b>Your Personal Skin Consultant</b>One dedicated specialist for your whole regimen. Message them anytime.</span></div>
           <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span><b>A daily calendar</b>Exactly what to apply each morning and night, adjusted week by week.</span></div>
           <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.5"/></svg><span><b>Progress photos</b>Guided photo days every two weeks, so you can see your skin get lighter.</span></div>
-          <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v4h4"/></svg><span><b>Automatic refills</b>Your next products arrive before you run out. Pause anytime.</span></div>
+          <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span><b>Safe by design</b>A gentle start, the right order and daily SPF, so your skin never gets pushed too far, too fast.</span></div>
         </div>
         <a class="btn btn-wine arrow" href="#journey" style="justify-self:start">See the Regimen Planner</a>
       </div>
@@ -867,7 +928,7 @@ img{max-width:100%}
     <div class="shop-h"><div><span class="eyebrow">Sets</span><h2>Bundles</h2></div><p>Smaller sets for a lighter routine or for body areas.</p></div>
     <div class="bundles" id="bundles"></div>
 
-    <div class="shop-h"><div><span class="eyebrow">Regimen products</span><h2>The essentials</h2></div><p>Each step of the regimen, sold separately for refills.</p></div>
+    <div class="shop-h"><div><span class="eyebrow">Regimen products</span><h2>The essentials</h2></div><p>Each step of the regimen, also sold on its own.</p></div>
     <div class="products four five" id="essentials"></div>
 
     <div class="shop-h"><div><span class="eyebrow">Targeted care</span><h2>Add-ons</h2></div><p>Extra help for specific areas and concerns.</p></div>
@@ -889,7 +950,7 @@ img{max-width:100%}
       <span class="eyebrow">The Vermona Regimen Planner</span>
       <h1>Your regimen, precisely planned.</h1>
       <p>The Vermona Complete Regimen is a carefully sequenced protocol: which product, which night, in which order, and when to step up. The Regimen Planner is the app that runs it for you, adapts it as your skin responds, and connects you to your Personal Skin Consultant until you reach your result.</p>
-      <div><ul class="ticks"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>A daily routine that changes as your skin adapts</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>A dedicated Personal Skin Consultant for your whole journey</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Progress photos with side-by-side comparisons</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Refills that arrive before you run out</span></li></ul></div>
+      <div><ul class="ticks"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>A daily routine that changes as your skin adapts</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>A dedicated Personal Skin Consultant for your whole journey</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Progress photos with side-by-side comparisons</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>A gentle, sequenced plan that protects your skin</span></li></ul></div>
       <div class="store-row"><span class="store"><span>Coming soon on the<b>App Store</b></span></span><span class="store"><span>Coming soon on<b>Google Play</b></span></span></div>
       <a class="btn btn-wine arrow" href="#treatment" style="justify-self:start">Get the Complete Regimen</a>
       <span class="small">Screens show a sample journey. Try ticking off steps, browsing the calendar or sending a message.</span>
@@ -905,7 +966,7 @@ img{max-width:100%}
         <div class="device-wrap"><div class="device" role="img" aria-label="Vermona Regimen Planner: calendar"><div class="app"><div class="app-status"><span>9:41</span><span>●●● ▮</span></div><div class="app-head"><h5>Calendar</h5><div class="cal-nav"><button type="button" data-cal="-1" aria-label="Previous month"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button><strong id="cal-month"></strong><button type="button" data-cal="1" aria-label="Next month"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button></div>
 </div><div class="app-body"><div class="legend"><span><i class="k-ret"></i>Retinal</span><span><i class="k-pad"></i>Pads</span><span><i class="k-mask"></i>Mask</span><span><i class="k-photo"></i>Photo</span></div><div class="cal" id="cal"></div><div class="day-detail" id="day-detail"></div>
 </div><div class="app-tabs"><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2"/></svg>Today</span><span class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v11H9l-5 4z"/></svg>Consultant</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Progress</span><span class="soon-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="9" r="3.2"/><circle cx="17" cy="10" r="2.6"/><path d="M3 20c.8-3.4 3.2-5 6-5s5.2 1.6 6 5M15 15.5c2.6-.4 5 .9 6 4"/></svg>Community</span></div></div></div></div>
-        <div class="txt"><span class="eyebrow">Sequenced protocol</span><h2>Know exactly what to do, every day.</h2><p>Your calendar is built from your assessment and adjusts as your skin builds tolerance, so you never have to guess.</p><ul class="ticks"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Retinal nights added gradually: 2, then 3, then 4 a week</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Exfoliating and mask nights scheduled so they never clash</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Reminders for photo days and refills</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Tap any day to see the full morning and evening routine</span></li></ul></div>
+        <div class="txt"><span class="eyebrow">Sequenced protocol</span><h2>Know exactly what to do, every day.</h2><p>Your calendar is built from your assessment and adjusts as your skin builds tolerance, so you never have to guess.</p><ul class="ticks"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Retinal nights added gradually: 2, then 3, then 4 a week</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Exfoliating and mask nights scheduled so they never clash</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Reminders for your routine and photo days</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Tap any day to see the full morning and evening routine</span></li></ul></div>
       </div>
       <div class="f-row">
         <div class="device-wrap"><div class="device" role="img" aria-label="Vermona Regimen Planner: chat with your Personal Skin Consultant"><div class="app"><div class="app-status"><span>9:41</span><span>●●● ▮</span></div><div class="app-head"><div class="consultant"><div class="av">M</div><div><b>Maya R.</b><small>Personal Skin Consultant</small></div></div>
@@ -920,10 +981,10 @@ img{max-width:100%}
         <div class="txt"><span class="eyebrow">Progress tracking</span><h2>See your skin get lighter.</h2><p>Take a guided photo every two weeks in the same light. The app lines them up so you can compare any two weeks side by side.</p><ul class="ticks"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Guided photo days with lighting tips</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Side-by-side before and after slider</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Private by default. Only you and your consultant see them</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Milestones as you move through each phase</span></li></ul></div>
       </div>
       <div class="f-row">
-        <div class="device-wrap"><div class="device" role="img" aria-label="Vermona Regimen Planner: your regimen and refills"><div class="app"><div class="app-status"><span>9:41</span><span>●●● ▮</span></div><div class="app-head"><div><h5>My regimen</h5><small id="refill-date"></small></div>
-</div><div class="app-body"><div class="kit-list" id="kit"></div><div class="kit-actions"><button class="btn btn-line btn-sm" type="button" data-toast="Next delivery moved 1 week later.">Delay 1 week</button><button class="btn btn-line btn-sm" type="button" data-toast="Next delivery skipped.">Skip</button><button class="btn btn-line btn-sm" type="button" data-toast="Subscription paused. Resume anytime.">Pause</button></div><div class="app-card"><h6>From your consultant</h6><p style="font-size:.78rem;color:var(--ink-2)">You're using your Serum and SPF consistently. Your next regimen arrives before you run out.</p></div>
+        <div class="device-wrap"><div class="device" role="img" aria-label="Vermona Regimen Planner: your regimen"><div class="app"><div class="app-status"><span>9:41</span><span>●●● ▮</span></div><div class="app-head"><div><h5>My regimen</h5><small id="refill-date"></small></div>
+</div><div class="app-body"><div class="kit-list" id="kit"></div><div class="app-card"><h6>From your consultant</h6><p style="font-size:.78rem;color:var(--ink-2)">Great consistency this week. Remember to apply SPF to your neck and the backs of your hands too.</p></div>
 </div><div class="app-tabs"><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2"/></svg>Today</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v11H9l-5 4z"/></svg>Consultant</span><span class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Progress</span><span class="soon-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="9" r="3.2"/><circle cx="17" cy="10" r="2.6"/><path d="M3 20c.8-3.4 3.2-5 6-5s5.2 1.6 6 5M15 15.5c2.6-.4 5 .9 6 4"/></svg>Community</span></div></div></div></div>
-        <div class="txt"><span class="eyebrow">Refills &amp; regimen</span><h2>Never run out mid-journey.</h2><p>The app tracks how much of each product you have left and ships your next regimen in time. Delay, skip or pause with one tap.</p><ul class="ticks"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>See what's left in every product</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Automatic delivery before you run out</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Delay, skip or pause anytime</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Add-ons in one tap when your consultant recommends them</span></li></ul></div>
+        <div class="txt"><span class="eyebrow">Your regimen</span><h2>Every product, in its place.</h2><p>See your whole regimen at a glance: what each product does, when it’s used, and how much you have left, so nothing in your routine is ever missed.</p><ul class="ticks"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>See what's left in every product</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>What each product does and when to use it</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>A heads-up when a product is running low</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Add-ons in one tap when your consultant recommends them</span></li></ul></div>
       </div>
       <div class="f-row flip" id="community-tab">
         <div class="device-wrap"><div class="device" role="img" aria-label="Regimen Planner: Community tab, coming soon"><div class="app"><div class="app-status"><span>9:41</span><span>●●● ▮</span></div><div class="app-head"><div><h5>Community</h5><small>Coming soon</small></div></div><div class="app-body"><div class="soon-screen"><div class="post"><i style="background:#b8805c"></i><div><b>My melasma journal, start to finish</b><span>Melasma · Journal</span></div></div><div class="post"><i style="background:#5c3a28"></i><div><b>Dark knees finally fading, here’s my routine</b><span>Body · Routines</span></div></div><div class="post"><i style="background:#ecc4a6"></i><div><b>Sun spots on hands: week 12</b><span>Sun damage · Journal</span></div></div><div class="post"><i style="background:#d6a17d"></i><div><b>Pairing Retinal Renewal with acids?</b><span>Routines · Question</span></div></div><div class="post"><i style="background:#8a5c3e"></i><div><b>SPF with no white cast on deep skin</b><span>Routines</span></div></div></div><div class="soon-overlay"><b>Opening soon</b><span>Share results with other Vermona users.</span></div></div><div class="app-tabs"><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2"/></svg>Today</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v11H9l-5 4z"/></svg>Consultant</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Progress</span><span class="soon-tab on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="9" r="3.2"/><circle cx="17" cy="10" r="2.6"/><path d="M3 20c.8-3.4 3.2-5 6-5s5.2 1.6 6 5M15 15.5c2.6-.4 5 .9 6 4"/></svg>Community</span></div></div></div></div>
@@ -940,10 +1001,67 @@ img{max-width:100%}
         <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><b>Adaptive calendar</b><span>Your routine steps up as your skin is ready, never before.</span></div>
         <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v11H9l-5 4z"/></svg><b>Consultant chat</b><span>Questions answered by the same specialist every time.</span></div>
         <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><b>Progress photos</b><span>Guided photo days and side-by-side comparisons.</span></div>
-        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v4h4"/></svg><b>Auto-refills</b><span>Your next regimen arrives on time. Pause anytime.</span></div>
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><b>Safety built in</b><span>Gentle step-ups, the right order and daily SPF reminders.</span></div>
         <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="9" r="3.2"/><circle cx="17" cy="10" r="2.6"/><path d="M3 20c.8-3.4 3.2-5 6-5s5.2 1.6 6 5M15 15.5c2.6-.4 5 .9 6 4"/></svg><b>Community <span class="soon-chip" style="font-size:.62rem;margin-left:6px">Coming soon</span></b><span>Share results and connect with other Vermona users.</span></div>
       </div>
       <div class="closing" style="margin-top:48px"><h2>The Regimen Planner is included with every Complete Regimen.</h2><a class="btn btn-wine arrow" href="#treatment">Shop the Regimen</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= WHY VERMONA ======================= -->
+<div data-view="why" hidden>
+  <div class="wrap why-hero">
+    <span class="eyebrow">The Vermona Anti&#8209;Pigmentation Protocol</span>
+    <h1>Why most pigmentation treatments fail.</h1>
+    <p>Most people with dark spots or uneven skin end up going in circles: a new cream, a few weeks, no real change, then the next product. It's rarely the ingredient that fails. It's everything around it. The Vermona Anti-Pigmentation Protocol was designed as a complete system that fixes each of these problems, so you finally reach a result instead of starting over.</p>
+  </div>
+  <section class="sec" style="padding-top:8px">
+    <div class="wrap">
+      <div class="fails"><div class="fail"><span class="n">1</span><div><h3>One product can't do it all.</h3><p>Dark pigment forms in stages: a trigger, production, transfer to the surface, and build-up. A single cream or serum usually tackles one stage, so results stall.</p></div><div class="fix"><b>Vermona:</b><span>Five products and a six-active complex that work on every stage, together.</span></div></div><div class="fail"><span class="n">2</span><div><h3>Too much, too soon.</h3><p>Strong actives applied every night from day one irritate skin. Irritated skin makes more pigment, so spots can get darker before they get lighter.</p></div><div class="fix"><b>Vermona:</b><span>Retinal Renewal starts at two nights a week and steps up only when your skin is ready.</span></div></div><div class="fail"><span class="n">3</span><div><h3>The wrong order, on the wrong nights.</h3><p>Layering retinoids, acids and brighteners at random cancels some out and overloads skin with others.</p></div><div class="fix"><b>Vermona:</b><span>Every product has a place and a night. Your Regimen Planner tells you exactly what, when and in which order.</span></div></div><div class="fail"><span class="n">4</span><div><h3>No protection.</h3><p>A few minutes of unprotected sun can undo weeks of progress. Untinted sunscreens also let through the visible light that drives melasma.</p></div><div class="fix"><b>Vermona:</b><span>Tinted Mineral SPF 50 with iron oxides is built into every morning of the protocol.</span></div></div><div class="fail"><span class="n">5</span><div><h3>No one to guide you.</h3><p>Results take weeks. Without a plan or someone to ask, people change products, skip days or give up just before things start to work.</p></div><div class="fix"><b>Vermona:</b><span>A dedicated Personal Skin Consultant and daily guidance keep you on track to the end.</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="sec blush">
+    <div class="wrap statement">
+      <span class="eyebrow">A protocol, not a product</span>
+      <h2>Not another one-off cream. <em>A complete system that works.</em></h2>
+      <p>Vermona combines a clinical regimen, a proven step-by-step plan, the Regimen Planner app and a dedicated Personal Skin Consultant into one protocol, so nothing is left to chance between you and the skin you want.</p>
+    </div>
+    <div class="wrap" style="margin-top:36px">
+      <div class="vs"><div class="vs-scroll"><table>
+        <thead><tr><th></th><th>The typical approach</th><th class="us">The Vermona Protocol</th></tr></thead>
+        <tbody><tr><th>Products</th><td>One product at a time, bought separately</td><td class="us">A complete five-step regimen designed to work together</td></tr><tr><th>Formula</th><td>One or two actives</td><td class="us">Proprietary V-6 Pigment Complex™ across every stage</td></tr><tr><th>Routine</th><td>Guesswork, copied from the internet</td><td class="us">A sequenced protocol: the right product, night and order</td></tr><tr><th>Daily guidance</th><td>None</td><td class="us">The Regimen Planner tells you what to do, every day</td></tr><tr><th>When skin reacts</th><td>Stop, switch or push through</td><td class="us">Your Personal Skin Consultant adjusts your plan</td></tr><tr><th>Tracking progress</th><td>Mirror and memory</td><td class="us">Guided progress photos with before-and-after comparisons</td></tr><tr><th>Cost</th><td>Clinic sessions at hundreds each, or money spent on products that don’t work</td><td class="us">One complete regimen, up to $2,500+ a year less than in-clinic treatment*</td></tr><tr><th>Safety</th><td>Too much, too soon, and irritation</td><td class="us">A gentle start that steps up only when your skin is ready</td></tr></tbody>
+      </table></div></div>
+      <p class="small" style="text-align:center;margin-top:14px;max-width:70ch;margin-inline:auto">*Estimate based on typical US prices for a dermatology consultation plus a course of chemical peels or laser treatments, compared with a year of the Vermona Complete Regimen. Clinic prices vary.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><span class="eyebrow">How it works</span><h2>Four parts. One protocol.</h2><p>Each part closes a gap where other treatments fall short. Together, they take you from your first application to your goal.</p></div>
+      <div class="pillars">
+        <a class="pillar" href="#treatment"><div class="vis" data-pillar-art><span class="num">1</span></div><div class="txt"><b>The Complete Regimen</b><span>Five clinical products that lighten, renew, protect and repair, used together morning and night.</span><i>Shop the regimen →</i></div></a>
+        <button class="pillar" type="button" data-goto="how"><div class="vis"><span class="num">2</span><div class="vis-plan"><small>The plan</small><span><em>Start</em><i style="width:30%"></i></span><span><em>Build</em><i style="width:52%"></i></span><span><em>Strengthen</em><i style="width:74%"></i></span><span><em>Correct</em><i style="width:100%"></i></span></div></div><div class="txt"><b>The Protocol Plan</b><span>A carefully sequenced plan: every product, every night, in the right order, stepping up as your skin is ready.</span><i>See how the plan works →</i></div></button>
+        <a class="pillar" href="#journey"><div class="vis"><span class="num">3</span><div class="mini-phone"><div><b>Tonight</b><i class="d"></i><i class="d"></i><i></i><i></i><i></i></div></div></div><div class="txt"><b>The Vermona Regimen Planner</b><span>The app that runs your regimen: what to apply each day, when to step up, and how far you've come.</span><i>See the Planner →</i></div></a>
+        <a class="pillar" href="#journey"><div class="vis"><span class="num">4</span><div class="vis-person"><span class="av">M</span><em>“Your week 4 photos look great!”</em></div></div><div class="txt"><b>Your Personal Skin Consultant</b><span>One dedicated specialist who knows your skin and manages your journey until you reach your goal.</span><i>Meet your consultant →</i></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><span class="eyebrow">Guided every day</span><h2>What your journey looks like.</h2><p>From your first application to your goal, the protocol tells you what to do and steps up only when your skin is ready.</p></div>
+      <div class="days"><div class="dstep"><time>Day 1<small>Start</small></time><div><b>Your protocol begins</b><span>Your Regimen Planner shows your first morning and evening routine, and your consultant says hello.</span></div></div><div class="dstep"><time>Week 2<small>Start</small></time><div><b>Skin settles in</b><span>Brighter, more even-looking skin. Your routine stays gentle while your skin adjusts.</span></div></div><div class="dstep"><time>Week 3<small>Build</small></time><div><b>Renewal begins</b><span>Retinal Renewal is added on two nights a week. The Planner schedules them for you.</span></div></div><div class="dstep"><time>Week 5<small>Strengthen</small></time><div><b>Stepping up</b><span>If your skin is comfortable, a third Retinal night is added. Dark spots begin to look lighter.</span></div></div><div class="dstep"><time>Week 8+<small>Correct</small></time><div><b>Visible change</b><span>Compare your progress photos side by side. Spots, patches and darkened areas visibly lighter.</span></div></div><div class="dstep"><time>Your goal<small>Maintain</small></time><div><b>Keep your results</b><span>When you reach the skin you want, your plan switches to a lighter maintenance routine.</span></div></div></div>
+      <p class="small" style="text-align:center;margin-top:18px">Timelines vary by concern and skin type. Individual results vary.</p>
+    </div>
+  </section>
+
+  <section class="sec blush">
+    <div class="wrap closing">
+      <span class="eyebrow">The Vermona Anti&#8209;Pigmentation Protocol</span>
+      <h2>Stop going in circles.<br>Follow a protocol that finishes.</h2>
+      <div class="solution-cta" style="margin-top:0"><button class="btn btn-wine arrow" data-assess>Start Your Assessment</button><a class="btn btn-line" href="#treatment">Shop the Regimen</a></div>
     </div>
   </section>
 </div>
@@ -964,7 +1082,7 @@ img{max-width:100%}
   <div class="wrap">
     <div class="f-grid">
       <div><h4>Shop</h4><ul><li><a href="#treatment">The Complete Regimen</a></li><li><a href="#treatment">Bundles &amp; add-ons</a></li><li><button data-assess data-pre="melasma">Melasma</button></li><li><button data-assess data-pre="sun">Sun Damage</button></li><li><button data-assess data-pre="body">Body</button></li></ul></div>
-      <div><h4>About Vermona</h4><ul><li><a href="#journey">Regimen Planner</a></li><li><button data-goto="how">How It Works</button></li><li><button data-goto="results">Results</button></li><li><button data-goto="how">60-Day Guarantee</button></li></ul></div>
+      <div><h4>About Vermona</h4><ul><li><a href="#why">The Protocol</a></li><li><a href="#journey">Regimen Planner</a></li><li><button data-goto="how">How It Works</button></li><li><button data-goto="results">Results</button></li><li><button data-goto="how">60-Day Guarantee</button></li></ul></div>
       <div><h4>Support</h4><ul><li><a href="#faq">Get Help</a></li><li><a href="#faq">FAQ</a></li><li><a href="#faq">Shipping &amp; Returns</a></li></ul></div>
       <div><h4>Regimen Planner</h4><ul><li><a href="#journey">The Regimen Planner</a></li><li><a href="#journey">Community (coming soon)</a></li></ul></div>
     </div>
@@ -984,12 +1102,13 @@ img{max-width:100%}
 <aside class="panel-side left" id="menu" aria-label="Menu">
   <div class="ps-head"><a class="wordmark" href="#home" data-close style="font-size:1.4rem">Vermona</a><button class="icon-btn" data-close aria-label="Close menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <div class="ps-body">
-    <div class="menu-sec"><button type="button" aria-expanded="true">Shop</button><ul>
+    <div class="menu-sec"><button type="button" aria-expanded="true">Explore concerns</button><ul>
       <li><button data-assess data-pre="hyper">Anti-Pigmentation</button></li><li><button data-assess data-pre="melasma">Melasma</button></li><li><button data-assess data-pre="sun">Sun Damage</button></li><li><button data-assess data-pre="pih">Acne Marks</button></li><li><button data-assess data-pre="body">Body</button></li>
-      <li><a href="#treatment" data-close style="color:var(--ink);text-decoration:underline">Shop the Regimen →</a></li></ul></div>
+      </ul></div>
+    <div class="menu-sec"><button type="button" aria-expanded="false">Shop</button><ul hidden><li><a href="#treatment" data-close>The Complete Regimen</a></li><li><a href="#treatment" data-close>Bundles &amp; add-ons</a></li></ul></div>
     <div class="menu-sec"><button type="button" aria-expanded="false">Regimen Planner</button><ul hidden><li><a href="#journey" data-close>The Vermona Regimen Planner</a></li><li><a href="#journey" data-close>Your Personal Skin Consultant</a></li></ul></div>
     <div class="menu-sec"><button type="button" aria-expanded="false">Support</button><ul hidden><li><a href="#faq" data-close>FAQ</a></li><li><a href="#faq" data-close>Shipping &amp; Returns</a></li><li><a href="#faq" data-close>Contact</a></li></ul></div>
-    <div class="menu-sec"><button type="button" aria-expanded="false">About Vermona</button><ul hidden><li><button data-goto="how">How It Works</button></li><li><button data-goto="results">Results</button></li></ul></div>
+    <div class="menu-sec"><button type="button" aria-expanded="false">About Vermona</button><ul hidden><li><a href="#why" data-close>The Protocol</a></li><li><button data-goto="how">How It Works</button></li><li><button data-goto="results">Results</button></li></ul></div>
     <div class="menu-cta"><small>New customer</small><span>20% off your first course</span><a href="#treatment" data-close style="color:var(--ink);font-weight:500">Shop now →</a></div>
   </div>
 </aside>
@@ -1281,7 +1400,7 @@ img{max-width:100%}
   let tt; const toast = (m) => { const t = $("#toast"); t.textContent = m; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 2400); };
 
   /* ===================== Routing ===================== */
-  const VIEWS = ["home", "treatment", "journey", "faq"];
+  const VIEWS = ["home", "why", "treatment", "journey", "faq"];
   let pending = null;
   function paint() {
     if (!$('[data-view="home"]').hidden) { buildHero(); idle(drawConcerns); idle(drawRail); }
@@ -1465,7 +1584,6 @@ img{max-width:100%}
     if (!r) { el.innerHTML = `<h4>${fmt(sel, { weekday: "long", month: "long", day: "numeric" })}</h4><p class="small">Before your regimen started.</p>`; return; }
     const p = r.p, extras = [];
     if (p.photo) extras.push("Progress photo day: same spot, same light, no makeup");
-    if (p.refill) extras.push("Your next regimen ships today");
     el.innerHTML = `<h4>${fmt(sel, { weekday: "long", month: "long", day: "numeric" })} · Week ${p.w}${p.maint ? " · Maintenance" : ""}</h4>
       ${extras.length ? `<ul>${extras.map((x) => `<li><b>${x}</b></li>`).join("")}</ul>` : ""}
       <ul><li><b>Morning:</b> ${r.am.map((x) => x[1]).join(", ")}</li><li><b>Evening:</b> ${r.pm.map((x) => x[1]).join(", ")}</li></ul>`;
@@ -1491,7 +1609,6 @@ img{max-width:100%}
     for (let i = 0; i <= 70 && ev.length < 4; i++) {
       const d = new Date(TODAY.getTime() + i * DAY), p = plan4(d);
       if (p.photo) ev.push([d, "Progress photo", "Same light, no makeup"]);
-      if (p.refill) ev.push([d, "Next regimen ships", "Complete Regimen · auto-refill"]);
       if (p.n === 42) ev.push([d, "Retinal steps up", "Now 3 nights a week"]);
     }
     $("#miles").innerHTML = ev.slice(0, 4).map(([d, a, b]) => `<div><time>${fmt(d, { month: "short" })}<b>${d.getDate()}</b></time><span>${a}<small>${b}</small></span></div>`).join("");
@@ -1499,7 +1616,7 @@ img{max-width:100%}
   function drawKit() {
     const left = { cleanser: 58, serum: 31, night: 64, moist: 40, spf: 27 };
     $("#kit").innerHTML = CORE.map((k) => `<div class="kit-item">${art(k)}<div><b>${ITEMS[k].name}</b><small>${left[k]}% left</small></div><span class="lvl"><i style="width:${left[k]}%"></i></span></div>`).join("");
-    for (let i = 0; i < 70; i++) { const d = new Date(TODAY.getTime() + i * DAY); if (plan4(d).refill) { $("#refill-date").textContent = "Next delivery " + fmt(d, { month: "short", day: "numeric" }); break; } }
+    for (let i = 0; i < 70; i++) { const d = new Date(TODAY.getTime() + i * DAY); if (plan4(d).refill) { $("#refill-date").textContent = "Morning + evening"; break; } }
   }
   const CHAT = [
     ["them", "Hi! I'm Maya, your Personal Skin Consultant for your whole journey. I'll keep an eye on your progress and adjust your calendar as we go.", 37],
