@@ -108,7 +108,11 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; 
 .hero .hero-sub { font-family: var(--serif); font-size: clamp(1.3rem, 5.6vw, 1.9rem); line-height: 1.2; color: #fff; max-width: none; margin-top: -4px; }
 .nowrap { white-space: nowrap; }
 .hero .btn { justify-self: start; min-width: 220px; margin-top: 6px; }
-.hero .tag { position: absolute; right: max(16px, env(safe-area-inset-right, 0px)); bottom: 16px; z-index: 2; font-size: 0.7rem; color: rgba(255,255,255,.6); }
+.hero::after { z-index: 0; }
+.hero-bottle { display: none; position: absolute; z-index: 1; right: max(6%, env(safe-area-inset-right, 0px)); top: 50%; height: 74%; aspect-ratio: 120 / 300; transform: translateY(-46%); pointer-events: none; }
+.hero-bottle svg { width: 100%; height: 100%; filter: drop-shadow(0 40px 40px rgba(10, 4, 6, .55)) drop-shadow(0 6px 10px rgba(10,4,6,.3)); }
+.hero-bottle::after { content: ""; position: absolute; left: 8%; right: 8%; bottom: -3%; height: 6%; border-radius: 50%; background: radial-gradient(closest-side, rgba(10,4,6,.55), transparent); z-index: -1; }
+@media (min-width: 900px) { .hero-bottle { display: block; } }
 @media (min-width: 900px) { .hero-in { padding-block: 160px 72px; } .hero::after { background: linear-gradient(90deg, rgba(20,10,14,.8) 0%, rgba(20,10,14,.45) 45%, rgba(20,10,14,.05) 75%), linear-gradient(0deg, rgba(20,10,14,.4), transparent 40%); } }
 
 /* ---------- Without band ---------- */
@@ -403,14 +407,14 @@ img{max-width:100%}
 <!-- ======================= HOME ======================= -->
 <div data-view="home">
   <section class="hero" id="hero">
-    <canvas id="hero-canvas" aria-label="Close-up of skin with dark spots. A lens shows the same skin lightened after treatment."></canvas>
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-bottle" id="hero-bottle" aria-hidden="true"></div>
     <div class="wrap hero-in">
       <h1>Skin lightening, made clinical.</h1>
       <p class="hero-sub"><span class="nowrap">Advanced anti&#8209;pigmentation</span> treatment.</p>
       <p>Made for every skin tone. Lighten your skin and reduce imperfections to reach the tone and texture you want.</p>
       <button class="btn btn-white" data-assess>Find Your Treatment</button>
     </div>
-    <span class="tag">Rendered illustration · lens shows week 12</span>
   </section>
 
   <div class="without">
@@ -749,28 +753,56 @@ img{max-width:100%}
   function fit(cv) { const r = cv.getBoundingClientRect(), dpr = Math.min(2, window.devicePixelRatio || 1); cv.width = Math.max(1, Math.round(r.width * dpr)); cv.height = Math.max(1, Math.round(r.height * dpr)); return { W: cv.width, H: cv.height }; }
   const idle = (fn) => (window.requestIdleCallback ? requestIdleCallback(fn, { timeout: 500 }) : setTimeout(fn, 40));
 
-  /* Hero lens */
+  /* Hero: flowing silk of skin tones (deep to light), soft light and film grain */
   const hero = $("#hero"), hc = $("#hero-canvas"), hctx = hc.getContext("2d");
-  let hB = null, hA = null, lens = { x: .72, y: .38, tx: .72, ty: .38 }, ptr = false, heroVis = true, t0 = performance.now();
+  const low = document.createElement("canvas"), lctx = low.getContext("2d");
+  const SILK = [[74, 46, 34], [112, 72, 50], [150, 100, 70], [186, 132, 98], [214, 166, 134], [238, 204, 182]];
+  let grain = null, heroVis = true, bottleIn = false;
+  const t0 = performance.now();
   function buildHero() {
     const r = hc.getBoundingClientRect(); if (!r.width) return;
-    const w = Math.min(900, Math.round(r.width * 0.65)), h = Math.round(w * r.height / r.width);
-    hB = renderSkin(w, h, CASES.hero, 1); hA = renderSkin(w, h, CASES.hero, 0.12); fit(hc);
+    fit(hc);
+    low.width = 72; low.height = Math.max(30, Math.round(72 * r.height / r.width));
+    grain = document.createElement("canvas"); grain.width = grain.height = 180;
+    const g = grain.getContext("2d"), id = g.createImageData(180, 180), R = makeNoise(7).rnd;
+    for (let i = 0; i < id.data.length; i += 4) { const v = R() * 255; id.data[i] = id.data[i + 1] = id.data[i + 2] = v; id.data[i + 3] = 13; }
+    g.putImageData(id, 0, 0);
+    if (!bottleIn) { $("#hero-bottle").innerHTML = bottle(); bottleIn = true; }
+    drawHero(performance.now());
   }
   function drawHero(now) {
-    if (!hB) return;
-    const W = hc.width, H = hc.height, dpr = W / Math.max(1, hc.getBoundingClientRect().width);
-    if (!ptr && !reduce) { const t = (now - t0) / 1000, narrow = W < 700 * dpr; lens.tx = (narrow ? 0.6 : 0.7) + (narrow ? 0.18 : 0.15) * Math.sin(t * .35); lens.ty = (narrow ? 0.24 : 0.36) + (narrow ? 0.07 : 0.14) * Math.sin(t * .53 + 1); }
-    lens.x += (lens.tx - lens.x) * .08; lens.y += (lens.ty - lens.y) * .08;
-    cover(hctx, hB, W, H);
-    const R = Math.min(W, H) * (W < 700 * dpr ? 0.2 : 0.16), cx = lens.x * W, cy = lens.y * H;
-    hctx.save(); hctx.beginPath(); hctx.arc(cx, cy, R, 0, 6.283); hctx.clip(); cover(hctx, hA, W, H); hctx.restore();
-    hctx.lineWidth = 1.5 * dpr; hctx.strokeStyle = "rgba(255,255,255,.85)"; hctx.beginPath(); hctx.arc(cx, cy, R, 0, 6.283); hctx.stroke();
-    hctx.font = `600 ${10 * dpr}px Inter, sans-serif`; hctx.fillStyle = "rgba(255,255,255,.95)"; hctx.textAlign = "center"; hctx.fillText("AFTER · WEEK 12", cx, cy + R + 20 * dpr);
+    if (!grain) return;
+    const t = reduce ? 0 : (now - t0) / 1000, w = low.width, h = low.height;
+    const bg = lctx.createLinearGradient(0, h, w, 0);
+    bg.addColorStop(0, "#140b0e"); bg.addColorStop(0.5, "#2e1b1a"); bg.addColorStop(1, "#4a2f27");
+    lctx.fillStyle = bg; lctx.fillRect(0, 0, w, h);
+    SILK.forEach((c, i) => {
+      const k = i / (SILK.length - 1);
+      lctx.beginPath(); lctx.moveTo(-6, h + 6);
+      for (let x = -6; x <= w + 6; x += 2) {
+        const u = x / w;
+        const y = h * (1.15 - k * 0.78) - u * h * 0.55
+          + Math.sin(u * 3.1 + t * 0.12 + i * 0.8) * h * 0.1
+          + Math.sin(u * 1.4 - t * 0.08 + i * 1.7) * h * 0.06;
+        lctx.lineTo(x, y);
+      }
+      lctx.lineTo(w + 6, h + 6); lctx.closePath();
+      const f = lctx.createLinearGradient(0, h, w, 0);
+      f.addColorStop(0, `rgba(${c.join(",")},${0.12 + k * 0.06})`); f.addColorStop(1, `rgba(${c.join(",")},${0.32 + k * 0.12})`);
+      lctx.fillStyle = f; lctx.fill();
+    });
+    const L = lctx.createRadialGradient(w * 0.8, h * 0.28, 0, w * 0.8, h * 0.28, w * 0.55);
+    L.addColorStop(0, "rgba(255,232,222,.28)"); L.addColorStop(1, "rgba(255,232,222,0)");
+    lctx.fillStyle = L; lctx.fillRect(0, 0, w, h);
+    hctx.imageSmoothingEnabled = true; hctx.imageSmoothingQuality = "high";
+    hctx.drawImage(low, 0, 0, hc.width, hc.height);
+    hctx.fillStyle = hctx.createPattern(grain, "repeat"); hctx.fillRect(0, 0, hc.width, hc.height);
   }
-  (function loop(now) { if (heroVis && !$('[data-view="home"]').hidden) drawHero(now); requestAnimationFrame(loop); })(performance.now());
-  hero.addEventListener("pointermove", (e) => { const r = hc.getBoundingClientRect(); ptr = true; lens.tx = (e.clientX - r.left) / r.width; lens.ty = (e.clientY - r.top) / r.height; });
-  hero.addEventListener("pointerleave", () => { ptr = false; t0 = performance.now() - 2000; });
+  let lastFrame = 0;
+  (function loop(now) {
+    if (!reduce && heroVis && !$('[data-view="home"]').hidden && now - lastFrame > 40) { drawHero(now); lastFrame = now; }
+    requestAnimationFrame(loop);
+  })(performance.now());
   if ("IntersectionObserver" in window) new IntersectionObserver(([e]) => (heroVis = e.isIntersecting)).observe(hero);
 
   function drawConcerns() { $$("[data-skin]").forEach((cv) => { if (!cv.offsetParent) return; const { W, H } = fit(cv); cover(cv.getContext("2d"), pair(cv.dataset.skin, 360, 380)[0], W, H); }); }
