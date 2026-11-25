@@ -191,14 +191,14 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; 
 .formula { display: grid; grid-auto-flow: column; grid-auto-columns: min(250px, 72%); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; scrollbar-width: none; }
 .formula::-webkit-scrollbar { display: none; }
 .f-card { scroll-snap-align: start; border-radius: 12px; overflow: hidden; background: var(--card); border: 1px solid var(--line); display: grid; align-content: start; }
-.f-card .vis { aspect-ratio: 1 / 1; max-width: 100%; display: grid; place-items: center; background: var(--blush-2); position: relative; }
-.f-card .vis b { font-family: var(--serif); font-weight: 400; font-size: 4.6rem; line-height: 1; color: var(--wine); }
+.f-card .vis { aspect-ratio: 16 / 10; max-width: 100%; display: grid; place-items: center; background: var(--blush-2); position: relative; }
+.f-card .vis b { font-family: var(--serif); font-weight: 400; font-size: 3.6rem; line-height: 1; letter-spacing: .02em; color: var(--wine); }
 .f-card .vis b small { font-size: .4em; }
 .f-card .vis span { position: absolute; left: 12px; top: 12px; font-size: 0.66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .f-card .txt { padding: 14px; display: grid; gap: 4px; }
 .f-card h3 { font-size: 1.15rem; }
 .f-card p { font-size: 0.88rem; color: var(--ink-2); }
-@media (min-width: 1000px) { .formula { grid-auto-flow: row; grid-template-columns: repeat(5, 1fr); overflow: visible; } }
+@media (min-width: 1000px) { .formula { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); overflow: visible; } }
 
 /* ---------- Steps ---------- */
 .steps { max-width: 640px; margin: 0 auto; display: grid; background: var(--card); border-radius: 12px; border: 1px solid var(--line); overflow: hidden; }
@@ -775,14 +775,16 @@ img{max-width:100%}
 
   <section class="sec">
     <div class="wrap">
-      <div class="head"><span class="eyebrow">The formula</span><h2>Five actives. Every strength disclosed.</h2><p>Each one targets a different stage of how dark pigment forms, so skin lightens faster without harsh bleaching agents.</p></div>
+      <div class="head"><span class="eyebrow">Proprietary formulation</span><h2>The V-6 Pigment Complex&#8482;</h2><p>A custom formulation developed exclusively for Vermona. Six actives in a proprietary ratio, each chosen to stop excess pigment at a different stage, so skin lightens faster without harsh bleaching agents.</p></div>
       <div class="formula">
-        <div class="f-card"><div class="vis"><span>Signal</span><b>3<small>%</small></b></div><div class="txt"><h3>Tranexamic Acid</h3><p>Calms the triggers behind melasma and new dark patches.</p></div></div>
-        <div class="f-card"><div class="vis"><span>Production</span><b>2<small>%</small></b></div><div class="txt"><h3>Alpha Arbutin</h3><p>Slows the enzyme that makes melanin, for fewer new spots.</p></div></div>
-        <div class="f-card"><div class="vis"><span>Transfer</span><b>5<small>%</small></b></div><div class="txt"><h3>Niacinamide</h3><p>Stops pigment reaching the surface and strengthens skin.</p></div></div>
-        <div class="f-card"><div class="vis"><span>Surface</span><b>10<small>%</small></b></div><div class="txt"><h3>Azelaic Acid</h3><p>Fades existing marks and calms redness and breakouts.</p></div></div>
-        <div class="f-card"><div class="vis"><span>Protect</span><b>1<small>%</small></b></div><div class="txt"><h3>Licorice + Vitamin C</h3><p>Antioxidants that brighten and defend against daily UV.</p></div></div>
+        <div class="f-card"><div class="vis"><span>Signal</span><b>TXA</b></div><div class="txt"><h3>Tranexamic Acid</h3><p>Calms the triggers behind melasma and new dark patches.</p></div></div>
+        <div class="f-card"><div class="vis"><span>Production</span><b>ARB</b></div><div class="txt"><h3>Alpha Arbutin</h3><p>Slows the enzyme that makes melanin, for fewer new spots.</p></div></div>
+        <div class="f-card"><div class="vis"><span>Tone</span><b>GSH</b></div><div class="txt"><h3>Glutathione</h3><p>The master antioxidant, known for its role in shifting skin towards lighter pigment.</p></div></div>
+        <div class="f-card"><div class="vis"><span>Transfer</span><b>NIA</b></div><div class="txt"><h3>Niacinamide</h3><p>Stops pigment reaching the surface and strengthens skin.</p></div></div>
+        <div class="f-card"><div class="vis"><span>Surface</span><b>AZA</b></div><div class="txt"><h3>Azelaic Acid</h3><p>Fades existing marks and calms redness and breakouts.</p></div></div>
+        <div class="f-card"><div class="vis"><span>Protect</span><b>LC+C</b></div><div class="txt"><h3>Licorice + Vitamin C</h3><p>Antioxidants that brighten and defend against daily UV.</p></div></div>
       </div>
+      <p class="small" style="text-align:center;margin-top:18px">Formulated exclusively for Vermona. Full ingredient list on the Shop page.</p>
     </div>
   </section>
 
@@ -892,7 +894,7 @@ img{max-width:100%}
   <div class="wrap details">
     <div class="acc-item"><button type="button" aria-expanded="true">How the regimen works</button><div class="panel"><ul><li><b>Morning:</b> Cleanser, Anti-Pigmentation Serum, Moisturiser, Tinted SPF 50</li><li><b>Evening:</b> Cleanser, Anti-Pigmentation Serum, Retinal Renewal (on scheduled nights), Moisturiser</li><li>Retinal Renewal starts at 2 nights a week and builds up. Your calendar tells you exactly which nights.</li></ul></div></div>
     <div class="acc-item"><button type="button" aria-expanded="false">What it lightens</button><div class="panel" hidden><ul><li>Overall skin tone and dullness</li><li>Hyperpigmentation and dark spots</li><li>Melasma</li><li>Sun damage, sun spots and age spots</li><li>Post-acne marks</li><li>Darkened underarms, knees, elbows and inner thighs (with the Body Lotion)</li></ul></div></div>
-    <div class="acc-item"><button type="button" aria-expanded="false">Anti-Pigmentation Serum ingredients</button><div class="panel" hidden><p>Aqua (Water), Azelaic Acid, Niacinamide, Propanediol, Tranexamic Acid, Alpha-Arbutin, Glycerin, Glycyrrhiza Glabra (Licorice) Root Extract, Tetrahexyldecyl Ascorbate, Sodium Hyaluronate, Panthenol, Allantoin, Xanthan Gum, Hydroxyethylcellulose, Sodium Phytate, Ethylhexylglycerin, Phenoxyethanol.</p></div></div>
+    <div class="acc-item"><button type="button" aria-expanded="false">The V-6 Pigment Complex&#8482; (custom formulation)</button><div class="panel" hidden><p>The Anti-Pigmentation Serum is a custom formulation developed exclusively for Vermona. Its V-6 Pigment Complex&#8482; combines six actives in a proprietary ratio: Tranexamic Acid, Alpha Arbutin, Glutathione, Niacinamide, Azelaic Acid, and Licorice Root with stable Vitamin C.</p><p style="margin-top:12px"><b>Full ingredients:</b> Aqua (Water), Azelaic Acid, Niacinamide, Propanediol, Tranexamic Acid, Alpha-Arbutin, Glutathione, Glycerin, Glycyrrhiza Glabra (Licorice) Root Extract, Tetrahexyldecyl Ascorbate, Sodium Hyaluronate, Panthenol, Allantoin, Xanthan Gum, Hydroxyethylcellulose, Sodium Phytate, Ethylhexylglycerin, Phenoxyethanol.</p></div></div>
     <div class="acc-item"><button type="button" aria-expanded="false">Shipping &amp; guarantee</button><div class="panel" hidden><p>Ships within 1 business day with free US delivery in 3–5 days. 60-day money-back guarantee on your first regimen.</p></div></div>
   </div>
 </div>
@@ -1261,7 +1263,7 @@ img{max-width:100%}
 
   /* ===================== Catalogue ===================== */
   const ITEMS = {
-    serum: { name: "Anti-Pigmentation Serum", price: 129, step: "Step 2 · AM + PM", desc: "The core of the regimen. Five actives that reduce excess pigment for lighter, more even skin.", size: "30 ml · 8 weeks" },
+    serum: { name: "Anti-Pigmentation Serum", price: 129, step: "Step 2 · AM + PM", desc: "The core of the regimen. Our custom V-6 Pigment Complex™ reduces excess pigment for lighter, more even skin.", size: "30 ml · 8 weeks" },
     night: { name: "Retinal Renewal Night Treatment", price: 59, step: "Step 3 · PM", desc: "Encapsulated retinal speeds skin renewal so lighter skin surfaces faster.", size: "30 ml · 8 weeks" },
     cleanser: { name: "Gentle Brightening Cleanser", price: 32, step: "Step 1 · AM + PM", desc: "Low-pH gel that cleans without stripping, so actives work without irritation.", size: "150 ml" },
     moist: { name: "Barrier Repair Moisturiser", price: 42, step: "Step 4 · AM + PM", desc: "Ceramides and panthenol keep skin calm, which prevents rebound darkening.", size: "50 ml" },
