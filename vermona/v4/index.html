@@ -105,6 +105,8 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; 
 .hero-in { position: relative; z-index: 2; align-self: end; padding-block: 140px 48px; display: grid; gap: 18px; pointer-events: none; width: 100%; }
 .hero-in > * { pointer-events: auto; max-width: 620px; }
 .hero p { color: rgba(255, 255, 255, .88); font-size: 1.02rem; max-width: 46ch; }
+.hero .hero-sub { font-family: var(--serif); font-size: clamp(1.3rem, 5.6vw, 1.9rem); line-height: 1.2; color: #fff; max-width: none; margin-top: -4px; }
+.nowrap { white-space: nowrap; }
 .hero .btn { justify-self: start; min-width: 220px; margin-top: 6px; }
 .hero .tag { position: absolute; right: max(16px, env(safe-area-inset-right, 0px)); bottom: 16px; z-index: 2; font-size: 0.7rem; color: rgba(255,255,255,.6); }
 @media (min-width: 900px) { .hero-in { padding-block: 160px 72px; } .hero::after { background: linear-gradient(90deg, rgba(20,10,14,.8) 0%, rgba(20,10,14,.45) 45%, rgba(20,10,14,.05) 75%), linear-gradient(0deg, rgba(20,10,14,.4), transparent 40%); } }
@@ -404,7 +406,8 @@ img{max-width:100%}
     <canvas id="hero-canvas" aria-label="Close-up of skin with dark spots. A lens shows the same skin lightened after treatment."></canvas>
     <div class="wrap hero-in">
       <h1>Skin lightening, made clinical.</h1>
-      <p>A hydroquinone-free treatment for dark spots, melasma and sun damage, matched to your skin and delivered to your door.</p>
+      <p class="hero-sub"><span class="nowrap">Advanced anti&#8209;pigmentation</span><br>lightening treatment.</p>
+      <p>Made for every skin tone. Lighten your skin and reduce imperfections to reach the tone and texture you want.</p>
       <button class="btn btn-white" data-assess>Find Your Treatment</button>
     </div>
     <span class="tag">Rendered illustration · lens shows week 12</span>
