@@ -651,6 +651,46 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; 
 .res-time b { font-weight: 500; }
 .res-time span { font-size: 0.86rem; color: var(--ink-2); }
 
+/* ---------- Shop (simple, catalogue style) ---------- */
+:root { --shop-bg: #f7f1ec; --photo-a: #d8b79f; --photo-b: #b98b6f; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --shop-bg: #191315; } }
+:root[data-theme="dark"] { --shop-bg: #191315; }
+.shop2 { background: var(--shop-bg); padding-block: 22px 64px; }
+.shop2 .crumbs { padding-top: 0; }
+.shop2-head { display: grid; gap: 6px; margin: 22px 0 22px; }
+.shop2-head h1 { font-size: clamp(1.7rem, 3.2vw, 2.3rem); }
+.shop2-head .pcount { font-size: 0.84rem; color: var(--muted); margin-top: 6px; }
+.shop2 .programme { box-shadow: none; }
+.shop2 .lineup { background: linear-gradient(160deg, var(--photo-a), var(--photo-b)); }
+.pgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+@media (min-width: 1000px) { .pgrid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; } }
+@media (max-width: 420px) { .pgrid { grid-template-columns: 1fr; } }
+.pcard { background: var(--card); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
+.pcard .ph { position: relative; aspect-ratio: 5 / 4; max-width: 100%; background: linear-gradient(160deg, var(--photo-a), var(--photo-b)); display: grid; place-items: center; overflow: hidden; }
+.pcard .ph::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 22%; background: linear-gradient(0deg, rgba(60,30,20,.18), transparent); }
+.pcard .ph svg { height: 82%; width: auto; filter: drop-shadow(0 14px 14px rgba(40,20,10,.25)); position: relative; z-index: 1; }
+.pcard .ph .step { position: absolute; left: 10px; top: 10px; z-index: 2; font-size: 0.64rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; background: rgba(255,255,255,.9); color: #7e1e3f; padding: 3px 8px; border-radius: 3px; white-space: nowrap; }
+.pcard .body { padding: 16px; display: grid; gap: 8px; align-content: space-between; }
+.pcard h3 { font-family: var(--sans); font-weight: 500; font-size: 1.08rem; letter-spacing: 0; }
+.pcard p { font-size: 0.88rem; color: var(--ink-2); line-height: 1.5; }
+.pcard .row { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding-top: 12px; margin-top: 6px; border-top: 1px solid var(--line); }
+.pcard .price { font-size: 1.05rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+.pnudge .tag { display: inline-block; font-size: 0.74rem; font-weight: 600; color: var(--wine); background: var(--blush); padding: 3px 9px; border-radius: 4px; justify-self: start; }
+.pnudge { grid-column: span 1; border-radius: 8px; border: 1px solid var(--line); background: var(--card); padding: 22px; display: grid; gap: 10px; align-content: center; }
+@media (min-width: 1000px) { .pnudge { grid-column: span 3; grid-template-columns: 1fr auto; align-items: center; gap: 24px; padding: 28px 32px; } }
+@media (min-width: 421px) and (max-width: 999px) { .pnudge { grid-column: span 1; } }
+.pnudge h3 { font-size: 1.5rem; }
+.pnudge p { color: var(--ink-2); font-size: 0.92rem; }
+.askbox { max-width: 580px; margin: 0 auto; border: 1px solid var(--line); border-radius: 12px; background: var(--shop-bg); padding: 22px; display: grid; gap: 14px; }
+.askbox form { display: flex; align-items: center; gap: 8px; border: 1px solid var(--wine); border-radius: 999px; padding: 5px 5px 5px 16px; background: var(--bg); }
+.askbox input { flex: 1; min-width: 0; border: 0; background: none; font: inherit; color: var(--ink); padding: 8px 0; }
+.askbox input:focus { outline: none; }
+.askbox form button { width: 36px; height: 36px; border-radius: 50%; border: 0; background: var(--wine); color: var(--wine-ink); display: grid; place-items: center; flex-shrink: 0; }
+.askbox .lab { font-size: 0.72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.askbox .q { display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%; text-align: left; padding: 11px 14px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); font-size: 0.9rem; text-decoration: none; color: var(--ink); }
+.askbox .q:hover { border-color: var(--wine); }
+.askbox .q::after { content: "→"; color: var(--ink-2); }
+
 /* ---------- Community page ---------- */
 .com-hero { padding-block: 56px 40px; display: grid; gap: 32px; align-items: center; }
 .com-hero .copy { display: grid; gap: 16px; }
@@ -957,40 +997,54 @@ img{max-width:100%}
 
 <!-- ======================= SHOP (TREATMENT) ======================= -->
 <div data-view="treatment" hidden>
-  <div class="cat-hero"><canvas id="cat-canvas" aria-hidden="true"></canvas><div class="wrap" style="position:relative;z-index:2;display:grid;align-items:end"><h1>Order the Regimen</h1></div></div>
-  <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="#home">Home</a> › Order</nav>
-    <div class="cat-intro">
-      <span class="eyebrow">Advanced anti-pigmentation</span>
-      <h2>One regimen. Every step covered.</h2>
-      <p>Vermona works best as a complete regimen: five products that work together, a daily calendar, and a Personal Skin Consultant who guides you from day one. It's one complete solution, so there's nothing else to buy. Your first order is 20% off at checkout.</p>
-    </div>
-
-    <article class="programme" id="regimen-card">
-      <div class="lineup" id="lineup"><span class="badge">One complete solution</span></div>
-      <div class="prog-info">
-        <span class="eyebrow">The Vermona Complete Regimen</span>
-        <h2>Five steps. One guided journey.</h2>
-        <p>Everything you need for an 8-week course, plus the guidance that keeps you on track until you reach the result you want.</p>
-        <ul class="includes" id="includes"></ul>
-        <div class="price-line"><span class="now" id="reg-price">$239</span><span class="was" id="reg-was">$300 separately</span><span class="save" id="reg-save">Save $61</span></div>
-        <button class="btn btn-wine btn-block arrow" type="button" data-add="regimen">Add the Complete Regimen</button>
-        <span class="small">Regimen Planner and Personal Skin Consultant included with every Complete Regimen.</span>
+  <section class="shop2">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="#home">Home</a> › Shop</nav>
+      <div class="shop2-head">
+        <span class="eyebrow">The Vermona Anti&#8209;Pigmentation Protocol</span>
+        <h1>Everything you need, in one complete regimen.</h1>
+        <span class="pcount">1 regimen · 5 products</span>
       </div>
-    </article>
 
-    <div class="acc-item" style="margin-top:36px"><button type="button" aria-expanded="false">Running low on one step? Replace a single product</button><div class="panel" hidden>
-      <p style="margin-bottom:16px">Every product in the regimen is available on its own, so you only replace what you've used up.</p>
-      <div class="products four five" id="essentials"></div>
-    </div></div>
-    <p class="small" style="margin-top:16px">Not sure where to start? <button type="button" class="textlink" data-assess style="font-size:inherit">Take the skin assessment</button></p>
-  </div>
+      <article class="programme" id="regimen-card">
+        <div class="lineup" id="lineup"></div>
+        <div class="prog-info">
+          <span class="eyebrow">The Vermona Complete Regimen</span>
+          <h2>Five steps. One guided journey.</h2>
+          <p>Everything you need for an 8-week course, plus the guidance that keeps you on track until you reach the result you want.</p>
+          <ul class="includes" id="includes"></ul>
+          <div class="price-line"><span class="now" id="reg-price">$239</span><span class="was" id="reg-was"></span><span class="save" id="reg-save"></span></div>
+          <button class="btn btn-wine btn-block arrow" type="button" data-add="regimen">Add the Complete Regimen</button>
+          <span class="small">Single purchase. No subscription. 120-day money-back guarantee.</span>
+        </div>
+      </article>
+
+      <div class="pgrid" id="essentials"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><span class="eyebrow">FAQ</span><h2>Still have questions?<br>Ask away.</h2></div>
+      <div class="askbox">
+        <form id="ask-form"><label for="ask-q" hidden>Ask a question</label><input id="ask-q" placeholder="Ask anything about the regimen…" autocomplete="off"><button type="submit" aria-label="Search questions"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+        <span class="lab">Common questions</span>
+        <a class="q" href="#faq">How quickly will I see results?</a>
+        <a class="q" href="#faq">Is this a subscription?</a>
+        <a class="q" href="#faq">Can I use it on my body?</a>
+        <a class="q" href="#faq" style="justify-content:center;border:0;background:none;text-decoration:underline">Show more questions</a>
+      </div>
+    </div>
+  </section>
+
   <div class="wrap details">
     <div class="acc-item"><button type="button" aria-expanded="true">How the regimen works</button><div class="panel"><ul><li><b>Morning:</b> Melanin-Balancing Cleanser, Anti-Pigmentation Face Cream, Anti-Pigmentation Body Cream, Mineral SPF 50</li><li><b>Evening:</b> Melanin-Balancing Cleanser, Retinal Renewal (on scheduled nights), Anti-Pigmentation Face Cream, Anti-Pigmentation Body Cream</li><li>Retinal Renewal starts at 2 nights a week and builds up. Your calendar tells you exactly which nights.</li></ul></div></div>
     <div class="acc-item"><button type="button" aria-expanded="false">What it lightens</button><div class="panel" hidden><ul><li>Overall skin tone and dullness</li><li>Hyperpigmentation and dark spots</li><li>Melasma</li><li>Sun damage, sun spots and age spots</li><li>Post-acne marks</li><li>Darkened underarms, knees, elbows and inner thighs</li></ul></div></div>
     <div class="acc-item"><button type="button" aria-expanded="false">The V-6 Pigment Complex&#8482; (custom formulation)</button><div class="panel" hidden><p>The Anti-Pigmentation Face and Body Creams are custom formulations developed exclusively for Vermona. Their V-6 Pigment Complex&#8482; combines six actives in a proprietary ratio: Tranexamic Acid, Alpha Arbutin, Glutathione, Niacinamide, Azelaic Acid, and Licorice Root with stable Vitamin C.</p><p style="margin-top:12px"><b>Face Cream full ingredients:</b> Aqua (Water), Azelaic Acid, Niacinamide, Caprylic/Capric Triglyceride, Glycerin, Tranexamic Acid, Alpha-Arbutin, Glutathione, Cetearyl Alcohol, Squalane, Glyceryl Stearate, Glycyrrhiza Glabra (Licorice) Root Extract, Tetrahexyldecyl Ascorbate, Ceramide NP, Sodium Hyaluronate, Panthenol, Allantoin, Xanthan Gum, Sodium Phytate, Ethylhexylglycerin, Phenoxyethanol.</p></div></div>
     <div class="acc-item"><button type="button" aria-expanded="false">Shipping &amp; guarantee</button><div class="panel" hidden><p>Ships within 1 business day with free US delivery in 3–5 days. 120-day money-back guarantee on your first regimen.</p></div></div>
   </div>
+</div>
+
 </div>
 
 <!-- ======================= JOURNEY (APP) ======================= -->
@@ -1480,15 +1534,16 @@ img{max-width:100%}
     $("#reg-was").textContent = money(full) + " separately";
     $("#reg-save").textContent = "Save " + money(full - rp);
     const card = (k) => { const it = ITEMS[k]; return `
-      <article class="prod"><div class="img">${art(k)}</div>
-        <div class="info"><div style="display:grid;gap:6px">${it.step ? `<span class="step-tag">${it.step}</span>` : ""}<h3>${it.name}</h3><p>${it.desc}</p><span class="small">${it.size}</span></div>
-          <div class="buyrow"><span class="price">${money(priceOf(k, s))}${perLabel(s)}</span><button class="add" type="button" data-add="${k}">+ Add</button></div></div></article>`; };
-    $("#essentials").innerHTML = CORE.map(card).join("");
+      <article class="pcard"><div class="ph"><span class="step">${it.step.split(" · ")[0]}</span>${art(k)}</div>
+        <div class="body"><div style="display:grid;gap:6px"><h3>${it.name}</h3><p>${it.desc}</p></div>
+          <div class="row"><span class="price">${money(priceOf(k, s))}</span><button class="add" type="button" data-add="${k}">+ Add</button></div></div></article>`; };
+    $("#essentials").innerHTML = CORE.map(card).join("") + `
+      <div class="pnudge"><div style="display:grid;gap:6px"><span class="tag">Best value</span><h3>Get all five as the Complete Regimen</h3><p>Save ${money(full - rp)}, and get the Regimen Planner and your Personal Skin Consultant included.</p></div><button class="btn btn-wine arrow" type="button" data-add="regimen">Add the Complete Regimen · ${money(rp)}</button></div>`;
   }
   renderShop();
   document.querySelectorAll("[data-pillar-art]").forEach((el) => { el.insertAdjacentHTML("beforeend", ["cleanser", "serum", "body", "night", "spf"].map((k) => art(k, "prod-art " + ({ cleanser: "s", serum: "xs", spf: "s" }[k] || ""))).join("")); });
   $$("[data-plan]").forEach((b) => b.addEventListener("click", () => { plan = b.dataset.plan; $$("[data-plan]").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); renderShop(); }));
-  function drawCat() { const cv = $("#cat-canvas"); if (!cv.offsetParent) return; const { W, H } = fit(cv); cover(cv.getContext("2d"), pair("tone", 600, 260)[1], W, H); }
+  function drawCat() { const cv = $("#cat-canvas"); if (!cv || !cv.offsetParent) return; const { W, H } = fit(cv); cover(cv.getContext("2d"), pair("tone", 600, 260)[1], W, H); }
 
   /* ===================== Cart ===================== */
   const KEY = "vermona-cart-v3";
@@ -1587,6 +1642,12 @@ img{max-width:100%}
   });
 
   /* ===================== Forms ===================== */
+  document.getElementById("ask-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const q = document.getElementById("ask-q").value.trim();
+    location.hash = "faq";
+    setTimeout(() => { const f = document.getElementById("faq-q"); f.value = q; f.dispatchEvent(new Event("input")); f.focus(); }, 50);
+  });
   $("#waitlist").addEventListener("submit", (e) => {
     e.preventDefault(); const em = $("#wl-email"), done = $("#wl-done");
     if (!em.value || !em.checkValidity()) { done.hidden = false; done.textContent = "Enter a valid email address, like name@example.com."; em.focus(); return; }
