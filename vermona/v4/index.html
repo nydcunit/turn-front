@@ -420,6 +420,127 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; 
 .kit-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .btn-sm { padding: 9px 16px; font-size: 0.86rem; }
 
+/* ---------- Journey page: app showcase ---------- */
+.j-hero { padding-block: 56px 32px; display: grid; gap: 40px; align-items: center; }
+.j-hero .copy { display: grid; gap: 18px; }
+.j-hero p { color: var(--ink-2); max-width: 50ch; }
+.store-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.store { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 10px; background: var(--ink); color: var(--bg); font-size: 0.78rem; line-height: 1.15; }
+.store b { display: block; font-size: 0.95rem; font-weight: 600; }
+@media (min-width: 900px) { .j-hero { grid-template-columns: 1.1fr 1fr; padding-block: 80px 48px; } }
+.device-wrap { display: grid; justify-items: center; }
+.device { position: relative; width: min(300px, 84vw); aspect-ratio: 300 / 620; max-width: 100%; border-radius: 46px; background: #111; padding: 11px; box-shadow: 0 30px 70px var(--shadow), inset 0 0 0 2px #2b2b2b; }
+.device::before { content: ""; position: absolute; top: 20px; left: 50%; width: 88px; height: 25px; border-radius: 14px; background: #000; transform: translateX(-50%); z-index: 3; }
+.app { position: relative; height: 100%; border-radius: 36px; background: var(--bg); color: var(--ink); overflow-y: auto; overflow-x: hidden; scrollbar-width: none; display: flex; flex-direction: column; }
+.app::-webkit-scrollbar { display: none; }
+.app-status { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px 6px; font-size: 0.72rem; font-weight: 600; flex-shrink: 0; }
+.app-head { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px 8px; flex-shrink: 0; gap: 8px; }
+.app-head h5 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: 1.35rem; }
+.app-head small { display: block; font-size: 0.7rem; color: var(--muted); }
+.app-body { flex: 1; padding: 4px 12px 16px; display: grid; gap: 10px; align-content: start; }
+.app-tabs { position: sticky; bottom: 0; display: grid; grid-template-columns: repeat(4, 1fr); background: var(--bg); border-top: 1px solid var(--line); padding: 8px 6px 14px; flex-shrink: 0; }
+.app-tabs span { display: grid; justify-items: center; gap: 2px; font-size: 0.6rem; color: var(--muted); }
+.app-tabs span.on { color: var(--wine); font-weight: 600; }
+.app-tabs svg { width: 18px; height: 18px; }
+.app .phases { gap: 3px; }
+.app .phases div { font-size: 0.5rem; gap: 3px; }
+.app .routine { grid-template-columns: 1fr; gap: 8px; }
+.app .routine h4 { font-size: 0.64rem; margin-bottom: 6px; }
+.app .check { padding: 8px 10px; margin-bottom: 5px; grid-template-columns: 20px 1fr; }
+.app .check input { width: 18px; height: 18px; }
+.app .check b { font-size: 0.8rem; }
+.app .check small { font-size: 0.7rem; }
+.app .cal-nav strong { min-width: 0; font-size: 0.85rem; }
+.app .cal-nav button { width: 28px; height: 28px; }
+.app .legend { font-size: 0.62rem; gap: 4px 10px; }
+.app .cal { gap: 3px; }
+.app .cal .dow { font-size: 0.55rem; }
+.app .day { font-size: 0.66rem; padding: 3px; border-radius: 6px; }
+.app .day .cal-dots i { width: 5px; height: 5px; }
+.app .day-detail { padding-top: 10px; }
+.app .day-detail h4 { font-size: 0.95rem; }
+.app .day-detail ul { font-size: 0.74rem; padding-left: 16px; }
+.app .chat { max-height: none; overflow: visible; }
+.app .msg { font-size: 0.78rem; padding: 8px 10px; }
+.app .consultant { grid-template-columns: 42px 1fr; gap: 10px; }
+.app .consultant .av { width: 42px; height: 42px; font-size: 1.1rem; }
+.app .consultant b { font-size: 0.85rem; }
+.app .consultant small { font-size: 0.7rem; }
+.app .chat-in { position: sticky; bottom: 0; background: var(--bg); padding: 8px 0 4px; }
+.app .chat-in input { padding: 9px 12px; font-size: 0.8rem; }
+.app .chat-in button { width: 36px; height: 36px; }
+.app .photos { gap: 6px; }
+.app .photo { font-size: 0.66rem; }
+.app .photo label { font-size: 0.66rem; }
+.app .kit-item { grid-template-columns: 30px 1fr auto; gap: 8px; }
+.app .kit-item svg { height: 36px; }
+.app .kit-item b { font-size: 0.78rem; }
+.app .kit-item small { font-size: 0.68rem; }
+.app .kit-item .lvl { width: 44px; }
+.app .miles div { grid-template-columns: 44px 1fr; gap: 10px; padding: 9px 0; }
+.app .miles time b { font-size: 1.05rem; }
+.app .miles span { font-size: 0.8rem; }
+.app .miles small { font-size: 0.68rem; }
+.app .btn-sm { padding: 7px 12px; font-size: 0.74rem; }
+.app-card { background: var(--blush); border-radius: 14px; padding: 12px; display: grid; gap: 8px; }
+.app-card h6 { margin: 0; font-size: 0.66rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--wine); }
+.compare-ph { position: relative; aspect-ratio: 4 / 5; max-width: 100%; border-radius: 12px; overflow: hidden; }
+.compare-ph canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.compare-ph .after { clip-path: inset(0 0 0 50%); }
+.compare-ph .ln { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: #fff; pointer-events: none; }
+.compare-ph input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; margin: 0; cursor: ew-resize; }
+.compare-ph em { position: absolute; top: 8px; font-style: normal; font-size: 0.58rem; font-weight: 600; letter-spacing: .08em; background: rgba(20,10,14,.6); color: #fff; padding: 2px 6px; border-radius: 3px; }
+.feature-rows { display: grid; gap: 72px; }
+.f-row { display: grid; gap: 28px; align-items: center; }
+.f-row .txt { display: grid; gap: 14px; }
+.f-row .txt p { color: var(--ink-2); max-width: 46ch; }
+.ticks { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 0.94rem; }
+.ticks li { display: grid; grid-template-columns: 20px 1fr; gap: 8px; }
+.ticks li svg { color: var(--wine); margin-top: 3px; }
+@media (min-width: 900px) { .f-row { grid-template-columns: 1fr 1fr; gap: 64px; } .f-row.flip .device-wrap { order: 2; } }
+.f-grid6 { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.f-grid6 > div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: grid; gap: 6px; }
+.f-grid6 svg { color: var(--wine); }
+.f-grid6 b { font-weight: 500; }
+.f-grid6 span { color: var(--ink-2); font-size: 0.88rem; }
+@media (min-width: 640px) { .f-grid6 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .f-grid6 { grid-template-columns: repeat(3, 1fr); } }
+
+/* ---------- Treatment Solution pillars ---------- */
+.solution-head { display: grid; gap: 10px; text-align: center; justify-items: center; margin-bottom: 36px; }
+.solution-head h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); max-width: 22ch; }
+.solution-head h2 em { font-style: italic; color: var(--wine); }
+.solution-head p { color: var(--ink-2); max-width: 56ch; }
+.pillars { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.pillar { position: relative; display: grid; grid-template-rows: auto 1fr; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); text-decoration: none; color: inherit; text-align: left; padding: 0; transition: transform .2s, box-shadow .2s; }
+.pillar:hover { transform: translateY(-2px); box-shadow: 0 16px 40px var(--shadow); }
+.pillar .vis { position: relative; height: 170px; background: var(--blush-2); display: flex; align-items: flex-end; justify-content: center; gap: 4px; padding: 18px 12px 0; overflow: hidden; }
+.pillar .vis svg.prod-art { height: 130px; width: auto; filter: drop-shadow(0 10px 10px rgba(0,0,0,.14)); }
+.pillar .vis svg.prod-art.s { height: 104px; } .pillar .vis svg.prod-art.xs { height: 84px; }
+.pillar .num { position: absolute; left: 12px; top: 10px; font-family: var(--serif); font-size: 2.4rem; line-height: 1; color: var(--wine); opacity: .9; }
+.pillar .txt { padding: 18px; display: grid; gap: 6px; align-content: start; }
+.pillar .txt b { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; line-height: 1.15; }
+.pillar .txt span { font-size: 0.9rem; color: var(--ink-2); }
+.pillar .txt i { font-style: normal; font-size: 0.86rem; font-weight: 500; color: var(--wine); margin-top: 4px; }
+.vis-plan { width: min(78%, 230px); background: var(--card); border-radius: 10px 10px 0 0; padding: 12px 12px 14px; display: grid; gap: 7px; box-shadow: 0 10px 24px var(--shadow); align-self: flex-end; }
+.vis-plan small { font-size: 0.6rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--wine); }
+.vis-plan span { display: grid; grid-template-columns: 50px 1fr; gap: 6px; align-items: center; font-size: 0.64rem; color: var(--ink-2); }
+.vis-plan span em { white-space: nowrap; }
+.vis-plan span em { font-style: normal; font-weight: 600; color: var(--ink); }
+.vis-plan span i { height: 5px; border-radius: 3px; background: var(--wine); display: block; }
+.mini-phone { width: 96px; height: 160px; border-radius: 18px 18px 0 0; background: #111; padding: 6px 6px 0; align-self: end; }
+.mini-phone div { height: 100%; border-radius: 13px 13px 0 0; background: var(--bg); padding: 14px 7px 0; display: grid; gap: 4px; align-content: start; }
+.mini-phone b { font-family: var(--serif); font-weight: 400; font-size: 0.66rem; }
+.mini-phone i { height: 13px; border-radius: 4px; background: var(--blush); display: block; }
+.mini-phone i.d { background: var(--wine); opacity: .85; }
+.vis-person { align-self: center; display: grid; justify-items: center; gap: 8px; }
+.vis-person .av { width: 78px; height: 78px; border-radius: 50%; background: linear-gradient(135deg, var(--wine), var(--wine-dark)); color: var(--wine-ink); display: grid; place-items: center; font-family: var(--serif); font-size: 2rem; position: relative; box-shadow: 0 10px 24px var(--shadow); }
+.vis-person .av::after { content: ""; position: absolute; right: 4px; bottom: 4px; width: 14px; height: 14px; border-radius: 50%; background: #3bb273; border: 3px solid var(--blush-2); }
+.vis-person em { font-style: normal; font-size: 0.72rem; background: var(--card); padding: 6px 10px; border-radius: 10px 10px 10px 3px; box-shadow: 0 6px 16px var(--shadow); max-width: 170px; text-align: center; }
+@media (min-width: 640px) { .pillars { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1040px) { .pillars { grid-template-columns: repeat(4, 1fr); } }
+.solution-cta { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
+
 /* ---------- Community page ---------- */
 .com-hero { padding-block: 56px 40px; display: grid; gap: 32px; align-items: center; }
 .com-hero .copy { display: grid; gap: 16px; }
@@ -542,7 +663,7 @@ img{max-width:100%}
       <div class="desk-links">
         <a href="#treatment">Shop</a>
         <button data-goto="concerns">Concerns</button>
-        <a href="#journey">My Journey</a>
+        <a href="#journey">The App</a>
         <button data-goto="results">Results</button>
         <a href="#community">Community</a>
       </div>
@@ -573,6 +694,23 @@ img{max-width:100%}
     <span class="eyebrow">Formulated without</span>
     <div class="without-row"><span>Hydroquinone</span><span>Mercury</span><span>Steroids</span><span>Fragrance</span></div>
   </div>
+
+  <section class="sec" id="solution">
+    <div class="wrap">
+      <div class="solution-head">
+        <span class="eyebrow">The Vermona Treatment Solution</span>
+        <h2>Achieve your skin goals with the <em>Vermona Treatment Solution.</em></h2>
+        <p>Four parts that work together: a clinical regimen, a plan built for your skin, an app that guides you every day, and a dedicated person who manages your journey from start to finish.</p>
+      </div>
+      <div class="pillars">
+        <a class="pillar" href="#treatment"><div class="vis" data-pillar-art><span class="num">1</span></div><div class="txt"><b>The Complete Regimen</b><span>Five clinical products that lighten, renew, protect and repair, used together morning and night.</span><i>Shop the regimen →</i></div></a>
+        <button class="pillar" type="button" data-assess><div class="vis"><span class="num">2</span><div class="vis-plan"><small>Your plan · 16 weeks</small><span><em>Wk 1–2</em><i style="width:30%"></i></span><span><em>Wk 3–4</em><i style="width:52%"></i></span><span><em>Wk 5–8</em><i style="width:74%"></i></span><span><em>Wk 9–16</em><i style="width:100%"></i></span></div></div><div class="txt"><b>Your Personalised Plan</b><span>Built from your skin assessment: your concern, skin tone and sensitivity decide your schedule.</span><i>Take the assessment →</i></div></button>
+        <a class="pillar" href="#journey"><div class="vis"><span class="num">3</span><div class="mini-phone"><div><b>Tonight</b><i class="d"></i><i class="d"></i><i></i><i></i><i></i></div></div></div><div class="txt"><b>The My Journey App</b><span>Your daily routine, calendar, reminders and progress photos, all in your pocket.</span><i>Explore the app →</i></div></a>
+        <a class="pillar" href="#journey"><div class="vis"><span class="num">4</span><div class="vis-person"><span class="av">M</span><em>“Your week 4 photos look great!”</em></div></div><div class="txt"><b>Your Personal Skin Consultant</b><span>One dedicated specialist who knows your skin and manages your journey until you reach your goal.</span><i>Meet your consultant →</i></div></a>
+      </div>
+      <div class="solution-cta"><button class="btn btn-wine arrow" data-assess>Start Your Assessment</button></div>
+    </div>
+  </section>
 
   <section class="sec" id="concerns">
     <div class="wrap">
@@ -627,7 +765,7 @@ img{max-width:100%}
         <rect x="16" y="78" width="88" height="16" rx="2" fill="#7e1e3f"/>
         <text x="60" y="89.5" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="600" letter-spacing="1.5" fill="#fff">GUARANTEE</text>
       </svg>
-      <span class="eyebrow">The Vermona promise</span>
+      <span class="eyebrow">The Vermona Treatment Solution promise</span>
       <h2>Lighter skin, or your money back.</h2>
       <p>Use Vermona as directed for 60 days. If you don't see a difference, we'll refund your first course in full, even if the bottle is empty.</p>
       <button class="btn btn-white arrow" data-goto="how">How It Works</button>
@@ -649,7 +787,7 @@ img{max-width:100%}
 
   <section class="sec blush" id="how">
     <div class="wrap">
-      <div class="head"><span class="eyebrow">How Vermona works</span><h2>Four simple steps.</h2><p>From your skin assessment to your final result, with someone guiding you the whole way.</p></div>
+      <div class="head"><span class="eyebrow">How the Treatment Solution works</span><h2>Four simple steps.</h2><p>From your skin assessment to your final result, with someone guiding you the whole way.</p></div>
       <div class="steps">
         <div class="step"><span class="n">1</span><div><b>Tell us about your skin</b><span>A 3-minute assessment of your concern, skin tone and sensitivity.</span></div></div>
         <div class="step"><span class="n">2</span><div><b>Get your Complete Regimen</b><span>Five products that work together, delivered to your door.</span></div></div>
@@ -672,15 +810,11 @@ img{max-width:100%}
           <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.5"/></svg><span><b>Progress reviews</b>Photo check-ins every two weeks, reviewed with your consultant.</span></div>
           <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v4h4"/></svg><span><b>Automatic refills</b>Your next products arrive before you run out. Pause anytime.</span></div>
         </div>
-        <a class="btn btn-wine arrow" href="#journey" style="justify-self:start">Preview the Dashboard</a>
+        <a class="btn btn-wine arrow" href="#journey" style="justify-self:start">Explore the App</a>
       </div>
-      <div class="mock" aria-hidden="true">
-        <div class="mock-top"><span>My Journey</span><span>Week 6 of 16</span></div>
-        <h4>Tonight's routine</h4>
-        <div class="bar-track"><i style="width:37%"></i></div>
-        <div class="mock-list"><span class="done"><i></i>Gentle Brightening Cleanser</span><span class="done"><i></i>Anti-Pigmentation Serum</span><span><i></i>Retinal Renewal · tonight</span><span><i></i>Barrier Repair Moisturiser</span></div>
-        <div class="bubble"><span class="av">M</span><p><b>Your consultant</b><br>Your week 4 photos look great. We're adding a third Retinal night from this week.</p></div>
-      </div>
+      <div class="device-wrap"><div class="device" aria-hidden="true"><div class="app"><div class="app-status"><span>9:41</span><span>●●● ▮</span></div><div class="app-head"><div><h5>Good evening.</h5><small>Week 6 of 16</small></div><span class="consultant"><span class="av" style="width:34px;height:34px;font-size:.95rem">M</span></span>
+</div><div class="app-body"><div class="app-card"><h6>Tonight</h6><div class="mock-list"><span class="done"><i></i>Brightening Cleanser</span><span class="done"><i></i>Anti-Pigmentation Serum</span><span><i></i>Retinal Renewal · tonight</span><span><i></i>Barrier Repair Moisturiser</span></div></div><div class="bubble"><span class="av">M</span><p><b>Maya · your consultant</b><br>Your week 4 photos look great. We're adding a third Retinal night from this week.</p></div>
+</div><div class="app-tabs"><span class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2"/></svg>Today</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v11H9l-5 4z"/></svg>Consultant</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Progress</span></div></div></div></div>
     </div>
   </section>
 
@@ -712,7 +846,8 @@ img{max-width:100%}
 
   <section class="sec blush">
     <div class="wrap closing">
-      <h2>Lighter, even skin,<br>delivered to your door.</h2>
+      <span class="eyebrow">The Vermona Treatment Solution</span>
+      <h2>Achieve your skin goals,<br>with someone by your side.</h2>
       <a class="btn btn-wine arrow" href="#treatment">Shop the Regimen</a>
     </div>
   </section>
@@ -761,56 +896,66 @@ img{max-width:100%}
   </div>
 </div>
 
-<!-- ======================= JOURNEY DASHBOARD ======================= -->
+<!-- ======================= JOURNEY (APP) ======================= -->
 <div data-view="journey" hidden>
-  <div class="demo-bar"><div class="wrap"><b>Preview</b><span>This is a sample dashboard showing what Complete Regimen members see. Data shown is example data.</span></div></div>
-  <div class="wrap j-head">
-    <span class="eyebrow">My Journey</span>
-    <h1 id="j-hello">Welcome back.</h1>
-    <div class="j-meta"><span id="j-week">Week 6 of 16</span><span>Complete Regimen · Face</span><span id="j-start"></span></div>
-    <div class="phases" id="phases"></div>
-  </div>
-  <div class="wrap j-grid">
-    <div class="j-col">
-      <section class="card" aria-labelledby="today-h">
-        <div class="card-h"><h3 id="today-h">Today</h3><span id="today-date"></span></div>
-        <div class="routine" id="today"></div>
-      </section>
-      <section class="card" aria-labelledby="cal-h">
-        <div class="card-h"><h3 id="cal-h">Your calendar</h3><div class="cal-nav"><button type="button" data-cal="-1" aria-label="Previous month"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button><strong id="cal-month"></strong><button type="button" data-cal="1" aria-label="Next month"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button></div></div>
-        <div class="legend"><span><i class="k-ret"></i>Retinal night</span><span><i class="k-pad"></i>Exfoliating pad</span><span><i class="k-mask"></i>Mask night</span><span><i class="k-photo"></i>Progress photo</span><span><i class="k-check"></i>Consultant check-in</span></div>
-        <div class="cal" id="cal"></div>
-        <div class="day-detail" id="day-detail"></div>
-      </section>
-      <section class="card" aria-labelledby="ph-h">
-        <div class="card-h"><h3 id="ph-h">Progress photos</h3><span>Every 2 weeks, same light</span></div>
-        <div class="photos">
-          <div class="photo"><div class="ph"><canvas data-progress="0"></canvas></div>Week 0</div>
-          <div class="photo"><div class="ph"><canvas data-progress="1"></canvas></div>Week 4</div>
-          <div class="photo"><div class="ph" id="ph-new"><label for="ph-file">+ Add week 6 photo<input id="ph-file" type="file" accept="image/*"></label></div>Week 6 · due</div>
-        </div>
-        <span class="small">Photos are private. Your consultant reviews them at each check-in.</span>
-      </section>
+  <div class="wrap j-hero">
+    <div class="copy">
+      <span class="eyebrow">The Vermona app · My Journey</span>
+      <h1>Your regimen, guided in your pocket.</h1>
+      <p>Every Complete Regimen comes with My Journey, the Vermona app. It tells you exactly what to apply each morning and night, adapts your routine week by week, and connects you to your own Personal Skin Consultant from day one to your final result.</p>
+      <div><ul class="ticks"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>A daily routine that changes as your skin adapts</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>A dedicated Personal Skin Consultant for your whole journey</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Progress photos with side-by-side comparisons</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Refills that arrive before you run out</span></li></ul></div>
+      <div class="store-row"><span class="store"><span>Coming soon on the<b>App Store</b></span></span><span class="store"><span>Coming soon on<b>Google Play</b></span></span></div>
+      <a class="btn btn-wine arrow" href="#treatment" style="justify-self:start">Get the Complete Regimen</a>
+      <span class="small">Screens show a sample journey. Try ticking off steps, browsing the calendar or sending a message.</span>
     </div>
-    <div class="j-col">
-      <section class="card" aria-labelledby="con-h">
-        <div class="card-h"><h3 id="con-h">Your Personal Skin Consultant</h3></div>
-        <div class="consultant"><div class="av">M</div><div><b>Maya R. <span class="small">(sample)</span></b><small>Personal Skin Consultant · assigned for your full 16 weeks</small><small>Usually replies within a few hours</small></div></div>
-        <div class="chat" id="chat" aria-live="polite"></div>
-        <form class="chat-in" id="chat-form"><label for="chat-text" hidden>Message your consultant</label><input id="chat-text" placeholder="Message Maya" autocomplete="off"><button type="submit" aria-label="Send"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
-        <div class="kit-actions"><button class="btn btn-line btn-sm" type="button" data-toast="Video check-in requested. Maya will confirm a time.">Book a video check-in</button></div>
-      </section>
-      <section class="card" aria-labelledby="mi-h">
-        <div class="card-h"><h3 id="mi-h">Coming up</h3></div>
-        <div class="miles" id="miles"></div>
-      </section>
-      <section class="card" aria-labelledby="kit-h">
-        <div class="card-h"><h3 id="kit-h">My regimen</h3><span id="refill-date"></span></div>
-        <div class="kit-list" id="kit"></div>
-        <div class="kit-actions"><button class="btn btn-line btn-sm" type="button" data-toast="Next delivery moved 1 week later.">Delay 1 week</button><button class="btn btn-line btn-sm" type="button" data-toast="Next delivery skipped.">Skip delivery</button><button class="btn btn-line btn-sm" type="button" data-toast="Subscription paused. Resume anytime.">Pause</button></div>
-      </section>
-    </div>
+    <div class="device-wrap"><div class="device" role="img" aria-label="Vermona app: today's routine"><div class="app"><div class="app-status"><span>9:41</span><span>●●● ▮</span></div><div class="app-head"><div><h5 id="j-hello">Good morning.</h5><small><span id="j-week">Week 6 of 16</span> · <span id="j-start"></span></small></div><span class="consultant"><span class="av" style="width:34px;height:34px;font-size:.95rem">M</span></span>
+</div><div class="app-body"><div class="phases" id="phases"></div><div class="app-card"><h6>Today · <span id="today-date"></span></h6><div class="routine" id="today"></div></div>
+</div><div class="app-tabs"><span class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2"/></svg>Today</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v11H9l-5 4z"/></svg>Consultant</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Progress</span></div></div></div></div>
   </div>
+
+  <section class="sec blush">
+    <div class="wrap feature-rows">
+      <div class="f-row flip">
+        <div class="device-wrap"><div class="device" role="img" aria-label="Vermona app: calendar"><div class="app"><div class="app-status"><span>9:41</span><span>●●● ▮</span></div><div class="app-head"><h5>Calendar</h5><div class="cal-nav"><button type="button" data-cal="-1" aria-label="Previous month"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button><strong id="cal-month"></strong><button type="button" data-cal="1" aria-label="Next month"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button></div>
+</div><div class="app-body"><div class="legend"><span><i class="k-ret"></i>Retinal</span><span><i class="k-pad"></i>Pads</span><span><i class="k-mask"></i>Mask</span><span><i class="k-photo"></i>Photo</span><span><i class="k-check"></i>Check-in</span></div><div class="cal" id="cal"></div><div class="day-detail" id="day-detail"></div>
+</div><div class="app-tabs"><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2"/></svg>Today</span><span class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v11H9l-5 4z"/></svg>Consultant</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Progress</span></div></div></div></div>
+        <div class="txt"><span class="eyebrow">Smart calendar</span><h2>Know exactly what to do, every day.</h2><p>Your calendar is built from your assessment and adjusts as your skin builds tolerance, so you never have to guess.</p><ul class="ticks"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Retinal nights added gradually: 2, then 3, then 4 a week</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Exfoliating and mask nights scheduled so they never clash</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Reminders for photo days and consultant check-ins</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Tap any day to see the full morning and evening routine</span></li></ul></div>
+      </div>
+      <div class="f-row">
+        <div class="device-wrap"><div class="device" role="img" aria-label="Vermona app: chat with your Personal Skin Consultant"><div class="app"><div class="app-status"><span>9:41</span><span>●●● ▮</span></div><div class="app-head"><div class="consultant"><div class="av">M</div><div><b>Maya R.</b><small>Personal Skin Consultant</small></div></div>
+</div><div class="app-body"><div class="chat" id="chat" aria-live="polite"></div><form class="chat-in" id="chat-form"><label for="chat-text" hidden>Message your consultant</label><input id="chat-text" placeholder="Message Maya" autocomplete="off"><button type="submit" aria-label="Send"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+</div><div class="app-tabs"><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2"/></svg>Today</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</span><span class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v11H9l-5 4z"/></svg>Consultant</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Progress</span></div></div></div></div>
+        <div class="txt"><span class="eyebrow">Personal Skin Consultant</span><h2>One specialist, for your whole journey.</h2><p>You're paired with a dedicated Vermona Personal Skin Consultant who knows your skin, your goals and your history, so you never have to start over with someone new.</p><ul class="ticks"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Message them anytime in the app</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Video check-ins at weeks 4, 8 and 12</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>They review your photos and adjust your routine</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Real people, trained in the Vermona regimen</span></li></ul></div>
+      </div>
+      <div class="f-row flip">
+        <div class="device-wrap"><div class="device" role="img" aria-label="Vermona app: progress photos"><div class="app"><div class="app-status"><span>9:41</span><span>●●● ▮</span></div><div class="app-head"><div><h5>Progress</h5><small>Week 0 → Week 8</small></div>
+</div><div class="app-body"><div class="compare-ph" id="cmp"><canvas data-cmp="0"></canvas><canvas class="after" data-cmp="1"></canvas><span class="ln"></span><em style="left:8px">WEEK 0</em><em style="right:8px">WEEK 8</em><input type="range" min="0" max="100" value="50" id="cmp-range" aria-label="Compare week 0 and week 8"></div><div class="photos"><div class="photo"><div class="ph"><canvas data-progress="0"></canvas></div>Wk 0</div><div class="photo"><div class="ph"><canvas data-progress="1"></canvas></div>Wk 4</div><div class="photo"><div class="ph" id="ph-new"><label for="ph-file">+ Add photo<input id="ph-file" type="file" accept="image/*"></label></div>Wk 6</div></div><div class="app-card"><h6>Coming up</h6><div class="miles" id="miles"></div></div>
+</div><div class="app-tabs"><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2"/></svg>Today</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v11H9l-5 4z"/></svg>Consultant</span><span class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Progress</span></div></div></div></div>
+        <div class="txt"><span class="eyebrow">Progress tracking</span><h2>See your skin get lighter.</h2><p>Take a guided photo every two weeks in the same light. The app lines them up so you can compare any two weeks side by side.</p><ul class="ticks"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Guided photo days with lighting tips</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Side-by-side before and after slider</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Private by default. Only you and your consultant see them</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Milestones as you move through each phase</span></li></ul></div>
+      </div>
+      <div class="f-row">
+        <div class="device-wrap"><div class="device" role="img" aria-label="Vermona app: your regimen and refills"><div class="app"><div class="app-status"><span>9:41</span><span>●●● ▮</span></div><div class="app-head"><div><h5>My regimen</h5><small id="refill-date"></small></div>
+</div><div class="app-body"><div class="kit-list" id="kit"></div><div class="kit-actions"><button class="btn btn-line btn-sm" type="button" data-toast="Next delivery moved 1 week later.">Delay 1 week</button><button class="btn btn-line btn-sm" type="button" data-toast="Next delivery skipped.">Skip</button><button class="btn btn-line btn-sm" type="button" data-toast="Subscription paused. Resume anytime.">Pause</button></div><div class="app-card"><h6>From your consultant</h6><p style="font-size:.78rem;color:var(--ink-2)">You're using your Serum and SPF consistently. Your next regimen arrives before you run out.</p></div>
+</div><div class="app-tabs"><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2"/></svg>Today</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</span><span class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v11H9l-5 4z"/></svg>Consultant</span><span class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Progress</span></div></div></div></div>
+        <div class="txt"><span class="eyebrow">Refills &amp; regimen</span><h2>Never run out mid-journey.</h2><p>The app tracks how much of each product you have left and ships your next regimen in time. Delay, skip or pause with one tap.</p><ul class="ticks"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>See what's left in every product</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Automatic delivery before you run out</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Delay, skip or pause anytime</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg><span>Add-ons in one tap when your consultant recommends them</span></li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><span class="eyebrow">Everything in the app</span><h2>Built around your journey.</h2></div>
+      <div class="f-grid6">
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2"/></svg><b>Daily routine</b><span>Morning and evening steps with a tick-off checklist.</span></div>
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><b>Adaptive calendar</b><span>Your routine steps up as your skin is ready, never before.</span></div>
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v11H9l-5 4z"/></svg><b>Consultant chat</b><span>Questions answered by the same specialist every time.</span></div>
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><b>Progress photos</b><span>Guided photo days and side-by-side comparisons.</span></div>
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg><b>Smart reminders</b><span>Gentle nudges for your routine, SPF reapplication and photo days.</span></div>
+        <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v4h4"/></svg><b>Auto-refills</b><span>Your next regimen arrives on time. Pause anytime.</span></div>
+      </div>
+      <div class="closing" style="margin-top:48px"><h2>Included with every Complete Regimen.</h2><a class="btn btn-wine arrow" href="#treatment">Shop the Regimen</a></div>
+    </div>
+  </section>
 </div>
 
 <!-- ======================= COMMUNITY ======================= -->
@@ -878,7 +1023,7 @@ img{max-width:100%}
   <div class="wrap">
     <div class="f-grid">
       <div><h4>Shop</h4><ul><li><a href="#treatment">The Complete Regimen</a></li><li><a href="#treatment">Bundles &amp; add-ons</a></li><li><button data-assess data-pre="melasma">Melasma</button></li><li><button data-assess data-pre="sun">Sun Damage</button></li><li><button data-assess data-pre="body">Body</button></li></ul></div>
-      <div><h4>About Vermona</h4><ul><li><a href="#journey">My Journey dashboard</a></li><li><button data-goto="how">How It Works</button></li><li><button data-goto="results">Results</button></li><li><button data-goto="how">60-Day Guarantee</button></li></ul></div>
+      <div><h4>About Vermona</h4><ul><li><a href="#journey">The Vermona App</a></li><li><button data-goto="how">How It Works</button></li><li><button data-goto="results">Results</button></li><li><button data-goto="how">60-Day Guarantee</button></li></ul></div>
       <div><h4>Support</h4><ul><li><a href="#faq">Get Help</a></li><li><a href="#faq">FAQ</a></li><li><a href="#faq">Shipping &amp; Returns</a></li></ul></div>
       <div><h4>Community</h4><ul><li><a href="#community">Vermona Community</a></li><li><a href="#community">Join the Waitlist</a></li></ul></div>
     </div>
@@ -901,7 +1046,7 @@ img{max-width:100%}
     <div class="menu-sec"><button type="button" aria-expanded="true">Shop</button><ul>
       <li><button data-assess data-pre="hyper">Anti-Pigmentation</button></li><li><button data-assess data-pre="melasma">Melasma</button></li><li><button data-assess data-pre="sun">Sun Damage</button></li><li><button data-assess data-pre="pih">Acne Marks</button></li><li><button data-assess data-pre="body">Body</button></li>
       <li><a href="#treatment" data-close style="color:var(--ink);text-decoration:underline">Shop the Regimen →</a></li></ul></div>
-    <div class="menu-sec"><button type="button" aria-expanded="false">My Journey</button><ul hidden><li><a href="#journey" data-close>Dashboard preview</a></li><li><a href="#journey" data-close>Your Personal Skin Consultant</a></li></ul></div>
+    <div class="menu-sec"><button type="button" aria-expanded="false">My Journey</button><ul hidden><li><a href="#journey" data-close>The Vermona app</a></li><li><a href="#journey" data-close>Your Personal Skin Consultant</a></li></ul></div>
     <div class="menu-sec"><button type="button" aria-expanded="false">Community</button><ul hidden><li><a href="#community" data-close>Vermona Community (coming soon)</a></li></ul></div>
     <div class="menu-sec"><button type="button" aria-expanded="false">Support</button><ul hidden><li><a href="#faq" data-close>FAQ</a></li><li><a href="#faq" data-close>Shipping &amp; Returns</a></li><li><a href="#faq" data-close>Contact</a></li></ul></div>
     <div class="menu-sec"><button type="button" aria-expanded="false">About Vermona</button><ul hidden><li><button data-goto="how">How It Works</button></li><li><button data-goto="results">Results</button></li></ul></div>
@@ -1163,6 +1308,7 @@ img{max-width:100%}
     $("#addons").innerHTML = ["body", "pen", "pads", "mask", "eye", "lip"].map(card).join("");
   }
   renderShop();
+  document.querySelectorAll("[data-pillar-art]").forEach((el) => { el.insertAdjacentHTML("beforeend", ["cleanser", "serum", "night", "moist", "spf"].map((k) => art(k, "prod-art " + ({ cleanser: "s", moist: "xs", spf: "s" }[k] || ""))).join("")); });
   $$("[data-plan]").forEach((b) => b.addEventListener("click", () => { plan = b.dataset.plan; $$("[data-plan]").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); renderShop(); }));
   function drawCat() { const cv = $("#cat-canvas"); if (!cv.offsetParent) return; const { W, H } = fit(cv); cover(cv.getContext("2d"), pair("tone", 600, 260)[1], W, H); }
 
@@ -1361,7 +1507,7 @@ img{max-width:100%}
   });
   let calView = new Date(TODAY.getFullYear(), TODAY.getMonth(), 1), sel = TODAY;
   function drawCal() {
-    $("#cal-month").textContent = fmt(calView, { month: "long", year: "numeric" });
+    $("#cal-month").textContent = fmt(calView, { month: "short", year: "numeric" });
     const first = new Date(calView), lead = (first.getDay() + 6) % 7, start = new Date(first.getTime() - lead * DAY);
     let html = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((d) => `<span class="dow">${d}</span>`).join("");
     for (let i = 0; i < 42; i++) {
@@ -1394,11 +1540,11 @@ img{max-width:100%}
   function drawHeader() {
     const p = plan4(TODAY);
     $("#j-week").textContent = `Week ${p.w} of 16`;
-    $("#j-start").textContent = "Started " + fmt(START, { month: "long", day: "numeric" });
+    $("#j-start").textContent = "on track";
     const h = new Date().getHours();
-    $("#j-hello").textContent = (h < 12 ? "Good morning" : h < 18 ? "Good afternoon" : "Good evening") + ". You're on track.";
+    $("#j-hello").textContent = (h < 12 ? "Good morning" : h < 18 ? "Good afternoon" : "Good evening") + ".";
     const PH = [["Start", 1, 2], ["Build", 3, 4], ["Strengthen", 5, 8], ["Correct", 9, 16], ["Maintain", 17, 17]];
-    $("#phases").innerHTML = PH.map(([name, a, b]) => { const pct = p.w > b ? 100 : p.w < a ? 0 : Math.round(((p.w - a + 1) / (b - a + 1)) * 100); return `<div class="${p.w >= a && p.w <= b ? "cur" : ""}"><i><b style="width:${pct}%"></b></i>${name} · wk ${a === 17 ? "17+" : a + (b > a ? "–" + b : "")}</div>`; }).join("");
+    $("#phases").innerHTML = PH.map(([name, a, b]) => { const pct = p.w > b ? 100 : p.w < a ? 0 : Math.round(((p.w - a + 1) / (b - a + 1)) * 100); return `<div class="${p.w >= a && p.w <= b ? "cur" : ""}"><i><b style="width:${pct}%"></b></i>${name}</div>`; }).join("");
   }
   function drawMiles() {
     const ev = [];
@@ -1437,7 +1583,14 @@ img{max-width:100%}
     rd.onload = () => { $("#ph-new").innerHTML = `<img alt="Your week 6 progress photo" src="${rd.result}">`; toast("Photo added. Maya will review it at your next check-in."); };
     rd.readAsDataURL(f);
   });
-  function drawProgress() { $$("[data-progress]").forEach((cv) => { const { W, H } = fit(cv); cover(cv.getContext("2d"), pair("melasma", 240, 320)[0], W, H); if (cv.dataset.progress === "1") { const ctx = cv.getContext("2d"); ctx.globalAlpha = 0.55; cover(ctx, pair("melasma", 240, 320)[1], W, H); ctx.globalAlpha = 1; } }); }
+  function drawCompare() {
+    const box = document.getElementById("cmp"); if (!box || !box.offsetParent) return;
+    box.querySelectorAll("[data-cmp]").forEach((cv) => { const { W, H } = fit(cv); cover(cv.getContext("2d"), pair("melasma", 300, 375)[+cv.dataset.cmp], W, H); });
+    const r = document.getElementById("cmp-range");
+    const set = () => { box.querySelector(".after").style.clipPath = `inset(0 0 0 ${r.value}%)`; box.querySelector(".ln").style.left = r.value + "%"; };
+    r.oninput = set; set();
+  }
+  function drawProgress() { drawCompare(); $$("[data-progress]").forEach((cv) => { const { W, H } = fit(cv); cover(cv.getContext("2d"), pair("melasma", 240, 320)[0], W, H); if (cv.dataset.progress === "1") { const ctx = cv.getContext("2d"); ctx.globalAlpha = 0.55; cover(ctx, pair("melasma", 240, 320)[1], W, H); ctx.globalAlpha = 1; } }); }
   let journeyBuilt = false;
   function drawJourney() { if (!journeyBuilt) { drawHeader(); drawToday(); drawCal(); drawMiles(); drawKit(); drawChat(); journeyBuilt = true; } idle(drawProgress); }
 
