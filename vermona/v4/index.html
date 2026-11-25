@@ -666,6 +666,9 @@ footer.foot { background: var(--blush); padding-block: 48px 28px; font-size: 0.9
 .ps-head { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--line); }
 .ps-head h3 { font-size: 1.4rem; }
 .ps-body { flex: 1; overflow-y: auto; padding: 4px 20px 20px; }
+.menu-main { display: grid; padding: 8px 0 14px; border-bottom: 1px solid var(--line); }
+.menu-main a, .menu-main button { display: block; text-align: left; background: none; border: 0; padding: 10px 0; font-family: var(--serif); font-size: 1.45rem; text-decoration: none; color: var(--ink); }
+.menu-main a:hover, .menu-main button:hover { color: var(--wine); }
 .menu-sec { border-bottom: 1px solid var(--line); }
 .menu-sec > button { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 0; background: none; border: 0; font-weight: 500; font-size: 1rem; }
 .menu-sec > button::after { content: ""; width: 8px; height: 8px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .2s; }
@@ -732,10 +735,11 @@ img{max-width:100%}
     <div class="nav-l">
       <button class="icon-btn" data-menu aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       <div class="desk-links">
-        <a href="#why">The Protocol</a>
-        <a href="#journey">Regimen Planner</a>
+        <a href="#home">Home</a>
+        <a href="#why">Protocol</a>
+        <a href="#journey">Planner</a>
         <button data-goto="results">Results</button>
-        <a href="#treatment">Order</a>
+        <a href="#treatment">Shop</a>
       </div>
     </div>
     <a class="wordmark" href="#home">Vermona</a>
@@ -1096,7 +1100,7 @@ img{max-width:100%}
 <footer class="foot">
   <div class="wrap">
     <div class="f-grid">
-      <div><h4>Order</h4><ul><li><a href="#treatment">The Complete Regimen</a></li><li><a href="#treatment">Bundles &amp; add-ons</a></li><li><button data-assess data-pre="melasma">Melasma</button></li><li><button data-assess data-pre="sun">Sun Damage</button></li><li><button data-assess data-pre="body">Body</button></li></ul></div>
+      <div><h4>Shop</h4><ul><li><a href="#treatment">The Complete Regimen</a></li><li><a href="#treatment">Bundles &amp; add-ons</a></li><li><button data-assess data-pre="melasma">Melasma</button></li><li><button data-assess data-pre="sun">Sun Damage</button></li><li><button data-assess data-pre="body">Body</button></li></ul></div>
       <div><h4>About Vermona</h4><ul><li><a href="#why">The Protocol</a></li><li><a href="#journey">Regimen Planner</a></li><li><button data-goto="how">How It Works</button></li><li><button data-goto="results">Results</button></li><li><button data-goto="how">60-Day Guarantee</button></li></ul></div>
       <div><h4>Support</h4><ul><li><a href="#faq">Get Help</a></li><li><a href="#faq">FAQ</a></li><li><a href="#faq">Shipping &amp; Returns</a></li></ul></div>
       <div><h4>Regimen Planner</h4><ul><li><a href="#journey">The Regimen Planner</a></li><li><a href="#journey">Community (coming soon)</a></li></ul></div>
@@ -1117,14 +1121,18 @@ img{max-width:100%}
 <aside class="panel-side left" id="menu" aria-label="Menu">
   <div class="ps-head"><a class="wordmark" href="#home" data-close style="font-size:1.4rem">Vermona</a><button class="icon-btn" data-close aria-label="Close menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <div class="ps-body">
-    <div class="menu-sec"><button type="button" aria-expanded="true">Explore concerns</button><ul>
+    <nav class="menu-main" aria-label="Main">
+      <a href="#home" data-close>Home</a>
+      <a href="#why" data-close>Protocol</a>
+      <a href="#journey" data-close>Planner</a>
+      <button type="button" data-goto="results">Results</button>
+      <a href="#treatment" data-close>Shop</a>
+    </nav>
+    <div class="menu-sec"><button type="button" aria-expanded="false">Explore concerns</button><ul hidden>
       <li><button data-assess data-pre="hyper">Anti-Pigmentation</button></li><li><button data-assess data-pre="melasma">Melasma</button></li><li><button data-assess data-pre="sun">Sun Damage</button></li><li><button data-assess data-pre="pih">Acne Marks</button></li><li><button data-assess data-pre="body">Body</button></li>
       </ul></div>
-    <div class="menu-sec"><button type="button" aria-expanded="false">Order</button><ul hidden><li><a href="#treatment" data-close>The Complete Regimen</a></li><li><a href="#treatment" data-close>Bundles &amp; add-ons</a></li></ul></div>
-    <div class="menu-sec"><button type="button" aria-expanded="false">Regimen Planner</button><ul hidden><li><a href="#journey" data-close>The Vermona Regimen Planner</a></li><li><a href="#journey" data-close>Your Personal Skin Consultant</a></li></ul></div>
     <div class="menu-sec"><button type="button" aria-expanded="false">Support</button><ul hidden><li><a href="#faq" data-close>FAQ</a></li><li><a href="#faq" data-close>Shipping &amp; Returns</a></li><li><a href="#faq" data-close>Contact</a></li></ul></div>
-    <div class="menu-sec"><button type="button" aria-expanded="false">About Vermona</button><ul hidden><li><a href="#why" data-close>The Protocol</a></li><li><button data-goto="how">How It Works</button></li><li><button data-goto="results">Results</button></li></ul></div>
-    <div class="menu-cta"><small>New customer</small><span>20% off your first course</span><a href="#treatment" data-close style="color:var(--ink);font-weight:500">Order now →</a></div>
+    <div class="menu-cta"><small>New customer</small><span>20% off your first course</span><a href="#treatment" data-close style="color:var(--ink);font-weight:500">Shop now →</a></div>
   </div>
 </aside>
 <aside class="panel-side right" id="cart" aria-label="Cart">
