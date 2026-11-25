@@ -912,7 +912,7 @@ img{max-width:100%}
             <tr><th>Convenience</th><td class="us">From home</td><td>Office visits</td></tr>
             <tr><th>Wait time</th><td class="us">Ships in 1 day</td><td>Weeks</td></tr>
             <tr><th>Cost per year</th><td class="us">Up to $2,500+ less*</td><td>Hundreds per session</td></tr>
-            <tr><th>Money-back guarantee</th><td class="us" data-ok></td><td data-no></td></tr>
+            <tr><th>Results guarantee</th><td class="us" data-ok></td><td data-no></td></tr>
           </tbody>
         </table>
       </div>
@@ -931,7 +931,7 @@ img{max-width:100%}
         <text x="60" y="89.5" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="600" letter-spacing="1.5" fill="#fff">GUARANTEE</text>
       </svg>
       <span class="eyebrow">The Vermona Protocol promise</span>
-      <h2>Lighter skin, or your money back.</h2>
+      <h2>Lighter skin. Guaranteed.</h2>
       <p>Use Vermona as directed for 120 days. If you don't see a difference, we'll refund your first course in full, even if the bottle is empty.</p>
       <button class="btn btn-white arrow" data-goto="how">How It Works</button>
     </div>
@@ -1015,7 +1015,7 @@ img{max-width:100%}
           <ul class="includes" id="includes"></ul>
           <div class="price-line"><span class="now" id="reg-price">$239</span><span class="was" id="reg-was"></span><span class="save" id="reg-save"></span></div>
           <button class="btn btn-wine btn-block arrow" type="button" data-add="regimen">Add the Complete Regimen</button>
-          <span class="small">Single purchase. No subscription. 120-day money-back guarantee.</span>
+          <span class="small">Backed by our 120-Day Results Guarantee.</span>
         </div>
       </article>
 
@@ -1041,7 +1041,7 @@ img{max-width:100%}
     <div class="acc-item"><button type="button" aria-expanded="true">How the regimen works</button><div class="panel"><ul><li><b>Morning:</b> Melanin-Balancing Cleanser, Anti-Pigmentation Face Cream, Anti-Pigmentation Body Cream, Mineral SPF 50</li><li><b>Evening:</b> Melanin-Balancing Cleanser, Retinal Renewal (on scheduled nights), Anti-Pigmentation Face Cream, Anti-Pigmentation Body Cream</li><li>Retinal Renewal starts at 2 nights a week and builds up. Your calendar tells you exactly which nights.</li></ul></div></div>
     <div class="acc-item"><button type="button" aria-expanded="false">What it lightens</button><div class="panel" hidden><ul><li>Overall skin tone and dullness</li><li>Hyperpigmentation and dark spots</li><li>Melasma</li><li>Sun damage, sun spots and age spots</li><li>Post-acne marks</li><li>Darkened underarms, knees, elbows and inner thighs</li></ul></div></div>
     <div class="acc-item"><button type="button" aria-expanded="false">The V-6 Pigment Complex&#8482; (custom formulation)</button><div class="panel" hidden><p>The Anti-Pigmentation Face and Body Creams are custom formulations developed exclusively for Vermona. Their V-6 Pigment Complex&#8482; combines six actives in a proprietary ratio: Tranexamic Acid, Alpha Arbutin, Glutathione, Niacinamide, Azelaic Acid, and Licorice Root with stable Vitamin C.</p><p style="margin-top:12px"><b>Face Cream full ingredients:</b> Aqua (Water), Azelaic Acid, Niacinamide, Caprylic/Capric Triglyceride, Glycerin, Tranexamic Acid, Alpha-Arbutin, Glutathione, Cetearyl Alcohol, Squalane, Glyceryl Stearate, Glycyrrhiza Glabra (Licorice) Root Extract, Tetrahexyldecyl Ascorbate, Ceramide NP, Sodium Hyaluronate, Panthenol, Allantoin, Xanthan Gum, Sodium Phytate, Ethylhexylglycerin, Phenoxyethanol.</p></div></div>
-    <div class="acc-item"><button type="button" aria-expanded="false">Shipping &amp; guarantee</button><div class="panel" hidden><p>Ships within 1 business day with free US delivery in 3–5 days. 120-day money-back guarantee on your first regimen.</p></div></div>
+    <div class="acc-item"><button type="button" aria-expanded="false">Shipping &amp; guarantee</button><div class="panel" hidden><p>Ships within 1 business day with free US delivery in 3–5 days. Backed by our 120-Day Results Guarantee on your first regimen.</p></div></div>
   </div>
 </div>
 
@@ -1255,7 +1255,7 @@ img{max-width:100%}
   <div class="wrap">
     <div class="f-grid">
       <div><h4>Shop</h4><ul><li><a href="#treatment">The Complete Regimen</a></li><li><a href="#treatment">Replace a single step</a></li><li><button data-assess data-pre="melasma">Melasma</button></li><li><button data-assess data-pre="sun">Sun Damage</button></li><li><button data-assess data-pre="body">Body</button></li></ul></div>
-      <div><h4>About Vermona</h4><ul><li><a href="#why">The Protocol</a></li><li><a href="#journey">Regimen Planner</a></li><li><button data-goto="how">How It Works</button></li><li><a href="#results">Results</a></li><li><button data-goto="how">120-Day Guarantee</button></li></ul></div>
+      <div><h4>About Vermona</h4><ul><li><a href="#why">The Protocol</a></li><li><a href="#journey">Regimen Planner</a></li><li><button data-goto="how">How It Works</button></li><li><a href="#results">Results</a></li><li><button data-goto="how">120-Day Results Guarantee</button></li></ul></div>
       <div><h4>Support</h4><ul><li><a href="#faq">Get Help</a></li><li><a href="#faq">FAQ</a></li><li><a href="#faq">Shipping &amp; Returns</a></li></ul></div>
       <div><h4>Regimen Planner</h4><ul><li><a href="#journey">The Regimen Planner</a></li><li><a href="#journey">Community (coming soon)</a></li></ul></div>
     </div>
@@ -1552,7 +1552,7 @@ img{max-width:100%}
   function add(id, s) {
     if (s === undefined) s = plan === "sub";
     const key = id + (s ? "-s" : ""), o = ITEMS[id] || SETS[id], ex = cart.find((i) => i.key === key);
-    ex ? (ex.qty = Math.min(5, ex.qty + 1)) : cart.push({ key, id, name: o.name, variant: "Single purchase · no subscription", price: priceOf(id, s), qty: 1 });
+    ex ? (ex.qty = Math.min(5, ex.qty + 1)) : cart.push({ key, id, name: o.name, variant: o.size || "5 products · 8-week supply", price: priceOf(id, s), qty: 1 });
     save();
   }
   const thumbOf = (id) => art(ITEMS[id] ? id : id === "bodyset" ? "body" : "serum");
@@ -1630,7 +1630,7 @@ img{max-width:100%}
     ["Orders & Shipping", [
       ["Is this a subscription?", "No. Every order is a single purchase. There is no subscription, no automatic billing and nothing to cancel. When you need more, you simply order again."],
       ["How long does shipping take?", "Orders ship within 1 business day. Free US delivery in 3–5 business days."],
-      ["What is the 120-day guarantee?", "Use Vermona as directed for 120 days. If you don't see a difference, contact us for a full refund on your first course."],
+      ["What is the 120-Day Results Guarantee?", "Use Vermona as directed for 120 days. If you don't see a difference, contact us for a full refund on your first course."],
     ]],
   ];
   $("#faq-groups").innerHTML = FAQ.map(([name, items]) => `<section class="faq-cat"><h2>${name}</h2><div>${items.map(([q, a]) => `<div class="acc-item"><button type="button" aria-expanded="false">${q}</button><div class="panel" hidden><p>${a}</p></div></div>`).join("")}</div></section>`).join("");
